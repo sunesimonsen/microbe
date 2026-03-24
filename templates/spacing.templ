@@ -1,0 +1,36 @@
+
+package templates
+import "fmt"
+
+templ Spacing() {
+  <style>
+  .spacing-row {
+    display: flex;
+    margin-block: var(--mc-scale-3);
+  }
+
+  .spacing-label {
+    padding: var(--mc-scale-3) var(--mc-scale-4);
+    width: 8rem;
+    text-align: end;
+  }
+
+  .spacing-box {
+    background: hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-2));
+    border: thin solid hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-4));
+    display: inline-block;
+    height: var(--mc-scale-6);
+  }
+  </style>
+  <hgroup>
+    <h1>Spacing</h1>
+  </hgroup>
+  <section role="document" class="spacing">
+    for level := range 12 {
+      <div key={level} class="spacing-row" >
+        <span class="spacing-label">--mc-scale-{level}</span>
+        <span class="spacing-box" style={fmt.Sprintf("width: var(--mc-scale-%d)", level)} />
+      </div>
+    }
+  </section>
+}

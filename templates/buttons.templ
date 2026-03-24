@@ -1,0 +1,63 @@
+package templates
+
+templ Buttons() {
+  <style>
+    .buttons-row {
+      display: flex;
+      gap: var(--mc-scale-5);
+      margin-block: var(--mc-scale-5);
+
+      &:first-child {
+        margin-block-start: 0
+      }
+
+      &:last-child {
+        margin-block-end: 0
+      }
+    }
+  </style>
+  <hgroup>
+    <h1>Buttons</h1>
+  </hgroup>
+  <div role="document">
+    <div class="buttons-row">
+      <button class="solid">Solid Button</button>
+      <button class="outline">Outline Button</button>
+      <button class="ghost">Ghost Button</button>
+    </div>
+    <div class="buttons-row">
+      <button class="solid">Solid Button</button>
+      <button class="outline">Outline Button</button>
+      <button class="ghost">Ghost Button</button>
+    </div>
+    <div class="buttons-row">
+      <button class="solid" disabled>Solid Button</button>
+      <button class="outline" disabled>Outline Button</button>
+      <button class="ghost" disabled>Ghost Button</button>
+    </div>
+    <div class="buttons-row">
+      <button class="solid">@gearIcon() Solid Button</button>
+      <button class="outline">@gearIcon() Outline Button</button>
+      <button class="ghost">@gearIcon() Ghost Button</button>
+    </div>
+    <div class="buttons-row">
+      <button class="solid">
+        Solid Button
+        @gearIcon()
+      </button>
+      <button class="outline">
+        Outline Button
+        @gearIcon()
+      </button>
+      <button class="ghost">
+        Ghost Button
+        @gearIcon()
+      </button>
+    </div>
+    <div class="buttons-row">
+      <button class="solid icon">@burgerIcon()</button>
+      <button class="outline icon">@burgerIcon()</button>
+      <button class="ghost icon">@burgerIcon()</button>
+    </div>
+  </div>
+}

@@ -1,0 +1,45 @@
+package templates
+
+templ header() {
+  <header>
+    <nav>
+      <button class="menu-toggle ghost icon">@burgerIcon()</button>
+      Microbe
+    </nav>
+  </header>
+}
+
+templ menu() {
+  <aside class="menu">
+    <nav>
+      <ul>
+        <li><a href="/headings">Headings</a></li>
+        <li><a href="/buttons">Buttons</a></li>
+        <li><a href="/anchors">Anchors</a></li>
+        <li><a href="/spacing">Spacing</a></li>
+        <li><a href="/colors">Colors</a></li>
+        <li><a href="/cards">Cards</a></li>
+      </ul>
+    </nav>
+  </aside>
+}
+
+templ IndexLayout(part templ.Component) {
+  @Page("Microbe") {
+    <main class="standard-layout">
+      @header()
+      @part
+    </main>
+  }
+}
+
+templ DocsLayout(part templ.Component) {
+  @Page("Microbe") {
+    <main class="standard-layout">
+      @header()
+      @menu()
+      @part
+    </main>
+  }
+}
+

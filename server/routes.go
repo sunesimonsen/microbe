@@ -1,0 +1,21 @@
+package server
+
+import (
+	"github.com/go-chi/chi/v5/middleware"
+	"net/http"
+)
+
+func (s *Server) setupRoutes() {
+	s.router.Use(middleware.RedirectSlashes)
+	s.router.Use(middleware.Logger)
+
+	s.router.Get("/", s.indexHandler)
+	s.router.Get("/anchors", s.anchorsHandler)
+	s.router.Get("/buttons", s.buttonsHandler)
+	s.router.Get("/cards", s.cardsHandler)
+	s.router.Get("/colors", s.colorsHandler)
+	s.router.Get("/headings", s.headingsHandler)
+	s.router.Get("/spacing", s.spacingHandler)
+
+	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
+}

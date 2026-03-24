@@ -1,0 +1,28 @@
+package templates
+
+templ Anchors() {
+  <style>
+    .anchors-row {
+      display: flex;
+      gap: var(--mc-scale-5);
+      margin-block: var(--mc-scale-5);
+
+      &:first-child {
+        margin-block-start: 0
+      }
+
+      &:last-child {
+        margin-block-end: 0
+      }
+    }
+  </style>
+  <hgroup>
+    <h1>Anchors</h1>
+  </hgroup>
+  <div role="document">
+    <div class="anchors-row">
+      <a href="#">Regular link</a>
+      <a href="#" aria-current="page">Active link</a>
+    </div>
+  </div>
+}
