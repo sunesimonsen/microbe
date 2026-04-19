@@ -3,7 +3,6 @@ module github.com/sunesimonsen/microbe
 go 1.26.0
 
 require (
-	github.com/a-h/templ v0.3.960
 	github.com/go-chi/chi/v5 v5.2.3
 	maragu.dev/gomponents v1.3.0
 )
@@ -26,7 +25,5 @@ require (
 	golang.org/x/sys v0.34.0 // indirect
 	golang.org/x/tools v0.35.0 // indirect
 )
-
-tool github.com/a-h/templ/cmd/templ
 
 tool github.com/cancue/covreport
