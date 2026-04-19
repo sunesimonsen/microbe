@@ -3,55 +3,55 @@ package server
 import (
 	"net/http"
 
-	"github.com/a-h/templ"
-	"github.com/sunesimonsen/microbe/templates"
+	. "maragu.dev/gomponents"
+	"github.com/sunesimonsen/microbe/views"
 )
 
 func (s *Server) indexHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Index()
-	renderComponent(w, r, templates.IndexLayout(component))
+	node := views.Index()
+	renderNode(w, r, views.IndexLayout(node))
 }
 
 func (s *Server) buttonsHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Buttons()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Buttons()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
 func (s *Server) headingsHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Headings()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Headings()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
 func (s *Server) colorsHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Colors()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Colors()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
 func (s *Server) spacingHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Spacing()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Spacing()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
 func (s *Server) anchorsHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Anchors()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Anchors()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
 func (s *Server) cardsHandler(w http.ResponseWriter, r *http.Request) {
-	component := templates.Cards()
-	renderComponent(w, r, templates.DocsLayout(component))
+	node := views.Cards()
+	renderNode(w, r, views.DocsLayout(node))
 }
 
-func renderComponent(w http.ResponseWriter, r *http.Request, component templ.Component) {
-	if component == nil {
-		panic("renderComponent without a component")
+func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
+	if node == nil {
+		panic("renderNode without a node")
 	}
 
 	w.Header().Set("Content-Type", "text/html")
 	w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate")
 	w.Header().Set("Pragma", "no-cache")
 
-	if err := component.Render(r.Context(), w); err != nil {
+	if err := node.Render(w); err != nil {
 		http.Error(
 			w,
 			http.StatusText(http.StatusInternalServerError),
