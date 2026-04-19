@@ -32,7 +32,7 @@ func Spacing() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\n  .spacing-row {\n    display: flex;\n    margin-block: var(--mc-scale-3);\n  }\n\n  .spacing-label {\n    padding: var(--mc-scale-3) var(--mc-scale-4);\n    width: 8rem;\n    text-align: end;\n  }\n\n  .spacing-box {\n    background: hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-2));\n    border: thin solid hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-4));\n    display: inline-block;\n    height: var(--mc-scale-6);\n  }\n  </style><hgroup><h1>Spacing</h1></hgroup><section role=\"document\" class=\"spacing\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\n  .spacing-row {\n    display: flex;\n    margin-block: var(--scale-3);\n  }\n\n  .spacing-label {\n    padding: var(--scale-3) var(--scale-4);\n    width: 8rem;\n    text-align: end;\n  }\n\n  .spacing-box {\n    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));\n    border: thin solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));\n    display: inline-block;\n    height: var(--scale-6);\n  }\n  </style><hgroup><h1>Spacing</h1></hgroup><section role=\"document\" class=\"spacing\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -50,14 +50,14 @@ func Spacing() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" class=\"spacing-row\"><span class=\"spacing-label\">--mc-scale-")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\" class=\"spacing-row\"><span class=\"spacing-label\">--scale-")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(level)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/spacing.templ`, Line: 31, Col: 53}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/spacing.templ`, Line: 31, Col: 50}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -68,9 +68,9 @@ func Spacing() templ.Component {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(fmt.Sprintf("width: var(--mc-scale-%d)", level))
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(fmt.Sprintf("width: var(--scale-%d)", level))
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/spacing.templ`, Line: 32, Col: 88}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/spacing.templ`, Line: 32, Col: 85}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {

@@ -46,7 +46,7 @@ templ colorSample(c color, lightness int) {
     class="color-sample"
     data-hue={c.hue}
     data-saturation={fmt.Sprintf("%d%%", c.saturation)}
-    style={fmt.Sprintf("--lightness: var(--mc-lightness-%d)", lightness)}
+    style={fmt.Sprintf("--lightness: var(--lightness-%d)", lightness)}
   />
 }
 
@@ -70,13 +70,13 @@ templ Colors() {
     .color-grid {
       display: inline-grid;
       grid-template-columns: repeat(var(--columns), 1fr);
-      grid-auto-rows: calc(var(--mc-scale-12) / 12 - var(--mc-scale-2));
-      gap: var(--mc-scale-2);
+      grid-auto-rows: calc(var(--scale-12) / 12 - var(--scale-2));
+      gap: var(--scale-2);
       width: 100%;
     }
 
     .color-grid+.color-grid {
-      margin-block-start: var(--mc-scale-6)
+      margin-block-start: var(--scale-6)
     }
 
     .color-grid-header {
@@ -91,7 +91,7 @@ templ Colors() {
       background: hsl(var(--hue) var(--saturation) var(--lightness));
       border: none;
       display: block;
-      border-radius: var(--mc-scale-1);
+      border-radius: var(--scale-1);
     }
 
     @media (max-width: 1200px) {

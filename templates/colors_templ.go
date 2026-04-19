@@ -101,9 +101,9 @@ func colorSample(c color, lightness int) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var4 string
-		templ_7745c5c3_Var4, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(fmt.Sprintf("--lightness: var(--mc-lightness-%d)", lightness))
+		templ_7745c5c3_Var4, templ_7745c5c3_Err = templruntime.SanitizeStyleAttributeValues(fmt.Sprintf("--lightness: var(--lightness-%d)", lightness))
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/colors.templ`, Line: 49, Col: 72}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `templates/colors.templ`, Line: 49, Col: 69}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 		if templ_7745c5c3_Err != nil {
@@ -228,7 +228,7 @@ func Colors() templ.Component {
 			templ_7745c5c3_Var9 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<style>\n    .color-grid {\n      display: inline-grid;\n      grid-template-columns: repeat(var(--columns), 1fr);\n      grid-auto-rows: calc(var(--mc-scale-12) / 12 - var(--mc-scale-2));\n      gap: var(--mc-scale-2);\n      width: 100%;\n    }\n\n    .color-grid+.color-grid {\n      margin-block-start: var(--mc-scale-6)\n    }\n\n    .color-grid-header {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .color-sample {\n      --hue: attr(data-hue type(<number>));\n      --saturation: attr(data-saturation type(<percentage>));\n      background: hsl(var(--hue) var(--saturation) var(--lightness));\n      border: none;\n      display: block;\n      border-radius: var(--mc-scale-1);\n    }\n\n    @media (max-width: 1200px) {\n      .color-grid {\n        gap: 0;\n      }\n\n      .color-sample {\n        border-radius: 0;\n      }\n    }\n  </style><hgroup><h1>Colors</h1></hgroup><div role=\"document\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 12, "<style>\n    .color-grid {\n      display: inline-grid;\n      grid-template-columns: repeat(var(--columns), 1fr);\n      grid-auto-rows: calc(var(--scale-12) / 12 - var(--scale-2));\n      gap: var(--scale-2);\n      width: 100%;\n    }\n\n    .color-grid+.color-grid {\n      margin-block-start: var(--scale-6)\n    }\n\n    .color-grid-header {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n    }\n\n    .color-sample {\n      --hue: attr(data-hue type(<number>));\n      --saturation: attr(data-saturation type(<percentage>));\n      background: hsl(var(--hue) var(--saturation) var(--lightness));\n      border: none;\n      display: block;\n      border-radius: var(--scale-1);\n    }\n\n    @media (max-width: 1200px) {\n      .color-grid {\n        gap: 0;\n      }\n\n      .color-sample {\n        border-radius: 0;\n      }\n    }\n  </style><hgroup><h1>Colors</h1></hgroup><div role=\"document\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

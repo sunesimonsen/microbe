@@ -29,7 +29,7 @@ func Anchors() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\n    .anchors-row {\n      display: flex;\n      gap: var(--mc-scale-5);\n      margin-block: var(--mc-scale-5);\n\n      &:first-child {\n        margin-block-start: 0\n      }\n\n      &:last-child {\n        margin-block-end: 0\n      }\n    }\n  </style><hgroup><h1>Anchors</h1></hgroup><div role=\"document\"><div class=\"anchors-row\"><a href=\"#\">Regular link</a> <a href=\"#\" aria-current=\"page\">Active link</a></div></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<style>\n    .anchors-row {\n      display: flex;\n      gap: var(--scale-5);\n      margin-block: var(--scale-5);\n\n      &:first-child {\n        margin-block-start: 0\n      }\n\n      &:last-child {\n        margin-block-end: 0\n      }\n    }\n  </style><hgroup><h1>Anchors</h1></hgroup><div role=\"document\"><div class=\"anchors-row\"><a href=\"#\">Regular link</a> <a href=\"#\" aria-current=\"page\">Active link</a></div></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

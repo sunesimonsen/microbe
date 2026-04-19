@@ -6,20 +6,20 @@ templ Spacing() {
   <style>
   .spacing-row {
     display: flex;
-    margin-block: var(--mc-scale-3);
+    margin-block: var(--scale-3);
   }
 
   .spacing-label {
-    padding: var(--mc-scale-3) var(--mc-scale-4);
+    padding: var(--scale-3) var(--scale-4);
     width: 8rem;
     text-align: end;
   }
 
   .spacing-box {
-    background: hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-2));
-    border: thin solid hsl(var(--mc-accent-hue) var(--mc-accent-saturation) var(--mc-lightness-4));
+    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+    border: thin solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
     display: inline-block;
-    height: var(--mc-scale-6);
+    height: var(--scale-6);
   }
   </style>
   <hgroup>
@@ -28,8 +28,8 @@ templ Spacing() {
   <section role="document" class="spacing">
     for level := range 12 {
       <div key={level} class="spacing-row" >
-        <span class="spacing-label">--mc-scale-{level}</span>
-        <span class="spacing-box" style={fmt.Sprintf("width: var(--mc-scale-%d)", level)} />
+        <span class="spacing-label">--scale-{level}</span>
+        <span class="spacing-box" style={fmt.Sprintf("width: var(--scale-%d)", level)} />
       </div>
     }
   </section>
