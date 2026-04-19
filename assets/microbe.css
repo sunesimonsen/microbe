@@ -14,10 +14,7 @@
 
 @layer settings {
 
-  .microbe {
-    height: 100%;
-    width: 100%;
-
+  body {
     --mc-phi: 1.6185;
     --mc-base: 1rem;
     --mc-scale-0: calc(var(--mc-base) * pow(var(--mc-phi), -4));
@@ -106,7 +103,7 @@
 }
 
 @layer typography {
-  .microbe {
+  body {
 
     font-family: var(--mc-font-family);
     font-size: var(--mc-font-size);
@@ -167,7 +164,7 @@
 }
 
 @layer components {
-  .microbe {
+  body {
     & button {
       font-size: inherit;
 
