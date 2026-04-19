@@ -1,40 +1,33 @@
 default: test
 
-templates/*_templ.go: templates/*.templ
-	go tool templ generate templates/*.templ
-
-templ: templates/*_templ.go
-
-tmp/main: **/*.go templates/*_templ.go
+tmp/main: **/*.go
 	go build -o tmp/main
 
 build: tmp/main
 
-generate: templ
-
-deploy: generate
+deploy:
 	git push dokku main:master
 
 browse:
 	open "https://microbe.sune.one/"
 
-run: generate
+run:
 	go run .
 
-test: generate
+test:
 	go test ./...
 
-test-update: generate
+test-update:
 	UPDATE_SNAPS=true go test ./...
 
 dev:
 	Test=true air
 
-cover: generate
+cover:
 	go test ./... -coverprofile=cover.prof
 	@covreport
 	@echo
 	@echo "Written file://$$PWD/cover.html"
 
 clean:
-	rm -rf tmp templates/*_templ.go
+	rm -rf tmp
