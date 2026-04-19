@@ -66,48 +66,10 @@ templ colorTable(palettes []color) {
 }
 
 templ Colors() {
-  <style>
-    .color-grid {
-      display: inline-grid;
-      grid-template-columns: repeat(var(--columns), 1fr);
-      grid-auto-rows: calc(var(--scale-12) / 12 - var(--scale-2));
-      gap: var(--scale-2);
-      width: 100%;
-    }
-
-    .color-grid+.color-grid {
-      margin-block-start: var(--scale-6)
-    }
-
-    .color-grid-header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .color-sample {
-      --hue: attr(data-hue type(<number>));
-      --saturation: attr(data-saturation type(<percentage>));
-      background: hsl(var(--hue) var(--saturation) var(--lightness));
-      border: none;
-      display: block;
-      border-radius: var(--scale-1);
-    }
-
-    @media (max-width: 1200px) {
-      .color-grid {
-        gap: 0;
-      }
-
-      .color-sample {
-        border-radius: 0;
-      }
-    }
-  </style>
-  <hgroup>
+  <hgroup id="content-header">
     <h1>Colors</h1>
   </hgroup>
-  <div role="document">
+  <div id="content" role="document">
     @colorTable(createStandardPalettes())
     @colorTable(createCustomPalettes())
   </div>

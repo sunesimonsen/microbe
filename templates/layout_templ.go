@@ -66,7 +66,7 @@ func menu() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<aside class=\"menu\"><nav><ul><li><a href=\"/headings\">Headings</a></li><li><a href=\"/buttons\">Buttons</a></li><li><a href=\"/anchors\">Anchors</a></li><li><a href=\"/spacing\">Spacing</a></li><li><a href=\"/colors\">Colors</a></li><li><a href=\"/cards\">Cards</a></li></ul></nav></aside>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<aside class=\"menu\"><nav><ul><li><a href=\"/headings\" data-swap=\"content-header,content\">Headings</a></li><li><a href=\"/buttons\" data-swap=\"content-header,content\">Buttons</a></li><li><a href=\"/anchors\" data-swap=\"content-header,content\">Anchors</a></li><li><a href=\"/spacing\" data-swap=\"content-header,content\">Spacing</a></li><li><a href=\"/colors\" data-swap=\"content-header,content\">Colors</a></li><li><a href=\"/cards\" data-swap=\"content-header,content\">Cards</a></li></ul></nav></aside>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

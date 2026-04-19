@@ -64,11 +64,11 @@ func Headings() templ.Component {
 			templ_7745c5c3_Var2 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<hgroup><h1>Headings</h1><p>Fill in some info here</p></hgroup><div role=\"document\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<hgroup id=\"content-header\"><h1>Headings</h1><p>Fill in some info here</p></hgroup><div id=\"content\" role=\"document\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i := 1; i <= 6; i++ {
+		for i := 2; i <= 6; i++ {
 			templ_7745c5c3_Err = headingSection(i).Render(ctx, templ_7745c5c3_Buffer)
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err

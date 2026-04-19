@@ -23,12 +23,12 @@ templ headingSection(level int) {
 }
 
 templ Headings() {
-  <hgroup>
+  <hgroup id="content-header">
     <h1>Headings</h1>
     <p>Fill in some info here</p>
   </hgroup>
-  <div role="document">
-    for i := 1; i <= 6; i++ {
+  <div id="content" role="document">
+    for i := 2; i <= 6; i++ {
       @headingSection(i)
     }
   </div>

@@ -3,29 +3,10 @@ package templates
 import "fmt"
 
 templ Spacing() {
-  <style>
-  .spacing-row {
-    display: flex;
-    margin-block: var(--scale-3);
-  }
-
-  .spacing-label {
-    padding: var(--scale-3) var(--scale-4);
-    width: 8rem;
-    text-align: end;
-  }
-
-  .spacing-box {
-    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
-    border: thin solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
-    display: inline-block;
-    height: var(--scale-6);
-  }
-  </style>
-  <hgroup>
+  <hgroup id="content-header">
     <h1>Spacing</h1>
   </hgroup>
-  <section role="document" class="spacing">
+  <section id="content" role="document" class="spacing">
     for level := range 12 {
       <div key={level} class="spacing-row" >
         <span class="spacing-label">--scale-{level}</span>
