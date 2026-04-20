@@ -22,12 +22,12 @@ func menu() Node {
 		Class("menu"),
 		Nav(
 			Ul(
-				Li(A(Href("/headings"), Attr("data-swap", "content-header,content"), Text("Headings"))),
-				Li(A(Href("/buttons"), Attr("data-swap", "content-header,content"), Text("Buttons"))),
-				Li(A(Href("/anchors"), Attr("data-swap", "content-header,content"), Text("Anchors"))),
-				Li(A(Href("/spacing"), Attr("data-swap", "content-header,content"), Text("Spacing"))),
-				Li(A(Href("/colors"), Attr("data-swap", "content-header,content"), Text("Colors"))),
-				Li(A(Href("/cards"), Attr("data-swap", "content-header,content"), Text("Cards"))),
+				Li(A(Href("/headings"), Text("Headings"))),
+				Li(A(Href("/buttons"), Text("Buttons"))),
+				Li(A(Href("/anchors"), Text("Anchors"))),
+				Li(A(Href("/spacing"), Text("Spacing"))),
+				Li(A(Href("/colors"), Text("Colors"))),
+				Li(A(Href("/cards"), Text("Cards"))),
 			),
 		),
 	)

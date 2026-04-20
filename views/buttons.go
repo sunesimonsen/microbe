@@ -8,11 +8,9 @@ import (
 func Buttons() Node {
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Buttons")),
 		),
 		Div(
-			ID("content"),
 			Attr("role", "document"),
 			Div(
 				Class("buttons-row"),

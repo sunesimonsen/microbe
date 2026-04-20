@@ -8,11 +8,9 @@ import (
 func Anchors() Node {
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Anchors")),
 		),
 		Div(
-			ID("content"),
 			Attr("role", "document"),
 			Div(
 				Class("anchors-row"),

@@ -77,11 +77,9 @@ func colorTable(palettes []color) Node {
 func Colors() Node {
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Colors")),
 		),
 		Div(
-			ID("content"),
 			Attr("role", "document"),
 			colorTable(createStandardPalettes()),
 			colorTable(createCustomPalettes()),

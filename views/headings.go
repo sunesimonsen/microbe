@@ -23,12 +23,10 @@ func Headings() Node {
 
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Headings")),
 			P(Text("Fill in some info here")),
 		),
 		Div(
-			ID("content"),
 			Attr("role", "document"),
 			Group(sections),
 		),

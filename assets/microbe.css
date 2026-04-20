@@ -308,34 +308,6 @@
 }
 
 @layer layout {
-  @keyframes loading-animation {
-    0% {
-      background-position: 0% 0;
-    }
-
-    50% {
-      background-position: 100% 0;
-    }
-
-    100% {
-      background-position: 0% 0;
-    }
-  }
-
-  body.loading::before {
-    content: "";
-    position: fixed;
-    z-index: 3;
-    inset: 0;
-    height: var(--scale-1);
-    inset-block-end: auto;
-    background: linear-gradient(90deg,
-        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0)) 25%,
-        hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-6)) 100%);
-    background-size: 400% var(--scale-1);
-    animation: loading-animation 3s ease infinite 300ms;
-  }
-
   .standard-layout {
     display: grid;
     grid-template-rows: auto auto 1fr;

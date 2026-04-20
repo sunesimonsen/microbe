@@ -10,11 +10,9 @@ func Cards() Node {
 
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Cards")),
 		),
 		Div(
-			ID("content"),
 			Attr("role", "document"),
 			Article(
 				Class("card"),

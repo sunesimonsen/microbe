@@ -20,11 +20,9 @@ func Spacing() Node {
 
 	return Group([]Node{
 		HGroup(
-			ID("content-header"),
 			H1(Text("Spacing")),
 		),
 		Section(
-			ID("content"),
 			Attr("role", "document"),
 			Class("spacing"),
 			Group(rows),
