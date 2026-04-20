@@ -1,5 +1,9 @@
 @layer reset, settings, typography, components, layout, overrides;
 
+@view-transition {
+  navigation: auto;
+}
+
 @layer reset {
 
   html,
@@ -324,6 +328,7 @@
     }
 
     &>header {
+      view-transition-name: header;
       grid-area: navbar;
       height: var(--scale-7);
       position: sticky;
@@ -334,6 +339,7 @@
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
 
       &>nav {
+        view-transition-name: header-nav;
         display: flex;
         align-items: center;
         padding-inline: var(--scale-6);
