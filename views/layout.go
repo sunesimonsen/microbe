@@ -22,7 +22,7 @@ func menu() Node {
 		Class("menu"),
 		Nav(
 			Ul(
-				Li(A(Href("/headings"), Text("Headings"))),
+				Li(A(Href("/typography"), Text("Typography"))),
 				Li(A(Href("/buttons"), Text("Buttons"))),
 				Li(A(Href("/anchors"), Text("Anchors"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),

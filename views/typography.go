@@ -5,16 +5,16 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Headings() Node {
+func Typography() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Headings")),
+			H1(Text("Typography")),
 			P(Text("Fill in some info here")),
 		),
 		Div(
 			Attr("role", "document"),
 			example(
-				"Sizes",
+				"Headings",
 				H1(Text("Heading 1")),
 				P(Text("Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex.")),
 				H2(Text("Heading 2")),

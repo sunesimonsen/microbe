@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	. "maragu.dev/gomponents"
 	"github.com/sunesimonsen/microbe/views"
+	. "maragu.dev/gomponents"
 )
 
 func (s *Server) indexHandler(w http.ResponseWriter, r *http.Request) {
@@ -17,8 +17,8 @@ func (s *Server) buttonsHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(node))
 }
 
-func (s *Server) headingsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Headings()
+func (s *Server) typographyHandler(w http.ResponseWriter, r *http.Request) {
+	node := views.Typography()
 	renderNode(w, r, views.DocsLayout(node))
 }
 
