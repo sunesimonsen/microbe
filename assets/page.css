@@ -27,7 +27,7 @@
   background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
   border: thin solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
   display: inline-block;
-  height: var(--scale-6);
+  height: var(--scale-4);
 }
 
 .buttons-row {
@@ -69,6 +69,20 @@
   border: none;
   display: block;
   border-radius: var(--scale-1);
+}
+
+.example.card>section.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+  gap: var(--scale-2);
+  justify-items: center;
+}
+
+@media (max-width: 600px) {
+  .example.card>section.grid:not(.small) {
+    grid-template-columns: 1fr;
+    justify-items: stretch;
+  }
 }
 
 @media (max-width: 1200px) {

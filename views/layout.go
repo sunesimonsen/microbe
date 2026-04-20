@@ -33,6 +33,16 @@ func menu() Node {
 	)
 }
 
+func example(description string, part ...Node) Node {
+	return Article(
+		Class("example card"),
+		Header(Text(description)),
+		Section(
+			part...,
+		),
+	)
+}
+
 func IndexLayout(part Node) Node {
 	return Page("Microbe",
 		Main(

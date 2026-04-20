@@ -1,26 +1,11 @@
 package views
 
 import (
-	"fmt"
-
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
 
-func headingSection(level int) Node {
-	return Group([]Node{
-		El(fmt.Sprintf("h%d", level), Text(fmt.Sprintf("Heading %d", level))),
-		P(Text("Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex. Etiam eget rutrum nulla, id finibus tellus. Proin dignissim tortor lacus, in vehicula arcu commodo ut. Aenean quis euismod lectus, vitae ornare ex. Vivamus posuere lectus at quam maximus semper. Fusce sagittis in est a consequat.")),
-		P(Text("Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque condimentum sem vel nulla efficitur cursus. Ut accumsan leo eget dictum mollis. Aenean vel dictum nulla. Fusce eget quam sollicitudin, scelerisque ex sed, dignissim mauris. Sed consequat condimentum nibh, eget tristique lectus viverra id. Donec facilisis ultrices lectus ac aliquet. Mauris facilisis ante et vulputate elementum. Interdum et malesuada fames ac ante ipsum primis in faucibus.")),
-	})
-}
-
 func Headings() Node {
-	sections := []Node{}
-	for i := 2; i <= 6; i++ {
-		sections = append(sections, headingSection(i))
-	}
-
 	return Group([]Node{
 		HGroup(
 			H1(Text("Headings")),
@@ -28,7 +13,21 @@ func Headings() Node {
 		),
 		Div(
 			Attr("role", "document"),
-			Group(sections),
+			example(
+				"Sizes",
+				H1(Text("Heading 1")),
+				P(Text("Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex.")),
+				H2(Text("Heading 2")),
+				P(Text("Phasellus nec luctus dolor. Curabitur id facilisis diam.")),
+				H3(Text("Heading 3")),
+				P(Text("Vivamus feugiat tempor tellus, vel consequat turpis gravida non. ")),
+				H4(Text("Heading 4")),
+				P(Text("Quisque tristique lobortis ligula id tempus.")),
+				H5(Text("Heading 5")),
+				P(Text("Sed aliquet velit mauris, vel interdum diam mattis et.")),
+				H6(Text("Heading 6")),
+				P(Text("Donec in lorem imperdiet, eleifend turpis eget, congue velit.")),
+			),
 		),
 	})
 }

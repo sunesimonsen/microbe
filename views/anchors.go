@@ -12,9 +12,12 @@ func Anchors() Node {
 		),
 		Div(
 			Attr("role", "document"),
-			Div(
-				Class("anchors-row"),
+			example(
+				"Regular",
 				A(Href("#"), Text("Regular link")),
+			),
+			example(
+				"Active link",
 				A(Href("#"), Attr("aria-current", "page"), Text("Active link")),
 			),
 		),
