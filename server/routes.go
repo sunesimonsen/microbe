@@ -16,6 +16,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/colors", s.colorsHandler)
 	s.router.Get("/typography", s.typographyHandler)
 	s.router.Get("/spacing", s.spacingHandler)
+	s.router.Get("/theming", s.themingHandler)
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }

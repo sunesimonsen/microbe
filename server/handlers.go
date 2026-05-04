@@ -42,6 +42,11 @@ func (s *Server) cardsHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(node))
 }
 
+func (s *Server) themingHandler(w http.ResponseWriter, r *http.Request) {
+	node := views.Theming()
+	renderNode(w, r, views.DocsLayout(node))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")

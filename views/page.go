@@ -27,6 +27,7 @@ func Page(title string, children ...Node) Node {
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/page.css")),
 				Script(Src("/assets/microbe.js")),
+				Script(Src("/assets/page.js")),
 			),
 			Body(
 				Group(children),

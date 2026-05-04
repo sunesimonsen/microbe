@@ -69,7 +69,7 @@ func colorTable(palettes []color) Node {
 
 	return Div(
 		Class("color-grid"),
-		StyleAttr(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
+		Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
 		Group(rows),
 	)
 }
