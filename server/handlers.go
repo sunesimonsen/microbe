@@ -47,6 +47,11 @@ func (s *Server) themingHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(node))
 }
 
+func (s *Server) inputsHandler(w http.ResponseWriter, r *http.Request) {
+	node := views.Inputs()
+	renderNode(w, r, views.DocsLayout(node))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")

@@ -19,7 +19,7 @@ func createStandardPalettes() []color {
 		if hue < 60 || 180 < hue {
 			palettes = append(palettes, color{hue: hue, saturation: 90})
 		} else {
-			palettes = append(palettes, color{hue: hue, saturation: 80})
+			palettes = append(palettes, color{hue: hue, saturation: 70})
 		}
 	}
 

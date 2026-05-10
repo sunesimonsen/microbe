@@ -25,6 +25,7 @@ func menu() Node {
 				Li(A(Href("/typography"), Text("Typography"))),
 				Li(A(Href("/buttons"), Text("Buttons"))),
 				Li(A(Href("/anchors"), Text("Anchors"))),
+				Li(A(Href("/inputs"), Text("Inputs"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),
 				Li(A(Href("/cards"), Text("Cards"))),
 				Li(A(Href("/colors"), Text("Colors"))),
