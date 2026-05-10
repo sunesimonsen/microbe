@@ -7,6 +7,7 @@ if (window.self === window.top) {
 
       const updateAccentHue = (hue) => {
         themingExampleForm.style.setProperty("--accent-hue", hue);
+        colorRange.style.setProperty("--accent-hue", hue);
       }
 
       colorRange.addEventListener('input', (evt) => {
@@ -15,6 +16,7 @@ if (window.self === window.top) {
 
       const updateAccentSaturation = (saturation) => {
         themingExampleForm.style.setProperty("--accent-saturation", `${saturation}%`);
+        colorRange.style.setProperty("--accent-saturation", `${saturation}%`);
       }
 
       saturationRange.addEventListener('input', (evt) => {
