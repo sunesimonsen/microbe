@@ -77,10 +77,6 @@
 }
 
 #color-range {
-  appearance: none;
-  background-color: rgba(0, 0, 0, 0.1);
-  height: 0.5rem;
-  border-radius: 0.5rem;
   background: linear-gradient(to right,
       hsl(0 var(--accent-saturation) 50%),
       hsl(20 var(--accent-saturation) 50%),
@@ -118,44 +114,6 @@
       hsl(340 var(--accent-saturation) 50%),
       hsl(350 var(--accent-saturation) 50%),
       hsl(360 var(--accent-saturation) 50%));
-
-  &:focus {
-    outline: none;
-  }
-
-  &::-ms-track {
-    appearance: none;
-    opacity: 0;
-    outline: none !important;
-  }
-
-  &::-moz-range-track {
-    appearance: none;
-    opacity: 0;
-    outline: none !important;
-  }
-
-  &::-webkit-slider-thumb {
-    height: var(--scale-5);
-    width: var(--scale-5);
-    border-radius: 50%;
-    appearance: none;
-    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-    border: var(--scale-1) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
-    cursor: grab;
-    transition: border 0.1s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
-  }
-
-  &::-moz-range-thumb {
-    height: var(--scale-5);
-    width: var(--scale-5);
-    border-radius: 50%;
-    appearance: none;
-    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-    cursor: grab;
-    border: none;
-    transition: border 0.1s ease-in-out, box-shadow 0.2s ease-in-out, transform 0.1s ease-in-out;
-  }
 }
 
 .example.card .grid {

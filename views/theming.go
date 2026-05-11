@@ -33,10 +33,45 @@ func Theming() Node {
 			example(
 				"Example",
 				Attr("id", "theming-example-form"),
-				Class("grid"),
-				Button(Class("solid"), Text("Solid Button")),
-				Button(Class("outline"), Text("Outline Button")),
-				Button(Class("ghost"), Text("Ghost Button")),
+				Form(
+					FieldSet(
+						Label(Text("Name"),
+							Input(
+								Name("name"),
+								Placeholder("Name"),
+								AutoComplete("name"),
+							),
+						),
+						Label(Text("Email"),
+							Input(
+								Name("email"),
+								Placeholder("Email"),
+								AutoComplete("email"),
+							),
+							Small(Text("We’ll never share your email with anyone else.")),
+						),
+						Label(Text("Newsletter"),
+							Input(
+								Type("checkbox"),
+								Name("newsletter"),
+							),
+							Small(Text("We will send you a news letter every week")),
+						),
+						Label(
+							Text("Spelling (0 - 10)"),
+							Input(
+								Attr("type", "range"),
+								Attr("value", "5"),
+								Attr("min", "0"),
+								Attr("max", "10"),
+							)),
+					),
+					Div(
+						Class("actions"),
+						Button(Class("outline"), Type("reset"), Text("Reset")),
+						Button(Class("solid"), Type("submit"), Text("Submit")),
+					),
+				),
 			),
 		),
 	})

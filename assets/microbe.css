@@ -369,6 +369,87 @@
     }
   }
 
+  input[type=range] {
+    --track-size: var(--scale-2);
+    --thumb-size: calc(3* var(--scale-2));
+
+    appearance: none;
+    height: var(--track-size);
+    width: 100%;
+    border-radius: calc(var(--track-size) / 2);
+    background: hsl(var(--neutral-hue) 0% var(--lightness-3));
+
+    &:focus {
+      outline: none;
+    }
+
+    &::-webkit-slider-runnable-track {
+      appearance: none;
+    }
+
+    &::-webkit-slider-thumb {
+      height: var(--thumb-size);
+      width: var(--thumb-size);
+      border-radius: 50%;
+      appearance: none;
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      border: var(--scale-0) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
+      outline: var(--scale-0) solid transparent;
+      cursor: grab;
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    &::-webkit-slider-thumb:hover {
+      height: calc(var(--thumb-size) * 1.2);
+      width: calc(var(--thumb-size) * 1.2);
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+    }
+
+    &::-webkit-slider-thumb:active {
+      height: calc(var(--thumb-size) * 1.2);
+      width: calc(var(--thumb-size) * 1.2);
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+    }
+
+    &:focus-visible::-webkit-slider-thumb {
+      outline: var(--scale-0) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    &::-moz-range-thumb {
+      height: var(--thumb-size);
+      width: var(--thumb-size);
+      border-radius: 50%;
+      appearance: none;
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      border: var(--scale-0) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
+      outline: var(--scale-0) solid transparent;
+      cursor: grab;
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    &::-moz-range-thumb:hover {
+      height: calc(var(--thumb-size) * 1.2);
+      width: calc(var(--thumb-size) * 1.2);
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+    }
+
+    &::-moz-range-thumb:active {
+      height: calc(var(--thumb-size) * 1.2);
+      width: calc(var(--thumb-size) * 1.2);
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+    }
+
+    &:focus-visible::-moz-range-thumb {
+      outline: var(--scale-0) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+  }
+
   input[type=color] {
     appearance: none;
     padding: var(--scale-1) var(--scale-3);
