@@ -31,6 +31,22 @@ func Inputs() Node {
 							),
 							Small(Text("We’ll never share your email with anyone else.")),
 						),
+						Label(
+							Input(
+								Type("checkbox"),
+								Name("newsletter"),
+							),
+							Text("Newsletter"),
+						),
+						Small(Text("We will send you a news letter every week")),
+						Label(
+							Text("Spelling proficiency (0 - 10)"),
+							Input(
+								Attr("type", "range"),
+								Attr("value", "5"),
+								Attr("min", "0"),
+								Attr("max", "10"),
+							)),
 					),
 					Div(
 						Class("actions"),
@@ -41,56 +57,53 @@ func Inputs() Node {
 			),
 
 			example(
-				"Types",
+				"Text inputs",
 				Class("rows"),
 				Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text")),
 				Input(Type("email"), Name("email"), Aria("label", "Email"), Placeholder("Email"), AutoComplete("email")),
 				Input(Type("number"), Name("number"), Aria("label", "Number"), Placeholder("Number")),
 				Input(Type("password"), Name("password"), Aria("label", "Password"), Placeholder("Password")),
-				Input(Type("search"), Name("search"), Aria("label", "Search"), Placeholder("Search")),
 				Input(Type("tel"), Name("tel"), Aria("label", "Tel"), Placeholder("Tel")),
 				Input(Type("url"), Name("url"), Aria("label", "Url"), Placeholder("Url")),
+			),
+
+			example(
+				"Date and time inputs",
+				Class("rows"),
 				Input(Type("date"), Name("date"), Aria("label", "Date")),
 				Input(Type("datetime-local"), Name("datetime-local"), Aria("label", "Datetime local")),
 				Input(Type("month"), Name("month"), Aria("label", "Month")),
 				Input(Type("week"), Name("week"), Aria("label", "Week")),
 				Input(Type("time"), Name("time"), Aria("label", "Time")),
-				Input(Type("color"), Name("color"), Aria("label", "Color"), Placeholder("Color")),
+			),
+
+			example(
+				"Search input",
+				Class("rows"),
+				Input(Type("search"), Name("search"), Aria("label", "Search"), Placeholder("Search")),
+			),
+
+			example(
+				"File input",
+				Class("rows"),
 				Input(Type("file"), Class("solid"), Name("file"), Aria("label", "File"), Placeholder("File")),
 			),
+
 			example(
-				"Disabled",
+				"Color input",
+				Class("rows"),
+				Input(Type("color"), Name("color"), Aria("label", "Color"), Placeholder("Color")),
+			),
+
+			example(
+				"Disabled input",
 				Class("rows"),
 				Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), Disabled()),
-				Input(Type("email"), Name("email"), Aria("label", "Email"), Placeholder("Email"), AutoComplete("email"), Disabled()),
-				Input(Type("number"), Name("number"), Aria("label", "Number"), Placeholder("Number"), Disabled()),
-				Input(Type("password"), Name("password"), Aria("label", "Password"), Placeholder("Password"), Disabled()),
-				Input(Type("search"), Name("search"), Aria("label", "Search"), Placeholder("Search"), Disabled()),
-				Input(Type("tel"), Name("tel"), Aria("label", "Tel"), Placeholder("Tel"), Disabled()),
-				Input(Type("url"), Name("url"), Aria("label", "Url"), Placeholder("Url"), Disabled()),
-				Input(Type("date"), Name("date"), Aria("label", "Date"), Disabled()),
-				Input(Type("datetime-local"), Name("datetime-local"), Aria("label", "Datetime local"), Disabled()),
-				Input(Type("month"), Name("month"), Aria("label", "Month"), Disabled()),
-				Input(Type("week"), Name("week"), Aria("label", "Week"), Disabled()),
-				Input(Type("time"), Name("time"), Aria("label", "Time"), Disabled()),
-				Input(Type("color"), Name("color"), Aria("label", "Color"), Placeholder("Color"), Disabled()),
-				Input(Type("file"), Class("solid"), Name("file"), Aria("label", "File"), Placeholder("File"), Disabled()),
 			),
 			example(
-				"Readonly",
+				"Read-only input",
 				Class("rows"),
 				Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), ReadOnly(), Value("Read-only value")),
-				Input(Type("email"), Name("email"), Aria("label", "Email"), Placeholder("Email"), AutoComplete("email"), ReadOnly()),
-				Input(Type("number"), Name("number"), Aria("label", "Number"), Placeholder("Number"), ReadOnly()),
-				Input(Type("password"), Name("password"), Aria("label", "Password"), Placeholder("Password"), ReadOnly()),
-				Input(Type("search"), Name("search"), Aria("label", "Search"), Placeholder("Search"), ReadOnly()),
-				Input(Type("tel"), Name("tel"), Aria("label", "Tel"), Placeholder("Tel"), ReadOnly()),
-				Input(Type("url"), Name("url"), Aria("label", "Url"), Placeholder("Url"), ReadOnly()),
-				Input(Type("date"), Name("date"), Aria("label", "Date"), ReadOnly()),
-				Input(Type("datetime-local"), Name("datetime-local"), Aria("label", "Datetime local"), ReadOnly()),
-				Input(Type("month"), Name("month"), Aria("label", "Month"), ReadOnly()),
-				Input(Type("week"), Name("week"), Aria("label", "Week"), ReadOnly()),
-				Input(Type("time"), Name("time"), Aria("label", "Time"), ReadOnly()),
 			),
 			example(
 				"Hint",

@@ -50,15 +50,16 @@ func Theming() Node {
 							),
 							Small(Text("We’ll never share your email with anyone else.")),
 						),
-						Label(Text("Newsletter"),
+						Label(
 							Input(
 								Type("checkbox"),
 								Name("newsletter"),
 							),
-							Small(Text("We will send you a news letter every week")),
+							Text("Newsletter"),
 						),
+						Small(Text("We will send you a news letter every week")),
 						Label(
-							Text("Spelling (0 - 10)"),
+							Text("Spelling proficiency (0 - 10)"),
 							Input(
 								Attr("type", "range"),
 								Attr("value", "5"),
