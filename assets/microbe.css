@@ -60,7 +60,7 @@
     --heading-font-weight: 500;
 
     --border-width: calc(var(--base) * pow(var(--phi), -5));
-    --focus-outline-width: calc(var(--base) * pow(var(--phi), -3));
+    --focus-outline-width: var(--scale-1);
 
     --form-element-height: calc(var(--scale-5) + 2 * var(--scale-2) + 2 * var(--border-width));
 
