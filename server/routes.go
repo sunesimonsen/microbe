@@ -18,6 +18,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/spacing", s.spacingHandler)
 	s.router.Get("/theming", s.themingHandler)
 	s.router.Get("/inputs", s.inputsHandler)
+	s.router.Get("/checkboxes", s.checkboxesHandler)
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }

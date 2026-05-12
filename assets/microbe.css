@@ -497,11 +497,26 @@
       mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22currentColor%22%20class%3D%22bi%20bi-check%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%20%20%3Cpath%20d%3D%22M10.97%204.97a.75.75%200%200%201%201.07%201.05l-3.99%204.99a.75.75%200%200%201-1.08.02L4.324%208.384a.75.75%200%201%201%201.06-1.06l2.094%202.093%203.473-4.425z%22%2F%3E%0A%3C%2Fsvg%3E");
       scale: 1.1;
     }
+
+    &[disabled] {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+      border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+
+      &:checked {
+        border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+      }
+    }
   }
 
-  label:hover>input[type=checkbox]:not(:checked) {
+  label:hover>input[type=checkbox]:not(:checked, [disabled]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+  }
+
+  label:hover>input[type=checkbox]:checked:not([disabled]) {
+    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+    border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
   }
 
