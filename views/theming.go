@@ -54,6 +54,7 @@ func Theming() Node {
 							Input(
 								Type("checkbox"),
 								Name("newsletter"),
+								Checked(),
 							),
 							Text("Newsletter"),
 						),

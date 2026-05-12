@@ -1,9 +1,8 @@
 if (window.self === window.top) {
   window.addEventListener('load', () => {
-    const colorRange = document.getElementById('color-range')
-    if (colorRange) {
-      const saturationRange = document.getElementById('saturation-range')
-      const themingExampleForm = document.getElementById("theming-example-form")
+    const themingExampleForm = document.getElementById("theming-example-form")
+    if (themingExampleForm) {
+      const colorRange = document.getElementById('color-range')
 
       const updateAccentHue = (hue) => {
         themingExampleForm.style.setProperty("--accent-hue", hue);
@@ -13,6 +12,8 @@ if (window.self === window.top) {
       colorRange.addEventListener('input', (evt) => {
         updateAccentHue(evt.target.value)
       })
+
+      const saturationRange = document.getElementById('saturation-range')
 
       const updateAccentSaturation = (saturation) => {
         themingExampleForm.style.setProperty("--accent-saturation", `${saturation}%`);

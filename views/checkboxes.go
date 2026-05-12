@@ -25,6 +25,7 @@ func Checkboxes() Node {
 						),
 						Text("English"),
 					),
+					Small(Text("You can't disable the default language")),
 					Label(
 						Input(
 							Type("checkbox"),
