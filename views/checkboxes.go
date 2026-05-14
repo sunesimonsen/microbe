@@ -22,10 +22,14 @@ func Checkboxes() Node {
 							Name("english"),
 							Checked(),
 							Disabled(),
+							Aria("describedby", "default-language-hint"),
 						),
 						Text("English"),
 					),
-					Small(Text("You can't disable the default language")),
+					Small(
+						ID("default-language-hint"),
+						Text("You can't disable the default language"),
+					),
 					Label(
 						Input(
 							Type("checkbox"),
@@ -57,6 +61,46 @@ func Checkboxes() Node {
 						Text("Dothraki"),
 					),
 				),
+			),
+			example(
+				"Hint",
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("newsletter"),
+						Aria("describedby", "newsletter-hint"),
+						Checked(),
+					),
+					Text("Newsletter"),
+				),
+				Small(
+					ID("newsletter-hint"),
+					Text("We will send you a news letter every week"),
+				),
+			),
+			example(
+				"Validation",
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("valid"),
+						Aria("invalid", "false"),
+						Aria("describedby", "valid-hint"),
+					),
+					Text("Valid"),
+				),
+				Small(ID("valid-hint"), Text("Looks good!")),
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("invalid"),
+						Aria("invalid", "true"),
+						Aria("describedby", "invalid-hint"),
+						Checked(),
+					),
+					Text("Invalid"),
+				),
+				Small(ID("invalid-hint"), Text("Please provide a valid value!")),
 			),
 		),
 	})

@@ -28,17 +28,26 @@ func Inputs() Node {
 								Name("email"),
 								Placeholder("Email"),
 								AutoComplete("email"),
+								Aria("describedby", "email-hint"),
 							),
-							Small(Text("We’ll never share your email with anyone else.")),
+							Small(
+								ID("email-hint"),
+								Text("We’ll never share your email with anyone else."),
+							),
 						),
 						Label(
 							Input(
 								Type("checkbox"),
 								Name("newsletter"),
+								Aria("describedby", "newsletter-hint"),
+								Checked(),
 							),
 							Text("Newsletter"),
 						),
-						Small(Text("We will send you a news letter every week")),
+						Small(
+							ID("newsletter-hint"),
+							Text("We will send you a news letter every week"),
+						),
 						Label(
 							Text("Spelling proficiency (0 - 10)"),
 							Input(

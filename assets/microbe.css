@@ -467,6 +467,28 @@
   }
 
 
+  input[type=checkbox][aria-invalid=true] {
+    --accent-hue: var(--error-hue);
+    --accent-saturation: var(--error-saturation);
+
+    border-color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+  }
+
+  label:has(input[type=checkbox][aria-invalid=true])+small {
+    color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+  }
+
+  input[type=checkbox][aria-invalid=false] {
+    --accent-hue: var(--success-hue);
+    --accent-saturation: var(--success-saturation);
+
+    border-color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-8));
+  }
+
+  label:has(input[type=checkbox][aria-invalid=false])+small {
+    color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-9));
+  }
+
   input[type=checkbox] {
     appearance: none;
     accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
