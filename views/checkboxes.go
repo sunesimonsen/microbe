@@ -54,6 +54,14 @@ func Checkboxes() Node {
 					),
 					Label(
 						Input(
+							ID("indeterminate-checkbox"),
+							Type("checkbox"),
+							Name("quenya"),
+						),
+						Text("Quenya"),
+					),
+					Label(
+						Input(
 							Type("checkbox"),
 							Name("dothraki"),
 							Disabled(),

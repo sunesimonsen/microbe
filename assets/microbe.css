@@ -509,21 +509,29 @@
       outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
     }
 
-    &:checked {
+    &:is(:indeterminate, :checked) {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       position: relative;
       transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
     }
 
-    &:checked:before {
+    &:is(:indeterminate, :checked):before {
       content: "";
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
       position: absolute;
       height: calc(var(--scale-4) - 2 * var(--border-width));
       width: calc(var(--scale-4) - 2 * var(--border-width));
       display: inline-block;
+    }
+
+
+    &:checked:before {
       mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="3" stroke="%23000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12l5 5l10 -10"/></svg>');
+    }
+
+    &:indeterminate:before {
+      mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="3" stroke="red" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 12l11 0"/></svg>');
     }
 
     &[disabled] {
@@ -536,13 +544,13 @@
     }
   }
 
-  label:hover>input[type=checkbox]:not(:checked, [disabled]) {
+  label:hover>input[type=checkbox]:not(:checked, :indeterminate, [disabled]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
   }
 
-  label:hover>input[type=checkbox]:checked:not([disabled]) {
+  label:hover>input[type=checkbox]:is(:checked, :indeterminate):not([disabled]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;

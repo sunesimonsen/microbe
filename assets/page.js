@@ -24,5 +24,10 @@ if (window.self === window.top) {
         updateAccentSaturation(evt.target.value)
       })
     }
+
+    const indeterminateCheckbox = document.getElementById('indeterminate-checkbox')
+    if (indeterminateCheckbox) {
+      indeterminateCheckbox.indeterminate = true;
+    }
   })
 }
