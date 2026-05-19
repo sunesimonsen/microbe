@@ -57,6 +57,11 @@ func (s *Server) checkboxesHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(node))
 }
 
+func (s *Server) radios(w http.ResponseWriter, r *http.Request) {
+	node := views.Radios()
+	renderNode(w, r, views.DocsLayout(node))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")
