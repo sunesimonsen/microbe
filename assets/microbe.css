@@ -35,19 +35,19 @@
   body {
     --phi: 1.6185;
     --base: 1rem;
-    --scale-0: calc(var(--base) * pow(var(--phi), -4));
-    --scale-1: calc(var(--base) * pow(var(--phi), -3));
-    --scale-2: calc(var(--base) * pow(var(--phi), -2));
-    --scale-3: calc(var(--base) * pow(var(--phi), -1));
-    --scale-4: calc(var(--base) * pow(var(--phi), 0));
-    --scale-5: calc(var(--base) * pow(var(--phi), 1));
-    --scale-6: calc(var(--base) * pow(var(--phi), 2));
-    --scale-7: calc(var(--base) * pow(var(--phi), 3));
-    --scale-8: calc(var(--base) * pow(var(--phi), 4));
-    --scale-9: calc(var(--base) * pow(var(--phi), 5));
-    --scale-10: calc(var(--base) * pow(var(--phi), 6));
-    --scale-11: calc(var(--base) * pow(var(--phi), 7));
-    --scale-12: calc(var(--base) * pow(var(--phi), 8));
+    --scale-0: calc(round(nearest, var(--base) * pow(var(--phi), -4), 1px));
+    --scale-1: calc(round(nearest, var(--base) * pow(var(--phi), -3), 1px));
+    --scale-2: calc(round(nearest, var(--base) * pow(var(--phi), -2), 1px));
+    --scale-3: calc(round(nearest, var(--base) * pow(var(--phi), -1), 1px));
+    --scale-4: calc(round(nearest, var(--base) * pow(var(--phi), 0), 1px));
+    --scale-5: calc(round(nearest, var(--base) * pow(var(--phi), 1), 1px));
+    --scale-6: calc(round(nearest, var(--base) * pow(var(--phi), 2), 1px));
+    --scale-7: calc(round(nearest, var(--base) * pow(var(--phi), 3), 1px));
+    --scale-8: calc(round(nearest, var(--base) * pow(var(--phi), 4), 1px));
+    --scale-9: calc(round(nearest, var(--base) * pow(var(--phi), 5), 1px));
+    --scale-10: calc(round(nearest, var(--base) * pow(var(--phi), 6), 1px));
+    --scale-11: calc(round(nearest, var(--base) * pow(var(--phi), 7), 1px));
+    --scale-12: calc(round(nearest, var(--base) * pow(var(--phi), 8), 1px));
 
     --font-family-sans-serif: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif;
     --font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
