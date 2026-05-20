@@ -1,7 +1,7 @@
 .anchors-row {
   display: flex;
-  gap: var(--scale-5);
-  margin-block: var(--scale-5);
+  gap: var(--scale-6);
+  margin-block: var(--scale-6);
 
   &:first-child {
     margin-block-start: 0
@@ -14,11 +14,11 @@
 
 .spacing-row {
   display: flex;
-  margin-block: var(--scale-3);
+  margin-block: var(--scale-4);
 }
 
 .spacing-label {
-  padding: var(--scale-3) var(--scale-4);
+  padding: var(--scale-4) var(--scale-5);
   width: 8rem;
   text-align: end;
 }
@@ -27,13 +27,13 @@
   background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
   border: thin solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
   display: inline-block;
-  height: var(--scale-4);
+  height: var(--scale-5);
 }
 
 .buttons-row {
   display: flex;
-  gap: var(--scale-5);
-  margin-block: var(--scale-5);
+  gap: var(--scale-6);
+  margin-block: var(--scale-6);
 
   &:first-child {
     margin-block-start: 0
@@ -47,13 +47,13 @@
 .color-grid {
   display: inline-grid;
   grid-template-columns: repeat(var(--columns), 1fr);
-  grid-auto-rows: calc(var(--scale-12) / 12 - var(--scale-2));
-  gap: var(--scale-2);
+  grid-auto-rows: calc(var(--scale-13) / 12 - var(--scale-3));
+  gap: var(--scale-3);
   width: 100%;
 }
 
 .color-grid+.color-grid {
-  margin-block-start: var(--scale-6)
+  margin-block-start: var(--scale-7)
 }
 
 .color-grid-header {
@@ -68,7 +68,7 @@
   background: hsl(var(--hue) var(--saturation) var(--lightness));
   border: none;
   display: block;
-  border-radius: var(--scale-1);
+  border-radius: var(--scale-2);
 }
 
 #color-range,
@@ -119,7 +119,7 @@
 .example.card .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
-  gap: var(--scale-3);
+  gap: var(--scale-4);
   justify-items: center;
 }
 
@@ -130,12 +130,12 @@
 .example.card .rows {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--scale-3);
+  gap: var(--scale-4);
   justify-items: stretch;
 }
 
 .example.card .rows:has(.grid) {
-  gap: var(--scale-4);
+  gap: var(--scale-5);
 }
 
 @media (max-width: 600px) {
