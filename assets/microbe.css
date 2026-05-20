@@ -35,20 +35,20 @@
   body {
     --phi: 1.6185;
     --base: 1rem;
-    --scale-0: calc(round(nearest, var(--base) * pow(var(--phi), -5), 1px));
-    --scale-1: calc(round(nearest, var(--base) * pow(var(--phi), -4), 1px));
-    --scale-2: calc(round(nearest, var(--base) * pow(var(--phi), -3), 1px));
-    --scale-3: calc(round(nearest, var(--base) * pow(var(--phi), -2), 1px));
-    --scale-4: calc(round(nearest, var(--base) * pow(var(--phi), -1), 1px));
-    --scale-5: calc(round(nearest, var(--base) * pow(var(--phi), 0), 1px));
-    --scale-6: calc(round(nearest, var(--base) * pow(var(--phi), 1), 1px));
-    --scale-7: calc(round(nearest, var(--base) * pow(var(--phi), 2), 1px));
-    --scale-8: calc(round(nearest, var(--base) * pow(var(--phi), 3), 1px));
-    --scale-9: calc(round(nearest, var(--base) * pow(var(--phi), 4), 1px));
-    --scale-10: calc(round(nearest, var(--base) * pow(var(--phi), 5), 1px));
-    --scale-11: calc(round(nearest, var(--base) * pow(var(--phi), 6), 1px));
-    --scale-12: calc(round(nearest, var(--base) * pow(var(--phi), 7), 1px));
-    --scale-13: calc(round(nearest, var(--base) * pow(var(--phi), 8), 1px));
+    --scale-0: calc(var(--base) * pow(var(--phi), -5));
+    --scale-1: calc(var(--base) * pow(var(--phi), -4));
+    --scale-2: calc(var(--base) * pow(var(--phi), -3));
+    --scale-3: calc(var(--base) * pow(var(--phi), -2));
+    --scale-4: calc(var(--base) * pow(var(--phi), -1));
+    --scale-5: calc(var(--base) * pow(var(--phi), 0));
+    --scale-6: calc(var(--base) * pow(var(--phi), 1));
+    --scale-7: calc(var(--base) * pow(var(--phi), 2));
+    --scale-8: calc(var(--base) * pow(var(--phi), 3));
+    --scale-9: calc(var(--base) * pow(var(--phi), 4));
+    --scale-10: calc(var(--base) * pow(var(--phi), 5));
+    --scale-11: calc(var(--base) * pow(var(--phi), 6));
+    --scale-12: calc(var(--base) * pow(var(--phi), 7));
+    --scale-13: calc(var(--base) * pow(var(--phi), 8));
 
     --font-family-sans-serif: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif;
     --font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -60,7 +60,7 @@
     --heading-step: 0.4;
     --heading-font-weight: 500;
 
-    --border-width: var(--scale-0);
+    --border-width: calc(round(nearest, var(--scale-0), 1px));
     --focus-outline-width: var(--scale-2);
 
     --form-element-height: calc(var(--scale-6) + 2 * var(--scale-3) + 2 * var(--border-width));
@@ -172,8 +172,7 @@
 
   a {
     color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-    transition:
-      color 0.25s ease-in-out, outline-color 0.1s ease-in-out;
+    transition: color 0.25s ease-in-out, outline-color 0.1s ease-in-out;
   }
 
   a:hover,
@@ -208,8 +207,7 @@
       user-select: none;
       border-radius: var(--scale-3);
       outline: var(--focus-outline-width) solid transparent;
-      transition:
-        border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+      transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
       display: flex;
       align-items: center;
       column-gap: var(--scale-4);
@@ -305,8 +303,7 @@
     font-size: inherit;
     width: 100%;
     height: var(--form-element-height);
-    transition:
-      border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
     padding: 0 var(--scale-5);
     border-radius: var(--scale-3);
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
@@ -617,8 +614,7 @@
     border-end-end-radius: 0;
     border-inline-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     outline: none;
-    transition:
-      border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
     white-space: nowrap;
   }
 
@@ -657,8 +653,7 @@
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
     border-radius: var(--scale-3);
-    box-shadow:
-      0px var(--scale-2) var(--scale-3) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.3);
+    box-shadow: 0px var(--scale-2) var(--scale-3) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.3);
 
     &:first-child {
       margin-block-start: 0;
@@ -696,8 +691,7 @@
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-columns: 1fr var(--scale-11) var(--scale-13) var(--scale-11) 1fr;
-    grid-template-areas:
-      "navbar navbar navbar navbar navbar"
+    grid-template-areas: "navbar navbar navbar navbar navbar"
       "start menu header table-of-content end"
       "start menu body table-of-content end";
     gap: var(--scale-7) var(--scale-8);
@@ -725,21 +719,18 @@
         padding-inline: var(--scale-7);
         column-gap: var(--scale-5);
         height: 100%;
-        transition:
-          background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+        transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 
         @container scroll-state(stuck: top) {
           background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8);
           backdrop-filter: blur(var(--scale-5));
-          box-shadow:
-            0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
+          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
         }
 
         @supports not (container-type: scroll-state) {
           background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8);
           backdrop-filter: blur(var(--scale-5));
-          box-shadow:
-            0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
+          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
         }
       }
     }
@@ -801,8 +792,7 @@
     .standard-layout {
       grid-template-rows: auto auto auto 1fr;
       grid-template-columns: 1fr var(--scale-11) var(--scale-13) 3fr;
-      grid-template-areas:
-        "navbar navbar navbar navbar"
+      grid-template-areas: "navbar navbar navbar navbar"
         "start menu header end"
         "start menu table-of-content end"
         "start menu body end";
@@ -819,8 +809,7 @@
     .standard-layout {
       grid-template-rows: auto auto auto auto 1fr;
       grid-template-columns: var(--scale-6) 1fr var(--scale-6);
-      grid-template-areas:
-        "navbar navbar navbar"
+      grid-template-areas: "navbar navbar navbar"
         "start header end"
         "start table-of-content end"
         "start body end";
