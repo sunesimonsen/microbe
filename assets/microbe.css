@@ -298,7 +298,8 @@
     }
   }
 
-  input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image]) {
+  input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image]),
+  select {
     accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     font-size: inherit;
     width: 100%;
@@ -646,6 +647,14 @@
     margin-block-start: var(--scale-5);
     gap: var(--scale-4);
     justify-content: end;
+  }
+
+  select {
+    appearance: none;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+    background-position: center right .75rem;
+    background-size: calc(var(--base) * 0.8) auto;
+    background-repeat: no-repeat;
   }
 
   .card {

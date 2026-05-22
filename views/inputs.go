@@ -110,7 +110,7 @@ func Inputs() Node {
 				Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), Disabled()),
 			),
 			example(
-				"Read-only input",
+				"Read-only",
 				Class("rows"),
 				Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), ReadOnly(), Value("Read-only value")),
 			),

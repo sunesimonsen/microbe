@@ -28,6 +28,7 @@ func menu() Node {
 				Li(A(Href("/inputs"), Text("Inputs"))),
 				Li(A(Href("/checkboxes"), Text("Checkboxes"))),
 				Li(A(Href("/radios"), Text("Radios"))),
+				Li(A(Href("/selects"), Text("Selects"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),
 				Li(A(Href("/cards"), Text("Cards"))),
 				Li(A(Href("/colors"), Text("Colors"))),

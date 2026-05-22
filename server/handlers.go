@@ -47,8 +47,12 @@ func (s *Server) checkboxesHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(views.Checkboxes()))
 }
 
-func (s *Server) radios(w http.ResponseWriter, r *http.Request) {
+func (s *Server) radiosHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(views.Radios()))
+}
+
+func (s *Server) selectsHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(views.Selects()))
 }
 
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
