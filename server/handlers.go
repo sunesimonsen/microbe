@@ -8,58 +8,47 @@ import (
 )
 
 func (s *Server) indexHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Index()
-	renderNode(w, r, views.IndexLayout(node))
+	renderNode(w, r, views.IndexLayout(views.Index()))
 }
 
 func (s *Server) buttonsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Buttons()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Buttons()))
 }
 
 func (s *Server) typographyHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Typography()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Typography()))
 }
 
 func (s *Server) colorsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Colors()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Colors()))
 }
 
 func (s *Server) spacingHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Spacing()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Spacing()))
 }
 
 func (s *Server) anchorsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Anchors()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Anchors()))
 }
 
 func (s *Server) cardsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Cards()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Cards()))
 }
 
 func (s *Server) themingHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Theming()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Theming()))
 }
 
 func (s *Server) inputsHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Inputs()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Inputs()))
 }
 
 func (s *Server) checkboxesHandler(w http.ResponseWriter, r *http.Request) {
-	node := views.Checkboxes()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Checkboxes()))
 }
 
 func (s *Server) radios(w http.ResponseWriter, r *http.Request) {
-	node := views.Radios()
-	renderNode(w, r, views.DocsLayout(node))
+	renderNode(w, r, views.DocsLayout(views.Radios()))
 }
 
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
