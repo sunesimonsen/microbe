@@ -367,6 +367,7 @@
     &+small {
       display: block;
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+      margin-block-start: var(--scale-2);
     }
   }
 
@@ -619,6 +620,15 @@
     white-space: nowrap;
   }
 
+  label>input,
+  label>select {
+    margin-block-start: var(--scale-2);
+  }
+
+  label:has(input, select) {
+    display: block;
+  }
+
   label+label,
   small+label {
     display: block;
@@ -627,7 +637,7 @@
 
   label:has([type=checkbox])+small,
   label:has([type=radio])+small {
-    padding-inline-start: calc(var(--scale-5) + var(--scale-3));
+    margin-block-start: 0;
   }
 
   label:has(input[type=checkbox])+label:has(input[type=checkbox]),
@@ -640,6 +650,7 @@
   label+small {
     display: block;
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+    margin-block-start: var(--scale-2);
   }
 
   form>.actions {
