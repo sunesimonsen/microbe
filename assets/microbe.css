@@ -521,12 +521,75 @@
     }
   }
 
-  input[type=checkbox] {
-    &:is(:indeterminate, :checked) {
+  input[type=checkbox][role=switch] {
+    padding: var(--scale-0);
+    width: calc(2 * var(--scale-4) + var(--scale-5));
+    height: calc(2* var(--scale-4));
+    border-radius: var(--scale-5);
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+    margin-inline-start: 0;
+    transition: background 0.2s ease-in-out, outline 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:not([aria-invalid]) {
+      border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      border-radius: 50%;
+      aspect-ratio: 1;
+      height: 100%;
+      transition: margin 0.1s ease-in-out;
+    }
+
+    &:checked {
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      transition: background 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    &:checked:after {
+      margin-inline-start: var(--base);
+      transition: margin 0.1s ease-in-out;
+    }
+
+    &[disabled] {
+      cursor: default;
+    }
+
+    &[disabled]:not(:checked) {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+    }
+
+    &[disabled]:not(:checked):after {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    }
+
+    &[disabled]:is(:checked) {
+      --disabled-checked-color: hsl(var(--accent-hue) calc(var(--accent-saturation) - 20%) var(--lightness-6));
+      background: var(--disabled-checked-color);
+      border-color: var(--disabled-checked-color);
+    }
+
+    &[disabled]:is(:checked):after {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    }
+  }
+
+  input[type=checkbox]:not([role=switch]) {
+    &:is(:indeterminate, :checked):not([disabled]) {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       position: relative;
       transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    &[disabled]:is(:indeterminate, :checked) {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+      border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
     }
 
     &:is(:indeterminate, :checked):before {
@@ -573,13 +636,25 @@
     }
   }
 
-  label:hover>input:is([type=checkbox], [type=radio]):not(:checked, :indeterminate, [disabled]) {
+  label:hover>input:is([type=checkbox], [type=radio]):not(:checked, :indeterminate, [disabled], [role=switch]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
   }
 
-  label:hover>input[type=checkbox]:is(:checked, :indeterminate):not([disabled]) {
+  label:hover>input[type=checkbox][role=switch]:not(:checked, [disabled]) {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
+    border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+  }
+
+  label:hover>input[type=checkbox][role=switch]:is(:checked):not([disabled]) {
+    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+    border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+    transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+  }
+
+  label:hover>input[type=checkbox]:is(:checked, :indeterminate):not([disabled], [role=switch]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
@@ -635,13 +710,17 @@
     margin-block-start: var(--scale-4);
   }
 
+  label:has([type=checkbox][disabled]) {
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-8));
+  }
+
   label:has([type=checkbox])+small,
   label:has([type=radio])+small {
     margin-block-start: 0;
   }
 
-  label:has(input[type=checkbox])+label:has(input[type=checkbox]),
-  label:has(input[type=checkbox])+small+label:has(input[type=checkbox]),
+  label:has(input[type=checkbox]:not([role=switch]))+label:has(input[type=checkbox]:not([role=switch])),
+  label:has(input[type=checkbox]:not([role=switch]))+small+label:has(input[type=checkbox]:not([role=switch])),
   label:has(input[type=radio])+label:has(input[type=radio]),
   label:has(input[type=radio])+small+label:has(input[type=radio]) {
     margin-block-start: 0;

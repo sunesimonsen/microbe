@@ -19,6 +19,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/theming", s.themingHandler)
 	s.router.Get("/inputs", s.inputsHandler)
 	s.router.Get("/checkboxes", s.checkboxesHandler)
+	s.router.Get("/switches", s.switchesHandler)
 	s.router.Get("/radios", s.radiosHandler)
 	s.router.Get("/selects", s.selectsHandler)
 

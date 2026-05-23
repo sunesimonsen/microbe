@@ -27,6 +27,7 @@ func menu() Node {
 				Li(A(Href("/anchors"), Text("Anchors"))),
 				Li(A(Href("/inputs"), Text("Inputs"))),
 				Li(A(Href("/checkboxes"), Text("Checkboxes"))),
+				Li(A(Href("/switches"), Text("Switches"))),
 				Li(A(Href("/radios"), Text("Radios"))),
 				Li(A(Href("/selects"), Text("Selects"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),
