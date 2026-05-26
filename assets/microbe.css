@@ -61,7 +61,7 @@
     --heading-font-weight: 500;
 
     --border-width: calc(round(nearest, var(--scale-0), 1px));
-    --focus-outline-width: var(--scale-2);
+    --focus-outline-width: calc(4*var(--border-width));
 
     --form-element-height: calc(var(--scale-6) + 2 * var(--scale-3) + 2 * var(--border-width));
 
@@ -231,17 +231,17 @@
     &.solid {
       color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     }
 
     &.solid:hover {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
-      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     }
 
     &.solid:active {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
-      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
     }
 
     &.solid:disabled {
