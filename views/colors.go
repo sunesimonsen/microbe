@@ -45,9 +45,7 @@ var lightnessSteps = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 func colorSample(c color, lightness int) Node {
 	return Button(
 		Class("color-sample"),
-		Attr("data-hue", fmt.Sprintf("%d", c.hue)),
-		Attr("data-saturation", fmt.Sprintf("%d%%", c.saturation)),
-		StyleAttr(fmt.Sprintf("--lightness: var(--lightness-%d)", lightness)),
+		Style(fmt.Sprintf("--lightness: var(--lightness-%d); --hue: %d; --saturation: %d%%", lightness, c.hue, c.saturation)),
 	)
 }
 

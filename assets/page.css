@@ -63,8 +63,6 @@
 }
 
 .color-sample {
-  --hue: attr(data-hue type(<number>));
-  --saturation: attr(data-saturation type(<percentage>));
   background: hsl(var(--hue) var(--saturation) var(--lightness));
   border: none;
   display: block;
