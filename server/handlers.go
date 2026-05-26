@@ -59,6 +59,10 @@ func (s *Server) selectsHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(views.Selects()))
 }
 
+func (s *Server) rangesHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(views.Ranges()))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")

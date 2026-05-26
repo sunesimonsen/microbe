@@ -48,14 +48,6 @@ func Inputs() Node {
 							ID("newsletter-hint"),
 							Text("We will send you a news letter every week"),
 						),
-						Label(
-							Text("Spelling proficiency (0 - 10)"),
-							Input(
-								Attr("type", "range"),
-								Attr("value", "5"),
-								Attr("min", "0"),
-								Attr("max", "10"),
-							)),
 					),
 					Div(
 						Class("actions"),

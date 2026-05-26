@@ -25,7 +25,7 @@ func Theming() Node {
 				Text("Saturation"),
 				Input(
 					Attr("type", "range"),
-					Attr("value", "70%"),
+					Attr("value", "70"),
 					Attr("min", "0"),
 					Attr("max", "100"),
 					Attr("id", "saturation-range"),

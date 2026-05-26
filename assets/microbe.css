@@ -402,14 +402,27 @@
       transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
     }
 
-    &::-webkit-slider-thumb:hover {
+    &:is(:disabled) {
+
+      &::-moz-range-thumb {
+        cursor: default;
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
+
+      &::-webkit-slider-thumb {
+        cursor: default;
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+      }
+    }
+
+    &:not(:disabled)::-webkit-slider-thumb:hover {
       height: calc(var(--thumb-size) * 1.2);
       width: calc(var(--thumb-size) * 1.2);
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
       transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
     }
 
-    &::-webkit-slider-thumb:active {
+    &:not(:disabled)::-webkit-slider-thumb:active {
       height: calc(var(--thumb-size) * 1.2);
       width: calc(var(--thumb-size) * 1.2);
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
@@ -433,14 +446,14 @@
       transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
     }
 
-    &::-moz-range-thumb:hover {
+    &:not(:disabled)::-moz-range-thumb:hover {
       height: calc(var(--thumb-size) * 1.2);
       width: calc(var(--thumb-size) * 1.2);
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
       transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
     }
 
-    &::-moz-range-thumb:active {
+    &:not(:disabled)::-moz-range-thumb:active {
       height: calc(var(--thumb-size) * 1.2);
       width: calc(var(--thumb-size) * 1.2);
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
