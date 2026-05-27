@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Checkboxes() Node {
+func RadioView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Checkboxes")),
+			H1(Text("Radio")),
 		),
 		Div(
 			Attr("role", "document"),
@@ -18,52 +18,42 @@ func Checkboxes() Node {
 					Legend(Text("Language preferences:")),
 					Label(
 						Input(
-							Type("checkbox"),
-							Name("english"),
+							Type("radio"),
+							Name("language"),
 							Checked(),
-							Disabled(),
 							Aria("describedby", "default-language-hint"),
 						),
 						Text("English"),
 					),
 					Small(
 						ID("default-language-hint"),
-						Text("You can't disable the default language"),
+						Text("Supports all features"),
 					),
 					Label(
 						Input(
-							Type("checkbox"),
-							Name("french"),
-							Checked(),
+							Type("radio"),
+							Name("language"),
 						),
 						Text("French"),
 					),
 					Label(
 						Input(
-							Type("checkbox"),
-							Name("mandarin"),
+							Type("radio"),
+							Name("language"),
 						),
 						Text("Mandarin"),
 					),
 					Label(
 						Input(
-							Type("checkbox"),
-							Name("thai"),
+							Type("radio"),
+							Name("language"),
 						),
 						Text("Thai"),
 					),
 					Label(
 						Input(
-							ID("indeterminate-checkbox"),
-							Type("checkbox"),
-							Name("quenya"),
-						),
-						Text("Quenya"),
-					),
-					Label(
-						Input(
-							Type("checkbox"),
-							Name("dothraki"),
+							Type("radio"),
+							Name("language"),
 							Disabled(),
 						),
 						Text("Dothraki"),
@@ -71,27 +61,11 @@ func Checkboxes() Node {
 				),
 			),
 			example(
-				"Hint",
-				Label(
-					Input(
-						Type("checkbox"),
-						Name("newsletter"),
-						Aria("describedby", "newsletter-hint"),
-						Checked(),
-					),
-					Text("Newsletter"),
-				),
-				Small(
-					ID("newsletter-hint"),
-					Text("We will send you a news letter every week"),
-				),
-			),
-			example(
 				"Validation",
 				Label(
 					Input(
-						Type("checkbox"),
-						Name("valid"),
+						Type("radio"),
+						Name("validation"),
 						Aria("invalid", "false"),
 						Aria("describedby", "valid-hint"),
 					),
@@ -100,15 +74,15 @@ func Checkboxes() Node {
 				Small(ID("valid-hint"), Text("Looks good!")),
 				Label(
 					Input(
-						Type("checkbox"),
-						Name("invalid"),
+						Type("radio"),
+						Name("validation"),
 						Aria("invalid", "true"),
 						Aria("describedby", "invalid-hint"),
 						Checked(),
 					),
 					Text("Invalid"),
 				),
-				Small(ID("invalid-hint"), Text("Please provide a valid value!")),
+				Small(ID("invalid-hint"), Text("This cobination is not allowed!")),
 			),
 		),
 	})

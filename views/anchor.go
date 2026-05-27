@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Anchors() Node {
+func AnchorView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Anchors")),
+			H1(Text("Anchor")),
 		),
 		Div(
 			Attr("role", "document"),

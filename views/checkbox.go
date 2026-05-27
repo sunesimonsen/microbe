@@ -5,42 +5,69 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Switches() Node {
+func CheckboxView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Checkboxes")),
+			H1(Text("Checkbox")),
 		),
 		Div(
 			Attr("role", "document"),
 			example(
 				"Example",
-				Label(
-					Input(Type("checkbox"), Name("terms"), Role("switch")),
-					Text("I agree to the Terms"),
-				),
-				Label(
-					Input(Type("checkbox"), Name("opt-in"), Role("switch"), Checked()),
-					Text("Receive news and offers"),
-				),
-			),
-			example(
-				"Disabled",
-				Label(
-					Input(
-						Type("checkbox"),
-						Role("switch"),
-						Disabled(),
-						Checked(),
+				FieldSet(
+					Legend(Text("Language preferences:")),
+					Label(
+						Input(
+							Type("checkbox"),
+							Name("english"),
+							Checked(),
+							Disabled(),
+							Aria("describedby", "default-language-hint"),
+						),
+						Text("English"),
 					),
-					Text("Disabled"),
-				),
-				Label(
-					Input(
-						Type("checkbox"),
-						Role("switch"),
-						Disabled(),
+					Small(
+						ID("default-language-hint"),
+						Text("You can't disable the default language"),
 					),
-					Text("Disabled"),
+					Label(
+						Input(
+							Type("checkbox"),
+							Name("french"),
+							Checked(),
+						),
+						Text("French"),
+					),
+					Label(
+						Input(
+							Type("checkbox"),
+							Name("mandarin"),
+						),
+						Text("Mandarin"),
+					),
+					Label(
+						Input(
+							Type("checkbox"),
+							Name("thai"),
+						),
+						Text("Thai"),
+					),
+					Label(
+						Input(
+							ID("indeterminate-checkbox"),
+							Type("checkbox"),
+							Name("quenya"),
+						),
+						Text("Quenya"),
+					),
+					Label(
+						Input(
+							Type("checkbox"),
+							Name("dothraki"),
+							Disabled(),
+						),
+						Text("Dothraki"),
+					),
 				),
 			),
 			example(
@@ -49,7 +76,6 @@ func Switches() Node {
 					Input(
 						Type("checkbox"),
 						Name("newsletter"),
-						Role("switch"),
 						Aria("describedby", "newsletter-hint"),
 						Checked(),
 					),
@@ -65,7 +91,6 @@ func Switches() Node {
 				Label(
 					Input(
 						Type("checkbox"),
-						Role("switch"),
 						Name("valid"),
 						Aria("invalid", "false"),
 						Aria("describedby", "valid-hint"),
@@ -76,7 +101,6 @@ func Switches() Node {
 				Label(
 					Input(
 						Type("checkbox"),
-						Role("switch"),
 						Name("invalid"),
 						Aria("invalid", "true"),
 						Aria("describedby", "invalid-hint"),

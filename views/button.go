@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Buttons() Node {
+func ButtonView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Buttons")),
+			H1(Text("Button")),
 		),
 		Div(
 			Attr("role", "document"),

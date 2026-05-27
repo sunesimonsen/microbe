@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Selects() Node {
+func SelectView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Selects")),
+			H1(Text("Select")),
 		),
 		Div(
 			Attr("role", "document"),

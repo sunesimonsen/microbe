@@ -5,7 +5,7 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Index() Node {
+func IndexView() Node {
 	return Group([]Node{
 		HGroup(
 			H1(Text("Microbe")),

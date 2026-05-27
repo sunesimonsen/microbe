@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Ranges() Node {
+func RangeView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Ranges")),
+			H1(Text("Range")),
 		),
 		Div(
 			Attr("role", "document"),

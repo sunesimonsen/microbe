@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Inputs() Node {
+func InputView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Inputs")),
+			H1(Text("Input")),
 		),
 		Div(
 			Attr("role", "document"),
