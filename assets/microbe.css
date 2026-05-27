@@ -173,20 +173,27 @@
   a {
     color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     transition: color 0.25s ease-in-out, outline-color 0.1s ease-in-out;
-  }
+    outline: none;
+    text-decoration: none;
 
-  a:hover,
-  a:active {
-    color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
-  }
+    &:focus-visible {
+      text-decoration: underline;
+    }
 
-  a[aria-current="page"] {
-    color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
-  }
+    &:hover,
+    &:active {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      text-decoration: underline;
+    }
 
-  a[aria-current="page"]:hover,
-  a[aria-current="page"]:active {
-    color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
+    &[aria-current="page"] {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+    }
+
+    &[aria-current="page"]:hover,
+    &[aria-current="page"]:active {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
+    }
   }
 }
 
