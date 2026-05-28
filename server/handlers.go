@@ -63,6 +63,10 @@ func (s *Server) rangeHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(views.RangeView()))
 }
 
+func (s *Server) progressHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(views.ProgressView()))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")

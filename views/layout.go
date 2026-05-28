@@ -31,6 +31,7 @@ func menu() Node {
 				Li(A(Href("/radio"), Text("Radio"))),
 				Li(A(Href("/select"), Text("Select"))),
 				Li(A(Href("/range"), Text("Range"))),
+				Li(A(Href("/progress"), Text("Progress"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),
 				Li(A(Href("/card"), Text("Card"))),
 				Li(A(Href("/colors"), Text("Colors"))),

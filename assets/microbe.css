@@ -478,6 +478,52 @@
     }
   }
 
+  @keyframes progress-indeterminate {
+    0% {
+      background-position-x: 200%;
+    }
+
+    100% {
+      background-position-x: -200%;
+    }
+  }
+
+  progress {
+    appearance: none;
+    width: 100%;
+    display: block;
+    border: 0;
+    height: var(--scale-4);
+    margin-block-start: var(--scale-2);
+    border-radius: var(--scale-4);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    --progress-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+    --progress-background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+
+    background-color: var(--progress-background-color);
+
+    &:indeterminate {
+      background: var(--progress-background-color) linear-gradient(to right, var(--progress-color) 30%, var(--progress-background-color) 30%) top left/150% 150% no-repeat;
+      animation: progress-indeterminate 2s linear infinite;
+    }
+
+    &::-webkit-progress-bar {
+      background: none;
+    }
+
+    &:indeterminate::-moz-progress-bar {
+      background: none;
+    }
+
+    &::-webkit-progress-value {
+      background-color: var(--progress-color);
+      transition: inline-size 0.2s ease-in-out;
+    }
+  }
+
   label:has(> input[type=checkbox]),
   label:has(> input[type=radio]) {
     display: flex;

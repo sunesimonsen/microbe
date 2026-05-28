@@ -23,6 +23,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/radio", s.radioHandler)
 	s.router.Get("/select", s.selectHandler)
 	s.router.Get("/range", s.rangeHandler)
+	s.router.Get("/progress", s.progressHandler)
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }
