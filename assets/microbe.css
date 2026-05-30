@@ -1,5 +1,29 @@
 @layer reset, settings, typography, components, layout, overrides;
 
+@keyframes slide-up-and-in-animation {
+  0% {
+    transform: translateY(1rem);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-down-and-in-animation {
+  0% {
+    transform: translateY(-1rem);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 @view-transition {
   navigation: auto;
 }
@@ -863,6 +887,121 @@
       border-radius: 0 0 var(--scale-3) var(--scale-3);
     }
   }
+
+  @keyframes backdrop-fade-animation {
+    from {
+      background: transparent;
+    }
+
+    to {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
+    }
+  }
+
+  dialog {
+    border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    border-radius: var(--scale-3);
+    box-shadow: 0px var(--scale-4) var(--scale-6) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.3);
+    padding: 0;
+    width: var(--scale-13);
+    --close-button-size: calc(var(--scale-6) + var(--scale-3));
+    overflow: hidden;
+
+    &[open] {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    &.small {
+      width: var(--scale-12);
+    }
+
+    animation: slide-down-and-in-animation 100ms ease-out;
+
+    &>header {
+      position: relative;
+
+      border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      line-height: var(--close-button-size);
+    }
+
+    &>section {
+      overflow: auto;
+    }
+
+    &>header>button[command=close],
+    &>header>button[rel=prev] {
+      position: absolute;
+      inset-block-start: var(--scale-5);
+      inset-inline-end: var(--scale-5);
+      border: none;
+      border-radius: 50%;
+      display: block;
+      height: var(--close-button-size);
+      width: var(--close-button-size);
+      background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: block;
+        inset-inline-start: calc(var(--close-button-size)/2 - 16px/2);
+        inset-block-start: calc(var(--close-button-size)/2 - 16px/2);
+        height: 16px;
+        width: 16px;
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+      }
+
+      &:hover {
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 10%);
+
+        &::after {
+          background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        }
+      }
+
+      &:active {
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+
+        &::after {
+          background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        }
+      }
+    }
+
+    &>header,
+    &>footer,
+    &>section {
+      padding: var(--scale-5) var(--scale-6);
+    }
+
+    &>footer.actions {
+      display: flex;
+
+      &.actions {
+        gap: var(--scale-4);
+        justify-content: end;
+      }
+    }
+
+    &::backdrop {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
+      animation: backdrop-fade-animation 100ms ease-in-out;
+    }
+  }
+
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
 }
 
 @layer layout {
@@ -1007,18 +1146,6 @@
       }
     }
 
-    @keyframes menu-appear-animation {
-      0% {
-        transform: translateY(1rem);
-        opacity: 0.5;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
     body.show-menu {
       .standard-layout>aside.menu {
         display: block;
@@ -1031,7 +1158,7 @@
         border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-2));
         border-block-end: none;
 
-        animation: menu-appear-animation 80ms ease-out;
+        animation: slide-up-and-in-animation 80ms ease-out;
       }
 
       & header>nav {

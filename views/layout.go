@@ -34,6 +34,7 @@ func menu() Node {
 				Li(A(Href("/progress"), Text("Progress"))),
 				Li(A(Href("/spacing"), Text("Spacing"))),
 				Li(A(Href("/card"), Text("Card"))),
+				Li(A(Href("/dialog"), Text("Dialog"))),
 				Li(A(Href("/colors"), Text("Colors"))),
 				Li(A(Href("/theming"), Text("Theming"))),
 			),
