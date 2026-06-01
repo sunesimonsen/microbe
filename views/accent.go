@@ -5,10 +5,10 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func Theming() Node {
+func AccentColorView() Node {
 	return Group([]Node{
 		HGroup(
-			H1(Text("Theming")),
+			H1(Text("Accent color")),
 		),
 		Div(
 			Attr("role", "document"),

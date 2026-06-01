@@ -16,7 +16,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/colors", s.colorsHandler)
 	s.router.Get("/typography", s.typographyHandler)
 	s.router.Get("/spacing", s.spacingHandler)
-	s.router.Get("/theming", s.themingHandler)
+	s.router.Get("/accent-color", s.accentColorHandler)
 	s.router.Get("/input", s.inputHandler)
 	s.router.Get("/checkbox", s.checkboxHandler)
 	s.router.Get("/switch", s.switchHandler)
@@ -25,6 +25,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/range", s.rangeHandler)
 	s.router.Get("/progress", s.progressHandler)
 	s.router.Get("/dialog", s.dialogHandler)
+	s.router.Get("/navlist", s.navlistHandler)
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }

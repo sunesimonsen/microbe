@@ -12,63 +12,67 @@ func (s *Server) indexHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func (s *Server) buttonHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.ButtonView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.ButtonView()))
 }
 
 func (s *Server) typographyHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.Typography()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.Typography()))
 }
 
 func (s *Server) colorsHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.Colors()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.Colors()))
 }
 
 func (s *Server) spacingHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.Spacing()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.Spacing()))
 }
 
 func (s *Server) anchorHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.AnchorView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.AnchorView()))
 }
 
 func (s *Server) cardHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.CardView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.CardView()))
 }
 
-func (s *Server) themingHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.Theming()))
+func (s *Server) accentColorHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.AccentColorView()))
 }
 
 func (s *Server) inputHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.InputView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.InputView()))
 }
 
 func (s *Server) checkboxHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.CheckboxView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.CheckboxView()))
 }
 
 func (s *Server) switchHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.SwitchView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.SwitchView()))
 }
 
 func (s *Server) radioHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.RadioView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.RadioView()))
 }
 
 func (s *Server) selectHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.SelectView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.SelectView()))
 }
 
 func (s *Server) rangeHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.RangeView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.RangeView()))
 }
 
 func (s *Server) progressHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.ProgressView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.ProgressView()))
 }
 
 func (s *Server) dialogHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.DocsLayout(views.DialogView()))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.DialogView()))
+}
+
+func (s *Server) navlistHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.NavListView()))
 }
 
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {

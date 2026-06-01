@@ -1,6 +1,8 @@
 package views
 
 import (
+	"slices"
+
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -17,27 +19,67 @@ func header() Node {
 	)
 }
 
-func menu() Node {
+type pageRef struct {
+	href  string
+	label string
+}
+
+func navListSection(label string, currentPath string, pageRefs ...pageRef) Node {
+	hasActivePage := slices.ContainsFunc(pageRefs, func(pr pageRef) bool {
+		return pr.href == currentPath
+	})
+
+	return Details(
+		If(hasActivePage, Open()),
+		Summary(Text(label)),
+		Ul(
+			Map(pageRefs, func(pr pageRef) Node {
+				return Li(A(
+					If(pr.href == currentPath, Aria("current", "page")),
+					Href(pr.href),
+					Text(pr.label),
+				))
+			}),
+		),
+	)
+}
+
+func menu(currentPath string) Node {
 	return Aside(
 		Class("menu"),
+
 		Nav(
-			Ul(
-				Li(A(Href("/typography"), Text("Typography"))),
-				Li(A(Href("/button"), Text("Button"))),
-				Li(A(Href("/anchor"), Text("Anchor"))),
-				Li(A(Href("/input"), Text("Input"))),
-				Li(A(Href("/checkbox"), Text("Checkbox"))),
-				Li(A(Href("/switch"), Text("Switch"))),
-				Li(A(Href("/radio"), Text("Radio"))),
-				Li(A(Href("/select"), Text("Select"))),
-				Li(A(Href("/range"), Text("Range"))),
-				Li(A(Href("/progress"), Text("Progress"))),
-				Li(A(Href("/spacing"), Text("Spacing"))),
-				Li(A(Href("/card"), Text("Card"))),
-				Li(A(Href("/dialog"), Text("Dialog"))),
-				Li(A(Href("/colors"), Text("Colors"))),
-				Li(A(Href("/theming"), Text("Theming"))),
-			),
+			Class("navlist"),
+			navListSection("Content", currentPath, []pageRef{
+				{href: "/typography", label: "Typography"},
+			}...),
+			navListSection("Navigation", currentPath, []pageRef{
+				{href: "/anchor", label: "Anchor"},
+				{href: "/navlist", label: "Navlist"},
+			}...),
+			navListSection("Layout", currentPath, []pageRef{
+				{href: "/spacing", label: "Spacing"},
+			}...),
+			navListSection("Forms", currentPath, []pageRef{
+				{href: "/button", label: "Button"},
+				{href: "/checkbox", label: "Checkbox"},
+				{href: "/input", label: "Input"},
+				{href: "/radio", label: "Radio"},
+				{href: "/range", label: "Range"},
+				{href: "/select", label: "Select"},
+				{href: "/switch", label: "Switch"},
+			}...),
+			navListSection("Loaders", currentPath, []pageRef{
+				{href: "/progress", label: "Progress"},
+			}...),
+			navListSection("Components", currentPath, []pageRef{
+				{href: "/card", label: "Card"},
+				{href: "/dialog", label: "Dialog"},
+			}...),
+			navListSection("Theming", currentPath, []pageRef{
+				{href: "/accent-color", label: "Accent color"},
+				{href: "/colors", label: "Colors"},
+			}...),
 		),
 	)
 }
@@ -62,12 +104,12 @@ func IndexLayout(part Node) Node {
 	)
 }
 
-func DocsLayout(part Node) Node {
+func DocsLayout(currentPath string, part Node) Node {
 	return Page("Microbe",
 		Main(
 			Class("standard-layout"),
 			header(),
-			menu(),
+			menu(currentPath),
 			part,
 		),
 	)
