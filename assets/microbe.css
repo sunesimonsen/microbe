@@ -859,7 +859,8 @@
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
     border-radius: var(--scale-3);
-    box-shadow: 0px var(--scale-2) var(--scale-3) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.3);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1);
 
     &:first-child {
       margin-block-start: 0;
@@ -905,7 +906,8 @@
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
     border-radius: var(--scale-3);
-    box-shadow: 0px var(--scale-4) var(--scale-6) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.3);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-8) / 0.4),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-8) / 0.4);
     padding: 0;
     width: var(--scale-13);
     --close-button-size: calc(var(--scale-6) + var(--scale-3));
