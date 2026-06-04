@@ -29,14 +29,15 @@
 }
 
 @layer reset {
+  html {
+    scrollbar-gutter: stable;
+    scroll-behavior: smooth;
+  }
 
   html,
   body {
-    height: 100%;
-    width: 100%;
     margin: 0;
     padding: 0;
-    scrollbar-gutter: stable;
   }
 
   small {
@@ -56,7 +57,7 @@
 
 @layer settings {
 
-  body {
+  :root {
     --phi: 1.6185;
     --base: 1rem;
     --scale-0: calc(var(--base) * pow(var(--phi), -5));
@@ -1047,6 +1048,7 @@
 @layer layout {
   .standard-layout {
     --layout-header-height: var(--scale-8);
+
     display: grid;
     grid-template-rows: auto auto 1fr;
     grid-template-columns: 1fr var(--scale-11) var(--scale-13) var(--scale-11) 1fr;
@@ -1120,6 +1122,10 @@
     }
 
     &>[role=document] {
+      &>[id] {
+        scroll-margin-block-start: calc(var(--scale-5) + var(--layout-header-height));
+      }
+
       grid-area: body;
       margin-block-end: var(--scale-7);
     }
@@ -1185,12 +1191,13 @@
             hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1)),
             hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0)) 50%);
         overflow-y: auto;
+      }
 
-        &>nav {
-          overflow: visible;
-          position: static;
-          max-height: max-content;
-        }
+      &>aside.menu>nav,
+      &>aside.toc>nav {
+        overflow: visible;
+        position: static;
+        max-height: max-content;
       }
 
       & .menu-toggle {

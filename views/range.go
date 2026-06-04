@@ -6,40 +6,35 @@ import (
 )
 
 func RangeView() Node {
-	return Group([]Node{
-		HGroup(
-			H1(Text("Range")),
-		),
-		Div(
-			Role("document"),
-			example(
-				"Example",
-				Label(
-					Text("Saturation"),
-					Input(
-						Attr("type", "range"),
-						Attr("value", "70"),
-						Attr("min", "0"),
-						Attr("max", "100"),
-						Aria("describedby", "saturation-hint"),
-					)),
-				Small(
-					ID("saturation-hint"),
-					Text("Accent color Saturation"),
-				),
-			),
-			example(
-				"Disabled",
-				Label(
-					Text("Saturation"),
-					Input(
-						Attr("type", "range"),
-						Attr("value", "70"),
-						Attr("min", "0"),
-						Attr("max", "100"),
-						Disabled(),
-					)),
+	return docpage(
+		HGroup(H1(Text("Range"))),
+		example(
+			"Example",
+			Label(
+				Text("Saturation"),
+				Input(
+					Attr("type", "range"),
+					Attr("value", "70"),
+					Attr("min", "0"),
+					Attr("max", "100"),
+					Aria("describedby", "saturation-hint"),
+				)),
+			Small(
+				ID("saturation-hint"),
+				Text("Accent color Saturation"),
 			),
 		),
-	})
+		example(
+			"Disabled",
+			Label(
+				Text("Saturation"),
+				Input(
+					Attr("type", "range"),
+					Attr("value", "70"),
+					Attr("min", "0"),
+					Attr("max", "100"),
+					Disabled(),
+				)),
+		),
+	)
 }

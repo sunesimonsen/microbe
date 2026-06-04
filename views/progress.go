@@ -6,26 +6,21 @@ import (
 )
 
 func ProgressView() Node {
-	return Group([]Node{
-		HGroup(
-			H1(Text("Progress")),
-		),
-		Div(
-			Role("document"),
-			example(
-				"Example",
-				Label(
-					Text("Downloading file"),
-					Progress(Attr("value", "70"), Attr("max", "100")),
-				),
-			),
-			example(
-				"Indeterminate",
-				Label(
-					Text("Downloading file"),
-					Progress(),
-				),
+	return docpage(
+		HGroup(H1(Text("Progress"))),
+		example(
+			"Example",
+			Label(
+				Text("Downloading file"),
+				Progress(Attr("value", "70"), Attr("max", "100")),
 			),
 		),
-	})
+		example(
+			"Indeterminate",
+			Label(
+				Text("Downloading file"),
+				Progress(),
+			),
+		),
+	)
 }

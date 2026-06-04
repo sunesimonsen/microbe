@@ -3,6 +3,7 @@ package views
 import (
 	"fmt"
 
+	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -49,7 +50,7 @@ func colorSample(c color, lightness int) Node {
 	)
 }
 
-func colorTable(palettes []color) Node {
+func colorTable(name string, palettes []color) pageSection {
 	headerCells := []Node{Div(Class("color-grid-header"))}
 	for _, lightness := range lightnessSteps {
 		headerCells = append(headerCells, Div(Class("color-grid-header"), Text(fmt.Sprintf("%d", lightness))))
@@ -65,22 +66,23 @@ func colorTable(palettes []color) Node {
 		rows = append(rows, Group(rowCells))
 	}
 
-	return Div(
-		Class("color-grid"),
-		Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
-		Group(rows),
-	)
+	return pageSection{
+		name: name,
+		content: Group([]Node{
+			H2(ID(strcase.ToKebab(name)), Text(name)),
+			Section(
+				Class("color-grid"),
+				Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
+				Group(rows),
+			),
+		}),
+	}
 }
 
 func Colors() Node {
-	return Group([]Node{
-		HGroup(
-			H1(Text("Colors")),
-		),
-		Div(
-			Role("document"),
-			colorTable(createStandardPalettes()),
-			colorTable(createCustomPalettes()),
-		),
-	})
+	return docpage(
+		HGroup(H1(Text("Colors"))),
+		colorTable("Color samples", createStandardPalettes()),
+		colorTable("Muted colors", createCustomPalettes()),
+	)
 }

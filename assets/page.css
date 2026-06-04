@@ -50,6 +50,7 @@
   grid-auto-rows: calc(var(--scale-13) / 12 - var(--scale-3));
   gap: var(--scale-3);
   width: 100%;
+  margin-block-end: var(--scale-7);
 }
 
 .color-grid+.color-grid {

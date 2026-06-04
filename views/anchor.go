@@ -6,20 +6,15 @@ import (
 )
 
 func AnchorView() Node {
-	return Group([]Node{
-		HGroup(
-			H1(Text("Anchor")),
+	return docpage(
+		HGroup(H1(Text("Anchor"))),
+		example(
+			"Regular",
+			A(Href("#"), Text("Regular link")),
 		),
-		Div(
-			Role("document"),
-			example(
-				"Regular",
-				A(Href("#"), Text("Regular link")),
-			),
-			example(
-				"Active link",
-				A(Href("#"), Attr("aria-current", "page"), Text("Active link")),
-			),
+		example(
+			"Active link",
+			A(Href("#"), Attr("aria-current", "page"), Text("Active link")),
 		),
-	})
+	)
 }

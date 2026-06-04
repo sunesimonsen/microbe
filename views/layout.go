@@ -3,6 +3,7 @@ package views
 import (
 	"slices"
 
+	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -84,14 +85,53 @@ func menu(currentPath string) Node {
 	)
 }
 
-func example(description string, part ...Node) Node {
-	return Article(
-		Class("example card"),
-		Header(Text(description)),
-		Section(
-			part...,
+type pageSection struct {
+	name    string
+	content Node
+}
+
+func (s pageSection) fragment() string {
+	return strcase.ToKebab(s.name)
+}
+
+func docpage(header Node, sections ...pageSection) Node {
+	content := []Node{
+		Role("document"),
+		Map(sections, func(s pageSection) Node {
+			return s.content
+		}),
+	}
+
+	return Group([]Node{
+		HGroup(header),
+		Div(Group(content)),
+		Aside(
+			Class("toc"),
+			Nav(
+				Class("navlist"),
+				Details(
+					Open(),
+					Summary(Text("Content")),
+					Ul(
+						Map(sections, func(section pageSection) Node {
+							return Li(A(Href("#"+section.fragment()), Text(section.name)))
+						})),
+				),
+			),
 		),
-	)
+	})
+}
+
+func example(name string, part ...Node) pageSection {
+	return pageSection{
+		name: name,
+		content: Article(
+			ID(strcase.ToKebab(name)),
+			Class("example card"),
+			Header(Text(name)),
+			Section(part...),
+		),
+	}
 }
 
 func IndexLayout(part Node) Node {

@@ -8,24 +8,21 @@ import (
 )
 
 func Spacing() Node {
-	rows := []Node{}
+	sections := []pageSection{}
 	for level := range 12 {
-		rows = append(rows,
+		sections = append(sections,
 			example(
 				fmt.Sprintf("--scale-%d", level),
-				Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
+				Section(
+					Class("spacing"),
+					Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
+				),
 			),
 		)
 	}
 
-	return Group([]Node{
-		HGroup(
-			H1(Text("Spacing")),
-		),
-		Section(
-			Role("document"),
-			Class("spacing"),
-			Group(rows),
-		),
-	})
+	return docpage(
+		HGroup(H1(Text("Spacing"))),
+		sections...,
+	)
 }
