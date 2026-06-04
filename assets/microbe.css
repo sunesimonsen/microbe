@@ -36,9 +36,6 @@
     width: 100%;
     margin: 0;
     padding: 0;
-  }
-
-  body {
     scrollbar-gutter: stable;
   }
 
@@ -1223,6 +1220,10 @@
 
     body.show-menu {
       overflow: hidden;
+    }
+
+    html,
+    body {
       scrollbar-gutter: initial;
     }
   }
