@@ -1011,6 +1011,7 @@
   nav.navlist {
     &>details {
       margin-block-end: var(--scale-4);
+      user-select: none;
 
       &>summary {
         list-style-type: none;
@@ -1053,8 +1054,8 @@
     grid-template-rows: auto auto 1fr;
     grid-template-columns: 1fr var(--scale-11) var(--scale-13) var(--scale-11) 1fr;
     grid-template-areas: "navbar navbar navbar navbar navbar"
-      "start menu header table-of-content end"
-      "start menu body table-of-content end";
+      "start menu header toc end"
+      "start menu body toc end";
     gap: var(--scale-7) var(--scale-8);
     min-height: 100%;
 
@@ -1100,12 +1101,12 @@
       grid-area: menu;
     }
 
-    &>aside.table-of-content {
-      grid-area: table-of-content;
+    &>aside.toc {
+      grid-area: toc;
     }
 
     &>aside.menu,
-    &>aside.table-of-content {
+    &>aside.toc {
       padding: 0;
 
       &>nav {
@@ -1158,7 +1159,7 @@
       grid-template-columns: 1fr var(--scale-11) var(--scale-13) 3fr;
       grid-template-areas: "navbar navbar navbar navbar"
         "start menu header end"
-        "start menu table-of-content end"
+        "start menu toc end"
         "start menu body end";
 
       gap: var(--scale-7) var(--scale-6);
@@ -1175,7 +1176,7 @@
       grid-template-columns: var(--scale-6) 1fr var(--scale-6);
       grid-template-areas: "navbar navbar navbar"
         "start header end"
-        "start table-of-content end"
+        "start toc end"
         "start body end";
 
       gap: var(--scale-7) var(--scale-6);
