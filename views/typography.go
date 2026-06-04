@@ -12,7 +12,7 @@ func Typography() Node {
 			P(Text("Fill in some info here")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Headings",
 				H1(Text("Heading 1")),

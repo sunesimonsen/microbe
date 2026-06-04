@@ -11,7 +11,7 @@ func SwitchView() Node {
 			H1(Text("Switch")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Label(

@@ -11,7 +11,7 @@ func CheckboxView() Node {
 			H1(Text("Checkbox")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				FieldSet(

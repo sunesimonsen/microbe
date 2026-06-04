@@ -13,7 +13,7 @@ func DialogView() Node {
 			H1(Text("Dialog")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Class("grid"),

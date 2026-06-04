@@ -13,7 +13,7 @@ func CardView() Node {
 			H1(Text("Card")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			Article(
 				Class("card"),
 				Section(

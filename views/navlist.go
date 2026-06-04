@@ -11,7 +11,7 @@ func NavListView() Node {
 			H1(Text("Navlist")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Nav(

@@ -78,7 +78,7 @@ func Colors() Node {
 			H1(Text("Colors")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			colorTable(createStandardPalettes()),
 			colorTable(createCustomPalettes()),
 		),

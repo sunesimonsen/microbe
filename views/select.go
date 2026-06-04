@@ -11,7 +11,7 @@ func SelectView() Node {
 			H1(Text("Select")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Label(

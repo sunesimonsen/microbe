@@ -23,7 +23,7 @@ func Spacing() Node {
 			H1(Text("Spacing")),
 		),
 		Section(
-			Attr("role", "document"),
+			Role("document"),
 			Class("spacing"),
 			Group(rows),
 		),

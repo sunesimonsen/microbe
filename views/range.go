@@ -11,7 +11,7 @@ func RangeView() Node {
 			H1(Text("Range")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Label(

@@ -11,7 +11,7 @@ func ProgressView() Node {
 			H1(Text("Progress")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Label(

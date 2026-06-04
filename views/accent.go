@@ -11,7 +11,7 @@ func AccentColorView() Node {
 			H1(Text("Accent color")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			Label(
 				Text("Hue"),
 				Input(

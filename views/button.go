@@ -11,7 +11,7 @@ func ButtonView() Node {
 			H1(Text("Button")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Styles",
 				Class("grid"),

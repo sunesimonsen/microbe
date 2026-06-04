@@ -11,7 +11,7 @@ func AnchorView() Node {
 			H1(Text("Anchor")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Regular",
 				A(Href("#"), Text("Regular link")),

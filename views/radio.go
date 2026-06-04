@@ -11,7 +11,7 @@ func RadioView() Node {
 			H1(Text("Radio")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				FieldSet(

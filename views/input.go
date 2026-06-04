@@ -11,7 +11,7 @@ func InputView() Node {
 			H1(Text("Input")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			example(
 				"Example",
 				Form(
@@ -124,6 +124,19 @@ func InputView() Node {
 				Div(
 					Input(Type("text"), Name("invalid"), Aria("label", "Invalid"), Aria("invalid", "true"), Aria("describedby", "invalid-hint"), Value("Invalid")),
 					Small(ID("invalid-hint"), Text("Please provide a valid value!")),
+				),
+			),
+		),
+		Aside(
+			Class("toc"),
+			Nav(
+				Class("navlist"),
+				Details(
+					Open(),
+					Summary(Text("Content")),
+					Ul(
+						Li(A(Href("/input#example"), Text("Example"))),
+					),
 				),
 			),
 		),

@@ -11,7 +11,7 @@ func IndexView() Node {
 			H1(Text("Microbe")),
 		),
 		Div(
-			Attr("role", "document"),
+			Role("document"),
 			H2(Text("Hello")),
 		),
 	})
