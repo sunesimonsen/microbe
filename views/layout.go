@@ -74,6 +74,7 @@ func menu(currentPath string) Node {
 				{href: "/progress", label: "Progress"},
 			}...),
 			navListSection("Components", currentPath, []pageRef{
+				{href: "/accordion", label: "Accordion"},
 				{href: "/card", label: "Card"},
 				{href: "/dialog", label: "Dialog"},
 			}...),
