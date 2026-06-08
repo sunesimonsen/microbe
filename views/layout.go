@@ -32,6 +32,7 @@ func navListSection(label string, currentPath string, pageRefs ...pageRef) Node 
 
 	return Details(
 		If(hasActivePage, Open()),
+		Name("index"),
 		Summary(Text(label)),
 		Ul(
 			Map(pageRefs, func(pr pageRef) Node {
@@ -113,6 +114,7 @@ func docpage(header Node, sections ...pageSection) Node {
 				Details(
 					Open(),
 					Summary(Text("Content")),
+					Name("toc"),
 					Ul(
 						Map(sections, func(section pageSection) Node {
 							return Li(A(Href("#"+section.fragment()), Text(section.name)))

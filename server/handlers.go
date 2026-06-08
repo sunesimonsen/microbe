@@ -75,6 +75,10 @@ func (s *Server) navlistHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(r.URL.Path, views.NavListView()))
 }
 
+func (s *Server) accordionHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.AccordionView()))
+}
+
 func renderNode(w http.ResponseWriter, r *http.Request, node Node) {
 	if node == nil {
 		panic("renderNode without a node")

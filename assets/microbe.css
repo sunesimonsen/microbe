@@ -890,6 +890,62 @@
     }
   }
 
+  .accordion {
+    margin-block: var(--scale-5);
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+
+    &>details {
+      padding-block: var(--scale-5);
+      position: relative;
+
+      &>summary {
+        list-style-type: none;
+        padding: var(--scale-3) var(--scale-4);
+        margin: calc(-1 * var(--scale-3)) calc(-1 * var(--scale-4));
+        outline: var(--focus-outline-width) solid transparent;
+        border-radius: var(--scale-2);
+        user-select: none;
+        cursor: pointer;
+
+        &:focus-visible {
+          color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+          transition: color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+          outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+        }
+      }
+
+      &>summary::after {
+        content: "";
+        background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-8));
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: block;
+        inset-inline-end: 0;
+        inset-block-start: calc(var(--line-height) * 1em / 2 - 16px / 2 + var(--scale-5));
+        height: 16px;
+        width: 16px;
+        transition: transform 0.2s ease-in-out;
+      }
+
+      &[open]>summary::after {
+        transform: rotate(90deg);
+      }
+    }
+
+    &>details+details {
+      border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    }
+  }
+
   @keyframes backdrop-fade-animation {
     from {
       background: transparent;
