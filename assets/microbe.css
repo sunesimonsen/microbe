@@ -859,6 +859,7 @@
     border-radius: var(--scale-3);
     box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1),
       calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1);
+    overflow: hidden;
 
     &:first-child {
       margin-block-start: 0;
@@ -868,25 +869,31 @@
       margin-block-end: 0;
     }
 
-    &>header:first-child,
-    &>footer:last-child {
+    &>header,
+    &>footer {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
     }
 
-    &>header:first-child {
+    &>header {
       border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
-      border-radius: var(--scale-3) var(--scale-3) 0 0;
+
+      &:not(:last-child) {
+        border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
     }
 
-    &>header:first-child,
-    &>footer:last-child,
+    &>header,
+    &>footer,
     &>section {
       padding: var(--scale-5) var(--scale-6);
     }
 
-    &>footer:last-child {
+    &>footer {
       border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
-      border-radius: 0 0 var(--scale-3) var(--scale-3);
+
+      &:not(:last-child) {
+        border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
     }
   }
 
