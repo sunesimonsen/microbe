@@ -1,9 +1,12 @@
 package views
 
 import (
+	"bytes"
+	"log"
 	"slices"
 
 	"github.com/iancoleman/strcase"
+	"github.com/yosssi/gohtml"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -105,6 +108,8 @@ func docpage(header Node, sections ...pageSection) Node {
 	}
 
 	return Group([]Node{
+		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark-dimmed.min.css")),
+		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
 		HGroup(header),
 		Div(Group(content)),
 		Aside(
@@ -126,14 +131,26 @@ func docpage(header Node, sections ...pageSection) Node {
 }
 
 func example(name string, part ...Node) pageSection {
+	buf := new(bytes.Buffer)
+	err := Group(part).Render(buf)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	source := gohtml.Format(buf.String())
+
 	return pageSection{
 		name: name,
-		content: Article(
-			ID(strcase.ToKebab(name)),
-			Class("example card"),
-			Header(Text(name)),
-			Section(part...),
-		),
+		content: Group([]Node{
+			Article(
+				ID(strcase.ToKebab(name)),
+				Class("example card"),
+				Header(Text(name)),
+				Section(part...),
+				Pre(Code(Class("language-html"), Text(source))),
+			),
+		}),
 	}
 }
 

@@ -13,10 +13,8 @@ func Spacing() Node {
 		sections = append(sections,
 			example(
 				fmt.Sprintf("--scale-%d", level),
-				Section(
-					Class("spacing"),
-					Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
-				),
+				Class("spacing"),
+				Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
 			),
 		)
 	}

@@ -29,5 +29,9 @@ if (window.self === window.top) {
     if (indeterminateCheckbox) {
       indeterminateCheckbox.indeterminate = true;
     }
+
+    if (typeof hljs !== "undefined") {
+      hljs.highlightAll();
+    }
   })
 }

@@ -137,6 +137,14 @@
   gap: var(--scale-5);
 }
 
+.example.card>pre {
+  margin-block-start: 0;
+
+  &>code {
+    padding: var(--scale-5) var(--scale-6);
+  }
+}
+
 @media (max-width: 600px) {
   .example.card .grid:not(.small) {
     grid-template-columns: 1fr;
