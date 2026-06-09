@@ -76,51 +76,38 @@ func InputView() Node {
 
 		example(
 			"Search input",
-			Class("rows"),
 			Input(Type("search"), Name("search"), Aria("label", "Search"), Placeholder("Search")),
 		),
 
 		example(
 			"File input",
-			Class("rows"),
 			Input(Type("file"), Class("solid"), Name("file"), Aria("label", "File"), Placeholder("File")),
 		),
 
 		example(
 			"Color input",
-			Class("rows"),
 			Input(Type("color"), Name("color"), Aria("label", "Color"), Placeholder("Color")),
 		),
 
 		example(
 			"Disabled input",
-			Class("rows"),
 			Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), Disabled()),
 		),
 		example(
 			"Read-only",
-			Class("rows"),
 			Input(Type("text"), Name("text"), Aria("label", "Text"), Placeholder("Text"), ReadOnly(), Value("Read-only value")),
 		),
 		example(
 			"Hint",
-			Class("rows"),
-			Div(
-				Input(Type("text"), Name("Hint"), Aria("label", "Hint"), Placeholder("Email")),
-				Small(Text("We’ll never share your email with anyone else.")),
-			),
+			Input(Type("text"), Name("Hint"), Aria("label", "Hint"), Placeholder("Email")),
+			Small(Text("We’ll never share your email with anyone else.")),
 		),
 		example(
 			"Validation",
-			Class("rows"),
-			Div(
-				Input(Type("text"), Name("valid"), Aria("label", "Valid"), Aria("invalid", "false"), Aria("describedby", "valid-hint"), Value("Valid")),
-				Small(ID("valid-hint"), Text("Looks good!")),
-			),
-			Div(
-				Input(Type("text"), Name("invalid"), Aria("label", "Invalid"), Aria("invalid", "true"), Aria("describedby", "invalid-hint"), Value("Invalid")),
-				Small(ID("invalid-hint"), Text("Please provide a valid value!")),
-			),
+			Input(Type("text"), Name("valid"), Aria("label", "Valid"), Aria("invalid", "false"), Aria("describedby", "valid-hint"), Value("Valid")),
+			Small(ID("valid-hint"), Text("Looks good!")),
+			Input(Type("text"), Name("invalid"), Aria("label", "Invalid"), Aria("invalid", "true"), Aria("describedby", "invalid-hint"), Value("Invalid")),
+			Small(ID("invalid-hint"), Text("Please provide a valid value!")),
 		),
 	)
 }

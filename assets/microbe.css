@@ -796,6 +796,7 @@
   }
 
   label+label,
+  small+input,
   small+label {
     display: block;
     margin-block-start: var(--scale-4);
