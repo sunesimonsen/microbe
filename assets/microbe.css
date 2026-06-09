@@ -1190,6 +1190,7 @@
         scroll-margin-block-start: calc(var(--scale-5) + var(--layout-header-height));
       }
 
+      overflow-x: hidden;
       grid-area: body;
       margin-block-end: var(--scale-7);
     }
@@ -1233,7 +1234,7 @@
     }
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 950px) {
     html {
       font-size: 14px;
     }
@@ -1267,6 +1268,10 @@
       & .menu-toggle {
         display: inline-block;
       }
+
+      &>[role=document] {
+        margin-block-end: 0;
+      }
     }
 
     body.show-menu {
@@ -1296,6 +1301,13 @@
     html,
     body {
       scrollbar-gutter: initial;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    .standard-layout {
+      grid-template-columns: 0 1fr 0;
     }
   }
 }
