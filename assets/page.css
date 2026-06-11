@@ -50,7 +50,7 @@
   grid-auto-rows: calc(var(--scale-13) / 12 - var(--scale-3));
   gap: var(--scale-3);
   width: 100%;
-  margin-block-end: var(--scale-7);
+  margin-block: var(--scale-4) var(--scale-7);
 }
 
 .color-grid+.color-grid {
@@ -117,7 +117,7 @@
 
 .example.card .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0%, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   gap: var(--scale-4);
   justify-items: center;
 }

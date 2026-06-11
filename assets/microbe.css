@@ -231,6 +231,15 @@
     }
   }
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+  }
+
   a {
     color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     transition: color 0.25s ease-in-out, outline-color 0.1s ease-in-out;
@@ -256,6 +265,52 @@
       }
     }
   }
+
+  abbr {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-decoration-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+  }
+
+  mark {
+    background: hsl(50 100% var(--lightness-5));
+    color: var(--foreground-color);
+  }
+
+  ins {
+    color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-9));
+    text-decoration: none;
+  }
+
+  del {
+    color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-9));
+    text-decoration: Strikethrough;
+  }
+
+  samp {
+    font-weight: bold;
+    font-family: monospace;
+  }
+
+  code,
+  kbd {
+    border-radius: var(--scale-2);
+    padding: 0 var(--scale-4);
+  }
+
+  code {
+    background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2)),
+        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)));
+    font-family: monospace;
+  }
+
+  kbd {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-11));
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    font-weight: bold;
+    font-family: monospace;
+  }
+
 }
 
 @layer components {
