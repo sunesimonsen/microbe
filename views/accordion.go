@@ -9,7 +9,10 @@ func AccordionView() Node {
 	panelText := "Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex. Etiam eget rutrum nulla, id finibus tellus. Proin dignissim tortor lacus, in vehicula arcu commodo ut. Aenean quis euismod lectus, vitae ornare ex. Vivamus posuere lectus at quam maximus semper. Fusce sagittis in est a consequat."
 
 	return docpage(
-		HGroup(H1(Text("Accordion"))),
+		HGroup(
+			H1(Text("Accordion")),
+			P(Text("An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.")),
+		),
 		example(
 			"Default",
 			Section(

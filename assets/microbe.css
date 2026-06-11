@@ -188,6 +188,10 @@
     --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
   }
 
+  hgroup>p {
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-9));
+  }
+
   h1,
   h2,
   h3,

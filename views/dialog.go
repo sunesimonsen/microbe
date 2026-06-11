@@ -9,7 +9,10 @@ func DialogView() Node {
 	dialogText := "Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex. Etiam eget rutrum nulla, id finibus tellus. Proin dignissim tortor lacus, in vehicula arcu commodo ut. Aenean quis euismod lectus, vitae ornare ex. Vivamus posuere lectus at quam maximus semper. Fusce sagittis in est a consequat."
 
 	return docpage(
-		HGroup(H1(Text("Dialog"))),
+		HGroup(
+			H1(Text("Dialog")),
+			P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
+		),
 		example(
 			"Example",
 			Class("grid"),
