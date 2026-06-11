@@ -1,4 +1,4 @@
-@layer reset, settings, typography, components, layout, overrides;
+@layer reset, settings, defaults, components, layout, overrides;
 
 @keyframes slide-up-and-in-animation {
   0% {
@@ -87,22 +87,23 @@
 
     --border-width: calc(round(nearest, var(--scale-0), 1px));
     --focus-outline-width: calc(4*var(--border-width));
+    --focus-outline-offset: 0;
 
     --form-element-height: calc(var(--scale-6) + 2 * var(--scale-3) + 2 * var(--border-width));
 
-    --lightness-0: 100%;
-    --lightness-1: 97.0%;
-    --lightness-2: 95.0%;
-    --lightness-3: 86.5%;
-    --lightness-4: 78.0%;
-    --lightness-5: 69.5%;
-    --lightness-6: 61.0%;
-    --lightness-7: 52.5%;
-    --lightness-8: 44.0%;
-    --lightness-9: 35.5%;
-    --lightness-10: 27.0%;
-    --lightness-11: 18.5%;
-    --lightness-12: 0%;
+    --lightness-0: 100.0%;
+    --lightness-1: 96.8%;
+    --lightness-2: 90.5%;
+    --lightness-3: 82.5%;
+    --lightness-4: 74.2%;
+    --lightness-5: 65.8%;
+    --lightness-6: 57.5%;
+    --lightness-7: 49.2%;
+    --lightness-8: 40.8%;
+    --lightness-9: 32.5%;
+    --lightness-10: 23.8%;
+    --lightness-11: 13.5%;
+    --lightness-12: 0.0%;
 
     --accent-hue: 210;
     --accent-saturation: 70%;
@@ -110,14 +111,57 @@
     --neutral-hue: 0;
     --neutral-saturation: 0%;
 
-    --shadow-hue: var(--neutral-hue);
-    --shadow-saturation: var(--neutral-saturation);
-
     --error-hue: 0;
     --error-saturation: 60%;
 
     --success-hue: 160;
     --success-saturation: 30%;
+
+    --foreground-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-12));
+    --background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    --shadow-color: hsl(var(--neutral-hue) 0 50%);
+    --focus-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --accent-saturation: 80%;
+      --neutral-hue: 200;
+      --neutral-saturation: 40%;
+
+      --lightness-0: 4.00%;
+      --lightness-1: 10.89%;
+      --lightness-2: 16.34%;
+      --lightness-3: 20.99%;
+      --lightness-4: 25.50%;
+      --lightness-5: 30.00%;
+      --lightness-6: 34.50%;
+      --lightness-7: 39.00%;
+      --lightness-8: 43.50%;
+      --lightness-9: 47.99%;
+      --lightness-10: 52.34%;
+      --lightness-11: 55.89%;
+      --lightness-12: 58.00%;
+
+      --foreground-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
+      --background-color: hsl(var(--neutral-hue) var(--neutral-saturation) 7%);
+      --shadow-color: hsl(var(--neutral-hue) 0 0%);
+      --focus-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
+      --focus-outline-width: calc(2*var(--border-width));
+      --focus-outline-offset: calc(2*var(--border-width));
+    }
+  }
+}
+
+@layer defaults {
+  body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    line-height: var(--line-height);
+    box-sizing: border-box;
+    color: var(--foreground-color);
+    background: var(--background-color);
   }
 
   h1 {
@@ -151,18 +195,6 @@
   h5,
   h6 {
     --font-weight: var(--heading-font-weight);
-  }
-}
-
-@layer typography {
-  body {
-
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
-    line-height: var(--line-height);
-    color: var(--color);
-    box-sizing: border-box;
   }
 
   h1,
@@ -245,13 +277,14 @@
       column-gap: var(--scale-4);
       justify-content: center;
       white-space: nowrap;
+      outline-offset: var(--focus-outline-offset);
 
       & * {
         pointer-events: none;
       }
 
       &:focus-visible {
-        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+        outline: var(--focus-outline-width) solid var(--focus-color);
       }
     }
 
@@ -261,11 +294,12 @@
     }
 
     &.solid {
-      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
+      color: light-dark(var(--background-color), var(--foreground-color));
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     }
 
+    &.solid:focus,
     &.solid:hover {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
@@ -342,6 +376,11 @@
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     outline: var(--focus-outline-width) solid transparent;
     background: transparent;
+    color: var(--foreground-color);
+
+    &::placeholder {
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+    }
 
     &:hover {
       border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -350,7 +389,7 @@
     &:active,
     &:focus {
       border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+      outline: var(--focus-outline-width) solid var(--focus-color);
     }
 
     &[disabled] {
@@ -434,8 +473,7 @@
       transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
     }
 
-    &:is(:disabled) {
-
+    &:disabled {
       &::-moz-range-thumb {
         cursor: default;
         background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
@@ -599,7 +637,7 @@
 
     &:focus-visible {
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+      outline: var(--focus-outline-width) solid var(--focus-color);
     }
 
     &[disabled] {
@@ -629,7 +667,7 @@
     &::after {
       content: "";
       display: block;
-      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      background: var(--foreground-color);
       border-radius: 50%;
       aspect-ratio: 1;
       height: 100%;
@@ -685,7 +723,7 @@
 
     &:is(:indeterminate, :checked):before {
       content: "";
-      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
       position: absolute;
       height: calc(var(--scale-5) - 2 * var(--border-width));
       width: calc(var(--scale-5) - 2 * var(--border-width));
@@ -773,6 +811,7 @@
   input[type=file]::file-selector-button {
     margin-inline-end: var(--scale-5);
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    color: var(--foreground-color);
     border: none;
     padding: var(--scale-4) var(--scale-5);
     cursor: pointer;
@@ -840,26 +879,32 @@
   }
 
   select[multiple] {
+    appearance: base-select;
     height: var(--scale-10);
     padding: 0;
+    color: var(--foreground-color);
 
     &>option {
+      appearance: none;
       padding: var(--scale-4) var(--scale-5);
 
       &:checked {
         background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
       }
     }
+  }
 
+  select[multiple]:focus>option:checked {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
   }
 
   .card {
     margin-block: var(--scale-6);
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    background: var(--background-color);
     border-radius: var(--scale-3);
-    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1),
-      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.1);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.1),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.1);
     overflow: hidden;
 
     &:first-child {
@@ -878,7 +923,7 @@
     &>header {
       border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
 
-      &:not(:last-child) {
+      &:not(:first-child) {
         border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
       }
     }
@@ -925,7 +970,7 @@
         &:focus-visible {
           color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
           transition: color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
-          outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+          outline: var(--focus-outline-width) solid var(--focus-color);
         }
       }
 
@@ -966,10 +1011,10 @@
 
   dialog {
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    background: var(--background-color);
     border-radius: var(--scale-3);
-    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-8) / 0.4),
-      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-8) / 0.4);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4);
     padding: 0;
     width: var(--scale-13);
     --close-button-size: calc(var(--scale-6) + var(--scale-3));
@@ -1025,7 +1070,7 @@
       }
 
       &:focus-visible {
-        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-5) / 70%);
+        outline: var(--focus-outline-width) solid var(--force-color);
       }
 
       &:hover {
@@ -1134,8 +1179,9 @@
       top: 0;
       container-type: scroll-state;
       z-index: 2;
-
-      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      backdrop-filter: blur(var(--scale-4));
+      transition: background-color 0.25s ease-in-out;
+      background-color: hsl(from var(--background-color) h s l / 85%);
 
       &>nav {
         view-transition-name: header-nav;
@@ -1144,19 +1190,17 @@
         padding-inline: var(--scale-7);
         column-gap: var(--scale-5);
         height: 100%;
-        transition: background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+
+        transition: box-shadow 0.25s ease-in-out;
 
         @container scroll-state(stuck: top) {
-          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8);
-          backdrop-filter: blur(var(--scale-5));
-          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
+          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.3);
         }
 
         @supports not (container-type: scroll-state) {
-          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8);
-          backdrop-filter: blur(var(--scale-5));
-          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(var(--shadow-hue) var(--shadow-saturation) var(--lightness-5) / 0.5);
+          box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.2);
         }
+
       }
     }
 
@@ -1190,7 +1234,6 @@
         scroll-margin-block-start: calc(var(--scale-5) + var(--layout-header-height));
       }
 
-      overflow-x: hidden;
       grid-area: body;
       margin-block-end: var(--scale-7);
     }
@@ -1241,7 +1284,7 @@
 
     .standard-layout {
       grid-template-rows: auto auto auto auto 1fr;
-      grid-template-columns: var(--scale-6) 1fr var(--scale-6);
+      grid-template-columns: var(--scale-6) minmax(90vw, 1fr) var(--scale-6);
       grid-template-areas: "navbar navbar navbar"
         "start header end"
         "start toc end"
@@ -1307,7 +1350,7 @@
   @media (max-width: 600px) {
 
     .standard-layout {
-      grid-template-columns: 0 1fr 0;
+      grid-template-columns: 0 minmax(90vw, 1fr) 0;
     }
   }
 }

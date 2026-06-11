@@ -141,6 +141,7 @@
   margin-block-start: 0;
 
   &>code {
+    outline: none;
     padding: var(--scale-5) var(--scale-6);
   }
 }

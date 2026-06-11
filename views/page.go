@@ -12,12 +12,9 @@ func Page(title string, children ...Node) Node {
 			Head(
 				TitleEl(Text(title)),
 				Meta(Charset("UTF-8")),
-				Meta(
-					Name("viewport"),
-					Content("width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1"),
-				),
-				Meta(Name("apple-mobile-web-app-capable"), Content("yes")),
+				Meta(Name("mobile-web-app-capable"), Content("yes")),
 				Meta(Name("description"), Content("Microbe.css documentation"), Lang("en")),
+				Meta(Name("color-scheme"), Content("light dark")),
 				Link(Rel("icon"), Type("image/png"), Href("/assets/favicon-96x96.png"), Attr("sizes", "96x96")),
 				Link(Rel("icon"), Type("image/svg+xml"), Href("/assets/favicon.svg")),
 				Link(Rel("shortcut icon"), Href("/assets/favicon.ico")),
