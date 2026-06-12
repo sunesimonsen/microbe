@@ -45,5 +45,9 @@ func Typography() Node {
 			Code(Text("Code")),
 			Var(Text("Var")),
 		),
+		example(
+			"Code block",
+			Pre(Code(Text("console.log('Hello world!');"))),
+		),
 	)
 }

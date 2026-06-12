@@ -311,6 +311,15 @@
     font-family: monospace;
   }
 
+  pre>code {
+    display: block;
+    outline: none;
+    padding: var(--scale-5) var(--scale-6);
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
+    border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
+    border-radius: var(--scale-3);
+    overflow-x: auto;
+  }
 }
 
 @layer components {

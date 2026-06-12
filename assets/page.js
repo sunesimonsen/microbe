@@ -31,7 +31,11 @@ if (window.self === window.top) {
     }
 
     if (typeof hljs !== "undefined") {
-      hljs.highlightAll();
+      const codeBlocks = document.querySelectorAll("[data-highlight=yes]")
+      console.log(codeBlocks)
+      for (const codeBlock of codeBlocks) {
+        hljs.highlightElement(codeBlock);
+      }
     }
   })
 }

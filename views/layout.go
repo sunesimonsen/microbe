@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"log"
 	"slices"
+	"strings"
 
 	"github.com/iancoleman/strcase"
 	"github.com/yosssi/gohtml"
@@ -139,6 +140,7 @@ func example(name string, part ...Node) pageSection {
 	}
 
 	source := gohtml.Format(buf.String())
+	source = strings.ReplaceAll(source, "&#39;", "'")
 
 	return pageSection{
 		name: name,
@@ -148,7 +150,7 @@ func example(name string, part ...Node) pageSection {
 				Class("example card"),
 				Header(Text(name)),
 				Section(part...),
-				Pre(Code(Class("language-html"), Text(source))),
+				Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
 			),
 		}),
 	}
