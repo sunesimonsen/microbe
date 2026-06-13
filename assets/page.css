@@ -138,13 +138,16 @@
 }
 
 .example.card>pre {
-  margin-block-start: 0;
+  margin-block: 0;
 
   &>code {
     outline: none;
     padding: var(--scale-5) var(--scale-6);
+    border: none;
+    border-radius: 0;
   }
 }
+
 
 @media (max-width: 600px) {
   .example.card .grid:not(.small) {

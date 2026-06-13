@@ -1053,6 +1053,12 @@
       &:not(:last-child) {
         border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
       }
+
+      &.actions {
+        display: flex;
+        gap: var(--scale-4);
+        justify-content: end;
+      }
     }
   }
 
@@ -1211,11 +1217,8 @@
 
     &>footer.actions {
       display: flex;
-
-      &.actions {
-        gap: var(--scale-4);
-        justify-content: end;
-      }
+      gap: var(--scale-4);
+      justify-content: end;
     }
 
     &::backdrop {
