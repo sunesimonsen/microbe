@@ -780,7 +780,7 @@
     &::after {
       content: "";
       display: block;
-      background: var(--foreground-color);
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
       border-radius: 50%;
       aspect-ratio: 1;
       height: 100%;
