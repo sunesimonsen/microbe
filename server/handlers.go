@@ -19,6 +19,10 @@ func (s *Server) typographyHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(r.URL.Path, views.Typography()))
 }
 
+func (s *Server) tableHandler(w http.ResponseWriter, r *http.Request) {
+	renderNode(w, r, views.DocsLayout(r.URL.Path, views.TableView()))
+}
+
 func (s *Server) colorsHandler(w http.ResponseWriter, r *http.Request) {
 	renderNode(w, r, views.DocsLayout(r.URL.Path, views.Colors()))
 }

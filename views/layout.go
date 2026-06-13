@@ -58,6 +58,7 @@ func menu(currentPath string) Node {
 			Class("navlist"),
 			navListSection("Content", currentPath, []pageRef{
 				{href: "/typography", label: "Typography"},
+				{href: "/table", label: "Table"},
 			}...),
 			navListSection("Navigation", currentPath, []pageRef{
 				{href: "/anchor", label: "Anchor"},
