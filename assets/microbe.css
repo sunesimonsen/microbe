@@ -32,6 +32,7 @@
   html {
     scrollbar-gutter: stable;
     scroll-behavior: smooth;
+    overscroll-behavior: contain;
   }
 
   html,
