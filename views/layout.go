@@ -151,7 +151,15 @@ func example(name string, part ...Node) pageSection {
 				Class("example card"),
 				Header(Text(name)),
 				Section(part...),
-				Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
+				Footer(
+					Div(
+						Class("source accordion"),
+						Details(
+							Summary(Text("HTML")),
+							Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
+						),
+					),
+				),
 			),
 		}),
 	}
