@@ -142,10 +142,15 @@
 
   &>code {
     scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
+    transition: scrollbar-color 0.2s ease-in-out;
     scrollbar-width: thin;
     padding: 0;
     border: none;
     border-radius: 0;
+
+    &:focus {
+      scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100% / 70%) transparent;
+    }
   }
 }
 
