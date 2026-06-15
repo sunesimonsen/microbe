@@ -150,13 +150,12 @@ func example(name string, part ...Node) pageSection {
 				Class("example"),
 				ID(strcase.ToKebab(name)),
 				H2(Text(name)),
+				Article(
+					Class("card"),
+					Section(part...),
+				),
 				Section(
 					Class("accordion"),
-					Details(
-						Open(),
-						Summary(TabIndex("-1"), Text("Example")),
-						Div(part...),
-					),
 					Details(
 						Class("hljs source "),
 						Summary(Text("HTML")),

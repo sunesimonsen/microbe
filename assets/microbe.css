@@ -1020,7 +1020,7 @@
   }
 
   .card {
-    margin-block: var(--scale-6);
+    margin-block: var(--scale-5);
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
     background: var(--background-color);
     border-radius: var(--scale-3);
@@ -1043,6 +1043,7 @@
     &>header,
     &>footer {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
+      padding: var(--scale-5) var(--scale-6);
     }
 
     &>header {
@@ -1053,10 +1054,8 @@
       }
     }
 
-    &>header,
-    &>footer,
     &>section {
-      padding: var(--scale-5) var(--scale-6);
+      padding: var(--scale-6);
     }
 
     &>footer {

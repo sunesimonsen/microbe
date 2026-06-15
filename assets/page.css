@@ -116,7 +116,7 @@
 }
 
 .example {
-  margin-block: var(--scale-6);
+  margin-block: var(--scale-7);
 
   &:first-child {
     margin-block-start: 0;
@@ -125,6 +125,14 @@
   &:last-child {
     margin-block-end: 0;
   }
+}
+
+.example .card+.accordion {
+  margin-block-start: var(--scale-3);
+}
+
+.example .card:has(+.accordion) {
+  margin-block-end: var(--scale-3);
 }
 
 .example .grid {
@@ -150,19 +158,23 @@
 }
 
 details.source pre {
-  padding: 0;
+  padding: var(--scale-2) var(--scale-3);
+  margin: 0;
+  overflow-x: auto;
+  scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
+  scrollbar-width: thin;
+
+  &:focus-within {
+    scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100% / 70%) transparent;
+  }
 
   &>code {
-    scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
     transition: scrollbar-color 0.2s ease-in-out;
-    scrollbar-width: thin;
     padding: 0;
     border: none;
     border-radius: 0;
+    overflow-x: visible;
 
-    &:focus {
-      scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100% / 70%) transparent;
-    }
   }
 }
 
