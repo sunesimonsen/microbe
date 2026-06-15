@@ -83,7 +83,7 @@
     --line-height: var(--phi);
     --font-size: var(--base);
 
-    --heading-step: 0.4;
+    --heading-step: 0.3;
     --heading-font-weight: 500;
 
     --border-width: calc(round(nearest, var(--scale-0), 1px));
