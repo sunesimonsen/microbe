@@ -115,29 +115,29 @@
       hsl(360 var(--accent-saturation) 50%));
 }
 
-.example.card .grid {
+.example .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   gap: var(--scale-4);
   justify-items: center;
 }
 
-.example.card .grid.stretch {
+.example .grid.stretch {
   justify-items: stretch;
 }
 
-.example.card .rows {
+.example .rows {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--scale-4);
   justify-items: stretch;
 }
 
-.example.card .rows:has(.grid) {
+.example .rows:has(.grid) {
   gap: var(--scale-5);
 }
 
-.example.card .source pre {
+.example .source pre {
   margin-block: 0;
 
   &>code {
@@ -147,9 +147,8 @@
   }
 }
 
-
 @media (max-width: 600px) {
-  .example.card .grid:not(.small) {
+  .example .grid:not(.small) {
     grid-template-columns: 1fr;
     justify-items: stretch;
   }
