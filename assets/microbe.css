@@ -1088,12 +1088,7 @@
     }
 
     --mc-padding-block: var(--padding-block, var(--scale-5));
-    --mc-padding-inline: var(--padding-block, var(--scale-6));
-
-    &.compact {
-      --mc-padding-block: var(--padding-block, var(--scale-4));
-      --mc-padding-inline: var(--padding-block, var(--scale-5));
-    }
+    --mc-padding-inline: var(--padding-inline, var(--scale-6));
 
     &>details {
       padding: var(--mc-padding-block) var(--mc-padding-inline);
