@@ -1108,7 +1108,7 @@
         position: relative;
 
         &:focus-visible {
-          color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+          color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
           background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1));
           transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
           outline: none;
