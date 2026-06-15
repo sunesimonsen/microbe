@@ -141,6 +141,8 @@
   margin-block: 0;
 
   &>code {
+    scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
+    scrollbar-width: thin;
     padding: 0;
     border: none;
     border-radius: 0;

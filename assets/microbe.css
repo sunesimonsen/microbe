@@ -243,7 +243,9 @@
 
   hr {
     height: 0;
-    border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    border: none;
+    border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    background: none;
     margin-block: var(--scale-5);
   }
 
@@ -1091,7 +1093,6 @@
     }
 
     &>details {
-
       padding: var(--mc-padding-block) var(--mc-padding-inline);
 
       &>summary {
