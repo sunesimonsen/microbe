@@ -150,10 +150,11 @@ func example(name string, part ...Node) pageSection {
 				ID(strcase.ToKebab(name)),
 				Class("example card"),
 				Header(Text(name)),
-				Section(part...),
-				Footer(
+				Section(
+					Div(part...),
+					Hr(),
 					Div(
-						Class("source accordion"),
+						Class("source accordion compact hljs"),
 						Details(
 							Summary(Text("HTML")),
 							Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),

@@ -1070,6 +1070,9 @@
 
   .accordion {
     margin-block: var(--scale-5);
+    border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    border-radius: var(--scale-3);
+    overflow: hidden;
 
     &:first-child {
       margin-block-start: 0;
@@ -1079,25 +1082,35 @@
       margin-block-end: 0;
     }
 
-    --mc-toggle-padding: var(--toggle-padding, var(--scale-5));
+    --mc-padding-block: var(--padding-block, var(--scale-5));
+    --mc-padding-inline: var(--padding-block, var(--scale-6));
+
+    &.compact {
+      --mc-padding-block: var(--padding-block, var(--scale-4));
+      --mc-padding-inline: var(--padding-block, var(--scale-5));
+    }
 
     &>details {
-      padding-block: var(--mc-toggle-padding);
-      position: relative;
+
+      padding: var(--mc-padding-block) var(--mc-padding-inline);
 
       &>summary {
         list-style-type: none;
-        padding: var(--scale-3) var(--scale-4);
-        margin: calc(-1 * var(--scale-3)) calc(-1 * var(--scale-4));
-        outline: var(--focus-outline-width) solid transparent;
-        border-radius: var(--scale-2);
+        padding: var(--mc-padding-block) var(--mc-padding-inline);
+        margin: calc(-1 * var(--mc-padding-block)) calc(-1 * var(--mc-padding-inline));
+        background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
+        color: var(--foreground-color);
+        outline: none;
         user-select: none;
         cursor: pointer;
+        transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+        position: relative;
 
         &:focus-visible {
           color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
-          transition: color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
-          outline: var(--focus-outline-width) solid var(--focus-color);
+          background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1));
+          transition: color 0.25s ease-in-out, background-color 0.25s ease-in-out;
+          outline: none;
         }
       }
 
@@ -1105,19 +1118,22 @@
         content: "";
         background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-8));
         mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/></svg>');
-        background-position: center center;
-        background-repeat: no-repeat;
         position: absolute;
         display: block;
-        inset-inline-end: 0;
-        inset-block-start: calc(var(--line-height) * 1em / 2 - 16px / 2 + var(--mc-toggle-padding));
+        inset-inline-end: var(--mc-padding-block);
+        inset-block-start: calc(var(--mc-padding-block) + (var(--line-height) * 1em - 16px) /2);
         height: 16px;
         width: 16px;
         transition: transform 0.2s ease-in-out;
       }
 
-      &[open]>summary::after {
-        transform: rotate(90deg);
+      &[open]>summary {
+        border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+        margin-block-end: var(--mc-padding-block);
+
+        &::after {
+          transform: rotate(90deg);
+        }
       }
     }
 

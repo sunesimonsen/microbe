@@ -137,23 +137,11 @@
   gap: var(--scale-5);
 }
 
-.example.card .source {
-  --toggle-padding: var(--scale-0);
-
-  & summary {
-    border-radius: var(--scale-4);
-
-    &:focus-visible {
-      outline-offset: calc(var(--scale-2) * -1);
-    }
-  }
-}
-
-.example.card>pre {
+.example.card .source pre {
   margin-block: 0;
 
   &>code {
-    padding: var(--scale-5) var(--scale-6);
+    padding: 0;
     border: none;
     border-radius: 0;
   }
