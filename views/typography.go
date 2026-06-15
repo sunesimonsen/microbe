@@ -46,6 +46,12 @@ func Typography() Node {
 			Var(Text("Var")),
 		),
 		example(
+			"Horizontal ruler",
+			P(Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper blandit ultricies. Etiam non suscipit felis. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin feugiat purus hendrerit sapien condimentum, eu facilisis ex eleifend. Sed lobortis est a urna accumsan vestibulum. Curabitur iaculis sem lacus, id molestie eros ultrices eu. Nullam justo nulla, sollicitudin sed mi pretium, consequat varius erat. Phasellus sed eros dictum, congue enim in, dictum ante. Sed condimentum ut elit eu vehicula.")),
+			Hr(),
+			P(Text("Fusce congue nec massa id eleifend. Donec id luctus ligula. In pellentesque diam eu magna interdum, a tristique arcu dignissim. In eu lacinia nisl. Phasellus eu nisi vitae enim aliquam rutrum. Suspendisse fringilla tortor et tincidunt vulputate. Nam a urna a purus ornare gravida non sit amet risus. Morbi in justo quis velit elementum fermentum. Etiam tristique diam nunc, quis suscipit velit suscipit non.")),
+		),
+		example(
 			"Code block",
 			Pre(Code(Text("console.log('Hello world!');"))),
 		),
