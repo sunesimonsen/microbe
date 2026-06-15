@@ -45,5 +45,14 @@ func CardView() Node {
 				Footer(Text("Footer")),
 			),
 		),
+		example(
+			"Raised",
+			Article(
+				Class("card raised"),
+				Header(Text("Header")),
+				Section(P(Text(cardText))),
+				Footer(Text("Footer")),
+			),
+		),
 	)
 }
