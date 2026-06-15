@@ -9,7 +9,7 @@ func InputView() Node {
 	return docpage(
 		HGroup(H1(Text("Input"))),
 		example(
-			"Example",
+			"Form",
 			Form(
 				FieldSet(
 					Label(Text("Name"),

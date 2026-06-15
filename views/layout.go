@@ -147,18 +147,20 @@ func example(name string, part ...Node) pageSection {
 		name: name,
 		content: Group([]Node{
 			Article(
+				Class("example"),
 				ID(strcase.ToKebab(name)),
-				Class("example card"),
-				Header(Text(name)),
+				H2(Text(name)),
 				Section(
-					Div(part...),
-					Hr(),
-					Div(
-						Class("source accordion compact hljs"),
-						Details(
-							Summary(Text("HTML")),
-							Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
-						),
+					Class("accordion"),
+					Details(
+						Open(),
+						Summary(TabIndex("-1"), Text("Example")),
+						Div(part...),
+					),
+					Details(
+						Class("hljs source "),
+						Summary(Text("HTML")),
+						Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
 					),
 				),
 			),
