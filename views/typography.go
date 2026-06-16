@@ -52,6 +52,13 @@ func Typography() Node {
 			P(Text("Fusce congue nec massa id eleifend. Donec id luctus ligula. In pellentesque diam eu magna interdum, a tristique arcu dignissim. In eu lacinia nisl. Phasellus eu nisi vitae enim aliquam rutrum. Suspendisse fringilla tortor et tincidunt vulputate. Nam a urna a purus ornare gravida non sit amet risus. Morbi in justo quis velit elementum fermentum. Etiam tristique diam nunc, quis suscipit velit suscipit non.")),
 		),
 		example(
+			"Heading group",
+			HGroup(
+				H2(Text("Get inspired with CSS")),
+				P(Text("How to use CSS to add glam to your Website?")),
+			),
+		),
+		example(
 			"Blockquote",
 			BlockQuote(
 				Text("\"Be the change that you wish to see in the world.\""),

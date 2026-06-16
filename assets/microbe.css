@@ -189,8 +189,14 @@
     --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
   }
 
-  hgroup>p {
-    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-9));
+  HGroup {
+    &>p {
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-9));
+    }
+
+    :is(h1, h2, h3, h4, h5, h6)+p {
+      margin-block-start: 0;
+    }
   }
 
   h1,
@@ -240,6 +246,7 @@
   h6 {
     margin: 0;
   }
+
 
   hr {
     height: 0;
