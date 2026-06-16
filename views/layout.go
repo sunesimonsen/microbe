@@ -170,7 +170,7 @@ func example(name string, part ...Node) pageSection {
 func IndexLayout(part Node) Node {
 	return Page("Microbe",
 		Main(
-			Class("standard-layout"),
+			Class("page-layout"),
 			header(),
 			part,
 		),
@@ -180,7 +180,7 @@ func IndexLayout(part Node) Node {
 func DocsLayout(currentPath string, part Node) Node {
 	return Page("Microbe",
 		Main(
-			Class("standard-layout"),
+			Class("page-layout"),
 			header(),
 			menu(currentPath),
 			part,

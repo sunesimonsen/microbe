@@ -1294,7 +1294,7 @@
 }
 
 @layer layout {
-  .standard-layout {
+  .page-layout {
     --layout-header-height: var(--scale-8);
 
     display: grid;
@@ -1404,7 +1404,7 @@
       font-size: 13px;
     }
 
-    .standard-layout {
+    .page-layout {
       grid-template-rows: auto auto auto 1fr;
       grid-template-columns: 1fr var(--scale-11) var(--scale-13) 3fr;
       grid-template-areas: "navbar navbar navbar navbar"
@@ -1421,7 +1421,7 @@
       font-size: 14px;
     }
 
-    .standard-layout {
+    .page-layout {
       grid-template-rows: auto auto auto auto 1fr;
       grid-template-columns: var(--scale-6) minmax(90vw, 1fr) var(--scale-6);
       grid-template-areas: "navbar navbar navbar"
@@ -1457,7 +1457,7 @@
     }
 
     body.show-menu {
-      .standard-layout>aside.menu {
+      .page-layout>aside.menu {
         display: block;
         position: fixed;
         z-index: 3;
@@ -1488,7 +1488,7 @@
 
   @media (max-width: 600px) {
 
-    .standard-layout {
+    .page-layout {
       grid-template-columns: 0 minmax(90vw, 1fr) 0;
     }
   }
