@@ -373,6 +373,16 @@
   table.striped tbody tr:nth-child(odd) {
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
   }
+
+  blockquote {
+    border-inline-start: var(--scale-2) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    margin: var(--scale-5) 0;
+    padding: var(--scale-5) var(--scale-6);
+
+    &>footer {
+      margin-block-start: var(--scale-4);
+    }
+  }
 }
 
 @layer components {
