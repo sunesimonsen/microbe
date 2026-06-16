@@ -19,7 +19,7 @@ func header() Node {
 				Class("menu-toggle ghost icon"),
 				burgerIcon(),
 			),
-			Text("Microbe"),
+			A(Class("home"), Href("/"), Text("Microbe")),
 		),
 	)
 }
