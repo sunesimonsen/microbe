@@ -75,6 +75,18 @@
   width: 100%;
 }
 
+label:has(#saturation-range, #color-range) {
+  position: relative;
+
+  &::after {
+    content: attr(data-value);
+    display: block;
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+  }
+}
+
 #color-range {
   background: linear-gradient(to right,
       hsl(0 var(--accent-saturation) 50%),

@@ -7,6 +7,7 @@ if (window.self === window.top) {
       const updateAccentHue = (hue) => {
         themingExampleForm.style.setProperty("--accent-hue", hue);
         colorRange.style.setProperty("--accent-hue", hue);
+        colorRange.parentElement.dataset.value = hue
       }
 
       colorRange.addEventListener('input', (evt) => {
@@ -18,11 +19,15 @@ if (window.self === window.top) {
       const updateAccentSaturation = (saturation) => {
         themingExampleForm.style.setProperty("--accent-saturation", `${saturation}%`);
         colorRange.style.setProperty("--accent-saturation", `${saturation}%`);
+        saturationRange.parentElement.dataset.value = `${saturation}%`
       }
 
       saturationRange.addEventListener('input', (evt) => {
         updateAccentSaturation(evt.target.value)
       })
+
+      colorRange.parentElement.dataset.value = colorRange.value
+      saturationRange.parentElement.dataset.value = `${saturationRange.value}%`
     }
 
     const indeterminateCheckbox = document.getElementById('indeterminate-checkbox')
