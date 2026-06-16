@@ -1447,7 +1447,7 @@
         max-height: max-content;
       }
 
-      & .menu-toggle {
+      &:has(>aside.menu) .menu-toggle {
         display: inline-block;
       }
 
@@ -1489,6 +1489,12 @@
   @media (max-width: 600px) {
 
     .page-layout {
+
+      &>header>nav {
+        padding-inline: var(--scale-6);
+        column-gap: var(--scale-4);
+      }
+
       grid-template-columns: 0 minmax(90vw, 1fr) 0;
     }
   }

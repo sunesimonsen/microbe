@@ -50,7 +50,7 @@ func navListSection(label string, currentPath string, pageRefs ...pageRef) Node 
 	)
 }
 
-func menu(currentPath string) Node {
+func docsMenu(currentPath string) Node {
 	return Aside(
 		Class("menu"),
 
@@ -182,7 +182,7 @@ func DocsLayout(currentPath string, part Node) Node {
 		Main(
 			Class("page-layout"),
 			header(),
-			menu(currentPath),
+			docsMenu(currentPath),
 			part,
 		),
 	)
