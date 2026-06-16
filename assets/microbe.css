@@ -118,10 +118,10 @@
     --success-hue: 160;
     --success-saturation: 30%;
 
-    --foreground-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-12));
-    --background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+    --foreground-lightness: var(--lightness-12);
+    --background-lightness: var(--lightness-0);
+    --focus-lightness: var(--lightness-3);
     --shadow-color: hsl(var(--neutral-hue) 0 50%);
-    --focus-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
   }
 
   @media (prefers-color-scheme: dark) {
@@ -144,10 +144,10 @@
       --lightness-11: 55.89%;
       --lightness-12: 58.00%;
 
-      --foreground-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
-      --background-color: hsl(var(--neutral-hue) var(--neutral-saturation) 7%);
+      --foreground-lightness: 100%;
+      --background-lightness: 7%;
+      --focus-lightness: var(--lightness-12);
       --shadow-color: hsl(var(--neutral-hue) 0 0%);
-      --focus-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
       --focus-outline-width: calc(2*var(--border-width));
       --focus-outline-offset: calc(2*var(--border-width));
     }
@@ -161,8 +161,8 @@
     font-weight: var(--font-weight);
     line-height: var(--line-height);
     box-sizing: border-box;
-    color: var(--foreground-color);
-    background: var(--background-color);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
   }
 
   h1 {
@@ -283,7 +283,7 @@
 
   mark {
     background: hsl(50 100% var(--lightness-5));
-    color: var(--foreground-color);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
   }
 
   ins {
@@ -405,7 +405,7 @@
       }
 
       &:focus-visible {
-        outline: var(--focus-outline-width) solid var(--focus-color);
+        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
       }
     }
 
@@ -415,7 +415,7 @@
     }
 
     &.solid {
-      color: light-dark(var(--background-color), var(--foreground-color));
+      color: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)), hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness)));
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     }
@@ -497,7 +497,7 @@
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     outline: var(--focus-outline-width) solid transparent;
     background: transparent;
-    color: var(--foreground-color);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
 
     &::placeholder {
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
@@ -510,7 +510,7 @@
     &:active,
     &:focus {
       border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      outline: var(--focus-outline-width) solid var(--focus-color);
+      outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
 
     &[disabled] {
@@ -758,7 +758,7 @@
 
     &:focus-visible {
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      outline: var(--focus-outline-width) solid var(--focus-color);
+      outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
 
     &[disabled] {
@@ -932,7 +932,7 @@
   input[type=file]::file-selector-button {
     margin-inline-end: var(--scale-5);
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
-    color: var(--foreground-color);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
     border: none;
     padding: var(--scale-4) var(--scale-5);
     cursor: pointer;
@@ -1003,7 +1003,7 @@
     appearance: base-select;
     height: var(--scale-10);
     padding: 0;
-    color: var(--foreground-color);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
 
     &>option {
       appearance: none;
@@ -1022,7 +1022,7 @@
   .card {
     margin-block: var(--scale-5);
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
-    background: var(--background-color);
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
     border-radius: var(--scale-3);
     overflow: hidden;
 
@@ -1098,7 +1098,7 @@
         padding: var(--mc-padding-block) var(--mc-padding-inline);
         margin: calc(-1 * var(--mc-padding-block)) calc(-1 * var(--mc-padding-inline));
         background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
-        color: var(--foreground-color);
+        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
         outline: none;
         user-select: none;
         cursor: pointer;
@@ -1153,7 +1153,7 @@
 
   dialog {
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
-    background: var(--background-color);
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
     border-radius: var(--scale-3);
     box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4),
       calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4);
@@ -1320,7 +1320,7 @@
       z-index: 2;
       backdrop-filter: blur(var(--scale-4));
       transition: background-color 0.25s ease-in-out;
-      background-color: hsl(from var(--background-color) h s l / 85%);
+      background-color: hsl(from hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)) h s l / 85%);
 
       &>nav {
         view-transition-name: header-nav;
