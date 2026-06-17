@@ -390,6 +390,38 @@
       margin-block-start: var(--scale-4);
     }
   }
+
+  ul,
+  ol {
+    margin-inline-start: var(--scale-6);
+
+    & :is(ul, ol) {
+      margin-inline: 0;
+    }
+
+    padding-inline-start: var(--scale-5);
+
+    li {
+      padding-inline-start: var(--scale-2);
+    }
+  }
+
+  dl {
+    display: grid;
+    grid-gap: var(--scale-2) var(--scale-6);
+    grid-template-columns: max-content;
+    margin-block: var(--scale-5);
+    margin-inline-start: var(--scale-6);
+  }
+
+  dt {
+    font-weight: bold;
+  }
+
+  dd {
+    margin: 0;
+    grid-column-start: 2;
+  }
 }
 
 @layer components {

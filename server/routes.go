@@ -19,6 +19,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/colors", s.colorsHandler)
 	s.router.Get("/dialog", s.dialogHandler)
 	s.router.Get("/input", s.inputHandler)
+	s.router.Get("/list", s.listHandler)
 	s.router.Get("/navlist", s.navlistHandler)
 	s.router.Get("/progress", s.progressHandler)
 	s.router.Get("/radio", s.radioHandler)

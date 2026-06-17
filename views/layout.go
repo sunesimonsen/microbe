@@ -58,6 +58,7 @@ func docsMenu(currentPath string) Node {
 			Class("navlist"),
 			navListSection("Content", currentPath, []pageRef{
 				{href: "/typography", label: "Typography"},
+				{href: "/list", label: "List"},
 				{href: "/table", label: "Table"},
 			}...),
 			navListSection("Navigation", currentPath, []pageRef{
