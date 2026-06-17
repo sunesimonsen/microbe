@@ -1,8 +1,10 @@
 package server
 
 import (
-	"github.com/go-chi/chi/v5/middleware"
 	"net/http"
+
+	"github.com/go-chi/chi/v5/middleware"
+	"github.com/sunesimonsen/microbe/views"
 )
 
 func (s *Server) setupRoutes() {
@@ -10,25 +12,25 @@ func (s *Server) setupRoutes() {
 	s.router.Use(middleware.Logger)
 
 	s.router.Get("/", s.indexHandler)
-	s.router.Get("/accent-color", s.accentColorHandler)
-	s.router.Get("/accordion", s.accordionHandler)
-	s.router.Get("/anchor", s.anchorHandler)
-	s.router.Get("/button", s.buttonHandler)
-	s.router.Get("/card", s.cardHandler)
-	s.router.Get("/checkbox", s.checkboxHandler)
-	s.router.Get("/colors", s.colorsHandler)
-	s.router.Get("/dialog", s.dialogHandler)
-	s.router.Get("/input", s.inputHandler)
-	s.router.Get("/list", s.listHandler)
-	s.router.Get("/navlist", s.navlistHandler)
-	s.router.Get("/progress", s.progressHandler)
-	s.router.Get("/radio", s.radioHandler)
-	s.router.Get("/range", s.rangeHandler)
-	s.router.Get("/select", s.selectHandler)
-	s.router.Get("/spacing", s.spacingHandler)
-	s.router.Get("/switch", s.switchHandler)
-	s.router.Get("/table", s.tableHandler)
-	s.router.Get("/typography", s.typographyHandler)
+	s.router.Get("/accent-color", docsHandler(views.AccentColorView))
+	s.router.Get("/accordion", docsHandler(views.AccordionView))
+	s.router.Get("/anchor", docsHandler(views.AnchorView))
+	s.router.Get("/button", docsHandler(views.ButtonView))
+	s.router.Get("/card", docsHandler(views.CardView))
+	s.router.Get("/checkbox", docsHandler(views.CheckboxView))
+	s.router.Get("/colors", docsHandler(views.Colors))
+	s.router.Get("/dialog", docsHandler(views.DialogView))
+	s.router.Get("/input", docsHandler(views.InputView))
+	s.router.Get("/list", docsHandler(views.ListView))
+	s.router.Get("/navlist", docsHandler(views.NavListView))
+	s.router.Get("/progress", docsHandler(views.ProgressView))
+	s.router.Get("/radio", docsHandler(views.RadioView))
+	s.router.Get("/range", docsHandler(views.RangeView))
+	s.router.Get("/select", docsHandler(views.SelectView))
+	s.router.Get("/spacing", docsHandler(views.Spacing))
+	s.router.Get("/switch", docsHandler(views.SwitchView))
+	s.router.Get("/table", docsHandler(views.TableView))
+	s.router.Get("/typography", docsHandler(views.Typography))
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }
