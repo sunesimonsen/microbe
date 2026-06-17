@@ -382,7 +382,7 @@
   }
 
   blockquote {
-    border-inline-start: var(--scale-2) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    border-inline-start: var(--scale-2) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
     margin: var(--scale-5) 0;
     padding: var(--scale-5) var(--scale-6);
 
