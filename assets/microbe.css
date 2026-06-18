@@ -535,6 +535,7 @@
   }
 
   input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image]),
+  textarea,
   select {
     accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     font-size: inherit;
@@ -609,6 +610,14 @@
       display: block;
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
       margin-block-start: var(--scale-2);
+    }
+
+    &:is(textarea) {
+      height: auto;
+      padding: var(--scale-4) var(--scale-5);
+      min-height: calc(3.5rem*var(--line-height));
+      display: block;
+      resize: vertical;
     }
   }
 
@@ -995,17 +1004,18 @@
     white-space: nowrap;
   }
 
-  label>input,
-  label>select {
+  label>:is(input, textarea, select) {
     margin-block-start: var(--scale-2);
   }
 
-  label:has(input, select) {
+  label:has(input, textarea, select) {
     display: block;
   }
 
   label+label,
   small+input,
+  small+textarea,
+  small+select,
   small+label {
     display: block;
     margin-block-start: var(--scale-4);

@@ -30,6 +30,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/spacing", docsHandler(views.Spacing))
 	s.router.Get("/switch", docsHandler(views.SwitchView))
 	s.router.Get("/table", docsHandler(views.TableView))
+	s.router.Get("/textarea", docsHandler(views.TextareaView))
 	s.router.Get("/typography", docsHandler(views.Typography))
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))

@@ -72,6 +72,7 @@ func docsMenu(currentPath string) Node {
 				{href: "/button", label: "Button"},
 				{href: "/checkbox", label: "Checkbox"},
 				{href: "/input", label: "Input"},
+				{href: "/textarea", label: "Textarea"},
 				{href: "/radio", label: "Radio"},
 				{href: "/range", label: "Range"},
 				{href: "/select", label: "Select"},
