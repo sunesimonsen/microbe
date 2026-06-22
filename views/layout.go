@@ -24,6 +24,10 @@ func header() Node {
 	)
 }
 
+func Nodes(nodes ...Node) Node {
+	return Group(nodes)
+}
+
 type pageRef struct {
 	href  string
 	label string
@@ -111,7 +115,7 @@ func docpage(header Node, sections ...pageSection) Node {
 		}),
 	}
 
-	return Group([]Node{
+	return Nodes(
 		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/codepen-embed.min.css")),
 		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
 		HGroup(header),
@@ -131,7 +135,7 @@ func docpage(header Node, sections ...pageSection) Node {
 				),
 			),
 		),
-	})
+	)
 }
 
 func example(name string, part ...Node) pageSection {
@@ -147,7 +151,7 @@ func example(name string, part ...Node) pageSection {
 
 	return pageSection{
 		name: name,
-		content: Group([]Node{
+		content: Nodes(
 			Article(
 				Class("example"),
 				ID(strcase.ToKebab(name)),
@@ -165,7 +169,7 @@ func example(name string, part ...Node) pageSection {
 					),
 				),
 			),
-		}),
+		),
 	}
 }
 

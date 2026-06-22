@@ -6,7 +6,7 @@ import (
 )
 
 func IndexView() Node {
-	return Group([]Node{
+	return Nodes(
 		HGroup(
 			H1(Text("Microbe")),
 		),
@@ -14,5 +14,5 @@ func IndexView() Node {
 			Role("document"),
 			H2(Text("Hello")),
 		),
-	})
+	)
 }
