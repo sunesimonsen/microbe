@@ -98,19 +98,19 @@ func docsMenu(currentPath string) Node {
 	)
 }
 
-type pageSection struct {
+type PageSection struct {
 	name    string
 	content Node
 }
 
-func (s pageSection) fragment() string {
+func (s PageSection) fragment() string {
 	return strcase.ToKebab(s.name)
 }
 
-func docpage(header Node, sections ...pageSection) Node {
+func docpage(header Node, sections ...PageSection) Node {
 	content := []Node{
 		Role("document"),
-		Map(sections, func(s pageSection) Node {
+		Map(sections, func(s PageSection) Node {
 			return s.content
 		}),
 	}
@@ -129,7 +129,7 @@ func docpage(header Node, sections ...pageSection) Node {
 					Summary(Text("Content")),
 					Name("toc"),
 					Ul(
-						Map(sections, func(section pageSection) Node {
+						Map(sections, func(section PageSection) Node {
 							return Li(A(Href("#"+section.fragment()), Text(section.name)))
 						})),
 				),
@@ -138,7 +138,7 @@ func docpage(header Node, sections ...pageSection) Node {
 	)
 }
 
-func example(name string, part ...Node) pageSection {
+func example(name string, part ...Node) PageSection {
 	buf := new(bytes.Buffer)
 	err := Group(part).Render(buf)
 
@@ -149,7 +149,7 @@ func example(name string, part ...Node) pageSection {
 	source := gohtml.Format(buf.String())
 	source = strings.ReplaceAll(source, "&#39;", "'")
 
-	return pageSection{
+	return PageSection{
 		name: name,
 		content: Nodes(
 			Article(

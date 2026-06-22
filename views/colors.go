@@ -50,7 +50,7 @@ func colorSample(c color, lightness int) Node {
 	)
 }
 
-func colorTable(name string, palettes []color) pageSection {
+func colorTable(name string, palettes []color) PageSection {
 	headerCells := []Node{Div(Class("color-grid-header"))}
 	for _, lightness := range lightnessSteps {
 		headerCells = append(headerCells, Div(Class("color-grid-header"), Text(fmt.Sprintf("%d", lightness))))
@@ -66,7 +66,7 @@ func colorTable(name string, palettes []color) pageSection {
 		rows = append(rows, Group(rowCells))
 	}
 
-	return pageSection{
+	return PageSection{
 		name: name,
 		content: Nodes(
 			H2(ID(strcase.ToKebab(name)), Text(name)),

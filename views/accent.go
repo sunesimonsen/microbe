@@ -8,7 +8,7 @@ import (
 func AccentColorView() Node {
 	return docpage(
 		HGroup(H1(Text("Accent color"))),
-		pageSection{
+		PageSection{
 			name: "Settings",
 			content: Section(
 				ID("settings"),
