@@ -66,17 +66,15 @@ func colorTable(name string, palettes []color) PageSection {
 		rows = append(rows, Group(rowCells))
 	}
 
-	return PageSection{
-		name: name,
-		content: Nodes(
-			H2(ID(strcase.ToKebab(name)), Text(name)),
-			Section(
-				Class("color-grid"),
-				Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
-				Group(rows),
-			),
+	return NewPageSection(
+		name,
+		H2(ID(strcase.ToKebab(name)), Text(name)),
+		Section(
+			Class("color-grid"),
+			Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
+			Group(rows),
 		),
-	}
+	)
 }
 
 func Colors() Node {

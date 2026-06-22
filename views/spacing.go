@@ -8,7 +8,7 @@ import (
 )
 
 func Spacing() Node {
-	sections := []PageSection{}
+	sections := []IndexedContent{}
 	for level := range 12 {
 		sections = append(sections,
 			example(

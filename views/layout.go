@@ -103,15 +103,33 @@ type PageSection struct {
 	content Node
 }
 
-func (s PageSection) fragment() string {
-	return strcase.ToKebab(s.name)
+func NewPageSection(name string, content ...Node) PageSection {
+	return PageSection{name: name, content: Group(content)}
 }
 
-func docpage(header Node, sections ...PageSection) Node {
+func (s PageSection) Name() string {
+	return s.name
+}
+
+func (s PageSection) Anchor() Node {
+	return A(Href("#"+strcase.ToKebab(s.name)), Text(s.name))
+}
+
+func (s PageSection) Content() Node {
+	return s.content
+}
+
+type IndexedContent interface {
+	Name() string
+	Anchor() Node
+	Content() Node
+}
+
+func docpage(header Node, sections ...IndexedContent) Node {
 	content := []Node{
 		Role("document"),
-		Map(sections, func(s PageSection) Node {
-			return s.content
+		Map(sections, func(s IndexedContent) Node {
+			return s.Content()
 		}),
 	}
 
@@ -129,8 +147,8 @@ func docpage(header Node, sections ...PageSection) Node {
 					Summary(Text("Content")),
 					Name("toc"),
 					Ul(
-						Map(sections, func(section PageSection) Node {
-							return Li(A(Href("#"+section.fragment()), Text(section.name)))
+						Map(sections, func(s IndexedContent) Node {
+							return Li(s.Anchor())
 						})),
 				),
 			),
@@ -149,28 +167,26 @@ func example(name string, part ...Node) PageSection {
 	source := gohtml.Format(buf.String())
 	source = strings.ReplaceAll(source, "&#39;", "'")
 
-	return PageSection{
-		name: name,
-		content: Nodes(
+	return NewPageSection(
+		name,
+		Article(
+			Class("example"),
+			ID(strcase.ToKebab(name)),
+			H2(Text(name)),
 			Article(
-				Class("example"),
-				ID(strcase.ToKebab(name)),
-				H2(Text(name)),
-				Article(
-					Class("card"),
-					Section(part...),
-				),
-				Section(
-					Class("accordion"),
-					Details(
-						Class("hljs source "),
-						Summary(Text("HTML")),
-						Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
-					),
+				Class("card"),
+				Section(part...),
+			),
+			Section(
+				Class("accordion"),
+				Details(
+					Class("hljs source "),
+					Summary(Text("HTML")),
+					Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
 				),
 			),
 		),
-	}
+	)
 }
 
 func IndexLayout(part Node) Node {
