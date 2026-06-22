@@ -8,7 +8,7 @@ import (
 func NavListView() Node {
 	return docpage(
 		HGroup(H1(Text("Navlist"))),
-		example(
+		NewExample(
 			"Example",
 			Nav(
 				Class("navlist"),

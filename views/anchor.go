@@ -8,11 +8,11 @@ import (
 func AnchorView() Node {
 	return docpage(
 		HGroup(H1(Text("Anchor"))),
-		example(
+		NewExample(
 			"Regular",
 			A(Href("#"), Text("Regular link")),
 		),
-		example(
+		NewExample(
 			"Active link",
 			A(Href("#"), Attr("aria-current", "page"), Text("Active link")),
 		),

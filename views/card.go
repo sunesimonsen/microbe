@@ -13,14 +13,14 @@ func CardView() Node {
 			H1(Text("Card")),
 			P(Text("An element that groups related information and actions about a single subject into a visually distinct, flexible container.")),
 		),
-		example(
+		NewExample(
 			"Bare card",
 			Article(
 				Class("card"),
 				Section(P(Text(cardText))),
 			),
 		),
-		example(
+		NewExample(
 			"Card with header",
 			Article(
 				Class("card"),
@@ -28,7 +28,7 @@ func CardView() Node {
 				Section(P(Text(cardText))),
 			),
 		),
-		example(
+		NewExample(
 			"Card with footer",
 			Article(
 				Class("card"),
@@ -36,7 +36,7 @@ func CardView() Node {
 				Footer(Text("Footer")),
 			),
 		),
-		example(
+		NewExample(
 			"Card with header and footer",
 			Article(
 				Class("card"),
@@ -45,7 +45,7 @@ func CardView() Node {
 				Footer(Text("Footer")),
 			),
 		),
-		example(
+		NewExample(
 			"Raised",
 			Article(
 				Class("card raised"),

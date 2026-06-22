@@ -10,7 +10,7 @@ func TableView() Node {
 		HGroup(
 			H1(Text("Table")),
 		),
-		example(
+		NewExample(
 			"Default",
 			Table(
 				THead(
@@ -55,7 +55,7 @@ func TableView() Node {
 				),
 			),
 		),
-		example(
+		NewExample(
 			"Striped",
 			Table(
 				Class("striped"),

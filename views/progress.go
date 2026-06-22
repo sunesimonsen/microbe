@@ -8,14 +8,14 @@ import (
 func ProgressView() Node {
 	return docpage(
 		HGroup(H1(Text("Progress"))),
-		example(
+		NewExample(
 			"Example",
 			Label(
 				Text("Downloading file"),
 				Progress(Attr("value", "70"), Attr("max", "100")),
 			),
 		),
-		example(
+		NewExample(
 			"Indeterminate",
 			Label(
 				Text("Downloading file"),

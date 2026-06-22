@@ -8,7 +8,7 @@ import (
 func RadioView() Node {
 	return docpage(
 		HGroup(H1(Text("Radio"))),
-		example(
+		NewExample(
 			"Example",
 			FieldSet(
 				Legend(Text("Language preferences:")),
@@ -56,29 +56,31 @@ func RadioView() Node {
 				),
 			),
 		),
-		example(
+		NewExample(
 			"Validation",
-			Label(
-				Input(
-					Type("radio"),
-					Name("validation"),
-					Aria("invalid", "false"),
-					Aria("describedby", "valid-hint"),
+			Nodes(
+				Label(
+					Input(
+						Type("radio"),
+						Name("validation"),
+						Aria("invalid", "false"),
+						Aria("describedby", "valid-hint"),
+					),
+					Text("Valid"),
 				),
-				Text("Valid"),
-			),
-			Small(ID("valid-hint"), Text("Looks good!")),
-			Label(
-				Input(
-					Type("radio"),
-					Name("validation"),
-					Aria("invalid", "true"),
-					Aria("describedby", "invalid-hint"),
-					Checked(),
+				Small(ID("valid-hint"), Text("Looks good!")),
+				Label(
+					Input(
+						Type("radio"),
+						Name("validation"),
+						Aria("invalid", "true"),
+						Aria("describedby", "invalid-hint"),
+						Checked(),
+					),
+					Text("Invalid"),
 				),
-				Text("Invalid"),
+				Small(ID("invalid-hint"), Text("This cobination is not allowed!")),
 			),
-			Small(ID("invalid-hint"), Text("This cobination is not allowed!")),
 		),
 	)
 }

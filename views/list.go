@@ -8,7 +8,7 @@ import (
 func ListView() Node {
 	return docpage(
 		HGroup(H1(Text("List"))),
-		example(
+		NewExample(
 			"Unordered list",
 			Ul(
 				Li(Text("Gumbo beet greens"),
@@ -29,7 +29,7 @@ func ListView() Node {
 				Li(Text("Water spinach arugula")),
 			),
 		),
-		example(
+		NewExample(
 			"Ordered list",
 			Ol(
 				Li(Text("Gumbo beet greens"),
@@ -52,7 +52,7 @@ func ListView() Node {
 				Li(Text("Water spinach arugula")),
 			),
 		),
-		example(
+		NewExample(
 			"Mixed list",
 			Ol(
 				Li(Text("Gumbo beet greens"),
@@ -73,16 +73,18 @@ func ListView() Node {
 				Li(Text("Water spinach arugula")),
 			),
 		),
-		example(
+		NewExample(
 			"Description list",
-			P(Text("Cryptids of Cornwall:")),
-			Dl(
-				Dt(Text("Beast of Bodmin")),
-				Dd(Text("A large feline inhabiting Bodmin Moor.")),
-				Dt(Text("Morgawr")),
-				Dd(Text("A sea serpent.")),
-				Dt(Text("Owlman")),
-				Dd(Text("A giant owl-like creature.")),
+			Nodes(
+				P(Text("Cryptids of Cornwall:")),
+				Dl(
+					Dt(Text("Beast of Bodmin")),
+					Dd(Text("A large feline inhabiting Bodmin Moor.")),
+					Dt(Text("Morgawr")),
+					Dd(Text("A sea serpent.")),
+					Dt(Text("Owlman")),
+					Dd(Text("A giant owl-like creature.")),
+				),
 			),
 		),
 	)

@@ -156,9 +156,37 @@ func docpage(header Node, sections ...IndexedContent) Node {
 	)
 }
 
-func example(name string, part ...Node) PageSection {
+type ExampleOption func(example *Example)
+
+func WithDescription(description Node) ExampleOption {
+	return func(example *Example) {
+		example.description = description
+	}
+}
+
+type Example struct {
+	PageSection
+	description Node
+}
+
+func NewExample(name string, content Node, options ...ExampleOption) Example {
+	result := Example{
+		PageSection: PageSection{
+			name:    name,
+			content: content,
+		},
+	}
+
+	for _, option := range options {
+		option(&result)
+	}
+
+	return result
+}
+
+func (e Example) Content() Node {
 	buf := new(bytes.Buffer)
-	err := Group(part).Render(buf)
+	err := Nodes(e.content).Render(buf)
 
 	if err != nil {
 		log.Fatal(err)
@@ -167,23 +195,21 @@ func example(name string, part ...Node) PageSection {
 	source := gohtml.Format(buf.String())
 	source = strings.ReplaceAll(source, "&#39;", "'")
 
-	return NewPageSection(
-		name,
+	return Article(
+		Class("example"),
+		ID(strcase.ToKebab(e.Name())),
+		H2(Text(e.Name())),
+		e.description,
 		Article(
-			Class("example"),
-			ID(strcase.ToKebab(name)),
-			H2(Text(name)),
-			Article(
-				Class("card"),
-				Section(part...),
-			),
-			Section(
-				Class("accordion"),
-				Details(
-					Class("hljs source "),
-					Summary(Text("HTML")),
-					Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
-				),
+			Class("card"),
+			Section(e.content),
+		),
+		Section(
+			Class("accordion"),
+			Details(
+				Class("hljs source "),
+				Summary(Text("HTML")),
+				Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
 			),
 		),
 	)

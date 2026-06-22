@@ -11,10 +11,12 @@ func Spacing() Node {
 	sections := []IndexedContent{}
 	for level := range 12 {
 		sections = append(sections,
-			example(
+			NewExample(
 				fmt.Sprintf("--scale-%d", level),
-				Class("spacing"),
-				Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
+				Nodes(
+					Class("spacing"),
+					Span(Class("spacing-box"), Style(fmt.Sprintf("width: var(--scale-%d)", level))),
+				),
 			),
 		)
 	}

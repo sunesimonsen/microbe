@@ -8,7 +8,7 @@ import (
 func CheckboxView() Node {
 	return docpage(
 		HGroup(H1(Text("Checkbox"))),
-		example(
+		NewExample(
 			"Example",
 			FieldSet(
 				Legend(Text("Language preferences:")),
@@ -66,45 +66,49 @@ func CheckboxView() Node {
 				),
 			),
 		),
-		example(
+		NewExample(
 			"Hint",
-			Label(
-				Input(
-					Type("checkbox"),
-					Name("newsletter"),
-					Aria("describedby", "newsletter-hint"),
-					Checked(),
+			Nodes(
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("newsletter"),
+						Aria("describedby", "newsletter-hint"),
+						Checked(),
+					),
+					Text("Newsletter"),
 				),
-				Text("Newsletter"),
-			),
-			Small(
-				ID("newsletter-hint"),
-				Text("We will send you a news letter every week"),
+				Small(
+					ID("newsletter-hint"),
+					Text("We will send you a news letter every week"),
+				),
 			),
 		),
-		example(
+		NewExample(
 			"Validation",
-			Label(
-				Input(
-					Type("checkbox"),
-					Name("valid"),
-					Aria("invalid", "false"),
-					Aria("describedby", "valid-hint"),
+			Nodes(
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("valid"),
+						Aria("invalid", "false"),
+						Aria("describedby", "valid-hint"),
+					),
+					Text("Valid"),
 				),
-				Text("Valid"),
-			),
-			Small(ID("valid-hint"), Text("Looks good!")),
-			Label(
-				Input(
-					Type("checkbox"),
-					Name("invalid"),
-					Aria("invalid", "true"),
-					Aria("describedby", "invalid-hint"),
-					Checked(),
+				Small(ID("valid-hint"), Text("Looks good!")),
+				Label(
+					Input(
+						Type("checkbox"),
+						Name("invalid"),
+						Aria("invalid", "true"),
+						Aria("describedby", "invalid-hint"),
+						Checked(),
+					),
+					Text("Invalid"),
 				),
-				Text("Invalid"),
+				Small(ID("invalid-hint"), Text("Please provide a valid value!")),
 			),
-			Small(ID("invalid-hint"), Text("Please provide a valid value!")),
 		),
 	)
 }
