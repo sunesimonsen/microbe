@@ -558,7 +558,8 @@
     }
 
     &:active,
-    &:focus {
+    &:focus,
+    &:focus-within {
       border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
@@ -1068,14 +1069,22 @@
       appearance: none;
       padding: var(--scale-4) var(--scale-5);
 
-      &:checked {
-        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+      &:checked,
+      &:checked:hover {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+      }
+
+      &:hover {
+        background: transparent;
       }
     }
-  }
 
-  select[multiple]:focus>option:checked {
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    &:focus,
+    &:focus-within {
+      &>option:checked {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+      }
+    }
   }
 
   .card {
