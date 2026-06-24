@@ -310,8 +310,9 @@
 
   code,
   kbd {
+    display: inline-block;
     border-radius: var(--scale-2);
-    padding: 0 var(--scale-4);
+    padding: 0 var(--scale-3);
   }
 
   code {
