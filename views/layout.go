@@ -215,6 +215,23 @@ func (e Example) Content() Node {
 	)
 }
 
+func InlineCodeList(classes ...string) Node {
+	result := []Node{}
+
+	for i, c := range classes {
+		if i != 0 {
+			if i < len(classes)-1 {
+				result = append(result, Text(", "))
+			} else {
+				result = append(result, Text(" and "))
+			}
+		}
+		result = append(result, Code(Text(c)))
+	}
+
+	return Group(result)
+}
+
 func IndexLayout(part Node) Node {
 	return Page("Microbe",
 		Main(

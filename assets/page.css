@@ -158,6 +158,7 @@ label:has(#saturation-range, #color-range) {
   grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
   gap: var(--scale-4);
   justify-items: center;
+  align-items: center;
 }
 
 .example .grid.stretch {

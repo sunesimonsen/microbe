@@ -313,6 +313,7 @@
     display: inline-block;
     border-radius: var(--scale-2);
     padding: 0 var(--scale-3);
+    font-size: calc(var(--scale-5) - 2 * var(--border-width));
   }
 
   code {
