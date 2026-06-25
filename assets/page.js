@@ -37,10 +37,18 @@ if (window.self === window.top) {
 
     if (typeof hljs !== "undefined") {
       const codeBlocks = document.querySelectorAll("[data-highlight=yes]")
-      console.log(codeBlocks)
+
       for (const codeBlock of codeBlocks) {
         hljs.highlightElement(codeBlock);
       }
+    }
+  })
+
+  window.addEventListener('click', (e) => {
+    if (e.target.matches('.menu-toggle')) {
+      document.body.classList.toggle('show-menu')
+    } else if (e.target.matches('a') && document.body.classList.contains('show-menu')) {
+      document.body.classList.remove('show-menu')
     }
   })
 }

@@ -213,3 +213,206 @@ details.source pre {
     border-radius: 0;
   }
 }
+
+.page-layout {
+  --layout-header-height: var(--scale-8);
+
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  grid-template-columns: 1fr var(--scale-11) var(--scale-13) var(--scale-11) 1fr;
+  grid-template-areas: "navbar navbar navbar navbar navbar"
+    "start menu header toc end"
+    "start menu body toc end";
+  gap: var(--scale-7) var(--scale-8);
+  min-height: 100%;
+
+  & .menu-toggle {
+    display: none;
+  }
+
+  &>header {
+    view-transition-name: header;
+    grid-area: navbar;
+    height: var(--layout-header-height);
+    position: sticky;
+    top: 0;
+    container-type: scroll-state;
+    z-index: 2;
+    backdrop-filter: blur(var(--scale-4));
+    transition: background-color 0.25s ease-in-out;
+    background-color: hsl(from hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)) h s l / 85%);
+
+    &>nav {
+      view-transition-name: header-nav;
+      display: flex;
+      align-items: center;
+      padding-inline: var(--scale-7);
+      column-gap: var(--scale-5);
+      height: 100%;
+
+      transition: box-shadow 0.25s ease-in-out;
+
+      @container scroll-state(stuck: top) {
+        box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.3);
+      }
+
+      @supports not (container-type: scroll-state) {
+        box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.2);
+      }
+
+    }
+  }
+
+  &>aside.menu {
+    grid-area: menu;
+  }
+
+  &>aside.toc {
+    grid-area: toc;
+  }
+
+  &>aside.menu,
+  &>aside.toc {
+    padding: 0;
+
+    &>nav {
+      position: sticky;
+      --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-8));
+      top: var(--layout-sticky-start);
+      max-height: calc(100vh - var(--layout-sticky-start) - var(--scale-6));
+      overflow-y: auto;
+    }
+  }
+
+  &>hgroup {
+    grid-area: header;
+  }
+
+  &>[role=document] {
+    &>[id] {
+      scroll-margin-block-start: calc(var(--scale-5) + var(--layout-header-height));
+    }
+
+    grid-area: body;
+    margin-block-end: var(--scale-7);
+  }
+}
+
+@media (max-width: 1600px) {
+  html {
+    font-size: 15px;
+  }
+
+}
+
+@media (max-width: 1500px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1400px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 1300px) {
+  html {
+    font-size: 13px;
+  }
+
+  .page-layout {
+    grid-template-rows: auto auto auto 1fr;
+    grid-template-columns: 1fr var(--scale-11) var(--scale-13) 3fr;
+    grid-template-areas: "navbar navbar navbar navbar"
+      "start menu header end"
+      "start menu toc end"
+      "start menu body end";
+
+    gap: var(--scale-7) var(--scale-6);
+  }
+}
+
+@media (max-width: 950px) {
+  html {
+    font-size: 14px;
+  }
+
+  .page-layout {
+    grid-template-rows: auto auto auto auto 1fr;
+    grid-template-columns: var(--scale-6) minmax(90vw, 1fr) var(--scale-6);
+    grid-template-areas: "navbar navbar navbar"
+      "start header end"
+      "start toc end"
+      "start body end";
+
+    gap: var(--scale-7) var(--scale-6);
+
+    &>aside.menu {
+      display: none;
+      padding: var(--scale-6) var(--scale-7);
+      background: linear-gradient(225deg,
+          hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1)),
+          hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0)) 50%);
+      overflow-y: auto;
+    }
+
+    &>aside.menu>nav,
+    &>aside.toc>nav {
+      overflow: visible;
+      position: static;
+      max-height: max-content;
+    }
+
+    &:has(>aside.menu) .menu-toggle {
+      display: inline-block;
+    }
+
+    &>[role=document] {
+      margin-block-end: 0;
+    }
+  }
+
+  body.show-menu {
+    .page-layout>aside.menu {
+      display: block;
+      position: fixed;
+      z-index: 3;
+      inset: 0;
+      inset-block-start: var(--scale-8);
+      border-start-end-radius: var(--scale-5);
+      border-start-start-radius: var(--scale-5);
+      border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-2));
+      border-block-end: none;
+
+      animation: slide-up-and-in-animation 80ms ease-out;
+    }
+
+    & header>nav {
+      box-shadow: none;
+    }
+  }
+
+  body.show-menu {
+    overflow: hidden;
+  }
+
+  html,
+  body {
+    scrollbar-gutter: initial;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .page-layout {
+
+    &>header>nav {
+      padding-inline: var(--scale-6);
+      column-gap: var(--scale-4);
+    }
+
+    grid-template-columns: 0 minmax(90vw, 1fr) 0;
+  }
+}
