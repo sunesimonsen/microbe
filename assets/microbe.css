@@ -563,7 +563,7 @@
       outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
 
-    &[disabled] {
+    &:disabled {
       background: hsl(var(--accent-hue) 0% var(--lightness-1));
       border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
       color: hsl(var(--accent-hue) 0% var(--lightness-7));
@@ -864,38 +864,38 @@
       transition: margin 0.1s ease-in-out;
     }
 
-    &[disabled] {
+    &:disabled {
       cursor: default;
     }
 
-    &[disabled]:not(:checked) {
+    &:disabled:not(:checked) {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     }
 
-    &[disabled]:not(:checked):after {
+    &:disabled:not(:checked):after {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
     }
 
-    &[disabled]:is(:checked) {
+    &:disabled:is(:checked) {
       --disabled-checked-color: hsl(var(--accent-hue) calc(var(--accent-saturation) - 20%) var(--lightness-6));
       background: var(--disabled-checked-color);
       border-color: var(--disabled-checked-color);
     }
 
-    &[disabled]:is(:checked):after {
+    &:disabled:is(:checked):after {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
     }
   }
 
   input[type=checkbox]:not([role=switch]) {
-    &:is(:indeterminate, :checked):not([disabled]) {
+    &:is(:indeterminate, :checked):not(:disabled) {
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       position: relative;
       transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
     }
 
-    &[disabled]:is(:indeterminate, :checked) {
+    &:disabled:is(:indeterminate, :checked) {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
       border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
     }
@@ -950,36 +950,36 @@
     }
   }
 
-  label:hover>input:is([type=checkbox], [type=radio]):not(:checked, :indeterminate, [disabled], [role=switch]) {
+  label:hover>input:is([type=checkbox], [type=radio]):not(:checked, :indeterminate, :disabled, [role=switch]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
   }
 
-  label:hover>input[type=checkbox][role=switch]:not(:checked, [disabled]) {
+  label:hover>input[type=checkbox][role=switch]:not(:checked, :disabled) {
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
     border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
   }
 
-  label:hover>input[type=checkbox][role=switch]:is(:checked):not([disabled]) {
+  label:hover>input[type=checkbox][role=switch]:is(:checked):not(:disabled) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
   }
 
-  label:hover>input[type=checkbox]:is(:checked, :indeterminate):not([disabled], [role=switch]) {
+  label:hover>input[type=checkbox]:is(:checked, :indeterminate):not(:disabled, [role=switch]) {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
   }
 
-  label:hover>input[type=radio]:is(:checked, :indeterminate):not([disabled]) {
+  label:hover>input[type=radio]:is(:checked, :indeterminate):not(:disabled) {
     border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: border 0.2s ease-in-out;
   }
 
-  label:hover>input[type=radio]:is(:checked, :indeterminate):not([disabled]):before {
+  label:hover>input[type=radio]:is(:checked, :indeterminate):not(:disabled):before {
     background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
     transition: background 0.2s ease-in-out;
   }
@@ -1027,7 +1027,7 @@
     margin-block-start: var(--scale-4);
   }
 
-  label:has([type=checkbox][disabled]) {
+  label:has([type=checkbox]:disabled) {
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-8));
   }
 
