@@ -822,7 +822,7 @@
       outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
 
-    &[disabled] {
+    &:disabled {
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
       border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
 
@@ -929,21 +929,27 @@
       border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
       transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
       position: relative;
-    }
 
-    &:checked:before {
-      --dot-size: calc(var(--scale-5) - 6 * var(--border-width));
-      content: "";
-      border-radius: 50%;
-      box-sizing: border-box;
-      position: absolute;
-      border: var(--border-width) solid transparent;
-      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      height: var(--dot-size);
-      width: var(--dot-size);
-      display: inline-block;
-      margin-block-start: calc(2* var(--border-width));
-      margin-inline-start: calc(2*var(--border-width));
+      &:before {
+        --dot-size: calc(var(--scale-5) - 6 * var(--border-width));
+        content: "";
+        border-radius: 50%;
+        box-sizing: border-box;
+        position: absolute;
+        border: var(--border-width) solid transparent;
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        height: var(--dot-size);
+        width: var(--dot-size);
+        display: inline-block;
+        margin-block-start: calc(2* var(--border-width));
+        margin-inline-start: calc(2*var(--border-width));
+      }
+
+      &:disabled:before {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+
+        border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+      }
     }
   }
 
