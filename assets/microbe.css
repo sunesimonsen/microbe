@@ -83,7 +83,7 @@
     --line-height: var(--phi);
     --font-size: var(--base);
 
-    --heading-step: 0.35;
+    --heading-step: 0.36;
     --heading-font-weight: 500;
 
     --border-width: calc(round(nearest, var(--scale-0), 1px));
@@ -189,13 +189,9 @@
     --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
   }
 
-  HGroup {
+  hgroup {
     &>p {
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-9));
-    }
-
-    :is(h1, h2, h3, h4, h5, h6)+p {
-      margin-block-start: 0;
     }
   }
 
@@ -245,8 +241,11 @@
   h5,
   h6 {
     margin: 0;
-  }
 
+    &+p {
+      margin-block-start: 0;
+    }
+  }
 
   hr {
     height: 0;
