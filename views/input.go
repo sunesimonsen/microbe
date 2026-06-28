@@ -118,7 +118,7 @@ func InputView() Node {
 			),
 			WithDescription(
 				P(
-					Text("You can indicate the validation state using the attribute "),
+					Text("You can indicate the validation state of the input using the attribute "),
 					Code(Text("aria-invilid")),
 					Text(" with the values "),
 					Code(Text("true")), Text(" and "), Code(Text("false")),

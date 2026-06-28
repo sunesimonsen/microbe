@@ -109,6 +109,15 @@ func CheckboxView() Node {
 				),
 				Small(ID("invalid-hint"), Text("Please provide a valid value!")),
 			),
+			WithDescription(
+				P(
+					Text("You can indicate the validation state of the checkbox using the attribute "),
+					Code(Text("aria-invilid")),
+					Text(" with the values "),
+					Code(Text("true")), Text(" and "), Code(Text("false")),
+					Text("."),
+				),
+			),
 		),
 	)
 }

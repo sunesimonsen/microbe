@@ -81,6 +81,15 @@ func RadioView() Node {
 				),
 				Small(ID("invalid-hint"), Text("This cobination is not allowed!")),
 			),
+			WithDescription(
+				P(
+					Text("You can indicate the validation state of the radio group using the attribute "),
+					Code(Text("aria-invilid")),
+					Text(" with the values "),
+					Code(Text("true")), Text(" and "), Code(Text("false")),
+					Text("."),
+				),
+			),
 		),
 	)
 }
