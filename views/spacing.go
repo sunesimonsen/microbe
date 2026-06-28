@@ -9,7 +9,7 @@ import (
 
 func Spacing() Node {
 	sections := []IndexedContent{}
-	for level := range 12 {
+	for level := range 14 {
 		sections = append(sections,
 			NewExample(
 				fmt.Sprintf("--scale-%d", level),

@@ -145,6 +145,10 @@ label:has(#saturation-range, #color-range) {
   }
 }
 
+.example .card>section {
+  overflow-x: auto;
+}
+
 .example .card+.accordion {
   margin-block-start: var(--scale-3);
 }
