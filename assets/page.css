@@ -280,10 +280,11 @@ details.source pre {
     padding: 0;
 
     &>nav {
+      padding-block: var(--scale-5);
       position: sticky;
-      --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-8));
+      --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-7));
       top: var(--layout-sticky-start);
-      max-height: calc(100vh - var(--layout-sticky-start) - var(--scale-6));
+      max-height: calc(100vh - var(--layout-sticky-start));
       overflow-y: auto;
     }
   }

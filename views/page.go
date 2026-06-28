@@ -24,10 +24,10 @@ func Page(title string, children ...Node) Node {
 				Link(Rel("manifest"), Href("/assets/site.webmanifest")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/page.css")),
-				Script(Src("/assets/page.js")),
 			),
 			Body(
 				Group(children),
+				Script(Src("/assets/page.js")),
 			),
 		),
 	)
