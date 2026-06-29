@@ -85,10 +85,12 @@ func docsMenu(currentPath string) Node {
 			navListSection("Loaders", currentPath, []pageRef{
 				{href: "/progress", label: "Progress"},
 			}...),
+			navListSection("Popups", currentPath, []pageRef{
+				{href: "/dialog", label: "Dialog"},
+			}...),
 			navListSection("Components", currentPath, []pageRef{
 				{href: "/accordion", label: "Accordion"},
 				{href: "/card", label: "Card"},
-				{href: "/dialog", label: "Dialog"},
 			}...),
 			navListSection("Theming", currentPath, []pageRef{
 				{href: "/accent-color", label: "Accent color"},
