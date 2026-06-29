@@ -7,10 +7,6 @@ import (
 	. "maragu.dev/gomponents"
 )
 
-func (s *Server) indexHandler(w http.ResponseWriter, r *http.Request) {
-	renderNode(w, r, views.IndexLayout(views.IndexView()))
-}
-
 type view func() Node
 
 func docsHandler(v view) http.HandlerFunc {

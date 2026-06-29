@@ -6,13 +6,13 @@ import (
 )
 
 func IndexView() Node {
-	return Nodes(
-		HGroup(
-			H1(Text("Microbe")),
-		),
-		Div(
-			Role("document"),
-			H2(Text("Hello")),
+	return docpage(
+		HGroup(H1(Text("Introduction"))),
+		NewPageSection("sdfsdf",
+			Div(
+				Role("document"),
+				H2(Text("!!! Under construction !!!")),
+			),
 		),
 	)
 }

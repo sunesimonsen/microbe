@@ -60,6 +60,9 @@ func docsMenu(currentPath string) Node {
 
 		Nav(
 			Class("navlist"),
+			navListSection("Getting started", currentPath, []pageRef{
+				{href: "/", label: "Introduction"},
+			}...),
 			navListSection("Content", currentPath, []pageRef{
 				{href: "/typography", label: "Typography"},
 				{href: "/list", label: "List"},
@@ -232,16 +235,6 @@ func InlineCodeList(classes ...string) Node {
 	}
 
 	return Group(result)
-}
-
-func IndexLayout(part Node) Node {
-	return Page("Microbe",
-		Main(
-			Class("page-layout"),
-			header(),
-			part,
-		),
-	)
 }
 
 func DocsLayout(currentPath string, part Node) Node {

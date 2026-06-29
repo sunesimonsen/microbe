@@ -11,7 +11,7 @@ func (s *Server) setupRoutes() {
 	s.router.Use(middleware.RedirectSlashes)
 	s.router.Use(middleware.Logger)
 
-	s.router.Get("/", s.indexHandler)
+	s.router.Get("/", docsHandler(views.IndexView))
 	s.router.Get("/accent-color", docsHandler(views.AccentColorView))
 	s.router.Get("/accordion", docsHandler(views.AccordionView))
 	s.router.Get("/anchor", docsHandler(views.AnchorView))
