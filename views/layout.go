@@ -63,6 +63,10 @@ func docsMenu(currentPath string) Node {
 			navListSection("Getting started", currentPath, []pageRef{
 				{href: "/", label: "Introduction"},
 			}...),
+			navListSection("Theming", currentPath, []pageRef{
+				{href: "/accent-color", label: "Accent color"},
+				{href: "/colors", label: "Colors"},
+			}...),
 			navListSection("Content", currentPath, []pageRef{
 				{href: "/typography", label: "Typography"},
 				{href: "/list", label: "List"},
@@ -94,10 +98,6 @@ func docsMenu(currentPath string) Node {
 			navListSection("Components", currentPath, []pageRef{
 				{href: "/accordion", label: "Accordion"},
 				{href: "/card", label: "Card"},
-			}...),
-			navListSection("Theming", currentPath, []pageRef{
-				{href: "/accent-color", label: "Accent color"},
-				{href: "/colors", label: "Colors"},
 			}...),
 		),
 	)
