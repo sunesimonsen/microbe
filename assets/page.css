@@ -227,7 +227,7 @@ details.source pre {
   grid-template-areas: "navbar navbar navbar navbar navbar"
     "start menu header toc end"
     "start menu body toc end";
-  gap: var(--scale-7) var(--scale-8);
+  gap: 0 var(--scale-8);
   min-height: 100%;
 
   & .menu-toggle {
@@ -263,7 +263,6 @@ details.source pre {
       @supports not (container-type: scroll-state) {
         box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.2);
       }
-
     }
   }
 
@@ -280,7 +279,8 @@ details.source pre {
     padding: 0;
 
     &>nav {
-      padding-block: var(--scale-5);
+      margin-block-start: var(--scale-7);
+      padding-block: var(--scale-4);
       position: sticky;
       --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-7));
       top: var(--layout-sticky-start);
@@ -291,6 +291,7 @@ details.source pre {
 
   &>hgroup {
     grid-area: header;
+    margin-block-start: var(--scale-6);
   }
 
   &>[role=document] {
@@ -299,7 +300,7 @@ details.source pre {
     }
 
     grid-area: body;
-    margin-block-end: var(--scale-7);
+    margin-block: var(--scale-5) var(--scale-7);
   }
 }
 
@@ -335,7 +336,15 @@ details.source pre {
       "start menu toc end"
       "start menu body end";
 
-    gap: var(--scale-7) var(--scale-6);
+    gap: 0 var(--scale-6);
+
+    &>[role=document] {
+      margin-block-start: 0;
+    }
+
+    &>aside.toc>nav {
+      margin-block-start: var(--scale-5);
+    }
   }
 }
 
@@ -352,7 +361,7 @@ details.source pre {
       "start toc end"
       "start body end";
 
-    gap: var(--scale-7) var(--scale-6);
+    gap: 0 var(--scale-6);
 
     &>aside.menu {
       display: none;
@@ -392,6 +401,10 @@ details.source pre {
       border-block-end: none;
 
       animation: slide-up-and-in-animation 80ms ease-out;
+
+      &>nav {
+        margin-block-start: 0;
+      }
     }
 
     & header>nav {

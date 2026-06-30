@@ -141,7 +141,7 @@ func docpage(header Node, sections ...IndexedContent) Node {
 	return Nodes(
 		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/codepen-embed.min.css")),
 		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
-		HGroup(header),
+		header,
 		Div(Group(content)),
 		Aside(
 			Class("toc"),
