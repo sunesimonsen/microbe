@@ -12,6 +12,7 @@ func IndexView() Node {
 			Div(
 				Role("document"),
 				H2(Text("!!! Under construction !!!")),
+				Pre(Code(Text("https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css"))),
 			),
 		),
 	)
