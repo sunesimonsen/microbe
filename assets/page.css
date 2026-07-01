@@ -143,18 +143,18 @@ label:has(#saturation-range, #color-range) {
   &:last-child {
     margin-block-end: 0;
   }
-}
 
-.example .card>section {
-  overflow-x: auto;
-}
+  &>.card {
+    margin-block: var(--scale-3);
 
-.example .card+.accordion {
-  margin-block-start: var(--scale-3);
-}
+    &>footer {
+      border-block-end: none;
+    }
 
-.example .card:has(+.accordion) {
-  margin-block-end: var(--scale-3);
+    &>section {
+      overflow-x: auto;
+    }
+  }
 }
 
 .example .grid {
@@ -180,24 +180,35 @@ label:has(#saturation-range, #color-range) {
   gap: var(--scale-5);
 }
 
-details.source pre {
-  padding: var(--scale-2) var(--scale-3);
+.source {
+  display: none;
   margin: 0;
-  overflow-x: auto;
-  scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
-  scrollbar-width: thin;
+  padding: 0;
 
-  &:focus-within {
-    scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100% / 70%) transparent;
-  }
-
-  &>code {
-    transition: scrollbar-color 0.2s ease-in-out;
+  &>pre {
     padding: 0;
-    border: none;
-    border-radius: 0;
-    overflow-x: visible;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 70% / 50%) transparent;
+    scrollbar-width: thin;
 
+    &:focus-within {
+      scrollbar-color: hsl(var(--neutral-hue) var(--neutral-saturation) 100% / 70%) transparent;
+    }
+
+    &>code {
+      transition: scrollbar-color 0.2s ease-in-out;
+      padding: 0;
+      border: none;
+      border-radius: 0;
+      overflow-x: visible;
+    }
+  }
+}
+
+.example:has([name=show-source]:checked) {
+  & .source {
+    display: block;
   }
 }
 

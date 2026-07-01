@@ -200,21 +200,29 @@ func (e Example) Content() Node {
 	source := gohtml.Format(buf.String())
 	source = strings.ReplaceAll(source, "&#39;", "'")
 
+	id := strcase.ToKebab(e.Name())
+
 	return Article(
 		Class("example"),
-		ID(strcase.ToKebab(e.Name())),
+		ID(id),
 		H2(Text(e.Name())),
 		e.description,
-		Article(
+		Section(
 			Class("card"),
 			Section(e.content),
-		),
-		Section(
-			Class("accordion"),
-			Details(
-				Class("hljs source "),
-				Summary(Text("HTML")),
-				Pre(Code(Data("highlight", "yes"), Class("language-html"), Text(source))),
+			Footer(
+				Class("actions"),
+				Label(
+					Input(Type("checkbox"), Name("show-source"), Role("switch"), Aria("controls", id+"-source")),
+					Text("HTML"),
+				),
+			),
+			Section(
+				ID(id+"-source"),
+				Class("source"),
+				Pre(
+					Code(Data("highlight", "yes"), Class("language-html"), Text(source)),
+				),
 			),
 		),
 	)
