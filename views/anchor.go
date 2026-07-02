@@ -8,14 +8,14 @@ import (
 func AnchorView() Node {
 	return docpage(
 		HGroup(H1(Text("Anchor"))),
-		NewExample(
+		NewExample2(
+			"anchor",
 			"Regular",
-			A(Href("#"), Text("Regular link")),
 		),
-		NewExample(
+		NewExample2(
+			"anchor",
 			"Active link",
-			A(Href("#"), Attr("aria-current", "page"), Text("Active link")),
-			WithDescription(
+			WithDescription2(
 				P(Text("Use "), Code(Text("aria-current=\"page\"")), Text(" to indicate anchor is pointing the current page.")),
 			),
 		),

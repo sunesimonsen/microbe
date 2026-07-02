@@ -2,7 +2,10 @@ package views
 
 import (
 	"bytes"
+	"fmt"
+	"io/fs"
 	"log"
+	"os"
 	"slices"
 	"strings"
 
@@ -161,9 +164,9 @@ func docpage(header Node, sections ...IndexedContent) Node {
 	)
 }
 
-type ExampleOption func(example *Example)
+type LayoutOption[T any] func(target *T)
 
-func WithDescription(description Node) ExampleOption {
+func WithDescription(description Node) LayoutOption[Example] {
 	return func(example *Example) {
 		example.description = description
 	}
@@ -174,7 +177,7 @@ type Example struct {
 	description Node
 }
 
-func NewExample(name string, content Node, options ...ExampleOption) Example {
+func NewExample(name string, content Node, options ...LayoutOption[Example]) Example {
 	result := Example{
 		PageSection: PageSection{
 			name:    name,
@@ -222,6 +225,69 @@ func (e Example) Content() Node {
 				Class("source"),
 				Pre(
 					Code(Data("highlight", "yes"), Class("language-html"), Text(source)),
+				),
+			),
+		),
+	)
+}
+
+func WithDescription2(description Node) LayoutOption[Example2] {
+	return func(example *Example2) {
+		example.description = description
+	}
+}
+
+type Example2 struct {
+	PageSection
+	namespace   string
+	description Node
+	fs          fs.FS
+}
+
+func NewExample2(namespace string, name string, options ...LayoutOption[Example2]) Example2 {
+	fs := os.DirFS("./assets/examples/")
+
+	result := Example2{
+		PageSection: PageSection{name: name},
+		namespace:   namespace,
+		fs:          fs,
+	}
+
+	for _, option := range options {
+		option(&result)
+	}
+
+	return result
+}
+
+func (e Example2) Content() Node {
+	id := strcase.ToKebab(e.Name())
+
+	content, err := fs.ReadFile(e.fs, fmt.Sprintf("%s.%s.html", e.namespace, id))
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return Article(
+		Class("example"),
+		ID(id),
+		H2(Text(e.Name())),
+		e.description,
+		Section(
+			Class("card"),
+			Section(Raw(string(content))),
+			Footer(
+				Class("actions"),
+				Label(
+					Input(Type("checkbox"), Name("show-source"), Role("switch"), Aria("controls", id+"-source")),
+					Text("HTML"),
+				),
+			),
+			Section(
+				ID(id+"-source"),
+				Class("source"),
+				Pre(
+					Code(Data("highlight", "yes"), Class("language-html"), Text(string(content))),
 				),
 			),
 		),
