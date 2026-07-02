@@ -181,7 +181,6 @@ label:has(#saturation-range, #color-range) {
 }
 
 .source {
-  display: none;
   margin: 0;
   padding: 0;
 
@@ -203,12 +202,6 @@ label:has(#saturation-range, #color-range) {
       border-radius: 0;
       overflow-x: visible;
     }
-  }
-}
-
-.example:has([name=show-source]:checked) {
-  & .source {
-    display: block;
   }
 }
 

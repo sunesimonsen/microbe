@@ -1,0 +1,52 @@
+package docs
+
+var Index = Categories{
+	NewCategory(
+		"Getting started",
+		IntroductionPage,
+	),
+	NewCategory(
+		"Theming",
+		AccentColorPage,
+		ColorsPage,
+	),
+	NewCategory(
+		"Content",
+		TypographyPage,
+		ListPage,
+		TablePage,
+	),
+	NewCategory(
+		"Navigation",
+		AnchorPage,
+		NavlistPage,
+	),
+	NewCategory(
+		"Layout",
+		SpacingPage,
+	),
+	NewCategory(
+		"Forms",
+		ButtonPage,
+		CheckboxPage,
+		InputPage,
+		TextareaPage,
+		RadioPage,
+		RangePage,
+		SelectPage,
+		SwitchPage,
+	),
+	NewCategory(
+		"Loaders",
+		ProgressPage,
+	),
+	NewCategory(
+		"Popups",
+		DialogPage,
+	),
+	NewCategory(
+		"Components",
+		AccordionPage,
+		CardPage,
+	),
+}

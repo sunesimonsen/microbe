@@ -34,14 +34,6 @@ if (window.self === window.top) {
     if (indeterminateCheckbox) {
       indeterminateCheckbox.indeterminate = true;
     }
-
-    if (typeof hljs !== "undefined") {
-      const codeBlocks = document.querySelectorAll("[data-highlight=yes]")
-
-      for (const codeBlock of codeBlocks) {
-        hljs.highlightElement(codeBlock);
-      }
-    }
   })
 
   window.addEventListener('click', (e) => {
@@ -49,6 +41,31 @@ if (window.self === window.top) {
       document.body.classList.toggle('show-menu')
     } else if (e.target.matches('a') && document.body.classList.contains('show-menu')) {
       document.body.classList.remove('show-menu')
+    } else if (e.target.matches('.show-source')) {
+      e.target.ariaPressed = !e.target.matches('[aria-pressed=true]')
+      const card = e.target.closest(".card")
+      let source = card.querySelector('.source')
+
+      if (source) {
+        source.remove()
+      } else {
+        source = document.createElement('section')
+        source.classList.add('source')
+
+        const pre = document.createElement('pre')
+
+        const code = document.createElement('code')
+        code.classList.add('language-html')
+
+        source.appendChild(pre)
+        pre.appendChild(code)
+
+        const snippet = document.createTextNode(card.querySelector('section').innerHTML)
+        code.appendChild(snippet)
+
+        card.appendChild(source)
+        hljs.highlightElement(code);
+      }
     }
   })
 }

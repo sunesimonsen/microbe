@@ -1,36 +1,35 @@
 package server
 
 import (
+	"errors"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/sunesimonsen/microbe/docs"
 	"github.com/sunesimonsen/microbe/views"
 	. "maragu.dev/gomponents"
 )
 
 type view func() Node
 
-func docsHandler(v view) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		renderNode(w, r, views.DocsLayout(r.URL.Path, v()))
-	}
+func IndexHandler(w http.ResponseWriter, r *http.Request) {
+	http.Redirect(w, r, "/getting-started/introduction", http.StatusMovedPermanently)
 }
 
-func exampleHandler(w http.ResponseWriter, r *http.Request) {
-	namespace := chi.URLParam(r, "namespace")
-	id := chi.URLParam(r, "id")
+func DocsHandler(w http.ResponseWriter, r *http.Request) {
+	category, err := docs.Index.FindCategory(chi.URLParam(r, "category"))
+	page, err := category.FindPage(chi.URLParam(r, "page"))
 
-	source := r.URL.Query().Get("source")
-
-	example := views.NewExample2(namespace, id, views.WithSourceHidden(
-		source != "true",
-	))
-
-	if !example.Exists() {
-		http.NotFound(w, r)
+	if err != nil {
+		if errors.Is(err, docs.ErrNotFound) {
+			http.NotFound(w, r)
+		} else {
+			w.WriteHeader(http.StatusInternalServerError)
+		}
+		return
 	}
 
-	renderNode(w, r, example.Content())
+	renderNode(w, r, views.DocsLayout(r.URL.Path, page))
 }
 
 func renderNode(w http.ResponseWriter, _ *http.Request, node Node) {

@@ -1,17 +1,11 @@
 package views
 
 import (
-	"bytes"
-	"errors"
-	"fmt"
-	"io/fs"
-	"log"
-	"os"
 	"slices"
-	"strings"
 
 	"github.com/iancoleman/strcase"
-	"github.com/yosssi/gohtml"
+	"github.com/sunesimonsen/microbe/docs"
+	"github.com/sunesimonsen/microbe/icons"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -21,41 +15,15 @@ func header() Node {
 		Nav(
 			Button(
 				Class("menu-toggle ghost icon"),
-				burgerIcon(),
+				icons.BurgerIcon(),
 			),
 			A(Class("home"), Href("/"), Text("Microbe")),
 		),
 	)
 }
 
-func Nodes(nodes ...Node) Node {
-	return Group(nodes)
-}
-
-type pageRef struct {
-	href  string
-	label string
-}
-
-func navListSection(label string, currentPath string, pageRefs ...pageRef) Node {
-	hasActivePage := slices.ContainsFunc(pageRefs, func(pr pageRef) bool {
-		return pr.href == currentPath
-	})
-
-	return Details(
-		If(hasActivePage, Open()),
-		Name("index"),
-		Summary(Text(label)),
-		Ul(
-			Map(pageRefs, func(pr pageRef) Node {
-				return Li(A(
-					If(pr.href == currentPath, Aria("current", "page")),
-					Href(pr.href),
-					Text(pr.label),
-				))
-			}),
-		),
-	)
+func PageHref(c docs.Category, p docs.Page) string {
+	return "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
 }
 
 func docsMenu(currentPath string) Node {
@@ -64,272 +32,29 @@ func docsMenu(currentPath string) Node {
 
 		Nav(
 			Class("navlist"),
-			navListSection("Getting started", currentPath, []pageRef{
-				{href: "/", label: "Introduction"},
-			}...),
-			navListSection("Theming", currentPath, []pageRef{
-				{href: "/accent-color", label: "Accent color"},
-				{href: "/colors", label: "Colors"},
-			}...),
-			navListSection("Content", currentPath, []pageRef{
-				{href: "/typography", label: "Typography"},
-				{href: "/list", label: "List"},
-				{href: "/table", label: "Table"},
-			}...),
-			navListSection("Navigation", currentPath, []pageRef{
-				{href: "/anchor", label: "Anchor"},
-				{href: "/navlist", label: "Navlist"},
-			}...),
-			navListSection("Layout", currentPath, []pageRef{
-				{href: "/spacing", label: "Spacing"},
-			}...),
-			navListSection("Forms", currentPath, []pageRef{
-				{href: "/button", label: "Button"},
-				{href: "/checkbox", label: "Checkbox"},
-				{href: "/input", label: "Input"},
-				{href: "/textarea", label: "Textarea"},
-				{href: "/radio", label: "Radio"},
-				{href: "/range", label: "Range"},
-				{href: "/select", label: "Select"},
-				{href: "/switch", label: "Switch"},
-			}...),
-			navListSection("Loaders", currentPath, []pageRef{
-				{href: "/progress", label: "Progress"},
-			}...),
-			navListSection("Popups", currentPath, []pageRef{
-				{href: "/dialog", label: "Dialog"},
-			}...),
-			navListSection("Components", currentPath, []pageRef{
-				{href: "/accordion", label: "Accordion"},
-				{href: "/card", label: "Card"},
-			}...),
-		),
-	)
-}
+			Map(docs.Index, func(c docs.Category) Node {
+				hasActivePage := slices.ContainsFunc(c.Pages, func(p docs.Page) bool {
+					return PageHref(c, p) == currentPath
+				})
 
-type PageSection struct {
-	name    string
-	content Node
-}
-
-func NewPageSection(name string, content ...Node) PageSection {
-	return PageSection{name: name, content: Group(content)}
-}
-
-func (s PageSection) Id() string {
-	return strcase.ToKebab(s.name)
-}
-
-func (s PageSection) Name() string {
-	return s.name
-}
-
-func (s PageSection) Anchor() Node {
-	return A(Href("#"+s.Id()), Text(s.name))
-}
-
-func (s PageSection) Content() Node {
-	return s.content
-}
-
-type IndexedContent interface {
-	Name() string
-	Anchor() Node
-	Content() Node
-}
-
-func docpage(header Node, sections ...IndexedContent) Node {
-	content := []Node{
-		Role("document"),
-		Map(sections, func(s IndexedContent) Node {
-			return s.Content()
-		}),
-	}
-
-	return Nodes(
-		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/codepen-embed.min.css")),
-		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
-		header,
-		Div(Group(content)),
-		Aside(
-			Class("toc"),
-			Nav(
-				Class("navlist"),
-				Details(
-					Open(),
-					Summary(Text("Content")),
-					Name("toc"),
+				return Details(
+					Name("index"),
+					If(hasActivePage, Open()),
+					Summary(Text(c.Name)),
 					Ul(
-						Map(sections, func(s IndexedContent) Node {
-							return Li(s.Anchor())
-						})),
-				),
-			),
-		),
-	)
-}
-
-type LayoutOption[T any] func(target *T)
-
-func WithDescription(description Node) LayoutOption[Example] {
-	return func(example *Example) {
-		example.description = description
-	}
-}
-
-type Example struct {
-	PageSection
-	description Node
-}
-
-func NewExample(name string, content Node, options ...LayoutOption[Example]) Example {
-	result := Example{
-		PageSection: PageSection{
-			name:    name,
-			content: content,
-		},
-	}
-
-	for _, option := range options {
-		option(&result)
-	}
-
-	return result
-}
-
-func (e Example) Content() Node {
-	buf := new(bytes.Buffer)
-	err := Nodes(e.content).Render(buf)
-
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	source := gohtml.Format(buf.String())
-	source = strings.ReplaceAll(source, "&#39;", "'")
-
-	id := e.Id()
-
-	return Article(
-		Class("example"),
-		ID(id),
-		H2(Text(e.Name())),
-		e.description,
-		Section(
-			Class("card"),
-			Section(e.content),
-			Footer(
-				Class("actions"),
-				Label(
-					Input(Type("checkbox"), Name("show-source"), Role("switch"), Aria("controls", id+"-source")),
-					Text("HTML"),
-				),
-			),
-			Section(
-				ID(id+"-source"),
-				Class("source"),
-				Pre(
-					Code(Data("highlight", "yes"), Class("language-html"), Text(source)),
-				),
-			),
-		),
-	)
-}
-
-func WithDescription2(description Node) LayoutOption[Example2] {
-	return func(example *Example2) {
-		example.description = description
-	}
-}
-
-func WithSourceHidden(hiddenSource bool) LayoutOption[Example2] {
-	return func(example *Example2) {
-		example.hiddenSource = hiddenSource
-	}
-}
-
-type Example2 struct {
-	PageSection
-	namespace    string
-	description  Node
-	fs           fs.FS
-	hiddenSource bool
-}
-
-func NewExample2(namespace string, name string, options ...LayoutOption[Example2]) Example2 {
-	fs := os.DirFS("./assets/examples/")
-
-	result := Example2{
-		PageSection: PageSection{name: name},
-		namespace:   namespace,
-		fs:          fs,
-	}
-
-	for _, option := range options {
-		option(&result)
-	}
-
-	return result
-}
-
-func (e Example2) Exists() bool {
-	stat, err := fs.Stat(e.fs, fmt.Sprintf("%s.%s.html", e.namespace, e.Id()))
-
-	return !errors.Is(err, os.ErrNotExist) &&
-		stat.Mode().IsRegular()
-}
-
-func (e Example2) Content() Node {
-	id := e.Id()
-
-	content, err := fs.ReadFile(e.fs, fmt.Sprintf("%s.%s.html", e.namespace, id))
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	return Article(
-		Class("example"),
-		ID(id),
-		H2(Text(e.Name())),
-		e.description,
-		Section(
-			Class("card"),
-			Section(Raw(string(content))),
-			Footer(
-				Class("actions"),
-				Label(
-					Input(Type("checkbox"), Name("show-source"), Role("switch"), Aria("controls", id+"-source")),
-					Text("HTML"),
-				),
-			),
-			If(!e.hiddenSource,
-				Section(
-					ID(id+"-source"),
-					Class("source"),
-					Pre(
-						Code(Data("highlight", "yes"), Class("language-html"), Text(string(content))),
+						Map(c.Pages, func(p docs.Page) Node {
+							href := "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
+							return Li(A(
+								If(PageHref(c, p) == currentPath, Aria("current", "page")),
+								Href(href),
+								Text(p.Name),
+							))
+						}),
 					),
-				),
-			),
+				)
+			}),
 		),
 	)
-}
-
-func InlineCodeList(classes ...string) Node {
-	result := []Node{}
-
-	for i, c := range classes {
-		if i != 0 {
-			if i < len(classes)-1 {
-				result = append(result, Text(", "))
-			} else {
-				result = append(result, Text(" and "))
-			}
-		}
-		result = append(result, Code(Text(c)))
-	}
-
-	return Group(result)
 }
 
 func DocsLayout(currentPath string, part Node) Node {
