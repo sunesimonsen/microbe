@@ -33,5 +33,7 @@ func (s *Server) setupRoutes() {
 	s.router.Get("/textarea", docsHandler(views.TextareaView))
 	s.router.Get("/typography", docsHandler(views.Typography))
 
+	s.router.Get("/parts/example/{namespace}/{id}", exampleHandler)
+
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }

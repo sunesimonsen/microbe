@@ -2,6 +2,7 @@ package views
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"io/fs"
 	"log"
@@ -115,12 +116,16 @@ func NewPageSection(name string, content ...Node) PageSection {
 	return PageSection{name: name, content: Group(content)}
 }
 
+func (s PageSection) Id() string {
+	return strcase.ToKebab(s.name)
+}
+
 func (s PageSection) Name() string {
 	return s.name
 }
 
 func (s PageSection) Anchor() Node {
-	return A(Href("#"+strcase.ToKebab(s.name)), Text(s.name))
+	return A(Href("#"+s.Id()), Text(s.name))
 }
 
 func (s PageSection) Content() Node {
@@ -203,7 +208,7 @@ func (e Example) Content() Node {
 	source := gohtml.Format(buf.String())
 	source = strings.ReplaceAll(source, "&#39;", "'")
 
-	id := strcase.ToKebab(e.Name())
+	id := e.Id()
 
 	return Article(
 		Class("example"),
@@ -237,11 +242,18 @@ func WithDescription2(description Node) LayoutOption[Example2] {
 	}
 }
 
+func WithSourceHidden(hiddenSource bool) LayoutOption[Example2] {
+	return func(example *Example2) {
+		example.hiddenSource = hiddenSource
+	}
+}
+
 type Example2 struct {
 	PageSection
-	namespace   string
-	description Node
-	fs          fs.FS
+	namespace    string
+	description  Node
+	fs           fs.FS
+	hiddenSource bool
 }
 
 func NewExample2(namespace string, name string, options ...LayoutOption[Example2]) Example2 {
@@ -260,8 +272,15 @@ func NewExample2(namespace string, name string, options ...LayoutOption[Example2
 	return result
 }
 
+func (e Example2) Exists() bool {
+	stat, err := fs.Stat(e.fs, fmt.Sprintf("%s.%s.html", e.namespace, e.Id()))
+
+	return !errors.Is(err, os.ErrNotExist) &&
+		stat.Mode().IsRegular()
+}
+
 func (e Example2) Content() Node {
-	id := strcase.ToKebab(e.Name())
+	id := e.Id()
 
 	content, err := fs.ReadFile(e.fs, fmt.Sprintf("%s.%s.html", e.namespace, id))
 	if err != nil {
@@ -283,11 +302,13 @@ func (e Example2) Content() Node {
 					Text("HTML"),
 				),
 			),
-			Section(
-				ID(id+"-source"),
-				Class("source"),
-				Pre(
-					Code(Data("highlight", "yes"), Class("language-html"), Text(string(content))),
+			If(!e.hiddenSource,
+				Section(
+					ID(id+"-source"),
+					Class("source"),
+					Pre(
+						Code(Data("highlight", "yes"), Class("language-html"), Text(string(content))),
+					),
 				),
 			),
 		),
