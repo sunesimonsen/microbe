@@ -84,31 +84,21 @@ func TrimCommonWhitespace(text string) string {
 	return strings.TrimSpace(strings.Join(lines, "\n"))
 }
 
-type ExampleOption func(e *Example)
-
-func WithClass(c string) ExampleOption {
-	return func(e *Example) {
-		e.Class = c
-	}
+func (e Example) WithDescription(description Node) Example {
+	e.Description = description
+	return e
 }
 
-func WithDescription(description ...Node) ExampleOption {
-	return func(e *Example) {
-		e.Description = Group(description)
-	}
+func (e Example) WithClass(class string) Example {
+	e.Class = class
+	return e
 }
 
-func NewExample(name string, source string, options ...ExampleOption) Example {
-	example := Example{
+func NewExample(name string, source string) Example {
+	return Example{
 		Name:   name,
 		Source: TrimCommonWhitespace(source),
 	}
-
-	for _, option := range options {
-		option(&example)
-	}
-
-	return example
 }
 
 type CustomPageSection struct {

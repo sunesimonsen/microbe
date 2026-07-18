@@ -76,8 +76,7 @@ var TypographyPage = NewPage(
     <u>Underlined</u>
     <var>Var</var>
     `,
-		WithClass("grid"),
-	),
+	).WithClass("grid"),
 	NewExample(
 		"Horizontal ruler",
 		`

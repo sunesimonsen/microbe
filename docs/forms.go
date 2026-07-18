@@ -15,15 +15,13 @@ var ButtonPage = NewPage(
     <button class="outline">Outline Button</button>
     <button class="ghost">Ghost Button</button>
     `,
-		WithClass("grid"),
-		WithDescription(
-			P(
-				Text("Buttons are not styled by default to avoid the need to reset styles for custom usages. "),
-				InlineCodeList(".solid", ".outline", ".ghost"),
-				Text(" to set the appearance of the button."),
-			),
+	).WithDescription(
+		P(
+			Text("Buttons are not styled by default to avoid the need to reset styles for custom usages. "),
+			InlineCodeList(".solid", ".outline", ".ghost"),
+			Text(" to set the appearance of the button."),
 		),
-	),
+	).WithClass("grid"),
 	NewExample(
 		"Disabled",
 		`
@@ -31,8 +29,7 @@ var ButtonPage = NewPage(
     <button class="outline" disabled>Outline Button</button>
     <button class="ghost" disabled>Ghost Button</button>
     `,
-		WithClass("grid"),
-	),
+	).WithClass("grid"),
 	NewExample(
 		"Media",
 		`
@@ -51,11 +48,9 @@ var ButtonPage = NewPage(
       </svg>
     </button>
     `,
-		WithClass("grid"),
-		WithDescription(
-			P(Text("Buttons uses flexbox layout to neatly position icons.")),
-		),
-	),
+	).WithDescription(
+		P(Text("Buttons uses flexbox layout to neatly position icons.")),
+	).WithClass("grid"),
 	NewExample(
 		"Icon",
 		`
@@ -75,11 +70,9 @@ var ButtonPage = NewPage(
       </svg>
     </button>
     `,
-		WithClass("grid small"),
-		WithDescription(
-			P(Text("Use the "), Code(Text(".icon")), Text(" for buttons with only an icon.")),
-		),
-	),
+	).WithDescription(
+		P(Text("Use the "), Code(Text(".icon")), Text(" for buttons with only an icon.")),
+	).WithClass("grid small"),
 	NewExample(
 		"Types",
 		`
@@ -104,17 +97,15 @@ var ButtonPage = NewPage(
       <input class="ghost" type="reset" value="Reset input">
     </div>
     `,
-		WithClass("rows"),
-		WithDescription(
-			P(
-				Text("In addition to the "), InlineCodeList("button"), Text(" element, input elements with a type of "),
-				InlineCodeList("button", "submit", "reset"),
-				Text(" can be styled as a button using the classes "),
-				InlineCodeList(".solid", ".outline", ".ghost"),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("In addition to the "), InlineCodeList("button"), Text(" element, input elements with a type of "),
+			InlineCodeList("button", "submit", "reset"),
+			Text(" can be styled as a button using the classes "),
+			InlineCodeList(".solid", ".outline", ".ghost"),
+			Text("."),
 		),
-	),
+	).WithClass("rows"),
 )
 
 var CheckboxPage = NewPage(
@@ -185,14 +176,13 @@ var CheckboxPage = NewPage(
     </label>
     <small id="invalid-hint">Please provide a valid value!</small>
     `,
-		WithDescription(
-			P(
-				Text("You can indicate the validation state of the checkbox using the attribute "),
-				Code(Text("aria-invilid")),
-				Text(" with the values "),
-				Code(Text("true")), Text(" and "), Code(Text("false")),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the checkbox using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
 		),
 	),
 )
@@ -241,8 +231,7 @@ var InputPage = NewPage(
     <input type="tel" name="tel" aria-label="Tel" placeholder="Tel">
     <input type="url" name="url" aria-label="Url" placeholder="Url">
     `,
-		WithClass("rows"),
-	),
+	).WithClass("rows"),
 	NewExample(
 		"Date and time inputs",
 		`
@@ -252,8 +241,7 @@ var InputPage = NewPage(
     <input type="week" name="week" aria-label="Week">
     <input type="time" name="time" aria-label="Time">
     `,
-		WithClass("rows"),
-	),
+	).WithClass("rows"),
 	NewExample(
 		"Search input",
 		`
@@ -299,14 +287,13 @@ var InputPage = NewPage(
     <input type="text" name="invalid" aria-label="Invalid" aria-invalid="true" aria-describedby="invalid-hint" value="Invalid">
     <small id="invalid-hint">Please provide a valid value!</small>
     `,
-		WithDescription(
-			P(
-				Text("You can indicate the validation state of the input using the attribute "),
-				Code(Text("aria-invilid")),
-				Text(" with the values "),
-				Code(Text("true")), Text(" and "), Code(Text("false")),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the input using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
 		),
 	),
 )
@@ -368,14 +355,13 @@ var TextareaPage = NewPage(
     <textarea type="text" name="invalid" aria-label="Invalid" aria-invalid="true" aria-describedby="invalid-hint">Invalid</textarea>
     <small id="invalid-hint">Please provide a valid value!</small>
     `,
-		WithDescription(
-			P(
-				Text("You can indicate the validation state of the textarea using the attribute "),
-				Code(Text("aria-invilid")),
-				Text(" with the values "),
-				Code(Text("true")), Text(" and "), Code(Text("false")),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the textarea using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
 		),
 	),
 )
@@ -426,14 +412,13 @@ var RadioPage = NewPage(
     </label>
     <small id="invalid-hint">This cobination is not allowed!</small>
     `,
-		WithDescription(
-			P(
-				Text("You can indicate the validation state of the radio group using the attribute "),
-				Code(Text("aria-invilid")),
-				Text(" with the values "),
-				Code(Text("true")), Text(" and "), Code(Text("false")),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the radio group using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
 		),
 	),
 )
@@ -647,14 +632,13 @@ var SwitchPage = NewPage(
     </label>
     <small id="invalid-hint">Please provide a valid value!</small>
     `,
-		WithDescription(
-			P(
-				Text("You can indicate the validation state of the switch using the attribute "),
-				Code(Text("aria-invilid")),
-				Text(" with the values "),
-				Code(Text("true")), Text(" and "), Code(Text("false")),
-				Text("."),
-			),
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the switch using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
 		),
 	),
 )
