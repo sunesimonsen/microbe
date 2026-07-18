@@ -9,7 +9,6 @@ var IntroductionPage = NewPage(
 	"Introduction",
 	nil,
 	NewPageSection(
-		"Introduction",
 		"Install",
 		Div(
 			Role("document"),

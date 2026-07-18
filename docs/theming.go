@@ -12,7 +12,6 @@ var AccentColorPage = NewPage(
 	"Accent color",
 	HGroup(H1(Text("Accent color"))),
 	NewPageSection(
-		"Accent color",
 		"Settings",
 		Section(
 			ID("settings"),
@@ -136,7 +135,6 @@ func colorTable(name string, palettes []color) PageSection {
 	}
 
 	return NewPageSection(
-		"Colors",
 		name,
 		Group{
 			H2(ID(strcase.ToKebab(name)), Text(name)),

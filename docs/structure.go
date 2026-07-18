@@ -125,11 +125,10 @@ func (s CustomPageSection) Render(w io.Writer) error {
 	return s.Node.Render(w)
 }
 
-func NewPageSection(id string, name string, node Node) CustomPageSection {
+func NewPageSection(name string, node Node) CustomPageSection {
 	return CustomPageSection{
-		Namespace: id,
-		Name:      name,
-		Node:      node,
+		Name: name,
+		Node: node,
 	}
 }
 
