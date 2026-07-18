@@ -7,15 +7,6 @@ import (
 
 var TypographyPage = NewPage(
 	"Typography",
-	HGroup(
-		H1(Text("Typography")),
-		P(Text("Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.")),
-		P(
-			Text("All styles are based on the HTML document's font-size ("),
-			Code(Text("rem")),
-			Text(") and will scale according to the users stylesheet and the screen size."),
-		),
-	),
 	NewExample(
 		"Headings",
 		`
@@ -118,11 +109,17 @@ var TypographyPage = NewPage(
     <pre><code>console.log('Hello world!');</code></pre>
     `,
 	),
+).WithDescription(
+	P(Text("Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.")),
+	P(
+		Text("All styles are based on the HTML document's font-size ("),
+		Code(Text("rem")),
+		Text(") and will scale according to the users stylesheet and the screen size."),
+	),
 )
 
 var ListPage = NewPage(
 	"List",
-	HGroup(H1(Text("List"))),
 	NewExample(
 		"Unordered list",
 		`
@@ -213,7 +210,6 @@ var ListPage = NewPage(
 
 var TablePage = NewPage(
 	"Table",
-	HGroup(H1(Text("Table"))),
 	NewExample(
 		"Default",
 		`

@@ -7,10 +7,6 @@ import (
 
 var DialogPage = NewPage(
 	"Dialog",
-	HGroup(
-		H1(Text("Dialog")),
-		P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
-	),
 	NewExample(
 		"Example",
 		`
@@ -182,4 +178,6 @@ var DialogPage = NewPage(
     </dialog>
     `,
 	),
+).WithDescription(
+	P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
 )

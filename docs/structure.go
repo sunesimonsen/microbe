@@ -123,9 +123,9 @@ func NewPageSection(name string, node Node) CustomPageSection {
 }
 
 type Page struct {
-	Name    string
-	Header  Node
-	Content []PageSection
+	Name        string
+	Description Node
+	Content     []PageSection
 }
 
 func (p Page) FindSection(name string) (PageSection, error) {
@@ -142,7 +142,10 @@ func (p Page) Render(w io.Writer) error {
 	return Group{
 		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/codepen-embed.min.css")),
 		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
-		p.Header,
+		HGroup(
+			H1(Text(p.Name)),
+			p.Description,
+		),
 		Div(
 			Role("document"),
 			Map(p.Content, func(s PageSection) Node {
@@ -168,10 +171,14 @@ func (p Page) Render(w io.Writer) error {
 	}.Render(w)
 }
 
-func NewPage(name string, header Node, content ...PageSection) Page {
+func (p Page) WithDescription(description ...Node) Page {
+	p.Description = Group(description)
+	return p
+}
+
+func NewPage(name string, content ...PageSection) Page {
 	return Page{
 		Name:    name,
-		Header:  header,
 		Content: content,
 	}
 }

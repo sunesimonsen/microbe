@@ -7,7 +7,6 @@ import (
 
 var ButtonPage = NewPage(
 	"Button",
-	HGroup(H1(Text("Button"))),
 	NewExample(
 		"Styles",
 		`
@@ -110,7 +109,6 @@ var ButtonPage = NewPage(
 
 var CheckboxPage = NewPage(
 	"Checkbox",
-	HGroup(H1(Text("Checkbox"))),
 	NewExample(
 		"Example",
 		`
@@ -189,7 +187,6 @@ var CheckboxPage = NewPage(
 
 var InputPage = NewPage(
 	"Input",
-	HGroup(H1(Text("Input"))),
 	NewExample(
 		"Form",
 		`
@@ -300,7 +297,6 @@ var InputPage = NewPage(
 
 var TextareaPage = NewPage(
 	"Textarea",
-	HGroup(H1(Text("Textarea"))),
 	NewExample(
 		"Default",
 		`
@@ -368,7 +364,6 @@ var TextareaPage = NewPage(
 
 var RadioPage = NewPage(
 	"Radio",
-	HGroup(H1(Text("Radio"))),
 	NewExample(
 		"Example",
 		`
@@ -425,7 +420,6 @@ var RadioPage = NewPage(
 
 var RangePage = NewPage(
 	"Range",
-	HGroup(H1(Text("Range"))),
 	NewExample(
 		"Example",
 		`
@@ -449,7 +443,6 @@ var RangePage = NewPage(
 
 var SelectPage = NewPage(
 	"Select",
-	HGroup(H1(Text("Select"))),
 	NewExample(
 		"Example",
 		`
@@ -581,7 +574,6 @@ var SelectPage = NewPage(
 
 var SwitchPage = NewPage(
 	"Switch",
-	HGroup(H1(Text("Switch"))),
 	NewExample(
 		"Example",
 		`

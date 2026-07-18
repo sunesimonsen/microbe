@@ -1,13 +1,7 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var AnchorPage = NewPage(
 	"Anchor",
-	HGroup(H1(Text("Anchor"))),
 	NewExample(
 		"Regular", `
     <a href="#">Regular link</a>
@@ -22,7 +16,6 @@ var AnchorPage = NewPage(
 
 var NavlistPage = NewPage(
 	"Navlist",
-	HGroup(H1(Text("Navlist"))),
 	NewExample(
 		"Example", `
     <nav class="navlist">

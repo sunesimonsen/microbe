@@ -7,10 +7,6 @@ import (
 
 var AccordionPage = NewPage(
 	"Accordion",
-	HGroup(
-		H1(Text("Accordion")),
-		P(Text("An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.")),
-	),
 	NewExample(
 		"Example",
 		`
@@ -163,14 +159,12 @@ var AccordionPage = NewPage(
   </p>
     `,
 	),
+).WithDescription(
+	P(Text("An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.")),
 )
 
 var CardPage = NewPage(
 	"Card",
-	HGroup(
-		H1(Text("Card")),
-		P(Text("An element that groups related information and actions about a single subject into a visually distinct, flexible container.")),
-	),
 	NewExample(
 		"Bare card",
 		`
@@ -257,4 +251,6 @@ var CardPage = NewPage(
     </article>
     `,
 	),
+).WithDescription(
+	P(Text("An element that groups related information and actions about a single subject into a visually distinct, flexible container.")),
 )

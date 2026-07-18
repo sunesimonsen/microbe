@@ -2,9 +2,6 @@ package docs
 
 import (
 	"fmt"
-
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
 )
 
 func createScaleExamples() []PageSection {
@@ -24,6 +21,5 @@ func createScaleExamples() []PageSection {
 
 var SpacingPage = NewPage(
 	"Spacing",
-	HGroup(H1(Text("Spacing"))),
 	createScaleExamples()...,
 )

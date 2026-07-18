@@ -10,7 +10,6 @@ import (
 
 var AccentColorPage = NewPage(
 	"Accent color",
-	HGroup(H1(Text("Accent color"))),
 	NewPageSection(
 		"Settings",
 		Section(
@@ -149,7 +148,6 @@ func colorTable(name string, palettes []color) PageSection {
 
 var ColorsPage = NewPage(
 	"Colors",
-	HGroup(H1(Text("Colors"))),
 	colorTable("Standard colors", createStandardPalettes()),
 	colorTable("Muted colors", createCustomPalettes()),
 )

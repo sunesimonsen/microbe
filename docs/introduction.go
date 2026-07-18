@@ -7,7 +7,6 @@ import (
 
 var IntroductionPage = NewPage(
 	"Introduction",
-	nil,
 	NewPageSection(
 		"Install",
 		Div(
