@@ -9,7 +9,6 @@ var ProgressPage = NewPage(
 	"Progress",
 	HGroup(H1(Text("Progress"))),
 	NewExample(
-		"Progress",
 		"Example",
 		`
     <label>
@@ -19,7 +18,6 @@ var ProgressPage = NewPage(
     `,
 	),
 	NewExample(
-		"Progress",
 		"Indeterminate",
 		`
     <label>

@@ -21,7 +21,6 @@ type PageSection interface {
 }
 
 type Example struct {
-	Namespace   string
 	Name        string
 	Description Node
 	Class       string
@@ -99,11 +98,10 @@ func WithDescription(description ...Node) ExampleOption {
 	}
 }
 
-func NewExample(id string, name string, source string, options ...ExampleOption) Example {
+func NewExample(name string, source string, options ...ExampleOption) Example {
 	example := Example{
-		Namespace: id,
-		Name:      name,
-		Source:    TrimCommonWhitespace(source),
+		Name:   name,
+		Source: TrimCommonWhitespace(source),
 	}
 
 	for _, option := range options {

@@ -9,7 +9,6 @@ var ButtonPage = NewPage(
 	"Button",
 	HGroup(H1(Text("Button"))),
 	NewExample(
-		"Button",
 		"Styles",
 		`
     <button class="solid">Solid Button</button>
@@ -26,7 +25,6 @@ var ButtonPage = NewPage(
 		),
 	),
 	NewExample(
-		"Button",
 		"Disabled",
 		`
     <button class="solid" disabled>Solid Button</button>
@@ -36,7 +34,6 @@ var ButtonPage = NewPage(
 		WithClass("grid"),
 	),
 	NewExample(
-		"Button",
 		"Media",
 		`
     <button class="outline">
@@ -60,7 +57,6 @@ var ButtonPage = NewPage(
 		),
 	),
 	NewExample(
-		"Button",
 		"Icon",
 		`
     <button class="solid icon" aria-label="Extra options">
@@ -85,7 +81,6 @@ var ButtonPage = NewPage(
 		),
 	),
 	NewExample(
-		"Button",
 		"Types",
 		`
     <div class="grid stretch">
@@ -126,7 +121,6 @@ var CheckboxPage = NewPage(
 	"Checkbox",
 	HGroup(H1(Text("Checkbox"))),
 	NewExample(
-		"Checkbox",
 		"Example",
 		`
     <fieldset>
@@ -166,7 +160,6 @@ var CheckboxPage = NewPage(
     `,
 	),
 	NewExample(
-		"Checkbox",
 		"Hint",
 		`
     <label>
@@ -179,7 +172,6 @@ var CheckboxPage = NewPage(
     `,
 	),
 	NewExample(
-		"Checkbox",
 		"Validation",
 		`
     <label>
@@ -209,7 +201,6 @@ var InputPage = NewPage(
 	"Input",
 	HGroup(H1(Text("Input"))),
 	NewExample(
-		"Input",
 		"Form",
 		`
     <form>
@@ -241,7 +232,6 @@ var InputPage = NewPage(
     `,
 	),
 	NewExample(
-		"Input",
 		"Text inputs",
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text">
@@ -254,7 +244,6 @@ var InputPage = NewPage(
 		WithClass("rows"),
 	),
 	NewExample(
-		"Input",
 		"Date and time inputs",
 		`
     <input type="date" name="date" aria-label="Date">
@@ -266,42 +255,36 @@ var InputPage = NewPage(
 		WithClass("rows"),
 	),
 	NewExample(
-		"Input",
 		"Search input",
 		`
     <input type="search" name="search" aria-label="Search" placeholder="Search">
     `,
 	),
 	NewExample(
-		"Input",
 		"File input",
 		`
     <input type="file" class="solid" name="file" aria-label="File" placeholder="File">
     `,
 	),
 	NewExample(
-		"Input",
 		"Color input",
 		`
     <input type="color" name="color" aria-label="Color" placeholder="Color">
     `,
 	),
 	NewExample(
-		"Input",
 		"Disabled",
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text" disabled>
     `,
 	),
 	NewExample(
-		"Input",
 		"Read-only",
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text" readonly value="Read-only value">
     `,
 	),
 	NewExample(
-		"Input",
 		"Hint",
 		`
     <input type="text" name="Hint" aria-label="Hint" placeholder="Email">
@@ -309,7 +292,6 @@ var InputPage = NewPage(
     `,
 	),
 	NewExample(
-		"Input",
 		"Validation",
 		`
     <input type="text" name="valid" aria-label="Valid" aria-invalid="false" aria-describedby="valid-hint" value="Valid">
@@ -333,7 +315,6 @@ var TextareaPage = NewPage(
 	"Textarea",
 	HGroup(H1(Text("Textarea"))),
 	NewExample(
-		"Textarea",
 		"Default",
 		`
     <label>
@@ -343,7 +324,6 @@ var TextareaPage = NewPage(
     `,
 	),
 	NewExample(
-		"Textarea",
 		"Custom rows",
 		`
     <label>
@@ -353,7 +333,6 @@ var TextareaPage = NewPage(
     `,
 	),
 	NewExample(
-		"Textarea",
 		"Disabled",
 		`
     <label>
@@ -363,7 +342,6 @@ var TextareaPage = NewPage(
     `,
 	),
 	NewExample(
-		"Textarea",
 		"Read-only",
 		`
     <label>
@@ -373,7 +351,6 @@ var TextareaPage = NewPage(
     `,
 	),
 	NewExample(
-		"Textarea",
 		"Hint",
 		`
     <label>
@@ -384,7 +361,6 @@ var TextareaPage = NewPage(
     `,
 	),
 	NewExample(
-		"Textarea",
 		"Validation",
 		`
     <textarea type="text" name="valid" aria-label="Valid" aria-invalid="false" aria-describedby="valid-hint">Valid</textarea>
@@ -408,7 +384,6 @@ var RadioPage = NewPage(
 	"Radio",
 	HGroup(H1(Text("Radio"))),
 	NewExample(
-		"Radio",
 		"Example",
 		`
     <fieldset>
@@ -438,7 +413,6 @@ var RadioPage = NewPage(
     `,
 	),
 	NewExample(
-		"Radio",
 		"Validation",
 		`
     <label>
@@ -468,7 +442,6 @@ var RangePage = NewPage(
 	"Range",
 	HGroup(H1(Text("Range"))),
 	NewExample(
-		"Range",
 		"Example",
 		`
     <label>
@@ -479,7 +452,6 @@ var RangePage = NewPage(
     `,
 	),
 	NewExample(
-		"Radio",
 		"Disabled",
 		`
     <label>
@@ -494,7 +466,6 @@ var SelectPage = NewPage(
 	"Select",
 	HGroup(H1(Text("Select"))),
 	NewExample(
-		"Select",
 		"Example",
 		`
     <label>
@@ -526,7 +497,6 @@ var SelectPage = NewPage(
     `,
 	),
 	NewExample(
-		"Select",
 		"Single value",
 		`
     <label>
@@ -540,7 +510,6 @@ var SelectPage = NewPage(
     `,
 	),
 	NewExample(
-		"Select",
 		"Multiple values",
 		`
     <label>
@@ -557,7 +526,6 @@ var SelectPage = NewPage(
     `,
 	),
 	NewExample(
-		"Select",
 		"Disabled",
 		`
     <label>
@@ -585,7 +553,6 @@ var SelectPage = NewPage(
     `,
 	),
 	NewExample(
-		"Select",
 		"Hint",
 		`
      <label>
@@ -603,7 +570,6 @@ var SelectPage = NewPage(
     `,
 	),
 	NewExample(
-		"Select",
 		"Validation",
 		`
     <select name="pizza-topping" aria-label="Select your favorite pizza topping..." aria-invalid="false" aria-describedby="success-hint">
@@ -632,7 +598,6 @@ var SwitchPage = NewPage(
 	"Switch",
 	HGroup(H1(Text("Switch"))),
 	NewExample(
-		"Switch",
 		"Example",
 		`
     <label>
@@ -646,7 +611,6 @@ var SwitchPage = NewPage(
     `,
 	),
 	NewExample(
-		"Switch",
 		"Disabled",
 		`
     <label>
@@ -660,7 +624,6 @@ var SwitchPage = NewPage(
     `,
 	),
 	NewExample(
-		"Switch",
 		"Hint",
 		`
     <label>
@@ -671,7 +634,6 @@ var SwitchPage = NewPage(
     `,
 	),
 	NewExample(
-		"Switch",
 		"Validation",
 		`
     <label>

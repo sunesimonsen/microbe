@@ -37,7 +37,6 @@ var AccentColorPage = NewPage(
 		),
 	),
 	NewExample(
-		"Theming",
 		"Example",
 		`
     <form id="theming-example-form">

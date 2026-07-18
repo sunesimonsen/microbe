@@ -9,13 +9,11 @@ var AnchorPage = NewPage(
 	"Anchor",
 	HGroup(H1(Text("Anchor"))),
 	NewExample(
-		"Anchor",
 		"Regular", `
     <a href="#">Regular link</a>
     `,
 	),
 	NewExample(
-		"Anchor",
 		"Active link", `
     <a href="#" aria-current="page">Active link</a>
     `,
@@ -26,7 +24,6 @@ var NavlistPage = NewPage(
 	"Navlist",
 	HGroup(H1(Text("Navlist"))),
 	NewExample(
-		"Navlist",
 		"Example", `
     <nav class="navlist">
       <details>

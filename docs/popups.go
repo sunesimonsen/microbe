@@ -12,7 +12,6 @@ var DialogPage = NewPage(
 		P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
 	),
 	NewExample(
-		"Dialog",
 		"Example",
 		`
     <button class="outline" command="show-modal" commandfor="example-dialog">
@@ -153,7 +152,6 @@ var DialogPage = NewPage(
     `,
 	),
 	NewExample(
-		"Dialog",
 		"Small",
 		`
     <button class="outline" command="show-modal" commandfor="example-small-dialog">

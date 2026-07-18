@@ -17,7 +17,6 @@ var TypographyPage = NewPage(
 		),
 	),
 	NewExample(
-		"Typography",
 		"Headings",
 		`
     <h1>Heading 1</h1>
@@ -47,7 +46,6 @@ var TypographyPage = NewPage(
     `,
 	),
 	NewExample(
-		"Typography",
 		"Heading group",
 		`
     <hgroup>
@@ -57,7 +55,6 @@ var TypographyPage = NewPage(
     `,
 	),
 	NewExample(
-		"Typography",
 		"Inline text",
 		`
     <abbr>Abbreviation</abbr>
@@ -82,7 +79,6 @@ var TypographyPage = NewPage(
 		WithClass("grid"),
 	),
 	NewExample(
-		"Typography",
 		"Horizontal ruler",
 		`
     <p>
@@ -107,7 +103,6 @@ var TypographyPage = NewPage(
     `,
 	),
 	NewExample(
-		"Typography",
 		"Blockquote",
 		`
     <blockquote>
@@ -119,7 +114,6 @@ var TypographyPage = NewPage(
     `,
 	),
 	NewExample(
-		"Typography",
 		"Code block",
 		`
     <pre><code>console.log('Hello world!');</code></pre>
@@ -131,7 +125,6 @@ var ListPage = NewPage(
 	"List",
 	HGroup(H1(Text("List"))),
 	NewExample(
-		"List",
 		"Unordered list",
 		`
     <ul>
@@ -156,7 +149,6 @@ var ListPage = NewPage(
     `,
 	),
 	NewExample(
-		"List",
 		"Ordered list",
 		`
     <ol>
@@ -181,7 +173,6 @@ var ListPage = NewPage(
     `,
 	),
 	NewExample(
-		"List",
 		"Mixed list",
 		`
     <ol>
@@ -206,7 +197,6 @@ var ListPage = NewPage(
     `,
 	),
 	NewExample(
-		"List",
 		"Description list",
 		`
     <p>Cryptids of Cornwall:</p>
@@ -226,7 +216,6 @@ var TablePage = NewPage(
 	"Table",
 	HGroup(H1(Text("Table"))),
 	NewExample(
-		"Table",
 		"Default",
 		`
     <table>
@@ -274,7 +263,6 @@ var TablePage = NewPage(
     `,
 	),
 	NewExample(
-		"Table",
 		"Striped",
 		`
     <table class="striped">

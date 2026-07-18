@@ -12,7 +12,6 @@ var AccordionPage = NewPage(
 		P(Text("An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.")),
 	),
 	NewExample(
-		"Accordion",
 		"Example",
 		`
     <p>
@@ -90,7 +89,6 @@ var AccordionPage = NewPage(
     `,
 	),
 	NewExample(
-		"Accordion",
 		"Single panel",
 		`
   <p>
@@ -174,7 +172,6 @@ var CardPage = NewPage(
 		P(Text("An element that groups related information and actions about a single subject into a visually distinct, flexible container.")),
 	),
 	NewExample(
-		"Card",
 		"Bare card",
 		`
     <article class="card">
@@ -191,7 +188,6 @@ var CardPage = NewPage(
     `,
 	),
 	NewExample(
-		"Card",
 		"Card with header",
 		`
     <article class="card">
@@ -209,7 +205,6 @@ var CardPage = NewPage(
     `,
 	),
 	NewExample(
-		"Card",
 		"Card with footer",
 		`
     <article class="card">
@@ -227,7 +222,6 @@ var CardPage = NewPage(
     `,
 	),
 	NewExample(
-		"Card",
 		"Card with header and footer",
 		`
     <article class="card">
@@ -246,7 +240,6 @@ var CardPage = NewPage(
     `,
 	),
 	NewExample(
-		"Card",
 		"Raised",
 		`
     <article class="card raised">
