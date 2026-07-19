@@ -551,6 +551,7 @@
     outline: var(--focus-outline-width) solid transparent;
     background: transparent;
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+    cursor: pointer;
 
     &::placeholder {
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
@@ -571,6 +572,7 @@
       background: hsl(var(--accent-hue) 0% var(--lightness-1));
       border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
       color: hsl(var(--accent-hue) 0% var(--lightness-7));
+      cursor: default;
       outline: none;
 
       &::placeholder {
@@ -578,7 +580,7 @@
       }
     }
 
-    &:read-only {
+    &:read-only:not(select) {
       background: hsl(var(--accent-hue) 0% var(--lightness-1));
       border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
       outline: none;
