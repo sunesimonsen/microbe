@@ -1,0 +1,39 @@
+@layer defaults {
+  .navlist {
+    &>details {
+      margin-block-end: var(--scale-4);
+      user-select: none;
+
+      &>summary {
+        list-style-type: none;
+        cursor: pointer;
+        outline: none;
+
+        &:focus-visible {
+          text-decoration: underline;
+        }
+      }
+
+      &>ul {
+        margin: var(--scale-4) 0;
+        padding: 0;
+
+        &>li {
+          margin: 0;
+          padding: var(--scale-1) var(--scale-5);
+          list-style-type: none;
+          border-inline-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+
+          &:focus-within,
+          &:hover {
+            border-inline-start: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+          }
+
+          &:has([aria-current="page"]) {
+            border-inline-start: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+          }
+        }
+      }
+    }
+  }
+}

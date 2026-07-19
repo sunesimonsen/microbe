@@ -1,0 +1,56 @@
+@layer defaults {
+  .card {
+    margin-block: var(--scale-5);
+    border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+    border-radius: var(--scale-3);
+    overflow: hidden;
+
+
+    &.raised {
+      box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.1),
+        calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.1);
+    }
+
+    &:first-child {
+      margin-block-start: 0;
+    }
+
+    &:last-child {
+      margin-block-end: 0;
+    }
+
+    &>header,
+    &>footer {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
+      padding: var(--scale-5) var(--scale-6);
+    }
+
+    &>header {
+      border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+
+      &:not(:first-child) {
+        border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
+    }
+
+    &>section {
+      padding: var(--scale-6);
+    }
+
+    &>footer {
+      border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+
+      &:not(:last-child) {
+        border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
+
+      &.actions {
+        padding: var(--scale-4);
+        display: flex;
+        gap: var(--scale-4);
+        justify-content: end;
+      }
+    }
+  }
+}
