@@ -1,17 +1,5 @@
 @layer reset, settings, defaults, overrides;
 
-@keyframes slide-up-and-in-animation {
-  0% {
-    transform: translateY(1rem);
-    opacity: 0.5;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes slide-down-and-in-animation {
   0% {
     transform: translateY(-1rem);
