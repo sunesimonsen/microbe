@@ -157,8 +157,6 @@ label:has(#saturation-range, #color-range) {
   }
 
   &>.card {
-    margin-block: var(--scale-3);
-
     &>footer {
       border-block-end: none;
     }

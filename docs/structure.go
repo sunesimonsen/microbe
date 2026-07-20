@@ -38,7 +38,7 @@ func (e Example) Render(w io.Writer) error {
 		H2(Text(e.Name)),
 		e.Description,
 		Section(
-			Class("card"),
+			Class("card raised"),
 			Section(If(e.Class != "", Class(e.Class)), Raw(string(e.Source))),
 			Footer(
 				Class("actions"),
