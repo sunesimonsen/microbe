@@ -10,8 +10,6 @@ import (
 	. "maragu.dev/gomponents"
 )
 
-type view func() Node
-
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/getting-started/introduction", http.StatusMovedPermanently)
 }
