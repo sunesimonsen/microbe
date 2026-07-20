@@ -14,6 +14,14 @@ func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/getting-started/introduction", http.StatusMovedPermanently)
 }
 
+func writeInternalServerError(w http.ResponseWriter) {
+	http.Error(
+		w,
+		http.StatusText(http.StatusInternalServerError),
+		http.StatusInternalServerError,
+	)
+}
+
 func DocsHandler(w http.ResponseWriter, r *http.Request) {
 	category, err := docs.Index.FindCategory(chi.URLParam(r, "category"))
 	page, err := category.FindPage(chi.URLParam(r, "page"))
@@ -22,7 +30,7 @@ func DocsHandler(w http.ResponseWriter, r *http.Request) {
 		if errors.Is(err, docs.ErrNotFound) {
 			http.NotFound(w, r)
 		} else {
-			w.WriteHeader(http.StatusInternalServerError)
+			writeInternalServerError(w)
 		}
 		return
 	}
@@ -40,10 +48,6 @@ func renderNode(w http.ResponseWriter, _ *http.Request, node Node) {
 	w.Header().Set("Pragma", "no-cache")
 
 	if err := node.Render(w); err != nil {
-		http.Error(
-			w,
-			http.StatusText(http.StatusInternalServerError),
-			http.StatusInternalServerError,
-		)
+		writeInternalServerError(w)
 	}
 }
