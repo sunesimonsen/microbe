@@ -4,6 +4,7 @@ var Index = Categories{
 	NewCategory(
 		"Getting started",
 		IntroductionPage,
+		ReleasesPage,
 	),
 	NewCategory(
 		"Theming",

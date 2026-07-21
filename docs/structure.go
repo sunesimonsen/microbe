@@ -115,10 +115,10 @@ func (s CustomPageSection) Render(w io.Writer) error {
 	return s.Node.Render(w)
 }
 
-func NewPageSection(name string, node Node) CustomPageSection {
+func NewPageSection(name string, node ...Node) CustomPageSection {
 	return CustomPageSection{
 		Name: name,
-		Node: node,
+		Node: Group(node),
 	}
 }
 
@@ -232,4 +232,8 @@ func InlineCodeList(classes ...string) Node {
 	}
 
 	return Group(result)
+}
+
+func ExternalLink(href, text string) Node {
+	return A(Href(href), Target("_blank"), Text(text))
 }

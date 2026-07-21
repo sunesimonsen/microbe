@@ -205,6 +205,7 @@
   p,
   pre,
   table,
+  fieldset,
   fieldset legend,
   ul {
     font-family: var(--font-family);
@@ -212,6 +213,10 @@
     font-weight: var(--font-weight);
     line-height: var(--line-height);
     margin-block: var(--scale-4);
+
+    &:is(legend) {
+      margin-block-end: var(--scale-3);
+    }
 
     &:first-child {
       margin-block-start: 0;

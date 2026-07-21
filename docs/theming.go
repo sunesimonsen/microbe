@@ -135,14 +135,12 @@ func colorTable(name string, palettes []color) PageSection {
 
 	return NewPageSection(
 		name,
-		Group{
-			H2(ID(strcase.ToKebab(name)), Text(name)),
-			Section(
-				Class("color-grid"),
-				Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
-				Group(rows),
-			),
-		},
+		H2(ID(strcase.ToKebab(name)), Text(name)),
+		Section(
+			Class("color-grid"),
+			Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
+			Group(rows),
+		),
 	)
 }
 
