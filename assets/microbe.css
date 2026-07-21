@@ -2,7 +2,7 @@
 
 @keyframes slide-down-and-in-animation {
   0% {
-    transform: translateY(-1rem);
+    transform: translateY(-1em);
     opacity: 0.5;
   }
 
@@ -48,7 +48,7 @@
 
   :root {
     --phi: 1.6185;
-    --base: 1rem;
+    --base: 1em;
     --scale-0: calc(var(--base) * pow(var(--phi), -5));
     --scale-1: calc(var(--base) * pow(var(--phi), -4));
     --scale-2: calc(var(--base) * pow(var(--phi), -3));
@@ -416,7 +416,7 @@
   input[type=submit],
   input[type=reset],
   input[type=button] {
-    font-size: inherit;
+    font-size: var(--font-size);
 
     &.solid,
     &.outline,
@@ -525,11 +525,18 @@
     }
   }
 
+  input,
+  textarea,
+  select,
+  progress {
+    accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+  }
+
   input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image]),
   textarea,
   select {
-    accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-    font-size: inherit;
     width: 100%;
     height: var(--form-element-height);
     transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
@@ -609,7 +616,7 @@
     &:is(textarea) {
       height: auto;
       padding: var(--scale-4) var(--scale-5);
-      min-height: calc(3.5rem*var(--line-height));
+      min-height: calc(3.5em*var(--line-height));
       display: block;
       resize: vertical;
     }
@@ -619,7 +626,6 @@
     --track-size: var(--scale-3);
     --thumb-size: calc(3* var(--scale-3));
 
-    font-size: var(--font-size);
     appearance: none;
     height: var(--track-size);
     width: 100%;
@@ -805,7 +811,6 @@
     outline: var(--focus-outline-width) solid transparent;
     outline-offset: 0;
     transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
-    font-size: var(--font-size);
     aspect-ratio: 1;
 
     &:focus-visible {
@@ -1052,7 +1057,7 @@
   select:not([multiple]) {
     appearance: none;
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
-    background-position: center right .75rem;
+    background-position: center right .75em;
     background-size: calc(var(--base) * 0.8) auto;
     background-repeat: no-repeat;
   }
