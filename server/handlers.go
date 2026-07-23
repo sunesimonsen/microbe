@@ -35,7 +35,7 @@ func DocsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	renderNode(w, r, views.DocsLayout(r.URL.Path, page))
+	renderNode(w, r, views.DocsLayout(r.URL.Path, page.GetNode(*r.URL)))
 }
 
 func renderNode(w http.ResponseWriter, _ *http.Request, node Node) {

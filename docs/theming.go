@@ -10,7 +10,7 @@ import (
 
 var AccentColorPage = NewPage(
 	"Accent color",
-	NewPageSection(
+	NewStaticPageSection(
 		"Settings",
 		Section(
 			ID("settings"),
@@ -133,7 +133,7 @@ func colorTable(name string, palettes []color) PageSection {
 		rows = append(rows, Group(rowCells))
 	}
 
-	return NewPageSection(
+	return NewStaticPageSection(
 		name,
 		H2(ID(strcase.ToKebab(name)), Text(name)),
 		Section(

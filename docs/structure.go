@@ -2,8 +2,8 @@ package docs
 
 import (
 	"errors"
-	"io"
 	"log"
+	"net/url"
 	"regexp"
 	"strings"
 
@@ -16,7 +16,7 @@ import (
 var ErrNotFound = errors.New("Resource was not found")
 
 type PageSection interface {
-	Node
+	GetNode(u url.URL) Node
 	GetName() string
 }
 
@@ -31,7 +31,7 @@ func (e Example) GetName() string {
 	return e.Name
 }
 
-func (e Example) Render(w io.Writer) error {
+func (e Example) GetNode(u url.URL) Node {
 	return Article(
 		Class("example"),
 		ID(strcase.ToKebab(e.Name)),
@@ -49,7 +49,7 @@ func (e Example) Render(w io.Writer) error {
 				),
 			),
 		),
-	).Render(w)
+	)
 }
 
 func TrimCommonWhitespace(text string) string {
@@ -101,24 +101,35 @@ func NewExample(name string, source string) Example {
 	}
 }
 
+type GetNodeFunc func(u url.URL) Node
+
 type CustomPageSection struct {
 	Namespace string
 	Name      string
-	Node      Node
+	getNode   GetNodeFunc
 }
 
 func (s CustomPageSection) GetName() string {
 	return s.Name
 }
 
-func (s CustomPageSection) Render(w io.Writer) error {
-	return s.Node.Render(w)
+func (s CustomPageSection) GetNode(u url.URL) Node {
+	return s.getNode(u)
 }
 
-func NewPageSection(name string, node ...Node) CustomPageSection {
+func NewPageSection(name string, getNode func(u url.URL) Node) CustomPageSection {
+	return CustomPageSection{
+		Name:    name,
+		getNode: getNode,
+	}
+}
+
+func NewStaticPageSection(name string, nodes ...Node) CustomPageSection {
 	return CustomPageSection{
 		Name: name,
-		Node: Group(node),
+		getNode: func(_ url.URL) Node {
+			return Group(nodes)
+		},
 	}
 }
 
@@ -138,7 +149,7 @@ func (p Page) FindSection(name string) (PageSection, error) {
 	return CustomPageSection{}, ErrNotFound
 }
 
-func (p Page) Render(w io.Writer) error {
+func (p Page) GetNode(u url.URL) Node {
 	return Group{
 		Link(Rel("stylesheet"), Href("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/codepen-embed.min.css")),
 		Script(Src("https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js")),
@@ -149,7 +160,7 @@ func (p Page) Render(w io.Writer) error {
 		Div(
 			Role("document"),
 			Map(p.Content, func(s PageSection) Node {
-				return s
+				return s.GetNode(u)
 			}),
 		),
 		Aside(
@@ -168,7 +179,7 @@ func (p Page) Render(w io.Writer) error {
 				),
 			),
 		),
-	}.Render(w)
+	}
 }
 
 func (p Page) WithDescription(description ...Node) Page {

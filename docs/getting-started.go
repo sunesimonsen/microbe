@@ -7,7 +7,7 @@ import (
 
 var IntroductionPage = NewPage(
 	"Introduction",
-	NewPageSection(
+	NewStaticPageSection(
 		"Usage",
 		H2(Text("Usage")),
 		P(Text("This project is currently under construction, so no releases has been made yet. But you can find the development stylesheets here if you want to play around with it")),
@@ -29,7 +29,7 @@ var IntroductionPage = NewPage(
 
 var ReleasesPage = NewPage(
 	"Releases",
-	NewPageSection(
+	NewStaticPageSection(
 		"Version picker",
 		H2(Text("Version picker")),
 		Article(
