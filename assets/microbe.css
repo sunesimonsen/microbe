@@ -47,6 +47,8 @@
 @layer settings {
 
   :root {
+    color-scheme: light dark;
+
     --phi: 1.6185;
     --base: 1em;
     --scale-0: calc(var(--base) * pow(var(--phi), -5));
@@ -144,6 +146,7 @@
 
 @layer defaults {
   body {
+    color-scheme: light dark;
     font-family: var(--font-family);
     font-size: var(--font-size);
     font-weight: var(--font-weight);
