@@ -1,12 +1,16 @@
 package docs
 
 import (
+	"net/url"
+	"slices"
+
+	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
 
-var IntroductionPage = NewPage(
-	"Introduction",
+var About = NewPage(
+	"About",
 	NewStaticPageSection(
 		"Usage",
 		H2(Text("Usage")),
@@ -27,33 +31,125 @@ var IntroductionPage = NewPage(
 	P(Text("It ships with opinionated defaults, but you can easily override them using "), ExternalLink("https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties", "CSS variables"), Text(" and "), ExternalLink("https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer", "CSS layers"), Text(".")),
 )
 
+type Release struct {
+	Version string
+	Modules []string
+}
+
+var releases = []Release{
+	{Version: "HEAD", Modules: []string{"Accordion", "Card", "Navlist"}},
+}
+
+func CurrentVersion(u url.URL) string {
+	currentVersion := u.Query().Get("version")
+
+	if currentVersion == "" {
+		return "HEAD"
+	}
+
+	return currentVersion
+}
+
+func CurrentModules(u url.URL) []string {
+	q := u.Query()
+	modules := q["modules"]
+	return modules
+}
+
+func IncludesModule(u url.URL, name string) bool {
+	modules := CurrentModules(u)
+
+	return slices.Contains(modules, name)
+}
+
+func GetRelease(version string) Release {
+	releaseIndex := slices.IndexFunc(releases, func(r Release) bool {
+		return r.Version == version
+	})
+
+	release := releases[0]
+	if releaseIndex != -1 {
+		release = releases[releaseIndex]
+	}
+
+	return release
+}
+
 var ReleasesPage = NewPage(
 	"Releases",
-	NewStaticPageSection(
+	NewPageSection(
 		"Version picker",
-		H2(Text("Version picker")),
-		Article(
-			Class("card raised"),
-			Section(
-				Form(
-					Label(
-						Text("Version"),
-						Select(
-							Name("version"),
-							Option(Value("HEAD"), Text("HEAD")),
+		func(u url.URL) Node {
+			currentVersion := CurrentVersion(u)
+			release := GetRelease(currentVersion)
+
+			return Group([]Node{
+				H2(Text("Version picker")),
+				Article(
+					Class("card raised"),
+					Section(
+						Form(
+							Label(
+								Text("Version"),
+								Select(
+									Name("version"),
+									Attr("onchange", "this.form.submit()"),
+									Map(releases, func(r Release) Node {
+										return Option(
+											Value(r.Version),
+											Text(r.Version),
+											If(currentVersion == r.Version, Selected()),
+										)
+									}),
+								),
+							),
+							FieldSet(
+								Legend(Text("Include modules")),
+								Map(release.Modules, func(module string) Node {
+									id := strcase.ToKebab(module)
+									return Label(
+										Input(Type("checkbox"),
+											Name("modules"),
+											Attr("onchange", "this.form.submit()"),
+											Value(id),
+											If(IncludesModule(u, id), Checked()),
+										),
+										Text(module),
+									)
+								}),
+							),
 						),
 					),
-					FieldSet(
-						Legend(Text("Include modules")),
-						Label(Input(Type("checkbox"), Name("modules"), Checked(), Value("accordion")), Text("Accordion")),
-						Label(Input(Type("checkbox"), Name("modules"), Checked(), Value("card")), Text("Card")),
-						Label(Input(Type("checkbox"), Name("modules"), Checked(), Value("navlist")), Text("Navlist")),
-					),
-					Div(Class("actions"),
-						Button(Class("solid"), Type("submit"), Text("Generate")),
-					),
 				),
-			),
-		),
+			})
+		},
+	),
+	NewPageSection(
+		"HTML snippet",
+		func(u url.URL) Node {
+			currentVersion := CurrentVersion(u)
+			release := GetRelease(currentVersion)
+
+			return Group([]Node{
+				H3(Text("HTML snippet")),
+				Pre(Code(
+					Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
+						currentVersion,
+					),
+					Map(release.Modules, func(module string) Node {
+						id := strcase.ToKebab(module)
+						if !IncludesModule(u, id) {
+							return nil
+						}
+
+						return Textf(
+							"<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe-%s.css\" rel=\"stylesheet\" type=\"text/css\">\n",
+							currentVersion,
+							id,
+						)
+					}),
+				)),
+			})
+		},
 	),
 )
