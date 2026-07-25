@@ -34,6 +34,10 @@ if (window.self === window.top) {
     if (indeterminateCheckbox) {
       indeterminateCheckbox.indeterminate = true;
     }
+
+    for (const code of document.querySelectorAll("[data-highlight=yes]")) {
+      hljs.highlightElement(code);
+    }
   })
 
   window.addEventListener('click', (e) => {

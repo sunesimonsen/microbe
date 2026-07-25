@@ -84,9 +84,9 @@ var ReleasesPage = NewPage(
 			release := GetRelease(currentVersion)
 
 			return Group([]Node{
-				H2(Text("Version picker")),
 				Article(
 					Class("card raised"),
+					Header(Text("Version picker")),
 					Section(
 						Form(
 							Label(
@@ -120,35 +120,32 @@ var ReleasesPage = NewPage(
 							),
 						),
 					),
-				),
-			})
-		},
-	),
-	NewPageSection(
-		"HTML snippet",
-		func(u url.URL) Node {
-			currentVersion := CurrentVersion(u)
-			release := GetRelease(currentVersion)
+					Header(Text("HTML snippet")),
+					Section(
+						Class("source"),
+						Pre(
+							Code(
+								Class("language-html hljs language-xml"),
+								Data("highlight", "yes"),
+								Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
+									currentVersion,
+								),
+								Map(release.Modules, func(module string) Node {
+									id := strcase.ToKebab(module)
+									if !IncludesModule(u, id) {
+										return nil
+									}
 
-			return Group([]Node{
-				H3(Text("HTML snippet")),
-				Pre(Code(
-					Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-						currentVersion,
+									return Textf(
+										"<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe-%s.css\" rel=\"stylesheet\" type=\"text/css\">\n",
+										currentVersion,
+										id,
+									)
+								}),
+							),
+						),
 					),
-					Map(release.Modules, func(module string) Node {
-						id := strcase.ToKebab(module)
-						if !IncludesModule(u, id) {
-							return nil
-						}
-
-						return Textf(
-							"<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe-%s.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-							currentVersion,
-							id,
-						)
-					}),
-				)),
+				),
 			})
 		},
 	),
