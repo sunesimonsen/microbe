@@ -70,6 +70,10 @@ if (window.self === window.top) {
         card.appendChild(source)
         hljs.highlightElement(code);
       }
+    } else if (e.target.matches('button.copy-source')) {
+      const card = e.target.closest(".card")
+      let source = card.querySelector('.source code')
+      navigator.clipboard.writeText(source.textContent)
     }
   })
 }
