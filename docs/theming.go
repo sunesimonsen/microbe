@@ -55,7 +55,7 @@ var AccentColorPage = NewPage(
           Newsletter
         </label>
         <small id="newsletter-hint">
-          We will send you a news letter every week
+          We will send you a newsletter every week
         </small>
         <label>
           Spelling proficiency (0 - 10)

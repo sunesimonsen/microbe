@@ -156,7 +156,7 @@ var CheckboxPage = NewPage(
       Newsletter
     </label>
     <small id="newsletter-hint">
-      We will send you a news letter every week
+      We will send you a newsletter every week
     </small>
     `,
 	),
@@ -208,7 +208,7 @@ var InputPage = NewPage(
           Newsletter
         </label>
         <small id="newsletter-hint">
-          We will send you a news letter every week
+          We will send you a newsletter every week
         </small>
       </fieldset>
       <div class="actions">
@@ -607,7 +607,7 @@ var SwitchPage = NewPage(
       <input type="checkbox" name="newsletter" role="switch" aria-describedby="newsletter-hint" checked>
       Newsletter
     </label>
-    <small id="newsletter-hint">We will send you a news letter every week</small>
+    <small id="newsletter-hint">We will send you a newsletter every week</small>
     `,
 	),
 	NewExample(

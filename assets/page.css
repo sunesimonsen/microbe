@@ -146,7 +146,7 @@ label:has(#saturation-range, #color-range) {
 }
 
 .example {
-  margin-block: var(--scale-7);
+  margin-block: var(--scale-5);
 
   &:first-child {
     margin-block-start: 0;

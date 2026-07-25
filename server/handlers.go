@@ -11,7 +11,7 @@ import (
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/getting-started/introduction", http.StatusMovedPermanently)
+	http.Redirect(w, r, "/getting-started/about", http.StatusMovedPermanently)
 }
 
 func writeInternalServerError(w http.ResponseWriter) {

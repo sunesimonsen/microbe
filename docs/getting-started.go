@@ -14,16 +14,40 @@ var About = NewPage(
 	NewStaticPageSection(
 		"Usage",
 		H2(Text("Usage")),
-		P(Text("This project is currently under construction, so no releases has been made yet. But you can find the development stylesheets here if you want to play around with it")),
-		P(Text("The main stylesheet is "), Code(Text("microbe.css")),
-			Text(" is required and provides base styles for most HTML elements.")),
-		Pre(Code(Text("https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css"))),
-		P(Text("A number of additional stylesheets exists extending the main stylesheet with extra components. You can include these to meet your needs:")),
-		Ul(
-			Li(A(Href("/components/accordion"), Text("Accordion"))),
-			Li(A(Href("/components/card"), Text("Card"))),
-			Li(A(Href("/navigation/navlist"), Text("Navlist"))),
-		),
+		P(Text("Pick a release on the "), A(Href("/getting-started/releases"), Text("release page")), Text(" and just start adding HTML markup described by the examples.")),
+	),
+	NewExample(
+		"Example",
+		`
+    <form>
+      <fieldset>
+        <label>
+          Name
+          <input name="name" placeholder="Name" autocomplete="name">
+        </label>
+        <label>
+          Email
+          <input name="email" placeholder="Email" autocomplete="email" aria-describedby="email-hint">
+          <small id="email-hint">
+            We’ll never share your email with anyone else.
+          </small>
+        </label>
+        <label>
+          <input type="checkbox" name="newsletter" aria-describedby="newsletter-hint" checked>
+          Newsletter
+        </label>
+        <small id="newsletter-hint">
+          We will send you a newsletter every week
+        </small>
+      </fieldset>
+      <div class="actions">
+        <button class="outline" type="reset">Reset</button>
+        <button class="solid" type="submit">Submit</button>
+      </div>
+    </form>
+    `,
+	).WithDescription(
+		P(Text("Here is a quick example showing some of the styles.")),
 	),
 ).WithDescription(
 	P(Text("Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.")),
