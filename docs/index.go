@@ -49,5 +49,6 @@ var Index = Categories{
 		"Components",
 		AccordionPage,
 		CardPage,
+		TabsPage,
 	),
 }

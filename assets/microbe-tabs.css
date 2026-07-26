@@ -1,0 +1,34 @@
+@layer defaults {
+  [role=tablist] {
+    display: flex;
+    border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+
+    [role=tab] {
+      margin: 0;
+      background: transparent;
+      padding: var(--scale-3) var(--scale-5);
+      border: none;
+      border-block-end: solid var(--scale-1) transparent;
+      cursor: pointer;
+      transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
+
+      &:hover {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      }
+
+      &[aria-selected=true] {
+        border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-7));
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      }
+
+      &:disabled {
+        color: hsl(var(--neutral-hue) 0% var(--lightness-7));
+        cursor: default;
+      }
+    }
+  }
+
+  [role=tabpanel] {
+    padding-block: var(--scale-5);
+  }
+}

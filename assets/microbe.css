@@ -478,7 +478,7 @@
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-3));
         border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-3));
-        color: hsl(var(--accent-hue) 0% var(--lightness-8));
+        color: hsl(var(--neutral-hue) 0% var(--lightness-8));
         cursor: default;
       }
     }
@@ -502,7 +502,7 @@
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-1));
         border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
-        color: hsl(var(--accent-hue) 0% var(--lightness-7));
+        color: hsl(var(--neutral-hue) 0% var(--lightness-7));
         cursor: default;
       }
     }
@@ -527,7 +527,7 @@
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-1));
         border: none;
-        color: hsl(var(--accent-hue) 0% var(--lightness-7));
+        color: hsl(var(--neutral-hue) 0% var(--lightness-7));
         cursor: default;
       }
     }
