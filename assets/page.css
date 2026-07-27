@@ -1,3 +1,7 @@
+@view-transition {
+  navigation: auto;
+}
+
 @keyframes slide-up-and-in-animation {
   0% {
     transform: translateY(1rem);
@@ -290,6 +294,10 @@ label:has(#saturation-range, #color-range) {
 
   &>aside.toc {
     grid-area: toc;
+
+    &>nav {
+      view-transition-name: toc;
+    }
   }
 
   &>aside.menu,
@@ -308,11 +316,14 @@ label:has(#saturation-range, #color-range) {
   }
 
   &>hgroup {
+    view-transition-name: document-header;
     grid-area: header;
     margin-block-start: var(--scale-6);
   }
 
   &>[role=document] {
+    view-transition-name: document;
+
     &>[id] {
       scroll-margin-block-start: calc(var(--scale-5) + var(--layout-header-height));
     }

@@ -12,10 +12,6 @@
   }
 }
 
-@view-transition {
-  navigation: auto;
-}
-
 @layer reset {
   html {
     scrollbar-gutter: stable;
