@@ -23,7 +23,7 @@ var About = NewPage(
       <fieldset>
         <label>
           Name
-          <input name="name" placeholder="Name" autocomplete="name" autofocus>
+          <input name="name" placeholder="Name" autocomplete="name">
         </label>
         <label>
           Email
