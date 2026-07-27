@@ -93,8 +93,7 @@ var About = NewPage(
     </style>
     `,
 	).WithDescription(
-		P(Text("Here is a quick example showing the default styles and potential overrides.")),
-		P(Text("You can change the accent color and size on all elements and customize any CSS with overrides.")),
+		P(Text("Here is a quick example showing some form elements and how it is possible to tweak the visual appearance.")),
 	),
 ).WithDescription(
 	P(Text("Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.")),
