@@ -19,11 +19,11 @@ var About = NewPage(
 	NewExample(
 		"Example",
 		`
-    <form>
+    <form id="getting-started-demo">
       <fieldset>
         <label>
           Name
-          <input name="name" placeholder="Name" autocomplete="name">
+          <input name="name" placeholder="Name" autocomplete="name" autofocus>
         </label>
         <label>
           Email
@@ -45,9 +45,56 @@ var About = NewPage(
         <button class="solid" type="submit">Submit</button>
       </div>
     </form>
+    <script>
+      let index = 0
+      setInterval(() => {
+        const form = document.getElementById("getting-started-demo")
+
+        index = (index + 1) % 4;
+        form.classList.value = "overrides-" + index;
+      }, 3000);
+    </script>
+    <style>
+    @layer overrides {
+      #getting-started-demo {
+        & * {
+          transition: all ease-in-out 1s;
+        }
+
+        &.overrides-1,
+        &.overrides-2 {
+          --accent-hue: 170;
+          --accent-saturation: 40%;
+          & button,
+          & input:not([type=checkbox]) {
+            border-radius: var(--scale-6);
+          }
+        }
+
+        &.overrides-2 {
+          --accent-hue: 300;
+
+          button.solid {
+            box-shadow: 0 0 var(--scale-3) var(--scale-3) hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
+          }
+        }
+
+        &.overrides-3,
+        &.overrides-4 {
+          --accent-hue: 20;
+
+          & button,
+          & input {
+            border-radius: 0;
+          }
+        }
+      }
+    }
+    </style>
     `,
 	).WithDescription(
-		P(Text("Here is a quick example showing some of the styles.")),
+		P(Text("Here is a quick example showing the default styles and potential overrides.")),
+		P(Text("You can change the accent color and size on all elements and customize any CSS with overrides.")),
 	),
 ).WithDescription(
 	P(Text("Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.")),

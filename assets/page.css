@@ -173,6 +173,10 @@ label:has(#saturation-range, #color-range) {
   gap: var(--scale-4);
   justify-items: center;
   align-items: center;
+
+  &>* {
+    margin: 0;
+  }
 }
 
 .example .grid.stretch {

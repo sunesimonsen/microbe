@@ -84,8 +84,8 @@ func TrimCommonWhitespace(text string) string {
 	return strings.TrimSpace(strings.Join(lines, "\n"))
 }
 
-func (e Example) WithDescription(description Node) Example {
-	e.Description = description
+func (e Example) WithDescription(description ...Node) Example {
+	e.Description = Group(description)
 	return e
 }
 
