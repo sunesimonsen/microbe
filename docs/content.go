@@ -112,9 +112,9 @@ var TypographyPage = NewPage(
 ).WithDescription(
 	P(Text("Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.")),
 	P(
-		Text("All styles are based on the HTML document's font-size ("),
-		Code(Text("rem")),
-		Text(") and will scale according to the users stylesheet and the screen size."),
+		Text("All styles are based on the "),
+		Code(Text("em")),
+		Text(" unit and will scale according to the surrounding font-size."),
 	),
 )
 
