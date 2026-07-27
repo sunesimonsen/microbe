@@ -43,7 +43,7 @@ func (e Example) GetNode(u url.URL) Node {
 			Footer(
 				Class("actions"),
 				Button(
-					Class("ghost icon show-source js"),
+					Class("ghost icon show-source"),
 					Aria("pressed", "false"),
 					icons.CodeSlashIcon(),
 				),
