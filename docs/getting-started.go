@@ -83,6 +83,9 @@ var About = NewPage(
         &.overrides-4 {
           --accent-hue: 20;
 
+          --neutral-hue: 45;
+          --neutral-saturation: 20%;
+
           & button,
           & input {
             border-radius: 0;
