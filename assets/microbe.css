@@ -1014,6 +1014,7 @@
     outline: none;
     transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
     white-space: nowrap;
+    font-size: var(--font-size);
   }
 
   label>:is(input, textarea, select) {
