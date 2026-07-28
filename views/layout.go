@@ -13,11 +13,25 @@ import (
 func header() Node {
 	return Header(
 		Nav(
-			Button(
-				Class("menu-toggle ghost icon"),
-				icons.BurgerIcon(),
+			Div(
+				Class("header-items"),
+				Button(
+					Class("menu-toggle ghost icon"),
+					icons.BurgerIcon(),
+				),
+				A(Class("ghost"), Title("Home"), Href("/"), Text("Microbe")),
 			),
-			A(Class("home"), Href("/"), Text("Microbe")),
+			Div(
+				Class("header-items"),
+				A(
+					Href("https://github.com/sunesimonsen/microbe"),
+					Target("_blank"),
+					Title("Github"),
+					Class("ghost"),
+					Text("Github "),
+					icons.GithubIcon(),
+				),
+			),
 		),
 	)
 }

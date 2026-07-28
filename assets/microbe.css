@@ -416,6 +416,7 @@
     grid-column-start: 2;
   }
 
+  a,
   button,
   input[type=submit],
   input[type=reset],
@@ -438,6 +439,7 @@
       justify-content: center;
       white-space: nowrap;
       outline-offset: var(--focus-outline-offset);
+      text-decoration: none;
 
       & * {
         pointer-events: none;

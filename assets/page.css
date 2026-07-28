@@ -271,12 +271,18 @@ label:has(#saturation-range, #color-range) {
     &>nav {
       view-transition-name: header-nav;
       display: flex;
-      align-items: center;
-      padding-inline: var(--scale-7);
-      column-gap: var(--scale-5);
+      align-items: stretch;
+      justify-content: space-between;
       height: 100%;
+      padding-inline: var(--scale-6);
 
       transition: box-shadow 0.25s ease-in-out;
+
+      & .header-items {
+        display: flex;
+        align-items: center;
+        column-gap: var(--scale-2);
+      }
 
       @container scroll-state(stuck: top) {
         box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.3);
@@ -409,7 +415,7 @@ label:has(#saturation-range, #color-range) {
     }
 
     &:has(>aside.menu) .menu-toggle {
-      display: inline-block;
+      display: flex;
     }
 
     &>[role=document] {
@@ -441,12 +447,8 @@ label:has(#saturation-range, #color-range) {
     }
   }
 
-  body.show-menu {
+  html:has(body.show-menu) {
     overflow: hidden;
-  }
-
-  html,
-  body {
     scrollbar-gutter: initial;
   }
 }
