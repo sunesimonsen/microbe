@@ -9,6 +9,22 @@
         cursor: pointer;
         outline: none;
 
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        &::-webkit-details-marker {
+          display: none;
+        }
+
+        &::marker {
+          display: none;
+        }
+
+        &::-moz-list-bullet {
+          list-style-type: none;
+        }
+
         &:focus-visible {
           text-decoration: underline;
         }
