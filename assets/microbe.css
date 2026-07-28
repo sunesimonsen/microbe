@@ -543,6 +543,7 @@
   input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image]),
   textarea,
   select {
+    appearance: none;
     width: 100%;
     height: var(--form-element-height);
     transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
