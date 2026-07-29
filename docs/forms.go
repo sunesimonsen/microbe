@@ -248,9 +248,11 @@ var InputPage = NewPage(
 	NewExample(
 		"File input",
 		`
-    <input type="file" class="solid" name="file" aria-label="File" placeholder="File">
+    <input type="file" class="solid" tabindex="0" aria-label="File">
+    <input type="file" class="solid" tabindex="0" aria-label="File" multiple>
+    <input type="file" class="solid" aria-label="File" disabled>
     `,
-	),
+	).WithClass("rows"),
 	NewExample(
 		"Color input",
 		`

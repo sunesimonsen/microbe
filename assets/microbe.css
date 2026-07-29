@@ -538,9 +538,17 @@
     accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     font-size: var(--font-size);
     font-family: var(--font-family);
+
+    &::placeholder {
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+    }
+
+    &:disabled {
+      color: hsl(var(--accent-hue) 0% var(--lightness-7));
+    }
   }
 
-  input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image], select),
+  input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image], [type=file]),
   textarea,
   select {
     appearance: none;
@@ -554,10 +562,6 @@
     background: transparent;
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
     cursor: pointer;
-
-    &::placeholder {
-      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
-    }
 
     &:hover {
       border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -576,10 +580,6 @@
       color: hsl(var(--accent-hue) 0% var(--lightness-7));
       cursor: default;
       outline: none;
-
-      &::placeholder {
-        color: hsl(var(--accent-hue) 0% var(--lightness-7));
-      }
     }
 
     &:read-only:not(select) {
@@ -996,25 +996,56 @@
   }
 
   input[type=file] {
-    padding-inline-start: 0;
-  }
-
-  input[type=file]::file-selector-button {
-    margin-inline-end: var(--scale-5);
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
-    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
-    border: none;
-    padding: var(--scale-4) var(--scale-5);
+    appearance: none;
     cursor: pointer;
-    user-select: none;
-    border-radius: var(--scale-3);
-    border-start-end-radius: 0;
-    border-end-end-radius: 0;
-    border-inline-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+    width: 100%;
     outline: none;
-    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
-    white-space: nowrap;
     font-size: var(--font-size);
+    border-radius: var(--scale-3);
+
+    &::file-selector-button {
+      appearance: button;
+      font-size: var(--font-size);
+      cursor: pointer;
+      display: inline-block;
+      padding: var(--scale-4) var(--scale-5);
+      user-select: none;
+      border-radius: var(--scale-3);
+      transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      white-space: nowrap;
+
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      background: transparent;
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+    }
+
+    &:hover::file-selector-button {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 10%);
+    }
+
+    &:focus-visible::file-selector-button {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+    }
+
+    &:active {
+      &::file-selector-button {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+      }
+    }
+
+    &:disabled {
+      cursor: default;
+
+      &::file-selector-button {
+        background: hsl(var(--accent-hue) 0% var(--lightness-1));
+        border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
+        color: hsl(var(--neutral-hue) 0% var(--lightness-7));
+        cursor: default;
+      }
+    }
   }
 
   label>:is(input, textarea, select) {
