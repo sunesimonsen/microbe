@@ -582,7 +582,7 @@
       outline: none;
     }
 
-    &:read-only:not(select) {
+    &:read-only:not(select, [type=color]) {
       background: hsl(var(--accent-hue) 0% var(--lightness-1));
       border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
       outline: none;
