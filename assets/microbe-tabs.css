@@ -2,6 +2,9 @@
   [role=tablist] {
     display: flex;
     border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
 
     [role=tab] {
       margin: 0;
@@ -11,6 +14,8 @@
       border-block-end: solid var(--scale-1) transparent;
       cursor: pointer;
       transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      scroll-snap-align: start;
+      white-space: nowrap;
 
       &:hover {
         color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
