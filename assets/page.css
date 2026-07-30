@@ -404,7 +404,7 @@ label:has(#saturation-range, #color-range) {
 
   .page-layout {
     grid-template-rows: auto auto auto auto 1fr;
-    grid-template-columns: var(--scale-6) minmax(90vw, 1fr) var(--scale-6);
+    grid-template-columns: var(--scale-6) 1fr var(--scale-6);
     grid-template-areas: "navbar navbar navbar"
       "start header end"
       "start toc end"
@@ -476,6 +476,7 @@ label:has(#saturation-range, #color-range) {
       column-gap: var(--scale-4);
     }
 
-    grid-template-columns: 0 minmax(90vw, 1fr) 0;
+    grid-template-columns: 0 1fr 0;
+    gap: var(--scale-5);
   }
 }
