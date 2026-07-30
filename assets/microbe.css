@@ -13,18 +13,6 @@
 }
 
 @layer reset {
-  html {
-    scrollbar-gutter: stable;
-    scroll-behavior: smooth;
-    overscroll-behavior: contain;
-  }
-
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
   small {
     font-size: smaller;
   }
