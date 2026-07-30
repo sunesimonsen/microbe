@@ -473,6 +473,7 @@
         border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
       }
 
+      &:is(a[aria-disabled=true]):not([href]),
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-3));
         border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-3));
@@ -497,6 +498,7 @@
         background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
       }
 
+      &:is(a[aria-disabled=true]):not([href]),
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-1));
         border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
@@ -522,6 +524,7 @@
         background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
       }
 
+      &:is(a[aria-disabled=true]):not([href]),
       &:disabled {
         background: hsl(var(--accent-hue) 0% var(--lightness-1));
         border: none;

@@ -21,6 +21,7 @@
         color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
       }
 
+      &:is(a[aria-disabled=true]):not([href]),
       &:disabled {
         color: hsl(var(--neutral-hue) 0% var(--lightness-7));
         cursor: default;
