@@ -22,11 +22,9 @@ html {
 
 html,
 body {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
-
 
 a.home {
   text-decoration: none;
