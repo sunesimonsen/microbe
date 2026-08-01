@@ -169,7 +169,7 @@ func (p Page) GetNode(u url.URL) Node {
 				Class("navlist"),
 				Details(
 					Open(),
-					Summary(Text("Content")),
+					Summary(Text("On this page")),
 					Name("toc"),
 					Ul(
 						Map(p.Content, func(s PageSection) Node {
