@@ -348,6 +348,7 @@ label:has(#saturation-range, #color-range) {
 
     grid-area: body;
     padding-block: var(--scale-5) var(--scale-7);
+    overflow-x: hidden;
   }
 }
 
