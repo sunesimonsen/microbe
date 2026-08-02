@@ -238,7 +238,6 @@ label:has(#saturation-range, #color-range) {
 @media (max-width: 600px) {
   .example .grid:not(.small) {
     grid-template-columns: 1fr;
-    justify-items: stretch;
   }
 }
 
