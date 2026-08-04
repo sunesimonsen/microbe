@@ -32,14 +32,9 @@ func Page(title string, children ...Node) Node {
 			Body(
 				Group(children),
 				Script(Src("/assets/page.js")),
-				// Script(
-				// 	Src("https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"),
-				// 	Integrity("sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"),
-				// 	CrossOrigin("anonymous"),
-				// ),
 				Script(
-					Src("https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.js"),
-					Integrity("sha384-Q+Dky3iHVJOr6wUjQ4ulh6uQ76an/t+ak1+PjMVaxRjbZamFLAG+u9InkfjbsEQf"),
+					Src("https://cdn.jsdelivr.net/npm/htmx.org@2.0.10/dist/htmx.min.js"),
+					Integrity("sha384-H5SrcfygHmAuTDZphMHqBJLc3FhssKjG7w/CeCpFReSfwBWDTKpkzPP8c+cLsK+V"),
 					CrossOrigin("anonymous"),
 				),
 			),
