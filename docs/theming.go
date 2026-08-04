@@ -3,7 +3,6 @@ package docs
 import (
 	"fmt"
 
-	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
@@ -12,27 +11,24 @@ var AccentColorPage = NewPage(
 	"Accent color",
 	NewStaticPageSection(
 		"Settings",
-		Section(
-			ID("settings"),
-			Label(
-				Text("Hue"),
-				Input(
-					Attr("type", "range"),
-					Attr("value", "240"),
-					Attr("min", "0"),
-					Attr("max", "359"),
-					Attr("id", "color-range"),
-				)),
-			Label(
-				Text("Saturation"),
-				Input(
-					Attr("type", "range"),
-					Attr("value", "70"),
-					Attr("min", "0"),
-					Attr("max", "100"),
-					Attr("id", "saturation-range"),
-				)),
-		),
+		Label(
+			Text("Hue"),
+			Input(
+				Attr("type", "range"),
+				Attr("value", "240"),
+				Attr("min", "0"),
+				Attr("max", "359"),
+				Attr("id", "color-range"),
+			)),
+		Label(
+			Text("Saturation"),
+			Input(
+				Attr("type", "range"),
+				Attr("value", "70"),
+				Attr("min", "0"),
+				Attr("max", "100"),
+				Attr("id", "saturation-range"),
+			)),
 	),
 	NewExample(
 		"Example",
@@ -135,7 +131,7 @@ func colorTable(name string, palettes []color) PageSection {
 
 	return NewStaticPageSection(
 		name,
-		H2(ID(strcase.ToKebab(name)), Text(name)),
+		H2(Text(name)),
 		Section(
 			Class("color-grid"),
 			Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),

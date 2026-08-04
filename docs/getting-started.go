@@ -128,6 +128,17 @@ var About = NewPage(
 	).WithDescription(
 		P(Text("All styles are built on the "), InlineCodeList("em"), Text(" unit and scales with the surrounding font size.")),
 	).WithClass("grid"),
+	NewStaticPageSection(
+		"Acknowledgement",
+		H2(Text("Acknowledgement")),
+		P(
+			Text("Microbe wasn't built in a vacuum; I was heavily inspired by "),
+			ExternalLink("https://picocss.com", "PicoCSS"),
+			Text(" both for the design of the documentation site and some of the element styling in the library. The look of the elements are mainly inspired by "),
+			ExternalLink("https://garden.zendesk.com", "Zendesk Garden"),
+			Text("."),
+		),
+	),
 ).WithDescription(
 	P(Text("Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.")),
 	P(Text("The design system is built around the "), ExternalLink("https://en.wikipedia.org/wiki/Golden_ratio", "golden ratio"), Text(" and the "), ExternalLink("https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units", "ralative units"), Text(" allowing styles to scale beautifully with the surrounding font size.")),

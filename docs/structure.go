@@ -116,7 +116,7 @@ func (s CustomPageSection) GetName() string {
 }
 
 func (s CustomPageSection) GetNode(u url.URL) Node {
-	return s.getNode(u)
+	return Section(ID(strcase.ToKebab(s.GetName())), s.getNode(u))
 }
 
 func NewPageSection(name string, getNode func(u url.URL) Node) CustomPageSection {
