@@ -107,19 +107,19 @@ var About = NewPage(
       </svg>
     </div>
     <button style="font-size: 0.8rem" class="outline">
-      Small
+      Scalable
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
         <use href="#thumbs-up-icon"></use>
       </svg>
     </button>
     <button class="outline">
-      Medium
+      Scalable
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
         <use href="#thumbs-up-icon"></use>
       </svg>
     </button>
     <button style="font-size: 1.2rem" class="outline">
-      Large
+      Scalable
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
         <use href="#thumbs-up-icon"></use>
       </svg>
