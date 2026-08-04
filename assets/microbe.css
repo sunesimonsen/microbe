@@ -1235,15 +1235,3 @@
     overflow: hidden;
   }
 }
-
-@media (min-width: 1000px) {
-  .only-narrow {
-    display: none;
-  }
-}
-
-@media (max-width: 1000px) {
-  .only-wide {
-    display: none;
-  }
-}
