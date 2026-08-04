@@ -3,6 +3,7 @@ package server
 import (
 	"errors"
 	"net/http"
+	"net/url"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/sunesimonsen/microbe/docs"
@@ -36,6 +37,30 @@ func DocsHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	renderNode(w, r, views.DocsLayout(r.URL.Path, page.GetNode(*r.URL)))
+}
+
+func SearchHandler(w http.ResponseWriter, r *http.Request) {
+	u, err := url.Parse(r.Referer())
+
+	path := ""
+
+	if err == nil {
+		path = u.Path
+	}
+
+	query := r.URL.Query().Get("query")
+	expandAll := query != ""
+
+	cs := docs.Index.Filter(query)
+
+	if len(cs) == 0 {
+		renderNode(w, r, views.NoSearchResults(query))
+		return
+	}
+
+	menu := cs.GetMenu(path, expandAll)
+
+	renderNode(w, r, views.SearchResults(menu))
 }
 
 func renderNode(w http.ResponseWriter, _ *http.Request, node Node) {

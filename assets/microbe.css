@@ -1139,6 +1139,8 @@
     padding: 0;
     width: var(--scale-13);
     --close-button-size: calc(var(--scale-6) + var(--scale-3));
+    max-width: calc(100vw - 2 * var(--scale-3));
+    max-height: calc(100vh - 2 * var(--scale-3));
     overflow: hidden;
 
     &[open] {
@@ -1231,5 +1233,17 @@
 
   body:has(dialog[open]) {
     overflow: hidden;
+  }
+}
+
+@media (min-width: 1000px) {
+  .only-narrow {
+    display: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .only-wide {
+    display: none;
   }
 }

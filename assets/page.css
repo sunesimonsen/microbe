@@ -251,6 +251,18 @@ label:has(#saturation-range, #color-range) {
   }
 }
 
+#search-dialog {
+  margin-block-start: var(--scale-3);
+
+  input[name=query] {
+    margin-block-start: var(--scale-4);
+  }
+
+  .no-results {
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+  }
+}
+
 .page-layout {
   --layout-header-height: var(--scale-8);
 
@@ -262,10 +274,6 @@ label:has(#saturation-range, #color-range) {
     "start menu body toc end";
   gap: 0 var(--scale-8);
   min-height: 100%;
-
-  & .menu-toggle {
-    display: none;
-  }
 
   &>header {
     view-transition-name: header;
@@ -411,11 +419,6 @@ label:has(#saturation-range, #color-range) {
 
     &>aside.menu {
       display: none;
-      padding: var(--scale-6) var(--scale-7);
-      background: linear-gradient(225deg,
-          hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1)),
-          hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0)) 50%);
-      overflow-y: auto;
     }
 
     &>aside.menu>nav,
@@ -425,12 +428,12 @@ label:has(#saturation-range, #color-range) {
       max-height: max-content;
     }
 
-    &:has(>aside.menu) .menu-toggle {
-      display: flex;
+    &>[role=document] {
+      padding-block-start: 0;
     }
 
-    &>[role=document] {
-      margin-block-end: 0;
+    &>hgroup {
+      margin: 0;
     }
   }
 
@@ -465,15 +468,12 @@ label:has(#saturation-range, #color-range) {
 }
 
 @media (max-width: 850px) {
-
   .page-layout {
-
     &>header>nav {
-      padding-inline: var(--scale-6);
-      column-gap: var(--scale-4);
+      padding-inline: var(--scale-4);
     }
 
     grid-template-columns: 0 calc(100vw - 2 * var(--scale-5)) 0;
-    gap: var(--scale-5);
+    column-gap: var(--scale-5);
   }
 }

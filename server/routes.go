@@ -12,6 +12,7 @@ func (s *Server) setupRoutes() {
 
 	s.router.Get("/", IndexHandler)
 	s.router.Get("/{category}/{page}", DocsHandler)
+	s.router.Get("/search", SearchHandler)
 
 	s.router.Handle("/assets/*", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 }

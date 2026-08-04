@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/url"
 	"regexp"
+	"slices"
+	"strconv"
 	"strings"
 
 	"github.com/iancoleman/strcase"
@@ -226,6 +228,76 @@ func (cs Categories) FindCategory(name string) (Category, error) {
 	}
 
 	return Category{}, ErrNotFound
+}
+
+func PageHref(c Category, p Page) string {
+	return "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
+}
+
+func (cs Categories) Filter(query string) Categories {
+	result := Categories{}
+
+	terms := strings.Split(query, " ")
+
+	for _, c := range cs {
+		fc := Category{
+			Name: c.Name,
+		}
+
+		for _, p := range c.Pages {
+			var hasMatch bool
+
+			for _, term := range terms {
+				t := strings.ToLower(term)
+
+				if strings.Contains(strings.ToLower(c.Name), t) ||
+					strings.Contains(strings.ToLower(p.Name), t) {
+					hasMatch = true
+				}
+			}
+
+			if hasMatch {
+				fc.Pages = append(fc.Pages, p)
+			}
+		}
+
+		if len(fc.Pages) > 0 {
+			result = append(result, fc)
+		}
+	}
+
+	return result
+}
+
+var nextId = 0
+
+func (cs Categories) GetMenu(currentPath string, expandAll bool) Node {
+	uniqName := "index-" + strconv.Itoa(nextId)
+	nextId++
+
+	return Map(cs, func(c Category) Node {
+		open := expandAll || slices.ContainsFunc(c.Pages, func(p Page) bool {
+			return PageHref(c, p) == currentPath
+		})
+
+		return Details(
+			If(!expandAll, Name(uniqName)),
+			If(open, Open()),
+			If(open, Data("open", "true")),
+			Summary(If(expandAll, TabIndex("-1")), Text(c.Name)),
+			Ul(
+				Map(c.Pages, func(p Page) Node {
+					href := PageHref(c, p)
+
+					return Li(A(
+						If(href == currentPath, Aria("current", "page")),
+						Href(href),
+						Text(p.Name),
+					))
+				}),
+			),
+		)
+	})
 }
 
 func InlineCodeList(classes ...string) Node {

@@ -1,9 +1,6 @@
 package views
 
 import (
-	"slices"
-
-	"github.com/iancoleman/strcase"
 	"github.com/sunesimonsen/microbe/docs"
 	"github.com/sunesimonsen/microbe/icons"
 	. "maragu.dev/gomponents"
@@ -15,10 +12,6 @@ func header() Node {
 		Nav(
 			Div(
 				Class("header-items"),
-				Button(
-					Class("menu-toggle ghost icon"),
-					icons.BurgerIcon(),
-				),
 				A(Class("ghost"), Title("Home"), Href("/"), Text("Microbe")),
 			),
 			Div(
@@ -28,16 +21,46 @@ func header() Node {
 					Target("_blank"),
 					Title("Github"),
 					Class("ghost"),
-					Text("Github "),
+					Span(Class("only-wide"), Text("Github ")),
 					icons.GithubIcon(),
+				),
+				Button(
+					ID("search-button"),
+					Class("ghost"),
+					Title("Search"),
+					Attr("command", "show-modal"),
+					Attr("commandfor", "search-dialog"),
+					Span(Class("only-wide"), Text("Search ")),
+					Span(Class("only-wide"), icons.SearchIcon()),
+					Span(Class("only-narrow"), icons.BurgerIcon()),
 				),
 			),
 		),
+		Dialog(
+			ID("search-dialog"),
+			Attr("closedby", "any"),
+			Header(
+				Label(
+					Text("Search"),
+					Input(
+						Type("search"),
+						Name("query"),
+						AutoFocus(),
+						Placeholder("Search for documentation"),
+						Attr("autocomplete", "off"),
+						Attr("hx-get", "/search"),
+						Attr("hx-params", "query"),
+						Attr("hx-trigger", "input changed delay:500ms, keyup[key=='Enter'], load"),
+						Attr("hx-target", "#search-results"),
+					),
+				),
+				Button(Rel("prev"), Aria("label", "Close"), Attr("commandfor", "search-dialog"), Attr("command", "close"), TabIndex("1")),
+			),
+			Section(
+				ID("search-results"),
+			),
+		),
 	)
-}
-
-func PageHref(c docs.Category, p docs.Page) string {
-	return "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
 }
 
 func docsMenu(currentPath string) Node {
@@ -46,27 +69,7 @@ func docsMenu(currentPath string) Node {
 
 		Nav(
 			Class("navlist"),
-			Map(docs.Index, func(c docs.Category) Node {
-				hasActivePage := slices.ContainsFunc(c.Pages, func(p docs.Page) bool {
-					return PageHref(c, p) == currentPath
-				})
-
-				return Details(
-					Name("index"),
-					If(hasActivePage, Open()),
-					Summary(Text(c.Name)),
-					Ul(
-						Map(c.Pages, func(p docs.Page) Node {
-							href := "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
-							return Li(A(
-								If(PageHref(c, p) == currentPath, Aria("current", "page")),
-								Href(href),
-								Text(p.Name),
-							))
-						}),
-					),
-				)
-			}),
+			docs.Index.GetMenu(currentPath, false),
 		),
 	)
 }
@@ -80,4 +83,15 @@ func DocsLayout(currentPath string, part Node) Node {
 			part,
 		),
 	)
+}
+
+func SearchResults(part Node) Node {
+	return Nav(
+		Class("navlist"),
+		part,
+	)
+}
+
+func NoSearchResults(query string) Node {
+	return P(Class("no-results"), Text("No results for \""), Em(Text(query)), Text("\""))
 }
