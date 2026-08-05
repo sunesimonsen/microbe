@@ -128,6 +128,28 @@ var About = NewPage(
 	).WithDescription(
 		P(Text("All styles are built on the "), InlineCodeList("em"), Text(" unit and scales with the surrounding font size.")),
 	).WithClass("grid"),
+	NewExample(
+		"Computed colors",
+		`
+    <div class="grid stretch" style="--hue: 210">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;"">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;"">Tertiary</button>
+    </div>
+    <div class="grid stretch" style="--hue: 330">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+    </div>
+    <div class="grid stretch" style="--hue: 40">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+    </div>
+    `,
+	).WithClass("rows").WithDescription(
+		P(Text("As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.")),
+	),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),
