@@ -207,7 +207,7 @@ label:has(#saturation-range, #color-range) {
 }
 
 .example .rows:has(.grid) {
-  gap: var(--scale-5);
+  gap: var(--scale-6);
 }
 
 .source {
