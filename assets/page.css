@@ -478,13 +478,13 @@ label:has(#saturation-range, #color-range) {
   }
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 850px) {
   .only-narrow {
     display: none;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 850px) {
   .only-wide {
     display: none;
   }
