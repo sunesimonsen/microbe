@@ -476,6 +476,11 @@ label:has(#saturation-range, #color-range) {
     grid-template-columns: 0 calc(100vw - 2 * var(--scale-5)) 0;
     column-gap: var(--scale-5);
   }
+
+  #search-dialog {
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
 @media (min-width: 850px) {
