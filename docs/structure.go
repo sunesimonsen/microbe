@@ -33,6 +33,52 @@ func (e Example) GetName() string {
 	return e.Name
 }
 
+var playgroundCSS = `
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css";
+
+body {
+  padding: var(--scale-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  gap: var(--scale-4);
+  justify-items: center;
+  align-items: center;
+
+  &>* {
+    margin: 0;
+  }
+}
+
+.grid.stretch {
+  justify-items: stretch;
+}
+
+.rows {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--scale-4);
+  justify-items: stretch;
+}
+
+.rows:has(.grid) {
+  gap: var(--scale-6);
+}
+
+@media (max-width: 600px) {
+  .grid:not(.small) {
+    grid-template-columns: 1fr;
+  }
+}
+`
+
 func (e Example) GetNode(u url.URL) Node {
 	return Article(
 		Class("example"),
@@ -45,11 +91,27 @@ func (e Example) GetNode(u url.URL) Node {
 			Footer(
 				Class("actions"),
 				Button(
+					Class("ghost icon jsfiddle"),
+					icons.JSFiddleIcon(),
+				),
+				Button(
 					Class("ghost icon show-source"),
 					Aria("pressed", "false"),
 					icons.CodeSlashIcon(),
 				),
 			),
+		),
+		Form(
+			Action("https://jsfiddle.net/api/post/library/pure/"),
+			Method("post"),
+			Target("_blank"),
+			Attr("hidden"),
+			Class("jsfiddle"),
+			Input(Type("hidden"), Name("title"), Value("Microbe "+u.Path+"#"+e.Name)),
+			Input(Type("hidden"), Name("description"), Value("See https://microbe.sune.one for more information")),
+			Input(Type("hidden"), Name("html"), Value("")),
+			Input(Type("hidden"), Name("js"), Value("")),
+			Input(Type("hidden"), Name("css"), Value(strings.TrimSpace(playgroundCSS))),
 		),
 	)
 }

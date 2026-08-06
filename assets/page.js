@@ -1,3 +1,19 @@
+const htmlTemplate = (source) => `\
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css" rel="stylesheet" type="text/css">
+
+${source}
+`
+
+const indent = (source, spacing) => source.replace(/^/gm, spacing)
+
+const wrapWithClasses = (source, classes) => `<div class="${classes}">
+${indent(source, '  ')}
+</div>`
+
 if (window.self === window.top) {
   window.addEventListener('load', () => {
     const themingExampleForm = document.getElementById("theming-example-form")
@@ -41,7 +57,7 @@ if (window.self === window.top) {
   })
 
   window.addEventListener('click', (e) => {
-    if (e.target.matches('.show-source')) {
+    if (e.target.matches('button.show-source')) {
       e.target.ariaPressed = !e.target.matches('[aria-pressed=true]')
       const card = e.target.closest(".card")
       let source = card.querySelector('.source')
@@ -66,6 +82,23 @@ if (window.self === window.top) {
         card.appendChild(source)
         hljs.highlightElement(code);
       }
+    } else if (e.target.matches('button.jsfiddle')) {
+      const example = e.target.closest(".example")
+      const card = example.querySelector(".card")
+      const sourceSection = card.querySelector('section')
+      let source = sourceSection.innerHTML
+
+      if (sourceSection.classList.length > 0) {
+
+        source = wrapWithClasses(source, sourceSection.classList.value)
+      }
+
+      const form = example.querySelector("form.jsfiddle")
+
+      const htmlInput = form.querySelector("input[name=html]")
+      htmlInput.value = source
+
+      form.submit()
     } else if (e.target.matches('button.copy-source')) {
       const card = e.target.closest(".card")
       let source = card.querySelector('.source code')
