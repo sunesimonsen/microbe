@@ -24,6 +24,9 @@ var Index = Categories{
 	),
 	NewCategory(
 		"Layout",
+		AccordionPage,
+		CardPage,
+		TabsPage,
 		SpacingPage,
 	),
 	NewCategory(
@@ -44,11 +47,5 @@ var Index = Categories{
 	NewCategory(
 		"Popups",
 		DialogPage,
-	),
-	NewCategory(
-		"Components",
-		AccordionPage,
-		CardPage,
-		TabsPage,
 	),
 }
