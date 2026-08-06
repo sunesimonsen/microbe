@@ -10,64 +10,59 @@ import (
 var AccentColorPage = NewPage(
 	"Accent color",
 	NewStaticPageSection(
-		"Settings",
-		Label(
-			Text("Hue"),
-			Input(
-				Attr("type", "range"),
-				Attr("value", "240"),
-				Attr("min", "0"),
-				Attr("max", "359"),
-				Attr("id", "color-range"),
-			)),
-		Label(
-			Text("Saturation"),
-			Input(
-				Attr("type", "range"),
-				Attr("value", "70"),
-				Attr("min", "0"),
-				Attr("max", "100"),
-				Attr("id", "saturation-range"),
-			)),
-	),
-	NewExample(
-		"Example",
-		`
-    <form id="theming-example-form">
-      <fieldset>
-        <label>
-          Name
-          <input name="name" placeholder="Name" autocomplete="name">
-        </label>
-        <label>
-          Email
-          <input name="email" placeholder="Email" autocomplete="email" aria-describedby="email-hint">
-          <small id="email-hint">
-            We’ll never share your email with anyone else.
-          </small>
-        </label>
-        <label>
-          <input type="checkbox" name="newsletter" aria-describedby="newsletter-hint" checked>
-          Newsletter
-        </label>
-        <small id="newsletter-hint">
-          We will send you a newsletter every week
-        </small>
-        <label>
-          Spelling proficiency (0 - 10)
-          <input type="range" value="5" min="0" max="10">
-        </label>
-      </fieldset>
-      <div class="actions">
-        <button class="outline" type="reset">
-          Reset
-        </button>
-        <button class="solid" type="submit">
-          Submit
-        </button>
-      </div>
-    </form>
-    `,
+		"Playground",
+		Article(
+			H2(Text("Playground")),
+			Div(
+				Class("card raised"),
+				Header(
+					Label(
+						Text("Hue"),
+						Input(
+							Attr("type", "range"),
+							Attr("value", "240"),
+							Attr("min", "0"),
+							Attr("max", "359"),
+							Attr("id", "color-range"),
+						)),
+					Label(
+						Text("Saturation"),
+						Input(
+							Attr("type", "range"),
+							Attr("value", "70"),
+							Attr("min", "0"),
+							Attr("max", "100"),
+							Attr("id", "saturation-range"),
+						)),
+				),
+				Section(
+					Form(
+						ID("theming-example-form"),
+						FieldSet(
+							Label(
+								Text("Name"),
+								Input(Placeholder("Name"), AutoComplete("name")),
+							),
+							Label(
+								Text("Email"),
+								Input(Placeholder("Email"), AutoComplete("email"), Aria("describedby", "email-hint")),
+								Small(ID("email-hint"), Text("We'll never share your email with anyone else.")),
+							),
+							Label(
+								Input(Type("checkbox"), Checked(), Aria("describedby", "newsletter-hint")),
+								Text("Newsletter"),
+							),
+							Small(ID("newsletter-hint"), Text("We will send you a newsletter every week.")),
+						),
+						Div(
+							Class("actions"),
+							Button(Class("outline"), Type("reset"), Text("Reset")),
+							Button(Class("solid"), Type("submit"), Text("Submit")),
+						),
+					),
+				),
+			),
+		),
 	),
 )
 
