@@ -25,7 +25,7 @@ var TagPage = NewPage(
     <span class="tag" style="--neutral-hue: 100; --neutral-saturation: 80%;">NEW</span>
     `,
 	).WithDescription(
-		P(Text("The color of the tags can be tweaked by setting the "), InlineCodeList("--neutral-hue", "--neutral-saturation"), Text("CSS variables.")),
+		P(Text("The color of the tags can be tweaked by setting the "), InlineCodeList("--neutral-hue", "--neutral-saturation"), Text(" CSS variables.")),
 	).WithClass("grid small"),
 	NewExample(
 		"Interactive",
