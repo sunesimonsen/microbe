@@ -37,5 +37,5 @@ var TagPage = NewPage(
 		P(Text("Anchors and buttons are allowed to be styled as tags, this is useful for initiating a search for a given tag.")),
 	).WithClass("grid small"),
 ).WithDescription(
-	P(Text("Tags are UI elements that indicate a segmentation of data. Put to a tag on an entity to indicate that it belongs to a category.")),
+	P(Text("Tags let users categorize content using a keyword.")),
 )
