@@ -12,6 +12,13 @@ var Index = Categories{
 		ColorsPage,
 	),
 	NewCategory(
+		"Layout",
+		AccordionPage,
+		CardPage,
+		TabsPage,
+		SpacingPage,
+	),
+	NewCategory(
 		"Content",
 		TypographyPage,
 		ListPage,
@@ -21,13 +28,6 @@ var Index = Categories{
 		"Navigation",
 		AnchorPage,
 		NavlistPage,
-	),
-	NewCategory(
-		"Layout",
-		AccordionPage,
-		CardPage,
-		TabsPage,
-		SpacingPage,
 	),
 	NewCategory(
 		"Forms",
@@ -47,5 +47,9 @@ var Index = Categories{
 	NewCategory(
 		"Popups",
 		DialogPage,
+	),
+	NewCategory(
+		"Data",
+		TagPage,
 	),
 }

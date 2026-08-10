@@ -410,11 +410,11 @@
   input[type=reset],
   input[type=button] {
     font-size: var(--font-size);
+    cursor: pointer;
 
     &.solid,
     &.outline,
     &.ghost {
-      cursor: pointer;
       padding: 0 var(--scale-5);
       height: var(--form-element-height);
       user-select: none;

@@ -1,0 +1,43 @@
+@layer defaults {
+  .tag {
+    display: inline-block;
+    border-radius: var(--scale-5);
+    padding: 0 var(--scale-5);
+    font-size: calc(var(--scale-5) - 2 * var(--border-width));
+    background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2)),
+        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)));
+    border: var(--border-width) solid light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)),
+        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5)));
+    font-family: monospace;
+    white-space: nowrap;
+    line-height: var(--line-height);
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+    outline: var(--focus-outline-width) solid transparent;
+    outline-offset: 0;
+    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+
+    &:is(a, button) {
+      &:focus-visible {
+        text-decoration: none;
+        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
+      }
+
+      &:hover {
+        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+        text-decoration: none;
+
+        background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)),
+            hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5)));
+        border: var(--border-width) solid light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)),
+            hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6)));
+      }
+
+      &:active {
+        background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)),
+            hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6)));
+        border: var(--border-width) solid light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5)),
+            hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7)));
+      }
+    }
+  }
+}
