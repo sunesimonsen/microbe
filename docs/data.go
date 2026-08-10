@@ -17,12 +17,12 @@ var TagPage = NewPage(
     <span class="tag" style="--neutral-hue: 40; --neutral-saturation: 80%;">NEW</span>
     <span class="tag" style="--neutral-hue: 100; --neutral-saturation: 80%;">NEW</span>
     `,
-	).WithClass("grid"),
+	).WithClass("grid small"),
 	NewExample(
 		"Interactive",
 		`
     <a class="tag" href="#interactive">Anchor</a>
     <button class="tag">Button</button>
     `,
-	).WithClass("grid"),
+	).WithClass("grid small"),
 )
