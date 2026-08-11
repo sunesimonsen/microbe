@@ -418,7 +418,7 @@
       padding: 0 var(--scale-5);
       height: var(--form-element-height);
       user-select: none;
-      border-radius: var(--scale-3);
+      border-radius: var(--scale-2);
       outline: var(--focus-outline-width) solid transparent;
       transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
       display: flex;

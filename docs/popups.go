@@ -181,3 +181,47 @@ var DialogPage = NewPage(
 ).WithDescription(
 	P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
 )
+
+var MenuPage = NewPage(
+	"Menu",
+	NewExample(
+		"Links",
+		`
+    <button class="outline" popovertarget="popover-links">Go to page</button>
+    <ul id="popover-links" class="menu" popover>
+      <li><a href="/getting-started/about">About</a></li>
+      <li><a href="/content/typography">Typography</a></li>
+      <li><a href="/popups/dialog">Dialog</a></li>
+    </ul>
+    `,
+	).WithDescription(
+		P(Text("Menu items containing an anchor can be used to navigate to other parts of the application.")),
+	),
+	NewExample(
+		"Buttons",
+		`
+    <button class="outline" popovertarget="popover-actions">Actions</button>
+    <ul id="popover-actions" class="menu" popover>
+      <li><button autofocus commandfor="search-dialog" command="show-modal">Search</button></li>
+      <li><button onclick="javascript:alert('You clicked me')">Custom JavaScript</button></li>
+      <li><button onclick="javascript:alert('You clicked me')" popovertarget="popover-actions" popovercommand="close">Custom JavaScript and closing</button></li>
+      <li><button popovertarget="popover-actions" popovercommand="close">Close menu</button></li>
+    </ul>
+    `,
+	).WithDescription(
+		P(Text("Menu items containing a button can be used invoke custom actions.")),
+	),
+	NewExample(
+		"Chevron",
+		`
+    <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
+    <ul id="popover-trigger" class="menu" popover>
+      <li><a href="/getting-started/about">About</a></li>
+      <li><a href="/content/typography">Typography</a></li>
+      <li><a href="/popups/dialog">Dialog</a></li>
+    </ul>
+    `,
+	).WithDescription(
+		P(Text("You can inject a chevron icon to the trigger by adding the "), InlineCodeList(".chevron"), Text(" class.")),
+	),
+)

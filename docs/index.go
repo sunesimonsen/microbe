@@ -47,6 +47,7 @@ var Index = Categories{
 	NewCategory(
 		"Popups",
 		DialogPage,
+		MenuPage,
 	),
 	NewCategory(
 		"Data",

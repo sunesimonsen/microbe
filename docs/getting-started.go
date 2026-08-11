@@ -173,7 +173,7 @@ type Release struct {
 }
 
 var releases = []Release{
-	{Version: "HEAD", Modules: []string{"Accordion", "Card", "Navlist", "Tabs", "Tag"}},
+	{Version: "HEAD", Modules: []string{"Accordion", "Card", "Menu", "Navlist", "Tabs", "Tag"}},
 }
 
 func CurrentVersion(u url.URL) string {
