@@ -49,7 +49,7 @@ if (window.self === window.top) {
 
       const updateNeutralHue = (hue) => {
         themingExampleForm.style.setProperty("--neutral-hue", hue);
-        neutralColorRange.style.setProperty("--neutral-hue", hue);
+        neutralColorRange.style.setProperty("--accent-hue", hue);
         neutralColorRange.parentElement.dataset.value = hue
       }
 
@@ -61,7 +61,7 @@ if (window.self === window.top) {
 
       const updateneutralSaturation = (saturation) => {
         themingExampleForm.style.setProperty("--neutral-saturation", `${saturation}%`);
-        neutralColorRange.style.setProperty("--neutral-saturation", `${saturation}%`);
+        neutralColorRange.style.setProperty("--accent-saturation", `${saturation}%`);
         neutralSaturationRange.parentElement.dataset.value = `${saturation}%`
       }
 

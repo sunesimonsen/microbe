@@ -46,6 +46,7 @@ var ColorsPage = NewPage(
 							Attr("min", "0"),
 							Attr("max", "359"),
 							Attr("id", "neutral-color-range"),
+							Style("--accent-hue: 0; --accent-saturation: 0"),
 							Class("color-range"),
 						)),
 					Label(
