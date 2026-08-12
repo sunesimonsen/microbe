@@ -272,8 +272,7 @@ label:has(#saturation-range, #color-range) {
     container-type: scroll-state;
     z-index: 2;
     backdrop-filter: blur(var(--scale-4));
-    background-color: light-dark(hsl(from hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)) h s l / 85%),
-        hsl(from hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1)) h s l / 85%));
+    background-color: hsl(from hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)) h s l / 85%);
 
     &>nav {
       view-transition-name: header-nav;

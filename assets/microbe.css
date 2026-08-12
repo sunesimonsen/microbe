@@ -87,28 +87,29 @@
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --accent-saturation: 80%;
-      --neutral-hue: 200;
-      --neutral-saturation: 40%;
+      --accent-saturation: 60%;
+      --error-saturation: 70%;
+      --neutral-hue: 30;
+      --neutral-saturation: 5%;
 
-      --lightness-0: 4.00%;
-      --lightness-1: 10.89%;
-      --lightness-2: 16.34%;
-      --lightness-3: 20.99%;
-      --lightness-4: 25.50%;
-      --lightness-5: 30.00%;
-      --lightness-6: 34.50%;
-      --lightness-7: 39.00%;
-      --lightness-8: 43.50%;
-      --lightness-9: 47.99%;
-      --lightness-10: 52.34%;
-      --lightness-11: 55.89%;
-      --lightness-12: 58.00%;
+      --lightness-0: 20.00%;
+      --lightness-1: 26.89%;
+      --lightness-2: 32.34%;
+      --lightness-3: 36.99%;
+      --lightness-4: 41.50%;
+      --lightness-5: 46.00%;
+      --lightness-6: 50.50%;
+      --lightness-7: 55.00%;
+      --lightness-8: 59.50%;
+      --lightness-9: 63.99%;
+      --lightness-10: 68.34%;
+      --lightness-11: 71.89%;
+      --lightness-12: 74.00%;
 
       --foreground-lightness: 100%;
-      --background-lightness: 7%;
+      --background-lightness: 22%;
       --focus-lightness: var(--lightness-12);
-      --shadow-color: hsl(var(--neutral-hue) 0 0%);
+      --shadow-color: hsl(var(--neutral-hue) 0 10%);
       --focus-outline-width: calc(2*var(--border-width));
       --focus-outline-offset: calc(2*var(--border-width));
     }
@@ -147,12 +148,6 @@
 
     h6 {
       --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
-    }
-
-    hgroup {
-      &>p {
-        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-9));
-      }
     }
 
     h1,

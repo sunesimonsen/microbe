@@ -34,6 +34,9 @@
       box-shadow: var(--scale-2) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2),
         calc(var(--scale-2) * -1) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2);
 
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+
       margin: 0;
       padding: 0;
       padding-block: var(--scale-3);
