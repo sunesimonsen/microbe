@@ -12,11 +12,7 @@
   }
 }
 
-@layer reset {
-  * {
-    box-sizing: border-box;
-  }
-}
+@layer reset {}
 
 @layer settings {
 
@@ -125,7 +121,6 @@
     font-size: var(--font-size);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
-    box-sizing: border-box;
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
   }
@@ -312,6 +307,7 @@
   table {
     border-collapse: collapse;
     width: 100%;
+    box-sizing: border-box;
   }
 
   th,
@@ -405,7 +401,6 @@
     border: none;
   }
 
-
   a,
   button,
   input[type=submit],
@@ -430,6 +425,7 @@
       white-space: nowrap;
       outline-offset: var(--focus-outline-offset);
       text-decoration: none;
+      box-sizing: border-box;
 
       & * {
         pointer-events: none;
@@ -441,7 +437,6 @@
     }
 
     &.icon {
-      width: var(--button-height);
       padding: var(--scale-4);
     }
 
@@ -531,6 +526,7 @@
     accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
     font-size: var(--font-size);
     font-family: var(--font-family);
+    box-sizing: border-box;
 
     &::placeholder {
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
@@ -625,8 +621,8 @@
     &::-webkit-search-cancel-button {
       appearance: none;
       background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
-      height: var(--base);
-      width: var(--base);
+      height: 1em;
+      width: 1em;
       background-repeat: no-repeat;
       background-position: center;
       cursor: pointer;
@@ -654,6 +650,7 @@
     &::-webkit-slider-thumb {
       height: var(--thumb-size);
       width: var(--thumb-size);
+      box-sizing: border-box;
       border-radius: 50%;
       appearance: none;
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -697,6 +694,7 @@
     &::-moz-range-thumb {
       height: var(--thumb-size);
       width: var(--thumb-size);
+      box-sizing: border-box;
       border-radius: 50%;
       appearance: none;
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -1167,6 +1165,7 @@
       calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4);
     padding: 0;
     width: var(--scale-13);
+    box-sizing: border-box;
     --close-button-size: calc(var(--scale-6) + var(--scale-3));
     max-width: calc(100vw - 2 * var(--scale-3));
     max-height: calc(100vh - 2 * var(--scale-3));
@@ -1206,6 +1205,7 @@
       width: var(--close-button-size);
       background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
       cursor: pointer;
+      box-sizing: border-box;
 
       &::after {
         content: "";
@@ -1215,10 +1215,10 @@
         background-repeat: no-repeat;
         position: absolute;
         display: block;
-        inset-inline-start: calc(var(--close-button-size)/2 - 16px/2);
-        inset-block-start: calc(var(--close-button-size)/2 - 16px/2);
-        height: 16px;
-        width: 16px;
+        inset-inline-start: calc(var(--close-button-size)/2 - 1em/2);
+        inset-block-start: calc(var(--close-button-size)/2 - 1em/2);
+        height: 1em;
+        width: 1em;
       }
 
       &:focus-visible {
