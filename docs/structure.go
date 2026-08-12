@@ -6,7 +6,6 @@ import (
 	"net/url"
 	"regexp"
 	"slices"
-	"strconv"
 	"strings"
 
 	"github.com/iancoleman/strcase"
@@ -333,19 +332,13 @@ func (cs Categories) Filter(query string) Categories {
 	return result
 }
 
-var nextId = 0
-
 func (cs Categories) GetMenu(currentPath string, expandAll bool) Node {
-	uniqName := "index-" + strconv.Itoa(nextId)
-	nextId++
-
 	return Map(cs, func(c Category) Node {
 		open := expandAll || slices.ContainsFunc(c.Pages, func(p Page) bool {
 			return PageHref(c, p) == currentPath
 		})
 
 		return Details(
-			If(!expandAll, Name(uniqName)),
 			If(open, Open()),
 			If(open, Data("open", "true")),
 			Summary(If(expandAll, TabIndex("-1")), Text(c.Name)),
