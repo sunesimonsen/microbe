@@ -9,6 +9,7 @@ func Page(title string, children ...Node) Node {
 	return Doctype(
 		HTML(
 			Lang("en"),
+			Class("microbe"),
 			Head(
 				TitleEl(Text(title)),
 				Meta(Charset("UTF-8")),

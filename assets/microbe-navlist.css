@@ -1,5 +1,5 @@
-@layer defaults {
-  .navlist {
+@layer modules {
+  .microbe .navlist {
     &>details {
       margin-block-end: var(--scale-4);
       user-select: none;

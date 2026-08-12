@@ -10,9 +10,9 @@ ${source}
 
 const indent = (source, spacing) => source.replace(/^/gm, spacing)
 
-const wrapWithClasses = (source, classes) => `<div class="${classes}">
+const wrapWithClasses = (source, classes) => `<section class="${classes.join(" ")}">
 ${indent(source, '  ')}
-</div>`
+</section>`
 
 if (window.self === window.top) {
   window.addEventListener('load', () => {
@@ -88,10 +88,7 @@ if (window.self === window.top) {
       const sourceSection = card.querySelector('section')
       let source = sourceSection.innerHTML
 
-      if (sourceSection.classList.length > 0) {
-
-        source = wrapWithClasses(source, sourceSection.classList.value)
-      }
+      source = wrapWithClasses(source, ['microbe', ...sourceSection.classList])
 
       const form = example.querySelector("form.jsfiddle")
 
