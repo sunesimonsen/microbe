@@ -202,11 +202,20 @@ var MenuPage = NewPage(
 		`
     <button class="outline" popovertarget="popover-actions">Actions</button>
     <ul id="popover-actions" class="menu" popover>
-      <li><button autofocus commandfor="search-dialog" command="show-modal">Search</button></li>
+      <li><button autofocus commandfor="example-dialog" command="show-modal">Open dialog</button></li>
       <li><button onclick="javascript:alert('You clicked me')">Custom JavaScript</button></li>
       <li><button onclick="javascript:alert('You clicked me')" popovertarget="popover-actions" popovercommand="close">Custom JavaScript and closing</button></li>
       <li><button popovertarget="popover-actions" popovercommand="close">Close menu</button></li>
     </ul>
+    <dialog id="example-dialog" class="small" closedby="any">
+      <header>Example</header>
+      <section>I was opened by a menu action.</section>
+      <footer class="actions">
+        <button class="solid" command="close" commandfor="example-dialog">
+          Close
+        </button>
+      </footer>
+    </dialog>
     `,
 	).WithDescription(
 		P(Text("Menu items containing a button can be used invoke custom actions.")),
