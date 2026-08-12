@@ -8,8 +8,8 @@ var Index = Categories{
 	),
 	NewCategory(
 		"Theming",
-		AccentColorPage,
 		ColorsPage,
+		PalettePage,
 	),
 	NewCategory(
 		"Layout",

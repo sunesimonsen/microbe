@@ -2,13 +2,14 @@ package docs
 
 import (
 	"fmt"
+	"strconv"
 
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
 
-var AccentColorPage = NewPage(
-	"Accent color",
+var ColorsPage = NewPage(
+	"Colors",
 	NewStaticPageSection(
 		"Playground",
 		Article(
@@ -17,22 +18,45 @@ var AccentColorPage = NewPage(
 				Class("card raised"),
 				Header(
 					Label(
-						Text("Hue"),
+						Text("Accent hue"),
 						Input(
 							Attr("type", "range"),
 							Attr("value", "240"),
 							Attr("min", "0"),
 							Attr("max", "359"),
-							Attr("id", "color-range"),
+							Attr("id", "accent-color-range"),
+							Class("color-range"),
 						)),
 					Label(
-						Text("Saturation"),
+						Text("Accent saturation"),
 						Input(
 							Attr("type", "range"),
 							Attr("value", "70"),
 							Attr("min", "0"),
 							Attr("max", "100"),
-							Attr("id", "saturation-range"),
+							Attr("id", "accent-saturation-range"),
+							Class("saturation-range"),
+						)),
+					Hr(),
+					Label(
+						Text("Neutral hue"),
+						Input(
+							Attr("type", "range"),
+							Attr("value", "0"),
+							Attr("min", "0"),
+							Attr("max", "359"),
+							Attr("id", "neutral-color-range"),
+							Class("color-range"),
+						)),
+					Label(
+						Text("Neutral saturation"),
+						Input(
+							Attr("type", "range"),
+							Attr("value", "0"),
+							Attr("min", "0"),
+							Attr("max", "100"),
+							Attr("id", "neutral-saturation-range"),
+							Class("saturation-range"),
 						)),
 				),
 				Section(
@@ -99,25 +123,23 @@ func createCustomPalettes() []color {
 	}
 }
 
-var lightnessSteps = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
+var lightnessSteps = []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}
 
 func colorSample(c color, lightness int) Node {
 	return Button(
 		Class("color-sample"),
+		Data("hue", strconv.Itoa(c.hue)),
+		Data("saturation", strconv.Itoa(c.saturation)),
+		Data("lightness", strconv.Itoa(lightness)),
 		Style(fmt.Sprintf("--lightness: var(--lightness-%d); --hue: %d; --saturation: %d%%", lightness, c.hue, c.saturation)),
 	)
 }
 
 func colorTable(name string, palettes []color) PageSection {
-	headerCells := []Node{Div(Class("color-grid-header"))}
-	for _, lightness := range lightnessSteps {
-		headerCells = append(headerCells, Div(Class("color-grid-header"), Text(fmt.Sprintf("%d", lightness))))
-	}
-
-	rows := []Node{Group(headerCells)}
+	rows := []Node{}
 
 	for _, palette := range palettes {
-		rowCells := []Node{Div(Class("color-grid-header"), Text(fmt.Sprintf("%d", palette.hue)))}
+		rowCells := []Node{}
 		for _, lightness := range lightnessSteps {
 			rowCells = append(rowCells, colorSample(palette, lightness))
 		}
@@ -129,14 +151,17 @@ func colorTable(name string, palettes []color) PageSection {
 		H2(Text(name)),
 		Section(
 			Class("color-grid"),
-			Style(fmt.Sprintf("--columns: %d", len(lightnessSteps)+1)),
+			Style(fmt.Sprintf("--columns: %d", len(lightnessSteps))),
 			Group(rows),
 		),
 	)
 }
 
-var ColorsPage = NewPage(
-	"Colors",
-	colorTable("Standard colors", createStandardPalettes()),
-	colorTable("Muted colors", createCustomPalettes()),
+var PalettePage = NewPage(
+	"Palette",
+	colorTable("Standard", createStandardPalettes()),
+	colorTable("Muted", createCustomPalettes()),
+).WithDescription(
+	P(Text("Microbe defines 12 lightness levels that can be combine with any hue and saturation to create a color. The lightness levels allows the colors to work both in light and dark modes.")),
+	P(Text("Click on any of the colors to copy the definition to the clipboard.")),
 )

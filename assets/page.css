@@ -69,7 +69,6 @@ a.home {
 .color-grid {
   display: inline-grid;
   grid-template-columns: repeat(var(--columns), 1fr);
-  grid-auto-rows: calc(var(--scale-13) / 12 - var(--scale-3));
   gap: var(--scale-3);
   width: 100%;
   margin-block: var(--scale-4) var(--scale-7);
@@ -87,17 +86,19 @@ a.home {
 
 .color-sample {
   background: hsl(var(--hue) var(--saturation) var(--lightness));
-  border: none;
   display: block;
   border-radius: var(--scale-2);
+  aspect-ratio: 1;
+  border: thin solid transparent;
+  border-color: hsl(var(--hue) var(--saturation) calc(-7% + var(--lightness)));
 }
 
-#color-range,
-#saturation-range {
+.color-range,
+.saturation-range {
   width: 100%;
 }
 
-label:has(#saturation-range, #color-range) {
+label:has(.saturation-range, .color-range) {
   position: relative;
 
   &::after {
@@ -109,7 +110,7 @@ label:has(#saturation-range, #color-range) {
   }
 }
 
-#color-range {
+.color-range {
   background: linear-gradient(to right,
       hsl(0 var(--accent-saturation) 50%),
       hsl(20 var(--accent-saturation) 50%),
@@ -227,15 +228,9 @@ label:has(#saturation-range, #color-range) {
   .example .grid:not(.small) {
     grid-template-columns: 1fr;
   }
-}
 
-@media (max-width: 1200px) {
   .color-grid {
-    gap: 0;
-  }
-
-  .color-sample {
-    border-radius: 0;
+    gap: 2px;
   }
 }
 

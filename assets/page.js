@@ -18,32 +18,59 @@ if (window.self === window.top) {
   window.addEventListener('load', () => {
     const themingExampleForm = document.getElementById("theming-example-form")
     if (themingExampleForm) {
-      const colorRange = document.getElementById('color-range')
+      const accentColorRange = document.getElementById('accent-color-range')
 
       const updateAccentHue = (hue) => {
         themingExampleForm.style.setProperty("--accent-hue", hue);
-        colorRange.style.setProperty("--accent-hue", hue);
-        colorRange.parentElement.dataset.value = hue
+        accentColorRange.style.setProperty("--accent-hue", hue);
+        accentColorRange.parentElement.dataset.value = hue
       }
 
-      colorRange.addEventListener('input', (evt) => {
+      accentColorRange.addEventListener('input', (evt) => {
         updateAccentHue(evt.target.value)
       })
 
-      const saturationRange = document.getElementById('saturation-range')
+      const accentSaturationRange = document.getElementById('accent-saturation-range')
 
       const updateAccentSaturation = (saturation) => {
         themingExampleForm.style.setProperty("--accent-saturation", `${saturation}%`);
-        colorRange.style.setProperty("--accent-saturation", `${saturation}%`);
-        saturationRange.parentElement.dataset.value = `${saturation}%`
+        accentColorRange.style.setProperty("--accent-saturation", `${saturation}%`);
+        accentSaturationRange.parentElement.dataset.value = `${saturation}%`
       }
 
-      saturationRange.addEventListener('input', (evt) => {
+      accentSaturationRange.addEventListener('input', (evt) => {
         updateAccentSaturation(evt.target.value)
       })
 
-      colorRange.parentElement.dataset.value = colorRange.value
-      saturationRange.parentElement.dataset.value = `${saturationRange.value}%`
+      accentColorRange.parentElement.dataset.value = accentColorRange.value
+      accentSaturationRange.parentElement.dataset.value = `${accentSaturationRange.value}%`
+
+      const neutralColorRange = document.getElementById('neutral-color-range')
+
+      const updateNeutralHue = (hue) => {
+        themingExampleForm.style.setProperty("--neutral-hue", hue);
+        neutralColorRange.style.setProperty("--neutral-hue", hue);
+        neutralColorRange.parentElement.dataset.value = hue
+      }
+
+      neutralColorRange.addEventListener('input', (evt) => {
+        updateNeutralHue(evt.target.value)
+      })
+
+      const neutralSaturationRange = document.getElementById('neutral-saturation-range')
+
+      const updateneutralSaturation = (saturation) => {
+        themingExampleForm.style.setProperty("--neutral-saturation", `${saturation}%`);
+        neutralColorRange.style.setProperty("--neutral-saturation", `${saturation}%`);
+        neutralSaturationRange.parentElement.dataset.value = `${saturation}%`
+      }
+
+      neutralSaturationRange.addEventListener('input', (evt) => {
+        updateneutralSaturation(evt.target.value)
+      })
+
+      neutralColorRange.parentElement.dataset.value = neutralColorRange.value
+      neutralSaturationRange.parentElement.dataset.value = `${neutralSaturationRange.value}%`
     }
 
     const indeterminateCheckbox = document.getElementById('indeterminate-checkbox')
@@ -100,6 +127,9 @@ if (window.self === window.top) {
       const card = e.target.closest(".card")
       let source = card.querySelector('.source code')
       navigator.clipboard.writeText(source.textContent)
+    } else if (e.target.matches('button.color-sample')) {
+      const { hue, saturation, lightness } = e.target.dataset
+      navigator.clipboard.writeText(`hsl(${hue} ${saturation} var(--lightness-${lightness}))`)
     }
   })
 }
