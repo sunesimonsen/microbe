@@ -43,6 +43,8 @@ var playgroundCSS = `
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-menu.css";
 
 body {
+  color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+  background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
   padding: var(--scale-5);
 }
 
