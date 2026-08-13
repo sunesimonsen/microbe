@@ -3,7 +3,7 @@ package docs
 var Index = Categories{
 	NewCategory(
 		"Getting started",
-		About,
+		AboutPage,
 		ReleasesPage,
 	),
 	NewCategory(
