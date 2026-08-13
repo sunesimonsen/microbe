@@ -35,6 +35,8 @@ var TypographyPage = NewPage(
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
     `,
+	).WithDescription(
+		P(Text("Use heading elements to establish a document's outline, from "), Code(Text("h1")), Text(" for the primary title down to "), Code(Text("h6")), Text(" for the least important sections, helping readers and assistive technology navigate the content.")),
 	),
 	NewExample(
 		"Heading group",
@@ -44,6 +46,8 @@ var TypographyPage = NewPage(
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
     `,
+	).WithDescription(
+		P(Text("Group a heading together with an introductory paragraph or tagline using "), Code(Text("hgroup")), Text(", so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.")),
 	),
 	NewExample(
 		"Inline text",
@@ -67,6 +71,8 @@ var TypographyPage = NewPage(
     <u>Underlined</u>
     <var>Var</var>
     `,
+	).WithDescription(
+		P(Text("Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.")),
 	).WithClass("grid"),
 	NewExample(
 		"Horizontal ruler",
@@ -91,6 +97,8 @@ var TypographyPage = NewPage(
       quis suscipit velit suscipit non.
     </p>
     `,
+	).WithDescription(
+		P(Text("Use "), Code(Text("hr")), Text(" to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.")),
 	),
 	NewExample(
 		"Blockquote",
@@ -102,12 +110,16 @@ var TypographyPage = NewPage(
       </footer>
     </blockquote>
     `,
+	).WithDescription(
+		P(Text("Use "), Code(Text("blockquote")), Text(" to quote text from another source, optionally combined with a "), Code(Text("footer")), Text(" and "), Code(Text("cite")), Text(" to attribute the quote to its author.")),
 	),
 	NewExample(
 		"Code block",
 		`
     <pre><code>console.log('Hello world!');</code></pre>
     `,
+	).WithDescription(
+		P(Text("Combine "), Code(Text("pre")), Text(" with "), Code(Text("code")), Text(" to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.")),
 	),
 ).WithDescription(
 	P(Text("Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.")),
@@ -206,6 +218,8 @@ var ListPage = NewPage(
     </dl>
     `,
 	),
+).WithDescription(
+	P(Text("Lists let you present a set of related items, whether their order matters, as in an ordered list, doesn't matter, as in an unordered list, or each item pairs a term with its definition, as in a description list.")),
 )
 
 var TablePage = NewPage(
@@ -303,5 +317,9 @@ var TablePage = NewPage(
       </tfoot>
     </table>
     `,
+	).WithDescription(
+		P(Text("Add the "), InlineCodeList("striped"), Text(" class to color every second row to make the table more readable.")),
 	),
+).WithDescription(
+	P(Text("Tables let you present tabular data organized into rows and columns, making it easy for users to compare related values at a glance.")),
 )

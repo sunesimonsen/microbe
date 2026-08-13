@@ -11,11 +11,15 @@ var AnchorPage = NewPage(
 		"Regular", `
     <a href="#">Regular link</a>
     `,
+	).WithDescription(
+		P(Text("A standard anchor with an "), InlineCodeList("href"), Text(" attribute navigates the user to another page, a different section of the current page, or an external resource when activated.")),
 	),
 	NewExample(
 		"Active", `
     <a href="#" aria-current="page">Active link</a>
     `,
+	).WithDescription(
+		P(Text("Add "), InlineCodeList("aria-current=page"), Text(" to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.")),
 	),
 	NewExample(
 		"Disabled", `
@@ -72,6 +76,8 @@ var AnchorPage = NewPage(
 		P(Text("It is possible to use the "), A(Href("/forms/button"), Text("button styles")), Text(" "), InlineCodeList("solid", "outline", "ghost"), Text(" for anchors.")),
 		P(Text("You can disable the links by removing the "), InlineCodeList("href"), Text(" attribute and add a "), InlineCodeList("aria-disabled=true"), Text(" attribute.")),
 	).WithClass("rows"),
+).WithDescription(
+	P(Text("Anchors let users navigate to another page, a different section of the current page, or an external resource.")),
 )
 
 var NavlistPage = NewPage(
@@ -127,4 +133,6 @@ var NavlistPage = NewPage(
     </nav>
     `,
 	),
+).WithDescription(
+	P(Text("A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.")),
 )

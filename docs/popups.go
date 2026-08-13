@@ -146,6 +146,8 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
+	).WithDescription(
+		P(Text("Open a modal dialog to interrupt the current task and require the user to review information or make a decision, such as accepting or declining, before returning to the page behind it.")),
 	),
 	NewExample(
 		"Small",
@@ -177,6 +179,8 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
+	).WithDescription(
+		P(Text("Use this variant of the dialog for short confirmations or simple decisions that don't require presenting extensive content, keeping the interruption brief for the user.")),
 	),
 ).WithDescription(
 	P(Text("A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.")),
@@ -233,4 +237,6 @@ var MenuPage = NewPage(
 	).WithDescription(
 		P(Text("You can inject a chevron icon to the trigger by adding the "), InlineCodeList(".chevron"), Text(" class.")),
 	),
+).WithDescription(
+	P(Text("A menu is a popover containing a list of links or actions that a user can open from a trigger, letting them navigate or invoke actions without leaving the current context.")),
 )

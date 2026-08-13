@@ -28,6 +28,8 @@ var ButtonPage = NewPage(
     <button class="outline" disabled>Outline Button</button>
     <button class="ghost" disabled>Ghost Button</button>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent a button from being clicked or focused, useful for actions that aren't currently available.")),
 	).WithClass("grid"),
 	NewExample(
 		"Media",
@@ -105,6 +107,8 @@ var ButtonPage = NewPage(
 			Text("."),
 		),
 	).WithClass("rows"),
+).WithDescription(
+	P(Text("Buttons let users trigger an action or event, such as submitting a form, confirming a choice, opening a dialog, or performing some other operation.")),
 )
 
 var CheckboxPage = NewPage(
@@ -147,6 +151,8 @@ var CheckboxPage = NewPage(
       </label>
     </fieldset>
     `,
+	).WithDescription(
+		P(Text("Group related checkboxes inside a "), Code(Text("fieldset")), Text(" with a "), Code(Text("legend")), Text(" describing the group, and add "), Code(Text("disabled")), Text(" to any option that a user shouldn't be able to change, such as a mandatory choice.")),
 	),
 	NewExample(
 		"Hint",
@@ -159,6 +165,8 @@ var CheckboxPage = NewPage(
       We will send you a newsletter every week
     </small>
     `,
+	).WithDescription(
+		P(Text("Associate a checkbox with helper text using "), Code(Text("aria-describedby")), Text(", giving users additional context about the option before they decide.")),
 	),
 	NewExample(
 		"Validation",
@@ -183,6 +191,8 @@ var CheckboxPage = NewPage(
 			Text("."),
 		),
 	),
+).WithDescription(
+	P(Text("Checkboxes let users select one or more independent options from a set, or toggle a single setting on or off.")),
 )
 
 var InputPage = NewPage(
@@ -217,6 +227,8 @@ var InputPage = NewPage(
       </div>
     </form>
     `,
+	).WithDescription(
+		P(Text("Combine inputs with labels inside a "), Code(Text("fieldset")), Text(" to build a complete form that users can fill out and then submit or reset.")),
 	),
 	NewExample(
 		"Text inputs",
@@ -228,6 +240,8 @@ var InputPage = NewPage(
     <input type="tel" name="tel" aria-label="Tel" placeholder="Tel">
     <input type="url" name="url" aria-label="Url" placeholder="Url">
     `,
+	).WithDescription(
+		P(Text("Use the "), InlineCodeList("text", "email", "number", "password", "tel", "url"), Text(" types to collect different kinds of single-line text, taking advantage of type-specific validation and on-screen keyboards.")),
 	).WithClass("rows"),
 	NewExample(
 		"Date and time inputs",
@@ -238,12 +252,16 @@ var InputPage = NewPage(
     <input type="week" name="week" aria-label="Week">
     <input type="time" name="time" aria-label="Time">
     `,
+	).WithDescription(
+		P(Text("Use the "), InlineCodeList("date", "datetime-local", "month", "week", "time"), Text(" types to let users pick calendar dates and times with the browser's built-in picker instead of typing a specific format.")),
 	).WithClass("rows"),
 	NewExample(
 		"Search input",
 		`
     <input type="search" name="search" aria-label="Search" placeholder="Search">
     `,
+	).WithDescription(
+		P(Text("Use the "), Code(Text("search")), Text(" type for a field dedicated to searching content, which some browsers present with a built-in clear button.")),
 	),
 	NewExample(
 		"File input",
@@ -252,31 +270,41 @@ var InputPage = NewPage(
     <input type="file" class="solid" tabindex="0" aria-label="File" multiple>
     <input type="file" class="solid" aria-label="File" disabled>
     `,
+	).WithDescription(
+		P(Text("Use the "), Code(Text("file")), Text(" type to let users choose one or more files from their device to upload, adding the "), Code(Text("multiple")), Text(" attribute to allow selecting several files at once.")),
 	).WithClass("rows"),
 	NewExample(
 		"Color input",
 		`
     <input type="color" name="color" aria-label="Color" placeholder="Color">
     `,
+	).WithDescription(
+		P(Text("Use the "), Code(Text("color")), Text(" type to let users pick a color using the browser's built-in color picker.")),
 	),
 	NewExample(
 		"Disabled",
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text" disabled>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent an input from being edited or focused, and exclude its value from form submission.")),
 	),
 	NewExample(
 		"Read-only",
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text" readonly value="Read-only value">
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("readonly")), Text(" attribute to show a value that users can view and select but not edit, while it is still submitted with the form.")),
 	),
 	NewExample(
 		"Hint",
 		`
-    <input type="text" name="Hint" aria-label="Hint" placeholder="Email">
-    <small>We’ll never share your email with anyone else.</small>
+    <input type="text" name="Hint" aria-label="Hint" placeholder="Email" aria-describedby="email-hint">
+    <small id="email-hint">We’ll never share your email with anyone else.</small>
     `,
+	).WithDescription(
+		P(Text("Place a "), Code(Text("small")), Text(" element next to an input to give users extra guidance about the expected value before they start typing.")),
 	),
 	NewExample(
 		"Validation",
@@ -295,6 +323,8 @@ var InputPage = NewPage(
 			Text("."),
 		),
 	),
+).WithDescription(
+	P(Text("Inputs let users enter and edit a single line of text or other typed data, such as an email address, number, or password, typically as part of a form.")),
 )
 
 var TextareaPage = NewPage(
@@ -307,6 +337,8 @@ var TextareaPage = NewPage(
       <textarea placeholder="It was a dark and stormy night..."></textarea>
     </label>
     `,
+	).WithDescription(
+		P(Text("Use a "), Code(Text("textarea")), Text(" when you need to collect longer, multi-line text such as a comment or description, rather than the single line an "), Code(Text("input")), Text(" provides.")),
 	),
 	NewExample(
 		"Custom rows",
@@ -316,6 +348,8 @@ var TextareaPage = NewPage(
       <textarea rows="7" placeholder="It was a dark and stormy night..."></textarea>
     </label>
     `,
+	).WithDescription(
+		P(Text("Set the "), Code(Text("rows")), Text(" attribute to suggest how many lines of text should be visible to the user without needing to scroll.")),
 	),
 	NewExample(
 		"Disabled",
@@ -325,6 +359,8 @@ var TextareaPage = NewPage(
       <textarea disabled placeholder="It was a dark and stormy night..."></textarea>
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent a textarea from being edited or focused, and exclude its value from form submission.")),
 	),
 	NewExample(
 		"Read-only",
@@ -334,16 +370,20 @@ var TextareaPage = NewPage(
       <textarea readonly placeholder="It was a dark and stormy night...">Read-only value</textarea>
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("readonly")), Text(" attribute to show text that users can view and select but not edit, while it is still submitted with the form.")),
 	),
 	NewExample(
 		"Hint",
 		`
     <label>
       Tell us your story:
-      <textarea placeholder="It was a dark and stormy night..."></textarea>
+      <textarea placeholder="It was a dark and stormy night..." aria-describedby="scary-story-hint"></textarea>
     </label>
-    <small>Scary stories are often more engaging</small>
+    <small id="scary-story-hint">Scary stories are often more engaging</small>
     `,
+	).WithDescription(
+		P(Text("Place a "), Code(Text("small")), Text(" element after a textarea to give users extra guidance about what they should write.")),
 	),
 	NewExample(
 		"Validation",
@@ -362,6 +402,8 @@ var TextareaPage = NewPage(
 			Text("."),
 		),
 	),
+).WithDescription(
+	P(Text("Textareas let users enter and edit multiple lines of free-form text, such as a comment, message, or description, as part of a form.")),
 )
 
 var RadioPage = NewPage(
@@ -394,6 +436,8 @@ var RadioPage = NewPage(
       </label>
     </fieldset>
     `,
+	).WithDescription(
+		P(Text("Group related radio buttons that share the same "), Code(Text("name")), Text(" attribute inside a "), Code(Text("fieldset")), Text(" with a "), Code(Text("legend")), Text(", and add "), Code(Text("disabled")), Text(" to any option that shouldn't currently be selectable.")),
 	),
 	NewExample(
 		"Validation",
@@ -418,6 +462,8 @@ var RadioPage = NewPage(
 			Text("."),
 		),
 	),
+).WithDescription(
+	P(Text("Radio buttons let users pick exactly one option from a small set of mutually exclusive choices.")),
 )
 
 var RangePage = NewPage(
@@ -431,6 +477,8 @@ var RangePage = NewPage(
     </label>
     <small id="saturation-hint">Accent color Saturation</small>
     `,
+	).WithDescription(
+		P(Text("Set the "), Code(Text("min")), Text(", "), Code(Text("max")), Text(", and "), Code(Text("value")), Text(" attributes to define the interval of numbers a user can choose from and the starting value.")),
 	),
 	NewExample(
 		"Disabled",
@@ -440,42 +488,15 @@ var RangePage = NewPage(
       <input type="range" value="70" min="0" max="100" disabled>
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent a range input from being changed or focused, and exclude its value from form submission.")),
 	),
+).WithDescription(
+	P(Text("Range inputs let users pick a numeric value from within a bounded interval by dragging a handle, which can be quicker than typing an exact number.")),
 )
 
 var SelectPage = NewPage(
 	"Select",
-	NewExample(
-		"Example",
-		`
-    <label>
-      Cuisine
-      <select aria-label="Select you favorite cuisine...">
-        <option selected disabled value="">
-          Select your favorite cuisine...
-        </option>
-        <option value="0">Italian</option>
-        <option value="1">Japanese</option>
-        <option value="2">Indian</option>
-        <option value="3">Thai</option>
-        <option value="4">French</option>
-      </select>
-    </label>
-    <label>
-      Snacks
-      <select aria-label="Select you favorite snacks..." multiple>
-        <option disabled value="">
-          Select your favorite snacks...
-        </option>
-        <option value="cheese">Cheese</option>
-        <option value="fruits">Fruits</option>
-        <option value="nuts">Nuts</option>
-        <option value="chocolate">Chocolate</option>
-        <option value="crackers">Crackers</option>
-      </select>
-    </label>
-    `,
-	),
 	NewExample(
 		"Single value",
 		`
@@ -488,6 +509,8 @@ var SelectPage = NewPage(
       </select>
     </label>
     `,
+	).WithDescription(
+		P(Text("Use a "), Code(Text("select")), Text(" without the "), Code(Text("multiple")), Text(" attribute when a user should choose exactly one option from the list.")),
 	),
 	NewExample(
 		"Multiple values",
@@ -504,6 +527,8 @@ var SelectPage = NewPage(
       </select>
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("multiple")), Text(" attribute to let users pick several options from the list at the same time.")),
 	),
 	NewExample(
 		"Disabled",
@@ -531,6 +556,8 @@ var SelectPage = NewPage(
       </select>
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent a select from being opened or changed, and exclude its value from form submission.")),
 	),
 	NewExample(
 		"Hint",
@@ -548,6 +575,8 @@ var SelectPage = NewPage(
     </label>
     <small id="favorite-cuisine-hint">Select you favorite cuisine</small>
     `,
+	).WithDescription(
+		P(Text("Associate a select with helper text using "), Code(Text("aria-describedby")), Text(", so users get extra context about what they are choosing.")),
 	),
 	NewExample(
 		"Validation",
@@ -571,7 +600,17 @@ var SelectPage = NewPage(
     </select>
     <small id="failure-hint">Please provide a valid value!</small>
     `,
+	).WithDescription(
+		P(
+			Text("You can indicate the validation state of the select using the attribute "),
+			Code(Text("aria-invilid")),
+			Text(" with the values "),
+			Code(Text("true")), Text(" and "), Code(Text("false")),
+			Text("."),
+		),
 	),
+).WithDescription(
+	P(Text("Selects let users choose one or more values from a predefined list of options, useful when there are too many choices to show as individual controls.")),
 )
 
 var SwitchPage = NewPage(
@@ -588,6 +627,8 @@ var SwitchPage = NewPage(
       Receive news and offers
     </label>
     `,
+	).WithDescription(
+		P(Text("Add "), Code(Text("role=\"switch\"")), Text(" to a checkbox to indicate it represents an on/off setting that takes effect immediately, rather than a form field awaiting submission.")),
 	),
 	NewExample(
 		"Disabled",
@@ -601,6 +642,8 @@ var SwitchPage = NewPage(
       Disabled
     </label>
     `,
+	).WithDescription(
+		P(Text("Add the "), Code(Text("disabled")), Text(" attribute to prevent a switch from being toggled or focused, and exclude its value from form submission.")),
 	),
 	NewExample(
 		"Hint",
@@ -611,6 +654,8 @@ var SwitchPage = NewPage(
     </label>
     <small id="newsletter-hint">We will send you a newsletter every week</small>
     `,
+	).WithDescription(
+		P(Text("Associate a switch with helper text using "), Code(Text("aria-describedby")), Text(", so users understand what the setting controls before toggling it.")),
 	),
 	NewExample(
 		"Validation",
@@ -635,4 +680,6 @@ var SwitchPage = NewPage(
 			Text("."),
 		),
 	),
+).WithDescription(
+	P(Text("Switches let users toggle a single setting on or off immediately, without needing to submit a form to see the state change.")),
 )
