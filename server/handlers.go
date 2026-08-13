@@ -5,14 +5,13 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/go-chi/chi/v5"
 	"github.com/sunesimonsen/microbe/docs"
 	"github.com/sunesimonsen/microbe/views"
 	. "maragu.dev/gomponents"
 )
 
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/getting-started/about", http.StatusMovedPermanently)
+	http.Redirect(w, r, "/docs/about", http.StatusMovedPermanently)
 }
 
 func writeInternalServerError(w http.ResponseWriter) {
@@ -24,8 +23,7 @@ func writeInternalServerError(w http.ResponseWriter) {
 }
 
 func DocsHandler(w http.ResponseWriter, r *http.Request) {
-	category, err := docs.Index.FindCategory(chi.URLParam(r, "category"))
-	page, err := category.FindPage(chi.URLParam(r, "page"))
+	page, err := docs.Index.FindPage(r.PathValue("page"))
 
 	if err != nil {
 		if errors.Is(err, docs.ErrNotFound) {

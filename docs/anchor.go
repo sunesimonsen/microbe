@@ -73,7 +73,7 @@ var AnchorPage = NewPage(
     </div>
     `,
 	).WithDescription(
-		P(Text("It is possible to use the "), A(Href("/forms/button"), Text("button styles")), Text(" "), InlineCodeList("solid", "outline", "ghost"), Text(" for anchors.")),
+		P(Text("It is possible to use the "), A(Href("/docs/button"), Text("button styles")), Text(" "), InlineCodeList("solid", "outline", "ghost"), Text(" for anchors.")),
 		P(Text("You can disable the links by removing the "), InlineCodeList("href"), Text(" attribute and add a "), InlineCodeList("aria-disabled=true"), Text(" attribute.")),
 	).WithClass("rows"),
 ).WithDescription(

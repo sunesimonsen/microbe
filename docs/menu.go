@@ -9,12 +9,12 @@ var MenuPage = NewPage(
 	"Menu",
 	NewExample(
 		"Links",
-		`
+		` 
     <button class="outline" popovertarget="popover-links">Go to page</button>
     <ul id="popover-links" class="menu" popover>
-      <li><a href="/getting-started/about">About</a></li>
-      <li><a href="/content/typography">Typography</a></li>
-      <li><a href="/popups/dialog">Dialog</a></li>
+	      <li><a href="/docs/about">About</a></li>
+	      <li><a href="/docs/typography">Typography</a></li>
+	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
     `,
 	).WithDescription(
@@ -45,12 +45,12 @@ var MenuPage = NewPage(
 	),
 	NewExample(
 		"Chevron",
-		`
+		` 
     <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
     <ul id="popover-trigger" class="menu" popover>
-      <li><a href="/getting-started/about">About</a></li>
-      <li><a href="/content/typography">Typography</a></li>
-      <li><a href="/popups/dialog">Dialog</a></li>
+	      <li><a href="/docs/about">About</a></li>
+	      <li><a href="/docs/typography">Typography</a></li>
+	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
     `,
 	).WithDescription(

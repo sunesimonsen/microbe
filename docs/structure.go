@@ -295,8 +295,18 @@ func (cs Categories) FindCategory(name string) (Category, error) {
 	return Category{}, ErrNotFound
 }
 
+func (cs Categories) FindPage(name string) (Page, error) {
+	for _, c := range cs {
+		if page, err := c.FindPage(name); err == nil {
+			return page, nil
+		}
+	}
+
+	return Page{}, ErrNotFound
+}
+
 func PageHref(c Category, p Page) string {
-	return "/" + strcase.ToKebab(c.Name) + "/" + strcase.ToKebab(p.Name)
+	return "/docs/" + strcase.ToKebab(p.Name)
 }
 
 func (cs Categories) Filter(query string) Categories {

@@ -13,46 +13,35 @@ var NavlistPage = NewPage(
       <details>
         <summary>Content</summary>
         <ul>
-          <li><a href="/typography">Typography</a></li>
+	          <li><a href="/docs/typography">Typography</a></li>
+	          <li><a href="/docs/list">List</a></li>
+	          <li><a href="/docs/Table">Table</a></li>
         </ul>
       </details>
       <details open>
         <summary>Navigation</summary>
         <ul>
-          <li><a href="/anchor">Anchor</a></li>
-          <li><a href="/navlist" aria-current="page">Navlist</a></li>
-        </ul>
-      </details>
-      <details>
-        <summary>Layout</summary>
-        <ul>
-          <li><a href="/spacing">Spacing</a></li>
+	          <li><a href="/docs/anchor">Anchor</a></li>
+	          <li><a href="/docs/navlist" aria-current="page">Navlist</a></li>
         </ul>
       </details>
       <details>
         <summary>Forms</summary>
         <ul>
-          <li><a href="/button">Button</a></li>
-          <li><a href="/checkbox">Checkbox</a></li>
-          <li><a href="/input">Input</a></li>
-          <li><a href="/radio">Radio</a></li>
-          <li><a href="/range">Range</a></li>
-          <li><a href="/select">Select</a></li>
-          <li><a href="/switch">Switch</a></li>
-        </ul>
-      </details>
-      <details>
-        <summary>Components</summary>
-        <ul>
-          <li><a href="/card">Card</a></li>
-          <li><a href="/dialog">Dialog</a></li>
+	          <li><a href="/docs/button">Button</a></li>
+	          <li><a href="/docs/checkbox">Checkbox</a></li>
+	          <li><a href="/docs/input">Input</a></li>
+	          <li><a href="/docs/radio">Radio</a></li>
+	          <li><a href="/docs/range">Range</a></li>
+	          <li><a href="/docs/select">Select</a></li>
+	          <li><a href="/docs/switch">Switch</a></li>
         </ul>
       </details>
       <details>
         <summary>Theming</summary>
         <ul>
-          <li><a href="/accent-color">Accent color</a></li>
-          <li><a href="/colors">Colors</a></li>
+	          <li><a href="/docs/colors">Colors</a></li>
+	          <li><a href="/docs/palette">Palette</a></li>
         </ul>
       </details>
     </nav>
