@@ -12,6 +12,27 @@
   }
 }
 
+@keyframes progress-indeterminate {
+  0% {
+    background-position-x: 200%;
+  }
+
+  100% {
+    background-position-x: -200%;
+  }
+}
+
+@keyframes backdrop-fade-animation {
+  from {
+    background: transparent;
+  }
+
+  to {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
+  }
+}
+
+
 @layer reset {
   body:has(dialog[open]) {
     overflow: hidden;
@@ -724,16 +745,6 @@
       }
     }
 
-    @keyframes progress-indeterminate {
-      0% {
-        background-position-x: 200%;
-      }
-
-      100% {
-        background-position-x: -200%;
-      }
-    }
-
     progress {
       appearance: none;
       width: 100%;
@@ -1139,16 +1150,6 @@
         &>option:checked {
           background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
         }
-      }
-    }
-
-    @keyframes backdrop-fade-animation {
-      from {
-        background: transparent;
-      }
-
-      to {
-        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
       }
     }
 
