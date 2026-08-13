@@ -2,6 +2,7 @@ const htmlTemplate = (source) => `\
 <link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css" rel="stylesheet" type="text/css">
+<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-dialog.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css" rel="stylesheet" type="text/css">
 

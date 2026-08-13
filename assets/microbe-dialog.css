@@ -1,0 +1,131 @@
+@keyframes slide-down-and-in-animation {
+  0% {
+    transform: translateY(-1em);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes backdrop-fade-animation {
+  from {
+    background: transparent;
+  }
+
+  to {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
+  }
+}
+
+@layer modules {
+  .microbe dialog {
+    border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+    border-radius: var(--scale-3);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-5) 0 hsl(from var(--shadow-color) h s l / 0.4);
+    padding: 0;
+    width: var(--scale-13);
+    height: fit-content;
+    box-sizing: border-box;
+    --close-button-size: calc(var(--scale-6) + var(--scale-3));
+    max-width: calc(100vw - 2 * var(--scale-3));
+    max-height: calc(100vh - 2 * var(--scale-3));
+    overflow: hidden;
+    animation: slide-down-and-in-animation 100ms ease-out;
+
+    &[open] {
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    &.small {
+      width: var(--scale-12);
+    }
+
+    &>header {
+      position: relative;
+
+      border-block-end: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      line-height: var(--close-button-size);
+    }
+
+    &>section {
+      overflow: auto;
+    }
+
+    &>header>button[command=close],
+    &>header>button[rel=prev] {
+      position: absolute;
+      inset-block-start: var(--scale-5);
+      inset-inline-end: var(--scale-5);
+      border: none;
+      border-radius: 50%;
+      display: block;
+      height: var(--close-button-size);
+      width: var(--close-button-size);
+      background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      cursor: pointer;
+      box-sizing: border-box;
+
+      &::after {
+        content: "";
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: block;
+        inset-inline-start: calc(var(--close-button-size)/2 - 1em/2);
+        inset-block-start: calc(var(--close-button-size)/2 - 1em/2);
+        height: 1em;
+        width: 1em;
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline-width) solid var(--force-color);
+      }
+
+      &:hover {
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 10%);
+
+        &::after {
+          background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        }
+      }
+
+      &:active {
+        background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+
+        &::after {
+          background-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        }
+      }
+    }
+
+    &>header,
+    &>footer,
+    &>section {
+      padding: var(--scale-5) var(--scale-6);
+    }
+
+    &>footer.actions {
+      display: flex;
+      gap: var(--scale-4);
+      justify-content: end;
+    }
+
+    &::backdrop {
+      background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8),
+          hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8));
+      animation: backdrop-fade-animation 100ms ease-in-out;
+    }
+  }
+
+  body:has(dialog[open]) {
+    overflow: hidden;
+  }
+}
