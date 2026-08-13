@@ -3,6 +3,7 @@ package server
 import (
 	"net/http"
 	"net/http/httptest"
+	"strings"
 	"testing"
 )
 
@@ -15,9 +16,11 @@ func TestRoutes(t *testing.T) {
 	tests := []struct {
 		name             string
 		path             string
+		referer          string
 		wantStatus       int
 		wantLocation     string
 		wantContentType  string
+		wantBodyContains []string
 	}{
 		{
 			name:         "root redirects to about docs",
@@ -43,6 +46,20 @@ func TestRoutes(t *testing.T) {
 			wantContentType: "text/html",
 		},
 		{
+			name:             "search route renders without results",
+			path:             "/search?query=this-should-never-match",
+			wantStatus:       http.StatusOK,
+			wantContentType:  "text/html",
+			wantBodyContains: []string{"No results for", "this-should-never-match"},
+		},
+		{
+			name:            "search route ignores malformed referer",
+			path:            "/search?query=button",
+			referer:         ":bad-url",
+			wantStatus:      http.StatusOK,
+			wantContentType: "text/html",
+		},
+		{
 			name:         "docs route trims trailing slash",
 			path:         "/docs/about/",
 			wantStatus:   http.StatusMovedPermanently,
@@ -51,9 +68,12 @@ func TestRoutes(t *testing.T) {
 	}
 
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			req := httptest.NewRequest(http.MethodGet, tt.path, nil)
-			res := httptest.NewRecorder()
+			t.Run(tt.name, func(t *testing.T) {
+				req := httptest.NewRequest(http.MethodGet, tt.path, nil)
+				if tt.referer != "" {
+					req.Header.Set("Referer", tt.referer)
+				}
+				res := httptest.NewRecorder()
 
 			srv.ServeHTTP(res, req)
 
@@ -67,11 +87,20 @@ func TestRoutes(t *testing.T) {
 				}
 			}
 
-			if tt.wantContentType != "" {
-				if got := res.Header().Get("Content-Type"); got != tt.wantContentType {
-					t.Fatalf("Content-Type = %q, want %q", got, tt.wantContentType)
+				if tt.wantContentType != "" {
+					if got := res.Header().Get("Content-Type"); got != tt.wantContentType {
+						t.Fatalf("Content-Type = %q, want %q", got, tt.wantContentType)
+					}
 				}
-			}
-		})
-	}
+
+				if len(tt.wantBodyContains) > 0 {
+					body := res.Body.String()
+					for _, want := range tt.wantBodyContains {
+						if !strings.Contains(body, want) {
+							t.Fatalf("body = %q, want substring %q", body, want)
+						}
+					}
+				}
+			})
+		}
 }
