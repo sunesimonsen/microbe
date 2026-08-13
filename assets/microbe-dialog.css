@@ -60,6 +60,7 @@
     &>header>button[command=close],
     &>header>button[rel=prev] {
       position: absolute;
+      font-size: var(--font-size);
       inset-block-start: var(--scale-5);
       inset-inline-end: var(--scale-5);
       border: none;
