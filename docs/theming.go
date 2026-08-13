@@ -89,6 +89,8 @@ var ColorsPage = NewPage(
 			),
 		),
 	),
+).WithDescription(
+	P(Text("Interactively adjust the accent and neutral hue and saturation to see how the whole color theme updates live.")),
 )
 
 type color struct {
