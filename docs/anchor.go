@@ -69,5 +69,5 @@ var AnchorPage = NewPage(
       </a>
     </div>
     `,
-	).WithClass("rows")
+	).WithClass("rows"),
 )
