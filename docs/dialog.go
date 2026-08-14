@@ -176,4 +176,36 @@ var DialogPage = NewPage(
     </dialog>
     `,
 	),
+	NewExample(
+		"Drawer",
+		`<p>Use the <code>.drawer</code> class for a dialog that slides in from the right and fills the height of the screen, making it useful for contextual navigation or additional details.</p>`,
+		`
+    <button class="outline" command="show-modal" commandfor="example-drawer-dialog">
+      Open drawer
+    </button>
+    <dialog id="example-drawer-dialog" class="drawer" closedby="any">
+      <header>
+        Drawer
+        <button rel="prev" aria-label="Close" commandfor="example-drawer-dialog" command="close" tabindex="1"></button>
+      </header>
+      <section>
+        <p>
+          A drawer can hold supporting content while keeping the current page
+          visible behind it. The section scrolls independently when the content
+          is taller than the available space.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nulla
+          arcu, pellentesque quis sollicitudin at, egestas et leo. Sed placerat
+          vel odio id pharetra. Nunc euismod eget erat id ultricies.
+        </p>
+      </section>
+      <footer class="actions">
+        <button class="solid" command="close" commandfor="example-drawer-dialog">
+          Close
+        </button>
+      </footer>
+    </dialog>
+    `,
+	),
 )

@@ -55,7 +55,7 @@ body {
   justify-items: center;
   align-items: center;
 
-  &>* {
+  &>*:not(dialog, [popover]) {
     margin: 0;
   }
 }

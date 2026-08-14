@@ -10,6 +10,28 @@
   }
 }
 
+@keyframes right-drawer-animation {
+  from {
+    transform: translateX(100%);
+  }
+
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes left-drawer-animation {
+  from {
+    transform: translateX(-100%);
+  }
+
+
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes backdrop-fade-animation {
   from {
     background: transparent;
@@ -44,6 +66,22 @@
 
     &.small {
       width: var(--scale-12);
+    }
+
+    &.drawer {
+      margin-block: 0;
+      margin-inline: auto 0;
+      height: 100vh;
+      max-height: 100vh;
+      animation: right-drawer-animation 100ms ease-out;
+      width: var(--scale-12);
+      border-radius: 0;
+      border-block: none;
+      border-inline-end: none;
+    }
+
+    [dir=rtl] &.drawer {
+      animation: left-drawer-animation 100ms ease-out;
     }
 
     &>header {
