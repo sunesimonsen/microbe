@@ -13,7 +13,8 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-		    `),
+    `,
+	),
 	NewExample(
 		"Buttons",
 		`<p>Menu items containing a button can be used invoke custom actions.</p>`,
@@ -34,7 +35,8 @@ var MenuPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `),
+    `,
+	),
 	NewExample(
 		"Chevron",
 		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
@@ -45,4 +47,6 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-		    `))
+    `,
+	),
+)

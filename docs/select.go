@@ -15,7 +15,8 @@ var SelectPage = NewPage(
         <option value="three">Three</option>
       </select>
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Multiple values",
 		`<p>Add the <code>multiple</code> attribute to let users pick several options from the list at the same time.</p>`,
@@ -31,7 +32,8 @@ var SelectPage = NewPage(
         <option value="yellow">Yellow</option>
       </select>
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Disabled",
 		`<p>Add the <code>disabled</code> attribute to prevent a select from being opened or changed, and exclude its value from form submission.</p>`,
@@ -58,7 +60,8 @@ var SelectPage = NewPage(
         <option>Crackers</option>
       </select>
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Hint",
 		`<p>Associate a select with helper text using <code>aria-describedby</code>, so users get extra context about what they are choosing.</p>`,
@@ -75,7 +78,8 @@ var SelectPage = NewPage(
       </select>
     </label>
     <small id="favorite-cuisine-hint">Select you favorite cuisine</small>
-		    `),
+    `,
+	),
 	NewExample(
 		"Validation",
 		`<p>You can indicate the validation state of the select using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
@@ -98,4 +102,6 @@ var SelectPage = NewPage(
       <option>Olives</option>
     </select>
     <small id="failure-hint">Please provide a valid value!</small>
-		    `))
+    `,
+	),
+)

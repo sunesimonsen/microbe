@@ -10,7 +10,8 @@ var TagPage = NewPage(
     <span class="tag"><strong>Color</strong> black</span>
     <span class="tag"><strong>Size</strong> Medium</span>
     <span class="tag"><strong>Material</strong> Cotton</span>
-		    `).WithClass("grid"),
+    `,
+	).WithClass("grid"),
 	NewExample(
 		"Color",
 		`<p>The color of the tags can be tweaked by setting the <code>--neutral-hue</code> and <code>--neutral-saturation</code> CSS variables.</p>`,
@@ -18,11 +19,14 @@ var TagPage = NewPage(
     <span class="tag" style="--neutral-hue: 20; --neutral-saturation: 80%;">NEW</span>
     <span class="tag" style="--neutral-hue: 40; --neutral-saturation: 80%;">NEW</span>
     <span class="tag" style="--neutral-hue: 100; --neutral-saturation: 80%;">NEW</span>
-		    `).WithClass("grid small"),
+    `,
+	).WithClass("grid small"),
 	NewExample(
 		"Interactive",
 		`<p>Anchors and buttons are allowed to be styled as tags, this is useful for initiating a search for a given tag.</p>`,
 		`
     <a class="tag" href="#interactive">Anchor</a>
     <button class="tag">Button</button>
-		    `).WithClass("grid small"))
+    `,
+	).WithClass("grid small"),
+)

@@ -15,7 +15,8 @@ var SwitchPage = NewPage(
       <input type="checkbox" name="opt-in" role="switch" checked>
       Receive news and offers
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Disabled",
 		`<p>Add the <code>disabled</code> attribute to prevent a switch from being toggled or focused, and exclude its value from form submission.</p>`,
@@ -28,7 +29,8 @@ var SwitchPage = NewPage(
       <input type="checkbox" role="switch" disabled>
       Disabled
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Hint",
 		`<p>Associate a switch with helper text using <code>aria-describedby</code>, so users understand what the setting controls before toggling it.</p>`,
@@ -38,7 +40,8 @@ var SwitchPage = NewPage(
       Newsletter
     </label>
     <small id="newsletter-hint">We will send you a newsletter every week</small>
-		    `),
+    `,
+	),
 	NewExample(
 		"Validation",
 		`<p>You can indicate the validation state of the switch using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
@@ -53,4 +56,6 @@ var SwitchPage = NewPage(
       Invalid
     </label>
     <small id="invalid-hint">Please provide a valid value!</small>
-		    `))
+    `,
+	),
+)

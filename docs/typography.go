@@ -34,7 +34,8 @@ var TypographyPage = NewPage(
     <p>
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
-		    `),
+    `,
+	),
 	NewExample(
 		"Heading group",
 		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
@@ -43,7 +44,8 @@ var TypographyPage = NewPage(
       <h2>Get inspired with CSS</h2>
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
-		    `),
+    `,
+	),
 	NewExample(
 		"Inline text",
 		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
@@ -66,7 +68,8 @@ var TypographyPage = NewPage(
     <strong>Strong</strong>
     <u>Underlined</u>
     <var>Var</var>
-		    `).WithClass("grid"),
+    `,
+	).WithClass("grid"),
 	NewExample(
 		"Horizontal ruler",
 		`<p>Use <code>hr</code> to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.</p>`,
@@ -90,7 +93,8 @@ var TypographyPage = NewPage(
       Morbi in justo quis velit elementum fermentum. Etiam tristique diam nunc,
       quis suscipit velit suscipit non.
     </p>
-		    `),
+    `,
+	),
 	NewExample(
 		"Blockquote",
 		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
@@ -101,10 +105,13 @@ var TypographyPage = NewPage(
         <cite>— Mahatma Gandhi</cite>
       </footer>
     </blockquote>
-		    `),
+    `,
+	),
 	NewExample(
 		"Code block",
 		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
 		`
     <pre><code>console.log('Hello world!');</code></pre>
-		    `))
+    `,
+	),
+)

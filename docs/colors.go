@@ -86,4 +86,5 @@ var ColorsPage = NewPage(
 				),
 			),
 		),
-	))
+	),
+)

@@ -41,4 +41,6 @@ var NavlistPage = NewPage(
         </ul>
       </details>
     </nav>
-    `))
+    `,
+	),
+)

@@ -36,7 +36,8 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Windows</p>
       </section>
-		    `),
+      `,
+	),
 	NewExample(
 		"Disabled",
 		`<p>You can mark individual tabs as disabled using the <code>disabled</code> attribute</p>`,
@@ -71,4 +72,6 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Linux</p>
       </section>
-		    `))
+      `,
+	),
+)

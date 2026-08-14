@@ -41,7 +41,8 @@ var CheckboxPage = NewPage(
         Dothraki
       </label>
     </fieldset>
-		    `),
+    `,
+	),
 	NewExample(
 		"Hint",
 		`<p>Associate a checkbox with helper text using <code>aria-describedby</code>, giving users additional context about the option before they decide.</p>`,
@@ -53,7 +54,8 @@ var CheckboxPage = NewPage(
     <small id="newsletter-hint">
       We will send you a newsletter every week
     </small>
-		    `),
+    `,
+	),
 	NewExample(
 		"Validation",
 		`<p>You can indicate the validation state of the checkbox using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
@@ -68,4 +70,6 @@ var CheckboxPage = NewPage(
       Invalid
     </label>
     <small id="invalid-hint">Please provide a valid value!</small>
-		    `))
+    `,
+	),
+)

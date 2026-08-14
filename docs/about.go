@@ -101,7 +101,8 @@ var AboutPage = NewPage(
       }
     }
     </style>
-		    `),
+    `,
+	),
 	NewExample(
 		"Scalable",
 		`<p>All styles are built on the <code>em</code> unit and scales with the surrounding font size.</p>`,
@@ -129,7 +130,8 @@ var AboutPage = NewPage(
         <use href="#thumbs-up-icon"></use>
       </svg>
     </button>
-		    `).WithClass("grid"),
+    `,
+	).WithClass("grid"),
 	NewExample(
 		"Computed colors",
 		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
@@ -149,7 +151,8 @@ var AboutPage = NewPage(
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
     </div>
-		    `).WithClass("rows"),
+    `,
+	).WithClass("rows"),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),
@@ -160,4 +163,5 @@ var AboutPage = NewPage(
 			ExternalLink("https://garden.zendesk.com", "Zendesk Garden"),
 			Text("."),
 		),
-	))
+	),
+)

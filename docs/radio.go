@@ -31,7 +31,8 @@ var RadioPage = NewPage(
         Dothraki
       </label>
     </fieldset>
-		    `),
+    `,
+	),
 	NewExample(
 		"Validation",
 		`<p>You can indicate the validation state of the radio group using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
@@ -46,4 +47,6 @@ var RadioPage = NewPage(
       Invalid
     </label>
     <small id="invalid-hint">This cobination is not allowed!</small>
-		    `))
+    `,
+	),
+)

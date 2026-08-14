@@ -79,7 +79,8 @@ var AccordionPage = NewPage(
       sed metus. Mauris volutpat purus vitae sodales eleifend. Cras consequat
       scelerisque elit, sed mattis tortor lacinia non.
     </p>
-		    `),
+    `,
+	),
 	NewExample(
 		"Single panel",
 		`<p>Give every <code>details</code> element in an accordion the same <code>name</code> attribute to make the sections behave as a single exclusive group, where opening one section automatically closes the section that was previously open.</p>`,
@@ -154,4 +155,6 @@ var AccordionPage = NewPage(
     metus. Mauris volutpat purus vitae sodales eleifend. Cras consequat
     scelerisque elit, sed mattis tortor lacinia non.
   </p>
-	    `))
+  `,
+	),
+)

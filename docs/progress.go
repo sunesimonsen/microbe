@@ -11,7 +11,8 @@ var ProgressPage = NewPage(
       Downloading file
       <progress value="70" max="100"></progress>
     </label>
-		    `),
+    `,
+	),
 	NewExample(
 		"Indeterminate",
 		`<p>Omit the <code>value</code> attribute to show an indeterminate progress indicator when the completion of a task can't yet be calculated.</p>`,
@@ -20,4 +21,6 @@ var ProgressPage = NewPage(
       Downloading file
       <progress></progress>
     </label>
-		    `))
+    `,
+	),
+)

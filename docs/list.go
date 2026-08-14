@@ -25,7 +25,8 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ul>
-    `),
+    `,
+	),
 	NewExample(
 		"Ordered list", "",
 		`
@@ -48,7 +49,8 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ol>
-    `),
+    `,
+	),
 	NewExample(
 		"Mixed list", "",
 		`
@@ -71,7 +73,8 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ol>
-    `),
+    `,
+	),
 	NewExample(
 		"Description list", "",
 		`
@@ -84,4 +87,6 @@ var ListPage = NewPage(
       <dt>Owlman</dt>
       <dd>A giant owl-like creature.</dd>
     </dl>
-    `))
+    `,
+	),
+)

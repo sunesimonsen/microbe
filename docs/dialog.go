@@ -142,7 +142,8 @@ var DialogPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `),
+    `,
+	),
 	NewExample(
 		"Small",
 		`<p>Use this variant of the dialog for short confirmations or simple decisions that don't require presenting extensive content, keeping the interruption brief for the user.</p>`,
@@ -173,4 +174,6 @@ var DialogPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `))
+    `,
+	),
+)

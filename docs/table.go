@@ -48,7 +48,8 @@ var TablePage = NewPage(
         <td>341</td>
       </tfoot>
     </table>
-    `),
+    `,
+	),
 	NewExample(
 		"Striped",
 		`<p>Add the <code>striped</code> class to color every second row to make the table more readable.</p>`,
@@ -95,4 +96,6 @@ var TablePage = NewPage(
         <td>341</td>
       </tfoot>
     </table>
-		    `))
+    `,
+	),
+)
