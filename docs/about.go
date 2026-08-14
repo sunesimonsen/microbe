@@ -158,5 +158,14 @@ var AboutPage = NewPage(
 		),
 	),
 ).WithDescription(
-	`<p>Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.</p><p>The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.</p><p>It ships with opinionated defaults, but you can easily override them using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties" target="_blank">CSS variables</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer" target="_blank">CSS layers</a>.</p>`,
+	`
+  <p>
+    Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.
+  </p>
+  <p>
+    The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.
+  </p>
+  <p>
+    It ships with opinionated defaults, but you can easily override them using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties" target="_blank">CSS variables</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer" target="_blank">CSS layers</a>.
+  </p>`,
 )

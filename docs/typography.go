@@ -117,5 +117,8 @@ var TypographyPage = NewPage(
 		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
 	),
 ).WithDescription(
-	`<p>Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.</p><p>All styles are based on the <code>em</code> unit and will scale according to the surrounding font-size.</p>`,
+	`
+  <p>Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.</p>
+  <p>All styles are based on the <code>em</code> unit and will scale according to the surrounding font-size.</p>
+  `,
 )

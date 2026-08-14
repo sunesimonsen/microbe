@@ -68,7 +68,10 @@ var AnchorPage = NewPage(
     </div>
 		    `,
 	).WithDescription(
-		`<p>It is possible to use the <a href="/docs/button">button styles</a> <code>solid</code>, <code>outline</code> and <code>ghost</code> for anchors.</p><p>You can disable the links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`,
+		`
+    <p>It is possible to use the <a href="/docs/button">button styles</a> <code>solid</code>, <code>outline</code> and <code>ghost</code> for anchors.</p>
+    <p>You can disable the links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>
+    `,
 	).WithClass("rows"),
 ).WithDescription(
 	`<p>Anchors let users navigate to another page, a different section of the current page, or an external resource.</p>`,
