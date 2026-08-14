@@ -81,7 +81,7 @@
     }
 
     &.search {
-      margin-block-start: var(--scale-3);
+      margin-block-start: var(--scale-4);
     }
 
     @media (max-width: 850px) {
