@@ -81,7 +81,7 @@
     :root {
       --accent-saturation: 60%;
       --error-saturation: 70%;
-      --neutral-hue: 30;
+      --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
       --neutral-saturation: 5%;
 
       --lightness-0: 20.00%;
