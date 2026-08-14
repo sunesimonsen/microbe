@@ -152,7 +152,7 @@ func TrimCommonWhitespace(text string) string {
 }
 
 func (e Example) WithDescription(description string) Example {
-	e.Description = Raw(description)
+	e.Description = Raw(TrimCommonWhitespace(description))
 	return e
 }
 
