@@ -151,8 +151,8 @@ func TrimCommonWhitespace(text string) string {
 	return strings.TrimSpace(strings.Join(lines, "\n"))
 }
 
-func (e Example) WithDescription(description ...Node) Example {
-	e.Description = Group(description)
+func (e Example) WithDescription(description string) Example {
+	e.Description = Raw(description)
 	return e
 }
 
@@ -249,8 +249,8 @@ func (p Page) GetNode(u url.URL) Node {
 	}
 }
 
-func (p Page) WithDescription(description ...Node) Page {
-	p.Description = Group(description)
+func (p Page) WithDescription(description string) Page {
+	p.Description = Raw(description)
 	return p
 }
 
@@ -367,23 +367,6 @@ func (cs Categories) GetMenu(currentPath string, expandAll bool) Node {
 			),
 		)
 	})
-}
-
-func InlineCodeList(classes ...string) Node {
-	result := []Node{}
-
-	for i, c := range classes {
-		if i != 0 {
-			if i < len(classes)-1 {
-				result = append(result, Text(", "))
-			} else {
-				result = append(result, Text(" and "))
-			}
-		}
-		result = append(result, Code(Text(c)))
-	}
-
-	return Group(result)
 }
 
 func ExternalLink(href, text string) Node {

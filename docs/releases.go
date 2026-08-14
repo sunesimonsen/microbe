@@ -141,5 +141,5 @@ var ReleasesPage = NewPage(
 		},
 	),
 ).WithDescription(
-	P(Text("Lets you pick a Microbe release and the optional modules to include, then generates the corresponding HTML link tags to add to your page.")),
+	`<p>Lets you pick a Microbe release and the optional modules to include, then generates the corresponding HTML link tags to add to your page.</p>`,
 )

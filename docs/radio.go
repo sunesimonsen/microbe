@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var RadioPage = NewPage(
 	"Radio",
 	NewExample(
@@ -34,9 +29,9 @@ var RadioPage = NewPage(
         Dothraki
       </label>
     </fieldset>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Group related radio buttons that share the same "), Code(Text("name")), Text(" attribute inside a "), Code(Text("fieldset")), Text(" with a "), Code(Text("legend")), Text(", and add "), Code(Text("disabled")), Text(" to any option that shouldn't currently be selectable.")),
+		`<p>Group related radio buttons that share the same <code>name</code> attribute inside a <code>fieldset</code> with a <code>legend</code>, and add <code>disabled</code> to any option that shouldn't currently be selectable.</p>`,
 	),
 	NewExample(
 		"Validation",
@@ -51,16 +46,10 @@ var RadioPage = NewPage(
       Invalid
     </label>
     <small id="invalid-hint">This cobination is not allowed!</small>
-    `,
+		    `,
 	).WithDescription(
-		P(
-			Text("You can indicate the validation state of the radio group using the attribute "),
-			Code(Text("aria-invilid")),
-			Text(" with the values "),
-			Code(Text("true")), Text(" and "), Code(Text("false")),
-			Text("."),
-		),
+		`<p>You can indicate the validation state of the radio group using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
 	),
 ).WithDescription(
-	P(Text("Radio buttons let users pick exactly one option from a small set of mutually exclusive choices.")),
+	`<p>Radio buttons let users pick exactly one option from a small set of mutually exclusive choices.</p>`,
 )

@@ -80,6 +80,5 @@ var PalettePage = NewPage(
 	colorTable("Standard", createStandardPalettes()),
 	colorTable("Muted", createCustomPalettes()),
 ).WithDescription(
-	P(Text("Microbe defines 12 lightness levels that can be combine with any hue and saturation to create a color. The lightness levels allows the colors to work both in light and dark modes.")),
-	P(Text("Click on any of the colors to copy the definition to the clipboard.")),
+	`<p>Microbe defines 12 lightness levels that can be combine with any hue and saturation to create a color. The lightness levels allows the colors to work both in light and dark modes.</p><p>Click on any of the colors to copy the definition to the clipboard.</p>`,
 )

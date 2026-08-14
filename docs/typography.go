@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var TypographyPage = NewPage(
 	"Typography",
 	NewExample(
@@ -34,9 +29,9 @@ var TypographyPage = NewPage(
     <p>
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Use heading elements to establish a document's outline, from "), Code(Text("h1")), Text(" for the primary title down to "), Code(Text("h6")), Text(" for the least important sections, helping readers and assistive technology navigate the content.")),
+		`<p>Use heading elements to establish a document's outline, from <code>h1</code> for the primary title down to <code>h6</code> for the least important sections, helping readers and assistive technology navigate the content.</p>`,
 	),
 	NewExample(
 		"Heading group",
@@ -45,9 +40,9 @@ var TypographyPage = NewPage(
       <h2>Get inspired with CSS</h2>
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Group a heading together with an introductory paragraph or tagline using "), Code(Text("hgroup")), Text(", so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.")),
+		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
 	),
 	NewExample(
 		"Inline text",
@@ -70,9 +65,9 @@ var TypographyPage = NewPage(
     <strong>Strong</strong>
     <u>Underlined</u>
     <var>Var</var>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.")),
+		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
 	).WithClass("grid"),
 	NewExample(
 		"Horizontal ruler",
@@ -96,9 +91,9 @@ var TypographyPage = NewPage(
       Morbi in justo quis velit elementum fermentum. Etiam tristique diam nunc,
       quis suscipit velit suscipit non.
     </p>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Use "), Code(Text("hr")), Text(" to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.")),
+		`<p>Use <code>hr</code> to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.</p>`,
 	),
 	NewExample(
 		"Blockquote",
@@ -109,23 +104,18 @@ var TypographyPage = NewPage(
         <cite>— Mahatma Gandhi</cite>
       </footer>
     </blockquote>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Use "), Code(Text("blockquote")), Text(" to quote text from another source, optionally combined with a "), Code(Text("footer")), Text(" and "), Code(Text("cite")), Text(" to attribute the quote to its author.")),
+		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
 	),
 	NewExample(
 		"Code block",
 		`
     <pre><code>console.log('Hello world!');</code></pre>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Combine "), Code(Text("pre")), Text(" with "), Code(Text("code")), Text(" to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.")),
+		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
 	),
 ).WithDescription(
-	P(Text("Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.")),
-	P(
-		Text("All styles are based on the "),
-		Code(Text("em")),
-		Text(" unit and will scale according to the surrounding font-size."),
-	),
+	`<p>Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.</p><p>All styles are based on the <code>em</code> unit and will scale according to the surrounding font-size.</p>`,
 )

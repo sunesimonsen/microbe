@@ -1,32 +1,27 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var AnchorPage = NewPage(
 	"Anchor",
 	NewExample(
 		"Regular", `
     <a href="#">Regular link</a>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("A standard anchor with an "), InlineCodeList("href"), Text(" attribute navigates the user to another page, a different section of the current page, or an external resource when activated.")),
+		`<p>A standard anchor with an <code>href</code> attribute navigates the user to another page, a different section of the current page, or an external resource when activated.</p>`,
 	),
 	NewExample(
 		"Active", `
     <a href="#" aria-current="page">Active link</a>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Add "), InlineCodeList("aria-current=page"), Text(" to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.")),
+		`<p>Add <code>aria-current=page</code> to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.</p>`,
 	),
 	NewExample(
 		"Disabled", `
     <a aria-current="page" aria-disabled="true">Disabled link</a>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("You can disable links by removing the "), InlineCodeList("href"), Text(" attribute and add a "), InlineCodeList("aria-disabled=true"), Text(" attribute.")),
+		`<p>You can disable links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`,
 	),
 	NewExample(
 		"Button styles",
@@ -71,11 +66,10 @@ var AnchorPage = NewPage(
         </svg>
       </a>
     </div>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("It is possible to use the "), A(Href("/docs/button"), Text("button styles")), Text(" "), InlineCodeList("solid", "outline", "ghost"), Text(" for anchors.")),
-		P(Text("You can disable the links by removing the "), InlineCodeList("href"), Text(" attribute and add a "), InlineCodeList("aria-disabled=true"), Text(" attribute.")),
+		`<p>It is possible to use the <a href="/docs/button">button styles</a> <code>solid</code>, <code>outline</code> and <code>ghost</code> for anchors.</p><p>You can disable the links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`,
 	).WithClass("rows"),
 ).WithDescription(
-	P(Text("Anchors let users navigate to another page, a different section of the current page, or an external resource.")),
+	`<p>Anchors let users navigate to another page, a different section of the current page, or an external resource.</p>`,
 )

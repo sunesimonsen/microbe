@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var CheckboxPage = NewPage(
 	"Checkbox",
 	NewExample(
@@ -44,9 +39,9 @@ var CheckboxPage = NewPage(
         Dothraki
       </label>
     </fieldset>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Group related checkboxes inside a "), Code(Text("fieldset")), Text(" with a "), Code(Text("legend")), Text(" describing the group, and add "), Code(Text("disabled")), Text(" to any option that a user shouldn't be able to change, such as a mandatory choice.")),
+		`<p>Group related checkboxes inside a <code>fieldset</code> with a <code>legend</code> describing the group, and add <code>disabled</code> to any option that a user shouldn't be able to change, such as a mandatory choice.</p>`,
 	),
 	NewExample(
 		"Hint",
@@ -58,9 +53,9 @@ var CheckboxPage = NewPage(
     <small id="newsletter-hint">
       We will send you a newsletter every week
     </small>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Associate a checkbox with helper text using "), Code(Text("aria-describedby")), Text(", giving users additional context about the option before they decide.")),
+		`<p>Associate a checkbox with helper text using <code>aria-describedby</code>, giving users additional context about the option before they decide.</p>`,
 	),
 	NewExample(
 		"Validation",
@@ -75,16 +70,10 @@ var CheckboxPage = NewPage(
       Invalid
     </label>
     <small id="invalid-hint">Please provide a valid value!</small>
-    `,
+		    `,
 	).WithDescription(
-		P(
-			Text("You can indicate the validation state of the checkbox using the attribute "),
-			Code(Text("aria-invilid")),
-			Text(" with the values "),
-			Code(Text("true")), Text(" and "), Code(Text("false")),
-			Text("."),
-		),
+		`<p>You can indicate the validation state of the checkbox using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
 	),
 ).WithDescription(
-	P(Text("Checkboxes let users select one or more independent options from a set, or toggle a single setting on or off.")),
+	`<p>Checkboxes let users select one or more independent options from a set, or toggle a single setting on or off.</p>`,
 )

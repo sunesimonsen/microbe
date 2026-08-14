@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var MenuPage = NewPage(
 	"Menu",
 	NewExample(
@@ -16,9 +11,9 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Menu items containing an anchor can be used to navigate to other parts of the application.")),
+		`<p>Menu items containing an anchor can be used to navigate to other parts of the application.</p>`,
 	),
 	NewExample(
 		"Buttons",
@@ -39,9 +34,9 @@ var MenuPage = NewPage(
         </button>
       </footer>
     </dialog>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Menu items containing a button can be used invoke custom actions.")),
+		`<p>Menu items containing a button can be used invoke custom actions.</p>`,
 	),
 	NewExample(
 		"Chevron",
@@ -52,10 +47,10 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("You can inject a chevron icon to the trigger by adding the "), InlineCodeList(".chevron"), Text(" class.")),
+		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
 	),
 ).WithDescription(
-	P(Text("A menu is a popover containing a list of links or actions that a user can open from a trigger, letting them navigate or invoke actions without leaving the current context.")),
+	`<p>A menu is a popover containing a list of links or actions that a user can open from a trigger, letting them navigate or invoke actions without leaving the current context.</p>`,
 )

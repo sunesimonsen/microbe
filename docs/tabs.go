@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var TabsPage = NewPage(
 	"Tabs",
 	NewExample(
@@ -39,13 +34,9 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Windows</p>
       </section>
-    `,
+		    `,
 	).WithDescription(
-		P(
-			Text("Microbe provides styles for an "),
-			ExternalLink("https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role", "ARIA tabs structure"),
-			Text(", use your favorite JavaScript library to make it interactive."),
-		),
+		`<p>Microbe provides styles for an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role" target="_blank">ARIA tabs structure</a>, use your favorite JavaScript library to make it interactive.</p>`,
 	),
 	NewExample(
 		"Disabled",
@@ -80,10 +71,10 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Linux</p>
       </section>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("You can mark individual tabs as disabled using the "), Code(Text("disabled")), Text(" attribute")),
+		`<p>You can mark individual tabs as disabled using the <code>disabled</code> attribute</p>`,
 	),
 ).WithDescription(
-	P(Text("Tabs let users switch between related views or sections of content within the same context, without needing to navigate to a different page.")),
+	`<p>Tabs let users switch between related views or sections of content within the same context, without needing to navigate to a different page.</p>`,
 )

@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var TablePage = NewPage(
 	"Table",
 	NewExample(
@@ -99,10 +94,10 @@ var TablePage = NewPage(
         <td>341</td>
       </tfoot>
     </table>
-    `,
+		    `,
 	).WithDescription(
-		P(Text("Add the "), InlineCodeList("striped"), Text(" class to color every second row to make the table more readable.")),
+		`<p>Add the <code>striped</code> class to color every second row to make the table more readable.</p>`,
 	),
 ).WithDescription(
-	P(Text("Tables let you present tabular data organized into rows and columns, making it easy for users to compare related values at a glance.")),
+	`<p>Tables let you present tabular data organized into rows and columns, making it easy for users to compare related values at a glance.</p>`,
 )

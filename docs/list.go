@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var ListPage = NewPage(
 	"List",
 	NewExample(
@@ -94,5 +89,5 @@ var ListPage = NewPage(
     `,
 	),
 ).WithDescription(
-	P(Text("Lists let you present a set of related items, whether their order matters, as in an ordered list, doesn't matter, as in an unordered list, or each item pairs a term with its definition, as in a description list.")),
+	`<p>Lists let you present a set of related items, whether their order matters, as in an ordered list, doesn't matter, as in an unordered list, or each item pairs a term with its definition, as in a description list.</p>`,
 )

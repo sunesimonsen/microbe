@@ -1,10 +1,5 @@
 package docs
 
-import (
-	. "maragu.dev/gomponents"
-	. "maragu.dev/gomponents/html"
-)
-
 var NavlistPage = NewPage(
 	"Navlist",
 	NewExample(
@@ -48,5 +43,5 @@ var NavlistPage = NewPage(
     `,
 	),
 ).WithDescription(
-	P(Text("A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.")),
+	`<p>A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.</p>`,
 )
