@@ -11,10 +11,7 @@ var DialogPage = NewPage(
       Open dialog
     </button>
     <dialog id="example-dialog" closedby="any">
-      <header>
-        Header
-        <button rel="prev" aria-label="Close" commandfor="example-dialog" command="close" tabindex="1"></button>
-      </header>
+      <header>Header</header>
       <section>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nulla
@@ -152,10 +149,7 @@ var DialogPage = NewPage(
       Open dialog
     </button>
     <dialog id="example-small-dialog" class="small" closedby="any">
-      <header>
-        Header
-        <button rel="prev" aria-label="Close" commandfor="example-small-dialog" command="close" tabindex="1"></button>
-      </header>
+      <header>Header</header>
       <section>
         <p>
           Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex.
@@ -177,6 +171,35 @@ var DialogPage = NewPage(
     `,
 	),
 	NewExample(
+		"Close",
+		`<p>Use a close button in the dialog header in case there are no dedicated action button to close the dialog.</p>`,
+		`
+    <button class="outline" command="show-modal" commandfor="example-close-dialog">
+      Open dialog
+    </button>
+    <dialog id="example-close-dialog" class="small" closedby="any">
+      <header>
+        Header
+        <button rel="prev" aria-label="Close" commandfor="example-close-dialog" command="close" tabindex="1"></button>
+      </header>
+      <section>
+        <p>
+          Vestibulum venenatis neque nec iaculis viverra. Proin a odio ex.
+          Etiam eget rutrum nulla, id finibus tellus. Proin dignissim tortor
+          lacus, in vehicula arcu commodo ut. Aenean quis euismod lectus, vitae
+          ornare ex. Vivamus posuere lectus at quam maximus semper. Fusce
+          sagittis in est a consequat.
+        </p>
+      </section>
+      <footer class="actions">
+        <button class="solid" command="close" commandfor="example-close-dialog">
+          Accept
+        </button>
+      </footer>
+    </dialog>
+    `,
+	),
+	NewExample(
 		"Drawer",
 		`<p>Use the <code>.drawer</code> class for a dialog that slides in from the right and fills the height of the screen, making it useful for contextual navigation or additional details.</p>`,
 		`
@@ -184,10 +207,7 @@ var DialogPage = NewPage(
       Open drawer
     </button>
     <dialog id="example-drawer-dialog" class="drawer" closedby="any">
-      <header>
-        Drawer
-        <button rel="prev" aria-label="Close" commandfor="example-drawer-dialog" command="close" tabindex="1"></button>
-      </header>
+      <header>Drawer</header>
       <section>
         <p>
           A drawer can hold supporting content while keeping the current page
