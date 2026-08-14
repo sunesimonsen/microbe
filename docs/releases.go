@@ -55,6 +55,7 @@ func GetRelease(version string) Release {
 
 var ReleasesPage = NewPage(
 	"Releases",
+	`<p>Lets you pick a Microbe release and the optional modules to include, then generates the corresponding HTML link tags to add to your page.</p>`,
 	NewPageSection(
 		"Version picker",
 		func(u url.URL) Node {
@@ -139,7 +140,4 @@ var ReleasesPage = NewPage(
 				),
 			})
 		},
-	),
-).WithDescription(
-	`<p>Lets you pick a Microbe release and the optional modules to include, then generates the corresponding HTML link tags to add to your page.</p>`,
-)
+	))

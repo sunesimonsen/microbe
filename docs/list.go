@@ -2,8 +2,9 @@ package docs
 
 var ListPage = NewPage(
 	"List",
+	`<p>Lists let you present a set of related items, whether their order matters, as in an ordered list, doesn't matter, as in an unordered list, or each item pairs a term with its definition, as in a description list.</p>`,
 	NewExample(
-		"Unordered list",
+		"Unordered list", "",
 		`
     <ul>
       <li>
@@ -24,10 +25,9 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ul>
-    `,
-	),
+    `),
 	NewExample(
-		"Ordered list",
+		"Ordered list", "",
 		`
     <ol>
       <li>
@@ -48,10 +48,9 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ol>
-    `,
-	),
+    `),
 	NewExample(
-		"Mixed list",
+		"Mixed list", "",
 		`
     <ol>
       <li>
@@ -72,10 +71,9 @@ var ListPage = NewPage(
       <li>Grape kakadu plum</li>
       <li>Water spinach arugula</li>
     </ol>
-    `,
-	),
+    `),
 	NewExample(
-		"Description list",
+		"Description list", "",
 		`
     <p>Cryptids of Cornwall:</p>
     <dl>
@@ -86,8 +84,4 @@ var ListPage = NewPage(
       <dt>Owlman</dt>
       <dd>A giant owl-like creature.</dd>
     </dl>
-    `,
-	),
-).WithDescription(
-	`<p>Lists let you present a set of related items, whether their order matters, as in an ordered list, doesn't matter, as in an unordered list, or each item pairs a term with its definition, as in a description list.</p>`,
-)
+    `))

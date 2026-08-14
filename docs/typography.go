@@ -2,8 +2,13 @@ package docs
 
 var TypographyPage = NewPage(
 	"Typography",
+	`
+  <p>Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.</p>
+  <p>All styles are based on the <code>em</code> unit and will scale according to the surrounding font-size.</p>
+  `,
 	NewExample(
 		"Headings",
+		`<p>Use heading elements to establish a document's outline, from <code>h1</code> for the primary title down to <code>h6</code> for the least important sections, helping readers and assistive technology navigate the content.</p>`,
 		`
     <h1>Heading 1</h1>
     <p>
@@ -29,23 +34,19 @@ var TypographyPage = NewPage(
     <p>
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
-		    `,
-	).WithDescription(
-		`<p>Use heading elements to establish a document's outline, from <code>h1</code> for the primary title down to <code>h6</code> for the least important sections, helping readers and assistive technology navigate the content.</p>`,
-	),
+		    `),
 	NewExample(
 		"Heading group",
+		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
 		`
     <hgroup>
       <h2>Get inspired with CSS</h2>
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
-		    `,
-	).WithDescription(
-		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
-	),
+		    `),
 	NewExample(
 		"Inline text",
+		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
 		`
     <abbr>Abbreviation</abbr>
     <cite>Citation</cite>
@@ -65,12 +66,10 @@ var TypographyPage = NewPage(
     <strong>Strong</strong>
     <u>Underlined</u>
     <var>Var</var>
-		    `,
-	).WithDescription(
-		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
-	).WithClass("grid"),
+		    `).WithClass("grid"),
 	NewExample(
 		"Horizontal ruler",
+		`<p>Use <code>hr</code> to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.</p>`,
 		`
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper
@@ -91,12 +90,10 @@ var TypographyPage = NewPage(
       Morbi in justo quis velit elementum fermentum. Etiam tristique diam nunc,
       quis suscipit velit suscipit non.
     </p>
-		    `,
-	).WithDescription(
-		`<p>Use <code>hr</code> to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.</p>`,
-	),
+		    `),
 	NewExample(
 		"Blockquote",
+		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
 		`
     <blockquote>
       "Be the change that you wish to see in the world."
@@ -104,21 +101,10 @@ var TypographyPage = NewPage(
         <cite>— Mahatma Gandhi</cite>
       </footer>
     </blockquote>
-		    `,
-	).WithDescription(
-		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
-	),
+		    `),
 	NewExample(
 		"Code block",
+		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
 		`
     <pre><code>console.log('Hello world!');</code></pre>
-		    `,
-	).WithDescription(
-		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
-	),
-).WithDescription(
-	`
-  <p>Microbe provides default styling for most typographic elements to allow easy creation of beautiful documents.</p>
-  <p>All styles are based on the <code>em</code> unit and will scale according to the surrounding font-size.</p>
-  `,
-)
+		    `))

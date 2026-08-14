@@ -2,8 +2,10 @@ package docs
 
 var TabsPage = NewPage(
 	"Tabs",
+	`<p>Tabs let users switch between related views or sections of content within the same context, without needing to navigate to a different page.</p>`,
 	NewExample(
 		"Styles",
+		`<p>Microbe provides styles for an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role" target="_blank">ARIA tabs structure</a>, use your favorite JavaScript library to make it interactive.</p>`,
 		`
       <div role="tablist" aria-label="Select your operating system">
         <button
@@ -34,12 +36,10 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Windows</p>
       </section>
-		    `,
-	).WithDescription(
-		`<p>Microbe provides styles for an <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tab_role" target="_blank">ARIA tabs structure</a>, use your favorite JavaScript library to make it interactive.</p>`,
-	),
+		    `),
 	NewExample(
 		"Disabled",
+		`<p>You can mark individual tabs as disabled using the <code>disabled</code> attribute</p>`,
 		`
       <div role="tablist" aria-label="Select your operating system">
         <button
@@ -71,10 +71,4 @@ var TabsPage = NewPage(
         id="tab-panel">
         <p>How to run this application on Linux</p>
       </section>
-		    `,
-	).WithDescription(
-		`<p>You can mark individual tabs as disabled using the <code>disabled</code> attribute</p>`,
-	),
-).WithDescription(
-	`<p>Tabs let users switch between related views or sections of content within the same context, without needing to navigate to a different page.</p>`,
-)
+		    `))

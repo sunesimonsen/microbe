@@ -2,8 +2,9 @@ package docs
 
 var NavlistPage = NewPage(
 	"Navlist",
+	`<p>A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.</p>`,
 	NewExample(
-		"Example", `
+		"Example", "", `
     <nav class="navlist">
       <details>
         <summary>Content</summary>
@@ -40,8 +41,4 @@ var NavlistPage = NewPage(
         </ul>
       </details>
     </nav>
-    `,
-	),
-).WithDescription(
-	`<p>A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.</p>`,
-)
+    `))

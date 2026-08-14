@@ -7,6 +7,7 @@ import (
 
 var ColorsPage = NewPage(
 	"Colors",
+	`<p>Interactively adjust the accent and neutral hue and saturation to see how the whole color theme updates live.</p>`,
 	NewStaticPageSection(
 		"Playground",
 		Article(
@@ -85,7 +86,4 @@ var ColorsPage = NewPage(
 				),
 			),
 		),
-	),
-).WithDescription(
-	`<p>Interactively adjust the accent and neutral hue and saturation to see how the whole color theme updates live.</p>`,
-)
+	))

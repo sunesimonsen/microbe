@@ -2,8 +2,10 @@ package docs
 
 var MenuPage = NewPage(
 	"Menu",
+	`<p>A menu is a popover containing a list of links or actions that a user can open from a trigger, letting them navigate or invoke actions without leaving the current context.</p>`,
 	NewExample(
 		"Links",
+		`<p>Menu items containing an anchor can be used to navigate to other parts of the application.</p>`,
 		` 
     <button class="outline" popovertarget="popover-links">Go to page</button>
     <ul id="popover-links" class="menu" popover>
@@ -11,12 +13,10 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-		    `,
-	).WithDescription(
-		`<p>Menu items containing an anchor can be used to navigate to other parts of the application.</p>`,
-	),
+		    `),
 	NewExample(
 		"Buttons",
+		`<p>Menu items containing a button can be used invoke custom actions.</p>`,
 		`
     <button class="outline" popovertarget="popover-actions">Actions</button>
     <ul id="popover-actions" class="menu" popover>
@@ -34,12 +34,10 @@ var MenuPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `,
-	).WithDescription(
-		`<p>Menu items containing a button can be used invoke custom actions.</p>`,
-	),
+		    `),
 	NewExample(
 		"Chevron",
+		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
 		` 
     <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
     <ul id="popover-trigger" class="menu" popover>
@@ -47,10 +45,4 @@ var MenuPage = NewPage(
 	      <li><a href="/docs/typography">Typography</a></li>
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
-		    `,
-	).WithDescription(
-		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
-	),
-).WithDescription(
-	`<p>A menu is a popover containing a list of links or actions that a user can open from a trigger, letting them navigate or invoke actions without leaving the current context.</p>`,
-)
+		    `))

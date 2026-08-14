@@ -151,20 +151,16 @@ func TrimCommonWhitespace(text string) string {
 	return strings.TrimSpace(strings.Join(lines, "\n"))
 }
 
-func (e Example) WithDescription(description string) Example {
-	e.Description = Raw(TrimCommonWhitespace(description))
-	return e
-}
-
 func (e Example) WithClass(class string) Example {
 	e.Class = class
 	return e
 }
 
-func NewExample(name string, source string) Example {
+func NewExample(name string, description string, source string) Example {
 	return Example{
-		Name:   name,
-		Source: TrimCommonWhitespace(source),
+		Name:        name,
+		Description: Raw(TrimCommonWhitespace(description)),
+		Source:      TrimCommonWhitespace(source),
 	}
 }
 
@@ -249,15 +245,11 @@ func (p Page) GetNode(u url.URL) Node {
 	}
 }
 
-func (p Page) WithDescription(description string) Page {
-	p.Description = Raw(description)
-	return p
-}
-
-func NewPage(name string, content ...PageSection) Page {
+func NewPage(name string, description string, content ...PageSection) Page {
 	return Page{
-		Name:    name,
-		Content: content,
+		Name:        name,
+		Description: Raw(description),
+		Content:     content,
 	}
 }
 

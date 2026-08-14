@@ -2,8 +2,10 @@ package docs
 
 var AccordionPage = NewPage(
 	"Accordion",
+	`<p>An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.</p>`,
 	NewExample(
 		"Example",
+		`<p>Use an accordion to progressively disclose long-form content, letting users open only the sections that interest them instead of reading through everything at once.</p>`,
 		`
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
@@ -77,12 +79,10 @@ var AccordionPage = NewPage(
       sed metus. Mauris volutpat purus vitae sodales eleifend. Cras consequat
       scelerisque elit, sed mattis tortor lacinia non.
     </p>
-		    `,
-	).WithDescription(
-		`<p>Use an accordion to progressively disclose long-form content, letting users open only the sections that interest them instead of reading through everything at once.</p>`,
-	),
+		    `),
 	NewExample(
 		"Single panel",
+		`<p>Give every <code>details</code> element in an accordion the same <code>name</code> attribute to make the sections behave as a single exclusive group, where opening one section automatically closes the section that was previously open.</p>`,
 		`
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper
@@ -154,10 +154,4 @@ var AccordionPage = NewPage(
     metus. Mauris volutpat purus vitae sodales eleifend. Cras consequat
     scelerisque elit, sed mattis tortor lacinia non.
   </p>
-	    `,
-	).WithDescription(
-		`<p>Give every <code>details</code> element in an accordion the same <code>name</code> attribute to make the sections behave as a single exclusive group, where opening one section automatically closes the section that was previously open.</p>`,
-	),
-).WithDescription(
-	`<p>An element that organizes content into a vertically stacked list of collapsible sections. Users can click or tap a section's header to expand it and reveal detailed information, or collapse it to hide the content and reduce scrolling.</p>`,
-)
+	    `))

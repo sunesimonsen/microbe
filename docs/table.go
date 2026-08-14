@@ -2,8 +2,9 @@ package docs
 
 var TablePage = NewPage(
 	"Table",
+	`<p>Tables let you present tabular data organized into rows and columns, making it easy for users to compare related values at a glance.</p>`,
 	NewExample(
-		"Default",
+		"Default", "",
 		`
     <table>
       <thead>
@@ -47,10 +48,10 @@ var TablePage = NewPage(
         <td>341</td>
       </tfoot>
     </table>
-    `,
-	),
+    `),
 	NewExample(
 		"Striped",
+		`<p>Add the <code>striped</code> class to color every second row to make the table more readable.</p>`,
 		`
     <table class="striped">
       <thead>
@@ -94,10 +95,4 @@ var TablePage = NewPage(
         <td>341</td>
       </tfoot>
     </table>
-		    `,
-	).WithDescription(
-		`<p>Add the <code>striped</code> class to color every second row to make the table more readable.</p>`,
-	),
-).WithDescription(
-	`<p>Tables let you present tabular data organized into rows and columns, making it easy for users to compare related values at a glance.</p>`,
-)
+		    `))

@@ -7,6 +7,16 @@ import (
 
 var AboutPage = NewPage(
 	"About",
+	`
+  <p>
+    Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.
+  </p>
+  <p>
+    The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.
+  </p>
+  <p>
+    It ships with opinionated defaults, but you can easily override them using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties" target="_blank">CSS variables</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer" target="_blank">CSS layers</a>.
+  </p>`,
 	NewStaticPageSection(
 		"Usage",
 		H2(Text("Usage")),
@@ -14,6 +24,7 @@ var AboutPage = NewPage(
 	),
 	NewExample(
 		"Customizable",
+		`<p>Change the accent color or the neutral color or override any CSS styles to tweak the appearance.</p>`,
 		`
     <form id="getting-started-demo">
       <fieldset>
@@ -90,12 +101,10 @@ var AboutPage = NewPage(
       }
     }
     </style>
-		    `,
-	).WithDescription(
-		`<p>Change the accent color or the neutral color or override any CSS styles to tweak the appearance.</p>`,
-	),
+		    `),
 	NewExample(
 		"Scalable",
+		`<p>All styles are built on the <code>em</code> unit and scales with the surrounding font size.</p>`,
 		`
     <div hidden>
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="0 0 16 16">
@@ -120,12 +129,10 @@ var AboutPage = NewPage(
         <use href="#thumbs-up-icon"></use>
       </svg>
     </button>
-		    `,
-	).WithDescription(
-		`<p>All styles are built on the <code>em</code> unit and scales with the surrounding font size.</p>`,
-	).WithClass("grid"),
+		    `).WithClass("grid"),
 	NewExample(
 		"Computed colors",
+		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
 		`
     <div class="grid stretch" style="--hue: 210">
       <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
@@ -142,10 +149,7 @@ var AboutPage = NewPage(
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
     </div>
-		    `,
-	).WithClass("rows").WithDescription(
-		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
-	),
+		    `).WithClass("rows"),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),
@@ -156,16 +160,4 @@ var AboutPage = NewPage(
 			ExternalLink("https://garden.zendesk.com", "Zendesk Garden"),
 			Text("."),
 		),
-	),
-).WithDescription(
-	`
-  <p>
-    Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.
-  </p>
-  <p>
-    The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.
-  </p>
-  <p>
-    It ships with opinionated defaults, but you can easily override them using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties" target="_blank">CSS variables</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer" target="_blank">CSS layers</a>.
-  </p>`,
-)
+	))

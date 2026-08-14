@@ -2,8 +2,10 @@ package docs
 
 var SelectPage = NewPage(
 	"Select",
+	`<p>Selects let users choose one or more values from a predefined list of options, useful when there are too many choices to show as individual controls.</p>`,
 	NewExample(
 		"Single value",
+		`<p>Use a <code>select</code> without the <code>multiple</code> attribute when a user should choose exactly one option from the list.</p>`,
 		`
     <label>
       Select a number
@@ -13,12 +15,10 @@ var SelectPage = NewPage(
         <option value="three">Three</option>
       </select>
     </label>
-		    `,
-	).WithDescription(
-		`<p>Use a <code>select</code> without the <code>multiple</code> attribute when a user should choose exactly one option from the list.</p>`,
-	),
+		    `),
 	NewExample(
 		"Multiple values",
+		`<p>Add the <code>multiple</code> attribute to let users pick several options from the list at the same time.</p>`,
 		`
     <label>
       Select colors
@@ -31,12 +31,10 @@ var SelectPage = NewPage(
         <option value="yellow">Yellow</option>
       </select>
     </label>
-		    `,
-	).WithDescription(
-		`<p>Add the <code>multiple</code> attribute to let users pick several options from the list at the same time.</p>`,
-	),
+		    `),
 	NewExample(
 		"Disabled",
+		`<p>Add the <code>disabled</code> attribute to prevent a select from being opened or changed, and exclude its value from form submission.</p>`,
 		`
     <label>
       Cuisine
@@ -60,12 +58,10 @@ var SelectPage = NewPage(
         <option>Crackers</option>
       </select>
     </label>
-		    `,
-	).WithDescription(
-		`<p>Add the <code>disabled</code> attribute to prevent a select from being opened or changed, and exclude its value from form submission.</p>`,
-	),
+		    `),
 	NewExample(
 		"Hint",
+		`<p>Associate a select with helper text using <code>aria-describedby</code>, so users get extra context about what they are choosing.</p>`,
 		`
      <label>
       Cuisine
@@ -79,12 +75,10 @@ var SelectPage = NewPage(
       </select>
     </label>
     <small id="favorite-cuisine-hint">Select you favorite cuisine</small>
-		    `,
-	).WithDescription(
-		`<p>Associate a select with helper text using <code>aria-describedby</code>, so users get extra context about what they are choosing.</p>`,
-	),
+		    `),
 	NewExample(
 		"Validation",
+		`<p>You can indicate the validation state of the select using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
 		`
     <select name="pizza-topping" aria-label="Select your favorite pizza topping..." aria-invalid="false" aria-describedby="success-hint">
       <option disabled>Select your favorite pizza topping...</option>
@@ -104,10 +98,4 @@ var SelectPage = NewPage(
       <option>Olives</option>
     </select>
     <small id="failure-hint">Please provide a valid value!</small>
-		    `,
-	).WithDescription(
-		`<p>You can indicate the validation state of the select using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
-	),
-).WithDescription(
-	`<p>Selects let users choose one or more values from a predefined list of options, useful when there are too many choices to show as individual controls.</p>`,
-)
+		    `))

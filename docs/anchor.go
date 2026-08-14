@@ -2,29 +2,28 @@ package docs
 
 var AnchorPage = NewPage(
 	"Anchor",
+	`<p>Anchors let users navigate to another page, a different section of the current page, or an external resource.</p>`,
 	NewExample(
-		"Regular", `
+		"Regular",
+		`<p>A standard anchor with an <code>href</code> attribute navigates the user to another page, a different section of the current page, or an external resource when activated.</p>`, `
     <a href="#">Regular link</a>
-		    `,
-	).WithDescription(
-		`<p>A standard anchor with an <code>href</code> attribute navigates the user to another page, a different section of the current page, or an external resource when activated.</p>`,
-	),
+		    `),
 	NewExample(
-		"Active", `
+		"Active",
+		`<p>Add <code>aria-current=page</code> to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.</p>`, `
     <a href="#" aria-current="page">Active link</a>
-		    `,
-	).WithDescription(
-		`<p>Add <code>aria-current=page</code> to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.</p>`,
-	),
+		    `),
 	NewExample(
-		"Disabled", `
+		"Disabled",
+		`<p>You can disable links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`, `
     <a aria-current="page" aria-disabled="true">Disabled link</a>
-		    `,
-	).WithDescription(
-		`<p>You can disable links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`,
-	),
+		    `),
 	NewExample(
 		"Button styles",
+		`
+    <p>It is possible to use the <a href="/docs/button">button styles</a> <code>solid</code>, <code>outline</code> and <code>ghost</code> for anchors.</p>
+    <p>You can disable the links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>
+    `,
 		`
     <div class="grid">
       <a href="https://github.com/sunesimonsen/microbe" target="_blank" class="solid">
@@ -66,13 +65,4 @@ var AnchorPage = NewPage(
         </svg>
       </a>
     </div>
-		    `,
-	).WithDescription(
-		`
-    <p>It is possible to use the <a href="/docs/button">button styles</a> <code>solid</code>, <code>outline</code> and <code>ghost</code> for anchors.</p>
-    <p>You can disable the links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>
-    `,
-	).WithClass("rows"),
-).WithDescription(
-	`<p>Anchors let users navigate to another page, a different section of the current page, or an external resource.</p>`,
-)
+		    `).WithClass("rows"))

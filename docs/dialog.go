@@ -2,8 +2,10 @@ package docs
 
 var DialogPage = NewPage(
 	"Dialog",
+	`<p>A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.</p>`,
 	NewExample(
 		"Example",
+		`<p>Open a modal dialog to interrupt the current task and require the user to review information or make a decision, such as accepting or declining, before returning to the page behind it.</p>`,
 		`
     <button class="outline" command="show-modal" commandfor="example-dialog">
       Open dialog
@@ -140,12 +142,10 @@ var DialogPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `,
-	).WithDescription(
-		`<p>Open a modal dialog to interrupt the current task and require the user to review information or make a decision, such as accepting or declining, before returning to the page behind it.</p>`,
-	),
+		    `),
 	NewExample(
 		"Small",
+		`<p>Use this variant of the dialog for short confirmations or simple decisions that don't require presenting extensive content, keeping the interruption brief for the user.</p>`,
 		`
     <button class="outline" command="show-modal" commandfor="example-small-dialog">
       Open dialog
@@ -173,10 +173,4 @@ var DialogPage = NewPage(
         </button>
       </footer>
     </dialog>
-		    `,
-	).WithDescription(
-		`<p>Use this variant of the dialog for short confirmations or simple decisions that don't require presenting extensive content, keeping the interruption brief for the user.</p>`,
-	),
-).WithDescription(
-	`<p>A temporary, overlapping user interface window that sits on top of a main application screen. It interrupts the user to demand attention, display critical information, or require a specific decision before they can return to the main application.</p>`,
-)
+		    `))

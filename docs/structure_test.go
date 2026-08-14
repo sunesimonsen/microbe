@@ -6,12 +6,12 @@ func TestCategoriesFilter(t *testing.T) {
 	pages := Categories{
 		NewCategory(
 			"Forms",
-			NewPage("Button"),
-			NewPage("Checkbox"),
+			NewPage("Button", ""),
+			NewPage("Checkbox", ""),
 		),
 		NewCategory(
 			"Navigation",
-			NewPage("Tabs"),
+			NewPage("Tabs", ""),
 		),
 	}
 
