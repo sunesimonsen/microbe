@@ -208,4 +208,25 @@ var DialogPage = NewPage(
     </dialog>
     `,
 	),
+	NewExample(
+		"Search",
+		`<p>Use the <code>.search</code> class for a search dialog that anchored to the top.</p>`,
+		`
+    <button class="outline" command="show-modal" commandfor="example-search-dialog">
+      Search
+    </button>
+    <dialog id="example-search-dialog" class="search" closedby="any">
+      <header>
+        <p><label for="example-search-dialog-input">Search</label></p>
+        <input type="search" id="example-search-dialog-input" autofocus Placeholder="Search and you shall find" autocomplete="off">
+        <button rel="prev" aria-label="Close" commandfor="example-search-dialog" command="close" tabindex="1"></button>
+      </header>
+      <section>
+        <p>
+          Your results goes here...
+        </p>
+      </section>
+    </dialog>
+    `,
+	),
 )
