@@ -11,6 +11,7 @@ func (s *Server) setupRoutes() {
 	s.router.Use(middleware.Logger)
 
 	s.router.Get("/", IndexHandler)
+	s.router.Get("/getting-started/about", IndexHandler)
 	s.router.Get("/search", SearchHandler)
 	s.router.Get("/docs/{page}", DocsHandler)
 
