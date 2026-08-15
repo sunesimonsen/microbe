@@ -91,6 +91,21 @@ a.home {
   aspect-ratio: 1;
   border: thin solid transparent;
   border-color: hsl(var(--hue) var(--saturation) calc(-7% + var(--lightness)));
+  transition: outline-color 0.2s ease-in-out;
+  outline: var(--focus-outline-width) solid transparent;
+  outline-offset: calc(-1 * var(--focus-outline-width));
+
+  &:hover {
+    outline-color: hsl(calc(mod(var(--hue) + 180 + 15, 360)) var(--accent-saturation) var(--lightness-7) / calc(min(100%, 120% - var(--lightness))));
+  }
+
+  &:active {
+    background: hsl(var(--hue) var(--saturation) calc(-4% + var(--lightness)));
+  }
+
+  &:focus-visible {
+    outline-color: hsl(calc(mod(var(--hue) + 180 + 15, 360)) var(--accent-saturation) var(--lightness-7) / calc(min(100%, 150% - var(--lightness))));
+  }
 }
 
 .color-range,

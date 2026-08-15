@@ -391,6 +391,7 @@
     button {
       font-size: var(--font-size);
       line-height: var(--line-height);
+      cursor: pointer;
     }
 
     a,
@@ -424,7 +425,7 @@
         }
 
         &:focus-visible {
-          outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
+          outline-color: hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
         }
       }
 
