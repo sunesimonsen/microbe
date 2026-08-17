@@ -347,26 +347,26 @@ label:has(.saturation-range, .color-range) {
   }
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1650px) {
   html {
     font-size: 15px;
   }
 
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1550px) {
   html {
     font-size: 14px;
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1450px) {
   html {
     font-size: 13px;
   }
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
   html {
     font-size: 14px;
   }
@@ -391,7 +391,7 @@ label:has(.saturation-range, .color-range) {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
   html {
     font-size: 16px;
   }
