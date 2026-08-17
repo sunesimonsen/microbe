@@ -112,7 +112,6 @@
     &>header>button[command=close],
     &>header>button[rel=prev] {
       position: absolute;
-      font-size: var(--font-size);
       inset-block-start: var(--scale-5);
       inset-inline-end: calc(var(--scale-6) - (var(--close-button-size) - 1em) / 2);
       border: none;

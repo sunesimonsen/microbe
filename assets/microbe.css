@@ -1,4 +1,4 @@
-@layer reset, settings, defaults, modules, overrides;
+@layer settings, defaults, modules, overrides;
 
 @keyframes progress-indeterminate {
   0% {
@@ -111,35 +111,40 @@
 @layer defaults {
   .microbe {
     color-scheme: light dark;
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    font-weight: var(--font-weight);
-    line-height: var(--line-height);
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
 
+    &,
+    & * {
+      box-sizing: border-box;
+      font-family: var(--font-family);
+      font-size: var(--font-size);
+      font-weight: var(--font-weight);
+      line-height: var(--line-height);
+    }
+
     h1 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 6));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 6));
     }
 
     h2 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 5));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 5));
     }
 
     h3 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 4));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 4));
     }
 
     h4 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 3));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 3));
     }
 
     h5 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 2));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 2));
     }
 
     h6 {
-      --font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
+      font-size: calc(var(--base) * pow(var(--phi), var(--heading-step) * 1));
     }
 
     h1,
@@ -148,7 +153,7 @@
     h4,
     h5,
     h6 {
-      --font-weight: var(--heading-font-weight);
+      font-weight: var(--heading-font-weight);
     }
 
     h1,
@@ -167,12 +172,6 @@
     fieldset,
     fieldset legend,
     ul {
-      font-family: var(--font-family);
-      font-size: var(--font-size);
-      font-weight: var(--font-weight);
-      line-height: var(--line-height);
-      margin-block: var(--scale-4);
-
       &:is(legend) {
         margin-block-end: var(--scale-3);
       }
@@ -294,7 +293,6 @@
     table {
       border-collapse: collapse;
       width: 100%;
-      box-sizing: border-box;
     }
 
     th,
@@ -389,8 +387,6 @@
     }
 
     button {
-      font-size: var(--font-size);
-      line-height: var(--line-height);
       cursor: pointer;
     }
 
@@ -403,7 +399,6 @@
       &.solid,
       &.outline,
       &.ghost {
-        font-size: var(--font-size);
         cursor: pointer;
         padding: 0 var(--scale-5);
         height: var(--form-element-height);
@@ -418,7 +413,6 @@
         white-space: nowrap;
         outline-offset: var(--focus-outline-offset);
         text-decoration: none;
-        box-sizing: border-box;
 
         & * {
           pointer-events: none;
@@ -517,9 +511,6 @@
     select,
     progress {
       accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-      font-size: var(--font-size);
-      font-family: var(--font-family);
-      box-sizing: border-box;
 
       &::placeholder {
         color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
@@ -653,7 +644,6 @@
       &::-webkit-slider-thumb {
         height: var(--thumb-size);
         width: var(--thumb-size);
-        box-sizing: border-box;
         border-radius: 50%;
         appearance: none;
         background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -697,7 +687,6 @@
       &::-moz-range-thumb {
         height: var(--thumb-size);
         width: var(--thumb-size);
-        box-sizing: border-box;
         border-radius: 50%;
         appearance: none;
         background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
@@ -908,6 +897,7 @@
         height: calc(var(--scale-5) - 2 * var(--border-width));
         width: calc(var(--scale-5) - 2 * var(--border-width));
         display: inline-block;
+        box-sizing: border-box;
       }
 
       &:checked::before {
@@ -995,12 +985,10 @@
       cursor: pointer;
       width: 100%;
       outline: none;
-      font-size: var(--font-size);
       border-radius: var(--scale-3);
 
       &::file-selector-button {
         appearance: button;
-        font-size: var(--font-size);
         cursor: pointer;
         display: inline-block;
         padding: var(--scale-4) var(--scale-5);

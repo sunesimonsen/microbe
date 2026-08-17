@@ -3,7 +3,7 @@
     display: inline-block;
     border-radius: var(--scale-5);
     padding: 0 var(--scale-5);
-    font-size: calc(var(--scale-5) - 2 * var(--border-width));
+    font-size: calc(1em - 2 * var(--border-width));
     background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2)),
         hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)));
     border: var(--border-width) solid light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)),
