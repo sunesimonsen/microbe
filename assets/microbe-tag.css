@@ -4,10 +4,8 @@
     border-radius: var(--scale-5);
     padding: 0 var(--scale-5);
     font-size: calc(1em - 2 * var(--border-width));
-    background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2)),
-        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4)));
-    border: var(--border-width) solid light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)),
-        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5)));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+    border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     font-family: monospace;
     white-space: nowrap;
     line-height: var(--line-height);
