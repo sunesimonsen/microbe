@@ -1,6 +1,5 @@
 @layer modules {
   .microbe .card {
-    margin-block: var(--scale-5);
     border: var(--border-width) solid var(--border-color, hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3)));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
     border-radius: var(--scale-3);
@@ -10,14 +9,6 @@
     &.raised {
       box-shadow: var(--scale-4) var(--scale-4) var(--scale-8) 0 hsl(from var(--shadow-color) h s l / 0.1),
         calc(var(--scale-4) * -1) var(--scale-4) var(--scale-8) 0 hsl(from var(--shadow-color) h s l / 0.1);
-    }
-
-    &:first-child {
-      margin-block-start: 0;
-    }
-
-    &:last-child {
-      margin-block-end: 0;
     }
 
     &>header,

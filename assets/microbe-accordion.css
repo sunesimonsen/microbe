@@ -1,17 +1,8 @@
 @layer modules {
   .microbe .accordion {
-    margin-block: var(--scale-5);
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
     border-radius: var(--scale-3);
     overflow: hidden;
-
-    &:first-child {
-      margin-block-start: 0;
-    }
-
-    &:last-child {
-      margin-block-end: 0;
-    }
 
     --mc-padding-block: var(--padding-block, var(--scale-5));
     --mc-padding-inline: var(--padding-inline, var(--scale-6));

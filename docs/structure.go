@@ -89,7 +89,7 @@ func (e Example) GetNode(u url.URL) Node {
 		H2(Text(e.Name)),
 		e.Description,
 		Section(
-			Class("card raised"),
+			Class("card raised content"),
 			Section(If(e.Class != "", Class(e.Class)), Raw(string(e.Source))),
 			Footer(
 				Class("actions"),

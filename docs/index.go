@@ -13,10 +13,11 @@ var Index = Categories{
 	),
 	NewCategory(
 		"Layout",
+		MarginPage,
+		SpacingPage,
 		AccordionPage,
 		CardPage,
 		TabsPage,
-		SpacingPage,
 	),
 	NewCategory(
 		"Content",

@@ -17,7 +17,7 @@ var AccordionPage = NewPage(
       sed mi pretium, consequat varius erat. Phasellus sed eros dictum, congue
       enim in, dictum ante. Sed condimentum ut elit eu vehicula.
     </p>
-    <div class="accordion">
+    <div class="accordion content">
       <details>
         <summary>Section 1</summary>
         <p>
@@ -95,7 +95,7 @@ var AccordionPage = NewPage(
     consequat varius erat. Phasellus sed eros dictum, congue enim in, dictum
     ante. Sed condimentum ut elit eu vehicula.
   </p>
-  <div class="accordion">
+  <div class="accordion content">
     <details name="single">
       <summary>Section 1</summary>
       <p>
