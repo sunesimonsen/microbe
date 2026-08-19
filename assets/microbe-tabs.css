@@ -35,7 +35,7 @@
       }
     }
 
-    [role=tabpanel] {
+    [role=tablist]+[role=tabpanel] {
       padding-block-start: var(--scale-5);
     }
   }
