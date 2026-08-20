@@ -1,0 +1,27 @@
+@layer modules {
+  .microbe .breadcrumb {
+    &>ol {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      column-gap: var(--scale-3);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      &>li {
+        display: inline-flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &:not(:last-child)::after {
+          content: "/";
+          color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
+          margin-inline-start: var(--scale-3);
+        }
+      }
+    }
+  }
+}

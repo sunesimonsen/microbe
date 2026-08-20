@@ -28,6 +28,7 @@ var Index = Categories{
 	NewCategory(
 		"Navigation",
 		AnchorPage,
+		BreadcrumbPage,
 		NavlistPage,
 	),
 	NewCategory(

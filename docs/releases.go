@@ -15,7 +15,7 @@ type Release struct {
 }
 
 var releases = []Release{
-	{Version: "HEAD", Modules: []string{"Accordion", "Card", "Dialog", "Menu", "Navlist", "Tabs", "Tag"}},
+	{Version: "HEAD", Modules: []string{"Accordion", "Breadcrumb", "Card", "Dialog", "Menu", "Navlist", "Tabs", "Tag"}},
 }
 
 func CurrentVersion(u url.URL) string {
