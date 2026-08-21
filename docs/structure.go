@@ -221,12 +221,6 @@ func (p Page) GetNode(u url.URL) Node {
 			H1(Text(p.Name)),
 			p.Description,
 		),
-		Div(
-			Role("document"),
-			Map(p.Content, func(s PageSection) Node {
-				return s.GetNode(u)
-			}),
-		),
 		Aside(
 			Class("toc"),
 			Nav(
@@ -242,6 +236,12 @@ func (p Page) GetNode(u url.URL) Node {
 					),
 				),
 			),
+		),
+		Div(
+			Role("document"),
+			Map(p.Content, func(s PageSection) Node {
+				return s.GetNode(u)
+			}),
 		),
 	}
 }

@@ -296,12 +296,14 @@ body>header {
 body>main {
   display: grid;
   grid-template-rows: auto auto 1fr;
-  grid-template-columns: 1fr 11rem 47rem 11rem 1fr;
+  grid-template-columns: 11rem 47rem 11rem;
   grid-template-areas:
-    "start menu header toc end"
-    "start menu body toc end";
+    "menu header toc"
+    "menu body toc";
   gap: 0 4rem;
   min-height: 100%;
+  margin-inline: auto;
+  width: fit-content;
 
   &>aside.menu {
     grid-area: menu;
@@ -352,11 +354,11 @@ body>main {
 @media (max-width: 86rem) {
   body>main {
     grid-template-rows: auto auto auto 1fr;
-    grid-template-columns: 1fr 11rem 47rem 3fr;
+    grid-template-columns: 11rem 47rem;
     grid-template-areas:
-      "start menu header end"
-      "start menu toc end"
-      "start menu body end";
+      "menu header"
+      "menu toc"
+      "menu body";
 
     gap: 0 3rem;
 
@@ -373,14 +375,8 @@ body>main {
 /* 3rem + 11rem + 3rem + 47rem + 3rem = 67rem */
 @media (max-width: 68rem) {
   body>main {
-    grid-template-rows: auto auto auto auto 1fr;
-    grid-template-columns: 1fr 47rem 1fr;
-    grid-template-areas:
-      "start header end"
-      "start toc end"
-      "start body end";
-
-    gap: 0;
+    display: block;
+    max-width: 47em;
 
     &>aside.menu {
       display: none;
@@ -410,8 +406,7 @@ body>main {
     }
 
     &>main {
-      grid-template-columns: 0 calc(100vw - 2 * 1rem) 0;
-      column-gap: 1rem;
+      padding-inline: 1rem;
     }
   }
 }
