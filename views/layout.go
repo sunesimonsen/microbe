@@ -90,9 +90,8 @@ func docsMenu(currentPath string) Node {
 
 func DocsLayout(currentPath string, part Node) Node {
 	return Page("Microbe",
+		header(),
 		Main(
-			Class("page-layout"),
-			header(),
 			docsMenu(currentPath),
 			part,
 		),
