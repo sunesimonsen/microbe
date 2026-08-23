@@ -36,7 +36,7 @@ var InputPage = NewPage(
     `,
 	),
 	NewExample(
-		"Text inputs",
+		"Text",
 		`<p>Use the <code>text</code>, <code>email</code>, <code>number</code>, <code>password</code>, <code>tel</code> and <code>url</code> types to collect different kinds of single-line text, taking advantage of type-specific validation and on-screen keyboards.</p>`,
 		`
     <input type="text" name="text" aria-label="Text" placeholder="Text">
@@ -48,7 +48,7 @@ var InputPage = NewPage(
     `,
 	).WithClass("rows"),
 	NewExample(
-		"Date and time inputs",
+		"Date and time",
 		`<p>Use the <code>date</code>, <code>datetime-local</code>, <code>month</code>, <code>week</code> and <code>time</code> types to let users pick calendar dates and times with the browser's built-in picker instead of typing a specific format.</p>`,
 		`
     <input type="date" name="date" aria-label="Date">
@@ -59,14 +59,14 @@ var InputPage = NewPage(
     `,
 	).WithClass("rows"),
 	NewExample(
-		"Search input",
+		"Search",
 		`<p>Use the <code>search</code> type for a field dedicated to searching content, which some browsers present with a built-in clear button.</p>`,
 		`
     <input type="search" name="search" aria-label="Search" placeholder="Search">
     `,
 	),
 	NewExample(
-		"File input",
+		"File",
 		`<p>Use the <code>file</code> type to let users choose one or more files from their device to upload, adding the <code>multiple</code> attribute to allow selecting several files at once.</p>`,
 		`
     <input type="file" class="solid" tabindex="0" aria-label="File">
@@ -75,7 +75,7 @@ var InputPage = NewPage(
     `,
 	).WithClass("rows"),
 	NewExample(
-		"Color input",
+		"Color",
 		`<p>Use the <code>color</code> type to let users pick a color using the browser's built-in color picker.</p>`,
 		`
     <input type="color" name="color" aria-label="Color" placeholder="Color">
