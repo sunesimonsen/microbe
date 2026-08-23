@@ -1,10 +1,11 @@
 @layer modules {
   .microbe .pagination {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
     gap: var(--scale-1);
+    container-type: inline-size;
 
     & .ellipsis::before {
       content: "…";
@@ -22,6 +23,7 @@
       text-align: center;
       border-radius: var(--scale-3);
       gap: var(--scale-3);
+
     }
 
     & a {
@@ -85,6 +87,17 @@
         &:active,
         &:focus-visible {
           background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+        }
+      }
+
+      @container (width < 30em) {
+        &.text:is(.first, .previous, .next, .last) {
+          padding-inline: var(--scale-4);
+
+          &::before,
+          &::after {
+            display: none;
+          }
         }
       }
     }

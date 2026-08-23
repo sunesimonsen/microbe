@@ -35,7 +35,6 @@ var PaginationPage = NewPage(
 		`<p>Indicate gaps in the range using ellipsis.</p>`,
 		`
     <nav class="pagination" aria-label="Results pages">
-      <a class="first" title="First page" href="#"></a>
       <a class="previous" title="Previous page" href="#"></a>
       <a href="#">1</a>
       <span aria-label="Ellipsis indicating non-visible pages">…</span>
@@ -43,7 +42,6 @@ var PaginationPage = NewPage(
       <span aria-label="Ellipsis indicating non-visible pages">…</span>
       <a href="#">50</a>
       <a class="next" title="Next page" href="#" ></a>
-      <a class="last" title="Last page" href="#" ></a>
     </nav>
     `,
 	),
