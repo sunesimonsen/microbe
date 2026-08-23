@@ -53,6 +53,7 @@ var Index = Categories{
 	),
 	NewCategory(
 		"Data",
+		PaginationPage,
 		TagPage,
 	),
 }
