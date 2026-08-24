@@ -37,6 +37,7 @@ func header() Node {
 					Title("Search"),
 					Attr("command", "show-modal"),
 					Attr("commandfor", "search-dialog"),
+					Attr("accesskey", "s"),
 					icons.BurgerIcon(),
 				),
 				Button(

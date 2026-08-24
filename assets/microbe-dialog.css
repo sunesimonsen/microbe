@@ -1,7 +1,17 @@
+@starting-style {
+  dialog {
+    opacity: 0;
+
+    &::backdrop {
+      background: transparent;
+    }
+  }
+}
+
 @keyframes slide-down-and-in-animation {
   0% {
     transform: translateY(-1em);
-    opacity: 0.5;
+    opacity: 0;
   }
 
   100% {
