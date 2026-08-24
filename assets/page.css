@@ -406,6 +406,7 @@ body>main {
     }
 
     &>main {
+      max-width: 100vw;
       padding-inline: 1rem;
     }
   }
