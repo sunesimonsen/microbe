@@ -8,11 +8,33 @@ var PaginationPage = NewPage(
 		`<p>Cursor-based pagination uses an opaque cursor to request the next or previous set of results. Since the total number of pages is not needed, provide only the navigation links that are available.</p>`,
 		`
     <nav class="pagination" aria-label="Results pages">
-      <a class="first text" href="#">First</a>
-      <a class="previous text" href="#">Previous</a>
-      <a class="next text" href="#">Next</a>
-      <a class="last text" href="#">Last</a>
+      <a class="first" title="First page" data-label="First" href="#"></a>
+      <a class="previous" title="Previous page" data-label="Previous" href="#"></a>
+      <a class="next" title="Next page" data-label="Next" href="#"></a>
+      <a class="last" title="Last page" data-label="Last" href="#"></a>
     </nav>
+    <style>
+    @layer overrides {
+        .microbe .pagination {
+          container-type: inline-size;
+
+          @container (width < 30em) {
+            &>a[data-label] {
+              padding-inline: var(--scale-4);
+
+              &:is(.first, .previous)::after {
+                display: none;
+              }
+
+              &:is(.next, .last)::before {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    </style>
     `,
 	),
 	NewExample(
