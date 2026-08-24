@@ -13,7 +13,7 @@ var ColorsPage = NewPage(
 		Article(
 			H2(Text("Playground")),
 			Div(
-				Class("card raised"),
+				Class("card raised content"),
 				Header(
 					Label(
 						Text("Accent hue"),
