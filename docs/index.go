@@ -43,7 +43,7 @@ var Index = Categories{
 		SwitchPage,
 	),
 	NewCategory(
-		"Loaders",
+		"Loading",
 		ProgressPage,
 	),
 	NewCategory(

@@ -415,6 +415,31 @@
         &:focus-visible {
           outline-color: hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
         }
+
+        &[aria-busy=true] {
+          color: transparent;
+
+          & * {
+            opacity: 0;
+          }
+
+          &:hover,
+          &:active,
+          &:focus-visible {
+            color: transparent;
+          }
+
+          position: relative;
+
+          &::before {
+            content: "";
+            position: absolute;
+            background-color: var(--mc-text-color);
+            mask: url("data:image/svg+xml,%3Csvg fill='none' height='1.4em' width='1.4em' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' %3E%3Cstyle%3E g %7B animation: rotate 2s linear infinite; transform-origin: center center; %7D circle %7B stroke-dasharray: 75,100; stroke-dashoffset: -5; animation: dash 1.5s ease-in-out infinite; stroke-linecap: round; %7D @keyframes rotate %7B 0%25 %7B transform: rotate(0deg); %7D 100%25 %7B transform: rotate(360deg); %7D %7D @keyframes dash %7B 0%25 %7B stroke-dasharray: 1,100; stroke-dashoffset: 0; %7D 50%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -17.5; %7D 100%25 %7B stroke-dasharray: 44.5,100; stroke-dashoffset: -62; %7D %7D %3C/style%3E%3Cg%3E%3Ccircle cx='12' cy='12' r='10' fill='none' stroke='rgb(136, 145, 164)' stroke-width='3' /%3E%3C/g%3E%3C/svg%3E");
+            height: 1.4em;
+            width: 1.4em;
+          }
+        }
       }
 
       &.icon {
@@ -423,8 +448,9 @@
       }
 
       &.solid {
-        color: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)),
+        --mc-text-color: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness)),
             hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness)));
+        color: var(--mc-text-color);
         background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
         border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
 
@@ -450,7 +476,8 @@
       }
 
       &.outline {
-        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        --mc-text-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        color: var(--mc-text-color);
         background: transparent;
         border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
 
@@ -476,7 +503,8 @@
 
 
       &.ghost {
-        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        --mc-text-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        color: var(--mc-text-color);
         background: transparent;
         border: transparent;
 

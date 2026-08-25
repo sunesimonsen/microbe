@@ -22,6 +22,28 @@ var ButtonPage = NewPage(
     `,
 	).WithClass("grid"),
 	NewExample(
+		"Loading",
+		`
+    <p>Add the <code>aria-busy="true"</code> attribute to indicating that the button is in a loading state.</p>
+    <p>Notice that the busy indicator is solely a feedback to the user that an operation is ongoing, it is still possible to invoke the buttons click handler.</p> 
+    `,
+		`
+    <button class="solid" onclick="fakeLoading(this)">Solid Button</button>
+    <button class="outline" onclick="fakeLoading(this)">Outline Button</button>
+    <button class="ghost" onclick="fakeLoading(this)">Ghost Button</button>
+    <script>
+    function fakeLoading(e) {
+      if (e.getAttribute("aria-busy") !== "true") {
+        e.setAttribute("aria-busy", "true");
+        setTimeout(() => {
+          e.removeAttribute("aria-busy");
+        }, 1500);
+      }
+    }
+    </script>
+    `,
+	).WithClass("grid"),
+	NewExample(
 		"Media",
 		`<p>Buttons uses flexbox layout to neatly position icons.</p>`,
 		`
