@@ -68,6 +68,9 @@
     --error-hue: 0;
     --error-saturation: 60%;
 
+    --warning-hue: 45;
+    --warning-saturation: 80%;
+
     --success-hue: 160;
     --success-saturation: 30%;
 
@@ -230,6 +233,10 @@
           color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
         }
       }
+    }
+
+    strong {
+      font-weight: calc(var(--font-weight) + 200);
     }
 
     abbr {

@@ -1,0 +1,30 @@
+@layer modules {
+  .microbe aside.callout {
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
+    border-radius: var(--scale-3);
+    padding: var(--scale-5) var(--scale-6);
+
+    border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+    border-inline-start-width: var(--scale-3);
+
+    &.info {
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1));
+      border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
+    }
+
+    &.success {
+      background: hsl(var(--success-hue) var(--success-saturation) var(--lightness-1));
+      border-color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-3));
+    }
+
+    &.warning {
+      background: hsl(var(--warning-hue) var(--warning-saturation) var(--lightness-1));
+      border-color: hsl(var(--warning-hue) var(--warning-saturation) var(--lightness-3));
+    }
+
+    &.error {
+      background: hsl(var(--error-hue) var(--error-saturation) var(--lightness-1));
+      border-color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-3));
+    }
+  }
+}
