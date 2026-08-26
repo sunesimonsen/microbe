@@ -11,8 +11,8 @@ var SkeletonPage = NewPage(
 		``,
 		`
     <section id="example-loading">
-      <h3><span class="skeleton" style="width: 40%"></span></h3>
-      <p><span class="skeleton" style="width: 70%"></span></p>
+      <h3><span class="skeleton"></span></h3>
+      <p><span class="skeleton"></span></p>
       <p><span class="skeleton"></span></p>
     </section>
     <section id="example-loaded" hidden>
