@@ -7,10 +7,6 @@ var CalloutPage = NewPage(
 		"Types",
 		`<p>Use the <code>info</code>, <code>success</code>, <code>warning</code>, or <code>error</code> class to communicate the kind of message being shown.</p>`,
 		`
-    <aside class="callout content">
-      <strong>Recessed</strong>
-      <p>This is some additional information.</p>
-    </aside>
     <aside class="callout info content">
       <strong>Info</strong>
       <p>This is some additional information.</p>
