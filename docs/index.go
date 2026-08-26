@@ -46,6 +46,7 @@ var Index = Categories{
 	NewCategory(
 		"Loading",
 		ProgressPage,
+		SkeletonPage,
 	),
 	NewCategory(
 		"Popups",

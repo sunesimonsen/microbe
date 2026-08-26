@@ -1,0 +1,29 @@
+@layer modules {
+  @keyframes skeleton-slide {
+    100% {
+      left: 100%;
+    }
+  }
+
+  .microbe .skeleton {
+    display: inline-block;
+    position: relative;
+    border-radius: var(--scale-2);
+    background: hsl(from currentColor h s l / 7%);
+    overflow: hidden;
+    width: 100%;
+    height: var(--base);
+
+    &::before {
+      position: absolute;
+      top: 0px;
+      width: var(--scale-13);
+      height: 100%;
+      content: "";
+      left: calc(-1*var(--scale-13));
+      animation: 1.5s ease-in-out 300ms infinite normal none running skeleton-slide;
+      --mc-gradient-color: color-mix(in hsl, hsl(from currentColor h s l / 20%) 35%, transparent);
+      background-image: linear-gradient(45deg, transparent, var(--mc-gradient-color), transparent);
+    }
+  }
+}
