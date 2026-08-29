@@ -33,5 +33,5 @@ var AvatarPage = NewPage(
       <span aria-hidden="true">SS</span>
     </figure>
     `,
-	).WithClass("grid"),
+	).WithClass("grid small"),
 )
