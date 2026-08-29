@@ -3,8 +3,8 @@
     height: var(--scale-7);
     aspect-ratio: 1;
     border-radius: 50%;
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-10));
-    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+    background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+    color: hsl(var(--accent-hue) var(--accent-saturation) var(--background-lightness));
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -14,7 +14,7 @@
 
     &.logo {
       border-radius: var(--scale-3);
-      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-10));
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     }
 
     &>svg {
