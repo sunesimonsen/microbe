@@ -18,7 +18,7 @@ var AvatarPage = NewPage(
       </svg>
     </figure>
     `,
-	).WithClass("grid"),
+	).WithClass("grid small"),
 	NewExample(
 		"Type",
 		`<p>An avatar can contain an icon, an image, or a short text label such as a user's initials. Give avatars an accessible name, and provide meaningful alternative text when using an image.</p>`,
