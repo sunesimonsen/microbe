@@ -29,7 +29,7 @@ var AvatarPage = NewPage(
       </svg>
     </figure>
     <figure class="avatar" aria-label="User avatar">
-      <img src="https://microbe.sune.one/assets/user.png" alt="User avatar">
+      <img src="https://microbe.sune.one/assets/nyancat.jpg" alt="User avatar">
     </figure>
     <figure class="avatar" aria-label="Sune Simonsen">
       <span aria-hidden="true">SS</span>
