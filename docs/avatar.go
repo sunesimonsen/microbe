@@ -36,4 +36,49 @@ var AvatarPage = NewPage(
     </figure>
     `,
 	).WithClass("grid small"),
+	NewExample(
+		"Size",
+		`<p>As any element in Microbe you can easily change it's size by setting the font-size of the element.</p>`,
+		`
+    <div class="grid small">
+      <figure class="avatar" aria-label="User avatar" style="font-size: smaller">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+      </figure>
+      <figure class="avatar" aria-label="User avatar">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+      </figure>
+      <figure class="avatar" aria-label="User avatar" style="font-size: larger">
+        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/>
+        </svg>
+      </figure>
+    </div>
+    <div class="grid small">
+      <figure class="avatar" aria-label="User avatar" style="font-size: smaller">
+        <img src="https://microbe.sune.one/assets/nyancat.jpg" alt="User avatar">
+      </figure>
+      <figure class="avatar" aria-label="User avatar">
+        <img src="https://microbe.sune.one/assets/nyancat.jpg" alt="User avatar">
+      </figure>
+      <figure class="avatar" aria-label="User avatar" style="font-size: larger">
+        <img src="https://microbe.sune.one/assets/nyancat.jpg" alt="User avatar">
+      </figure>
+    </div>
+    <div class="grid small">
+      <figure class="avatar" aria-label="Sune Simonsen" style="font-size: smaller">
+        <span aria-hidden="true">SS</span>
+      </figure>
+      <figure class="avatar" aria-label="Sune Simonsen">
+        <span aria-hidden="true">SS</span>
+      </figure>
+      <figure class="avatar" aria-label="Sune Simonsen" style="font-size: larger">
+        <span aria-hidden="true">SS</span>
+      </figure>
+    </div>
+    `,
+	).WithClass("rows"),
 )
