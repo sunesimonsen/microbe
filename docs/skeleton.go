@@ -31,8 +31,8 @@ var SkeletonPage = NewPage(
     `,
 	),
 	NewExample(
-		"Full width",
-		``,
+		"Appearance",
+		`<p>The skeleton elements take up 100% width of their containing element and uses the font-size as the basis for the height.`,
 		`
     <h3><span class="skeleton"></span></h3>
     <p><span class="skeleton"></span></p>
