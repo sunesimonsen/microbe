@@ -21,6 +21,7 @@ var Index = Categories{
 	),
 	NewCategory(
 		"Content",
+		AvatarPage,
 		CalloutPage,
 		TypographyPage,
 		ListPage,

@@ -1,0 +1,34 @@
+@layer modules {
+  .microbe .avatar {
+    height: var(--scale-7);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-10));
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+
+    &.logo {
+      border-radius: var(--scale-3);
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-10));
+    }
+
+    &>svg {
+      font-size: var(--scale-6);
+    }
+
+    &>span {
+      font-size: calc(var(--scale-6) - var(--scale-2));
+    }
+
+    &>img {
+      width: 100%;
+      aspect-ratio: 1;
+    }
+
+  }
+}

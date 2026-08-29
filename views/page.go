@@ -25,6 +25,7 @@ func Page(title string, children ...Node) Node {
 				Link(Rel("manifest"), Href("/assets/site.webmanifest")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-accordion.css")),
+				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-avatar.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-breadcrumb.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-callout.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-card.css")),
