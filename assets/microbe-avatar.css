@@ -11,14 +11,33 @@
     margin: 0;
     overflow: hidden;
     user-select: none;
+    outline: var(--focus-outline-width) solid transparent;
+    outline-offset: var(--focus-outline-offset);
+    transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+    border: none;
 
     &.logo {
       border-radius: var(--scale-3);
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     }
 
-    &:is(figure)>svg {
+    &:is(figure, button, a)>svg {
       font-size: var(--scale-6);
+    }
+
+    &:is(button, a) {
+
+      &:hover {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      }
+
+      &:active {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      }
+    }
+
+    &:focus-visible {
+      outline-color: hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
     }
   }
 }
