@@ -17,18 +17,8 @@
       background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
     }
 
-    &>svg {
+    &:is(figure)>svg {
       font-size: var(--scale-6);
     }
-
-    &>span {
-      font-size: calc(var(--scale-6) - var(--scale-2));
-    }
-
-    &>img {
-      width: 100%;
-      aspect-ratio: 1;
-    }
-
   }
 }
