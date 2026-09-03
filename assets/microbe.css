@@ -284,6 +284,7 @@
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
       font-weight: bold;
       font-family: monospace;
+      padding-inline: var(--scale-4);
     }
 
     pre>code {
