@@ -19,6 +19,7 @@ var allModules = []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card"
 var releases = []Release{
 	{Version: "HEAD", Modules: allModules},
 	{Version: "v0.1.0", Modules: allModules},
+	{Version: "v0.2.0", Modules: allModules},
 }
 
 func CurrentVersion(u url.URL) string {
