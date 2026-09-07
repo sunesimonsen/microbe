@@ -137,4 +137,17 @@ if (window.self === window.top) {
       navigator.clipboard.writeText(`hsl(${hue} ${saturation} var(--lightness-${lightness}))`)
     }
   })
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+      event.preventDefault();
+
+      const dialog = document.getElementById("search-dialog");
+      if (!dialog) return;
+
+      if (!dialog.open) {
+        dialog.showModal();
+      }
+    }
+  });
 }
