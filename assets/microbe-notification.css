@@ -1,0 +1,114 @@
+@layer modules {
+  .microbe .toast {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: var(--scale-4);
+    width: min(var(--scale-12), 100vw);
+    max-height: calc(100vh - 2 * var(--scale-5));
+    overflow: hidden;
+    padding: var(--scale-6);
+    pointer-events: none;
+    background: transparent;
+    border: none;
+    inset-block: 0 auto;
+    inset-inline: auto 0;
+
+    &>.notification {
+      pointer-events: auto;
+    }
+  }
+
+  .microbe .notification {
+    --notification-hue: var(--neutral-hue);
+    --notification-saturation: var(--neutral-saturation);
+    --close-button-size: calc(var(--line-height) * 1em);
+
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: var(--scale-5) var(--scale-6);
+    padding-inline-end: calc(var(--scale-6) + var(--close-button-size));
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+    background: hsl(var(--notification-hue) var(--notification-saturation) var(--lightness-1));
+    border: var(--border-width) solid hsl(var(--notification-hue) var(--notification-saturation) var(--lightness-4));
+    border-inline-start: var(--scale-3) solid hsl(var(--notification-hue) var(--notification-saturation) var(--lightness-4));
+    border-radius: var(--scale-3);
+    box-shadow: var(--scale-3) var(--scale-3) var(--scale-6) 0 hsl(from var(--shadow-color) h s l / 0.2),
+      calc(var(--scale-3) * -1) var(--scale-3) var(--scale-6) 0 hsl(from var(--shadow-color) h s l / 0.2);
+
+    &.info {
+      --notification-hue: var(--neutral-hue);
+      --notification-saturation: var(--neutral-saturation);
+    }
+
+    &.success {
+      --notification-hue: var(--success-hue);
+      --notification-saturation: var(--success-saturation);
+    }
+
+    &.warning {
+      --notification-hue: var(--warning-hue);
+      --notification-saturation: var(--warning-saturation);
+    }
+
+    &.error {
+      --notification-hue: var(--error-hue);
+      --notification-saturation: var(--error-saturation);
+    }
+
+    &>header>button.close {
+      position: absolute;
+      inset-block-start: var(--scale-5);
+      inset-inline-end: calc(var(--scale-6) - (var(--close-button-size) - 1em) / 2);
+      border: none;
+      border-radius: 50%;
+      display: block;
+      height: var(--close-button-size);
+      width: var(--close-button-size);
+      background-color: transparent;
+      cursor: pointer;
+      box-sizing: border-box;
+
+      &::after {
+        content: "";
+        background-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16"><path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/></svg>');
+        background-position: center center;
+        background-repeat: no-repeat;
+        position: absolute;
+        display: block;
+        inset-inline-start: calc(var(--close-button-size)/2 - 1em/2);
+        inset-block-start: calc(var(--close-button-size)/2 - 1em/2);
+        height: 1em;
+        width: 1em;
+      }
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @starting-style {
+      .microbe .notification {
+        transform: translateY(calc(-1 * var(--scale-3)));
+        opacity: 0;
+      }
+    }
+
+    .microbe .notification {
+      animation: notification-slide-in 120ms ease-out;
+    }
+  }
+
+  @keyframes notification-slide-in {
+    from {
+      transform: translateY(calc(-1 * var(--scale-3)));
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}

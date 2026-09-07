@@ -261,7 +261,7 @@ body>header {
   view-transition-name: header;
   height: var(--layout-header-height);
   position: sticky;
-  top: 0;
+  inset-block-start: 0;
   container-type: scroll-state;
   z-index: 2;
   backdrop-filter: blur(var(--scale-4));
@@ -326,7 +326,7 @@ body>main {
       padding-block: var(--scale-4);
       position: sticky;
       --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-7));
-      top: var(--layout-sticky-start);
+      inset-block-start: var(--layout-sticky-start);
       max-height: calc(100vh - var(--layout-sticky-start));
       overflow-y: auto;
     }

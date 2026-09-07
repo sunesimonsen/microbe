@@ -14,7 +14,7 @@ type Release struct {
 	Modules []string
 }
 
-var allModules = []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Pagination", "Skeleton", "Tabs", "Tag"}
+var allModules = []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Notification", "Pagination", "Skeleton", "Tabs", "Tag"}
 
 var releases = []Release{
 	{Version: "HEAD", Modules: allModules},
