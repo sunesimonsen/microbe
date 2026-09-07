@@ -66,7 +66,7 @@ func header() Node {
 					Attr("autocomplete", "off"),
 					Attr("hx-get", "/search"),
 					Attr("hx-params", "query"),
-					Attr("hx-trigger", "input changed delay:500ms, keyup[key=='Enter'], load"),
+					Attr("hx-trigger", "input changed delay:500ms, keyup[key=='Enter'], intersect once"),
 					Attr("hx-target", "#search-results"),
 				),
 				Button(Rel("prev"), Aria("label", "Close"), Attr("commandfor", "search-dialog"), Attr("command", "close"), TabIndex("1")),
