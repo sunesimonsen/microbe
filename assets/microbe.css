@@ -177,10 +177,10 @@
     ul,
     .content {
       margin: 0;
-      margin-block: var(--base);
+      margin-block: var(--scale-5);
 
-      &:is(legend) {
-        margin-block-end: var(--scale-3);
+      &:is(p) {
+        margin-block: var(--scale-4);
       }
 
       &:is(h1, h2, h3, h4, h5, h6) {
