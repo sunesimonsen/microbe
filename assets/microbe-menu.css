@@ -13,7 +13,7 @@
   }
 
   .microbe {
-    button.chevron:after {
+    button.chevron::after {
       display: inline;
       content: "";
       background: currentColor;
@@ -23,7 +23,7 @@
       transition: transform 0.2s ease-in-out;
     }
 
-    button.chevron:has(+ :popover-open):after {
+    button.chevron:has(+ :popover-open)::after {
       transform: rotate(-180deg);
     }
 
