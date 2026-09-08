@@ -18,8 +18,15 @@ var allModules = []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card"
 
 var releases = []Release{
 	{Version: "HEAD", Modules: allModules},
-	{Version: "v0.1.0", Modules: allModules},
-	{Version: "v0.2.0", Modules: allModules},
+	{
+		Version: "v0.1.0",
+		Modules: []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Pagination", "Skeleton", "Tabs", "Tag"},
+	},
+	{
+		Version: "v0.2.0",
+		Modules: []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Pagination", "Skeleton", "Tabs", "Tag"},
+	},
+	{Version: "v0.3.0", Modules: allModules},
 }
 
 func CurrentVersion(u url.URL) string {
