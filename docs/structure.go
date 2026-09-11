@@ -36,6 +36,7 @@ var playgroundCSS = `
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-avatar.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-button.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-breadcrumb.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-callout.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css";
