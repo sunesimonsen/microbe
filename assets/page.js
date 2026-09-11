@@ -1,19 +1,48 @@
-const htmlTemplate = (source) => `\
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-avatar.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-button.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-breadcrumb.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-dialog.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-notification.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-pagination.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-progress.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-skeleton.css" rel="stylesheet" type="text/css">
-<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css" rel="stylesheet" type="text/css">
+const htmlTemplate = (modules, source) => `\
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css">
+${modules.map((module) => `<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-${module}.css">`).join("\n")}
 
-${source}
+${source}`
+
+const cssTemplate = `\
+body {
+  color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+  background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+  padding: var(--scale-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+  gap: var(--scale-4);
+  justify-items: center;
+  align-items: center;
+
+  &>*:not(dialog, [popover]) {
+    margin: 0;
+  }
+}
+
+.grid.stretch {
+  justify-items: stretch;
+}
+
+.rows {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--scale-4);
+  justify-items: stretch;
+}
+
+.rows:has(.grid) {
+  gap: var(--scale-6);
+}
+
+@media (max-width: 600px) {
+  .grid:not(.small) {
+    grid-template-columns: 1fr;
+  }
+}
 `
 
 const indent = (source, spacing) => source.replace(/^/gm, spacing)
@@ -127,8 +156,12 @@ if (window.self === window.top) {
 
       const form = example.querySelector("form.jsfiddle")
 
+      const modules = (form.dataset.modules || '').split(/\s+/).filter(Boolean)
       const htmlInput = form.querySelector("input[name=html]")
-      htmlInput.value = source
+      htmlInput.value = htmlTemplate(modules, source)
+
+      const cssInput = form.querySelector("input[name=css]")
+      cssInput.value = cssTemplate
 
       form.submit()
     } else if (e.target.matches('button.copy-source')) {

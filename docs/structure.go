@@ -33,57 +33,13 @@ func (e Example) GetName() string {
 	return e.Name
 }
 
-const playgroundStyles = `
-body {
-  color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
-  background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
-  padding: var(--scale-5);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-  gap: var(--scale-4);
-  justify-items: center;
-  align-items: center;
-
-  &>*:not(dialog, [popover]) {
-    margin: 0;
-  }
-}
-
-.grid.stretch {
-  justify-items: stretch;
-}
-
-.rows {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--scale-4);
-  justify-items: stretch;
-}
-
-.rows:has(.grid) {
-  gap: var(--scale-6);
-}
-
-@media (max-width: 600px) {
-  .grid:not(.small) {
-    grid-template-columns: 1fr;
-  }
-}
-`
-
-func playgroundCSS(modules []string) string {
-	imports := []string{
-		`@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";`,
+func moduleNames(modules []string) string {
+	names := make([]string, len(modules))
+	for i, module := range modules {
+		names[i] = strcase.ToKebab(module)
 	}
 
-	for _, module := range modules {
-		imports = append(imports, `@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-`+strcase.ToKebab(module)+`.css";`)
-	}
-
-	return strings.Join(imports, "\n") + "\n\n" + strings.TrimSpace(playgroundStyles)
+	return strings.Join(names, " ")
 }
 
 func (e Example) GetNode(u url.URL) Node {
@@ -114,11 +70,12 @@ func (e Example) GetNode(u url.URL) Node {
 			Target("_blank"),
 			Attr("hidden"),
 			Class("jsfiddle"),
+			Data("modules", moduleNames(e.Modules)),
 			Input(Type("hidden"), Name("title"), Value("Microbe "+u.Path+"#"+e.Name)),
 			Input(Type("hidden"), Name("description"), Value("See https://microbe.sune.one for more information")),
 			Input(Type("hidden"), Name("html"), Value("")),
 			Input(Type("hidden"), Name("js"), Value("")),
-			Input(Type("hidden"), Name("css"), Value(strings.TrimSpace(playgroundCSS(e.Modules)))),
+			Input(Type("hidden"), Name("css")),
 		),
 	)
 }
