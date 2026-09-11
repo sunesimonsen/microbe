@@ -1,5 +1,6 @@
 @layer modules {
   .microbe {
+
     input,
     textarea,
     select {
@@ -547,6 +548,7 @@
       margin-block-start: var(--scale-5);
       gap: var(--scale-4);
       justify-content: end;
+      align-items: center;
     }
 
     select:not([multiple]) {
