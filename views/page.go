@@ -17,6 +17,8 @@ func Page(title string, children ...Node) Node {
 				Meta(Name("viewport"), Content("width=device-width,initial-scale=1")),
 				Meta(Name("description"), Content("Microbe.css documentation"), Lang("en")),
 				Meta(Name("color-scheme"), Content("light dark")),
+				Link(Rel("icon"), Type("image/x-icon"), Href("/assets/microbe-cube.ico")),
+				Link(Rel("icon"), Type("image/ico"), Href("/assets/microbe-cube.svg")),
 				Link(Rel("icon"), Type("image/svg+xml"), Href("/assets/microbe-cube.svg")),
 				Link(Rel("apple-touch-icon"), Href("/assets/microbe-cube-150x150.png")),
 				Link(Rel("apple-touch-icon"), Attr("sizes", "72x72"), Href("/assets/microbe-cube-72x72.png")),
