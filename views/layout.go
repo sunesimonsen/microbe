@@ -12,7 +12,7 @@ func header() Node {
 		Nav(
 			Div(
 				Class("header-items"),
-				A(Class("ghost"), Title("Home"), Href("/"), Text("Microbe")),
+				A(Class("home"), Title("Home"), Href("/"), Img(Src("/assets/microbe-cube.svg"), Alt("Logo")), Text("Microbe")),
 			),
 			Div(
 				Class("header-items"),

@@ -17,7 +17,10 @@ body {
 a.home {
   text-decoration: none;
   color: hsl(var(--accent-hue) var(--accent-saturation) var(--foreground-lightness));
-
+  display: flex;
+  align-items: center;
+  gap: var(--scale-4);
+  font-size: larger;
 }
 
 .anchors-row {
