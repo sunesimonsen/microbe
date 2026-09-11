@@ -26,6 +26,7 @@ type Example struct {
 	Description Node
 	Class       string
 	Source      string
+	Modules     []string
 }
 
 func (e Example) GetName() string {
@@ -162,6 +163,11 @@ func TrimCommonWhitespace(text string) string {
 
 func (e Example) WithClass(class string) Example {
 	e.Class = class
+	return e
+}
+
+func (e Example) WithModules(modules ...string) Example {
+	e.Modules = append([]string(nil), modules...)
 	return e
 }
 
