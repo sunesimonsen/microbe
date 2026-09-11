@@ -33,25 +33,7 @@ func (e Example) GetName() string {
 	return e.Name
 }
 
-var playgroundCSS = `
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-avatar.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-breadcrumb.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-button.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-callout.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-dialog.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-input.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-menu.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-notification.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-pagination.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-progress.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-skeleton.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tag.css";
-
+const playgroundStyles = `
 body {
   color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
   background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
@@ -92,6 +74,18 @@ body {
 }
 `
 
+func playgroundCSS(modules []string) string {
+	imports := []string{
+		`@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";`,
+	}
+
+	for _, module := range modules {
+		imports = append(imports, `@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-`+strcase.ToKebab(module)+`.css";`)
+	}
+
+	return strings.Join(imports, "\n") + "\n\n" + strings.TrimSpace(playgroundStyles)
+}
+
 func (e Example) GetNode(u url.URL) Node {
 	return Article(
 		Class("example"),
@@ -124,7 +118,7 @@ func (e Example) GetNode(u url.URL) Node {
 			Input(Type("hidden"), Name("description"), Value("See https://microbe.sune.one for more information")),
 			Input(Type("hidden"), Name("html"), Value("")),
 			Input(Type("hidden"), Name("js"), Value("")),
-			Input(Type("hidden"), Name("css"), Value(strings.TrimSpace(playgroundCSS))),
+			Input(Type("hidden"), Name("css"), Value(strings.TrimSpace(playgroundCSS(e.Modules)))),
 		),
 	)
 }
