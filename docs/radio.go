@@ -32,7 +32,7 @@ var RadioPage = NewPage(
       </label>
     </fieldset>
     `,
-	),
+	).WithModules("Input"),
 	NewExample(
 		"Validation",
 		`<p>You can indicate the validation state of the radio group using the attribute <code>aria-invilid</code> with the values <code>true</code> and <code>false</code>.</p>`,
@@ -48,5 +48,5 @@ var RadioPage = NewPage(
     </label>
     <small id="invalid-hint">This cobination is not allowed!</small>
     `,
-	),
+	).WithModules("Input"),
 )

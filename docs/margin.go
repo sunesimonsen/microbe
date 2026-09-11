@@ -37,5 +37,5 @@ var MarginPage = NewPage(
       Aenean eget turpis et turpis ullamcorper pretium.
     </p>
     `,
-	),
+	).WithModules("Card"),
 )

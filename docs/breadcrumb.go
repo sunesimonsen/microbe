@@ -15,5 +15,5 @@ var BreadcrumbPage = NewPage(
       </ol>
     </nav>
     `,
-	),
+	).WithModules("Breadcrumb"),
 )

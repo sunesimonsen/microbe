@@ -18,7 +18,7 @@ var AvatarPage = NewPage(
       </svg>
     </figure>
     `,
-	).WithClass("grid small"),
+	).WithClass("grid small").WithModules("Avatar"),
 	NewExample(
 		"Type",
 		`<p>An avatar can contain an icon, an image, or a short text label such as a user's initials. Give avatars an accessible name, and provide meaningful alternative text when using an image.</p>`,
@@ -31,7 +31,7 @@ var AvatarPage = NewPage(
     <img class="avatar" src="https://microbe.sune.one/assets/nyancat.jpg" alt="Avatar for Sune Simonsen">
     <span class="avatar" aria-label="Avatar for Sune Simonsen">SSS</span>
     `,
-	).WithClass("grid small"),
+	).WithClass("grid small").WithModules("Avatar"),
 	NewExample(
 		"Size",
 		`<p>As any element in Microbe you can easily change it's size by setting the font-size of the element.</p>`,
@@ -64,7 +64,7 @@ var AvatarPage = NewPage(
       <span class="avatar" aria-label="Avatar for Sune Simonsen" style="font-size: larger">SSS</span>
     </div>
     `,
-	).WithClass("rows"),
+	).WithClass("rows").WithModules("Avatar"),
 	NewExample(
 		"Interactive",
 		`<p>Anchors and buttons are allowed to be styled as avatars, this is useful for opening a user profile or linking to a external pages.</p>`,
@@ -95,5 +95,5 @@ var AvatarPage = NewPage(
       </section>
     </dialog>
     `,
-	).WithClass("grid small"),
+	).WithClass("grid small").WithModules("Avatar", "Dialog"),
 )

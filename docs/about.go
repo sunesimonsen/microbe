@@ -102,7 +102,7 @@ var AboutPage = NewPage(
     }
     </style>
     `,
-	),
+	).WithModules("Button", "Input"),
 	NewExample(
 		"Scalable",
 		`<p>All styles are built on the <code>em</code> unit and scales with the surrounding font size.</p>`,
@@ -131,7 +131,7 @@ var AboutPage = NewPage(
       </svg>
     </button>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Computed colors",
 		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
@@ -152,7 +152,7 @@ var AboutPage = NewPage(
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
     </div>
     `,
-	).WithClass("rows"),
+	).WithClass("rows").WithModules("Button"),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),

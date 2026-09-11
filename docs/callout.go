@@ -24,5 +24,5 @@ var CalloutPage = NewPage(
       <p>Something went wrong. Please try again.</p>
     </aside>
     `,
-	),
+	).WithModules("Callout"),
 )

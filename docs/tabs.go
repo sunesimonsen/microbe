@@ -37,7 +37,7 @@ var TabsPage = NewPage(
         <p>How to run this application on Windows</p>
       </section>
       `,
-	),
+	).WithModules("Tabs"),
 	NewExample(
 		"Disabled",
 		`<p>You can mark individual tabs as disabled using the <code>disabled</code> attribute</p>`,
@@ -73,5 +73,5 @@ var TabsPage = NewPage(
         <p>How to run this application on Linux</p>
       </section>
       `,
-	),
+	).WithModules("Tabs"),
 )

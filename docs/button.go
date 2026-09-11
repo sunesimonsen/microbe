@@ -11,7 +11,7 @@ var ButtonPage = NewPage(
     <button class="outline">Outline Button</button>
     <button class="ghost">Ghost Button</button>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Disabled",
 		`<p>Add the <code>disabled</code> attribute to prevent a button from being clicked or focused, useful for actions that aren't currently available.</p>`,
@@ -20,7 +20,7 @@ var ButtonPage = NewPage(
     <button class="outline" disabled>Outline Button</button>
     <button class="ghost" disabled>Ghost Button</button>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Loading",
 		`
@@ -42,7 +42,7 @@ var ButtonPage = NewPage(
     }
     </script>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Media",
 		`<p>Buttons uses flexbox layout to neatly position icons.</p>`,
@@ -62,7 +62,7 @@ var ButtonPage = NewPage(
       </svg>
     </button>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Icon",
 		`<p>Use the <code>.icon</code> for buttons with only an icon.</p>`,
@@ -83,7 +83,7 @@ var ButtonPage = NewPage(
       </svg>
     </button>
     `,
-	).WithClass("grid small"),
+	).WithClass("grid small").WithModules("Button"),
 	NewExample(
 		"Types",
 		`<p>In addition to the <code>button</code> element, input elements with a type of <code>button</code>, <code>submit</code> and <code>reset</code> can be styled as a button using the classes <code>.solid</code>, <code>.outline</code> and <code>.ghost</code>.</p>`,
@@ -109,5 +109,5 @@ var ButtonPage = NewPage(
       <input class="ghost" type="reset" value="Reset input">
     </div>
     `,
-	).WithClass("rows"),
+	).WithClass("rows").WithModules("Button"),
 )

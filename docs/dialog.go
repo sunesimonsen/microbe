@@ -140,7 +140,7 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
-	),
+	).WithModules("Button", "Dialog"),
 	NewExample(
 		"Small",
 		`<p>Use this variant of the dialog for short confirmations or simple decisions that don't require presenting extensive content, keeping the interruption brief for the user.</p>`,
@@ -169,7 +169,7 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
-	),
+	).WithModules("Button", "Dialog"),
 	NewExample(
 		"Close",
 		`<p>Use a close button in the dialog header in case there are no dedicated action button to close the dialog.</p>`,
@@ -198,7 +198,7 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
-	),
+	).WithModules("Button", "Dialog"),
 	NewExample(
 		"Drawer",
 		`<p>Use the <code>.drawer</code> class for a dialog that slides in from the right and fills the height of the screen, making it useful for contextual navigation or additional details.</p>`,
@@ -227,7 +227,7 @@ var DialogPage = NewPage(
       </footer>
     </dialog>
     `,
-	),
+	).WithModules("Button", "Dialog"),
 	NewExample(
 		"Search",
 		`<p>Use the <code>.search</code> class for a search dialog that anchored to the top.</p>`,
@@ -251,5 +251,5 @@ var DialogPage = NewPage(
       </section>
     </dialog>
     `,
-	),
+	).WithModules("Button", "Dialog", "Input"),
 )

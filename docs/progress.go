@@ -12,7 +12,7 @@ var ProgressPage = NewPage(
       <progress value="70" max="100"></progress>
     </label>
     `,
-	),
+	).WithModules("Progress"),
 	NewExample(
 		"Indeterminate",
 		`<p>Omit the <code>value</code> attribute to show an indeterminate progress indicator when the completion of a task can't yet be calculated.</p>`,
@@ -22,5 +22,5 @@ var ProgressPage = NewPage(
       <progress></progress>
     </label>
     `,
-	),
+	).WithModules("Progress"),
 )

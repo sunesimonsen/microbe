@@ -19,7 +19,7 @@ var CardPage = NewPage(
       </section>
     </article>
     `,
-	),
+	).WithModules("Card"),
 	NewExample(
 		"Card with header",
 		`<p>Add a <code>header</code> to a card to give the grouped content a title, so users can quickly identify what the card is about.</p>`,
@@ -37,7 +37,7 @@ var CardPage = NewPage(
       </section>
     </article>
     `,
-	),
+	).WithModules("Card"),
 	NewExample(
 		"Card with footer",
 		`<p>Add a <code>footer</code> to a card to hold supplementary information or actions, such as a call-to-action link, that relate to the card's content.</p>`,
@@ -55,7 +55,7 @@ var CardPage = NewPage(
       <footer>Footer</footer>
     </article>
     `,
-	),
+	).WithModules("Card"),
 	NewExample(
 		"Card with header and footer",
 		`<p>Combine a <code>header</code> and a <code>footer</code> to give a card both a title and a place for related actions or metadata.</p>`,
@@ -74,7 +74,7 @@ var CardPage = NewPage(
       <footer>Footer</footer>
     </article>
     `,
-	),
+	).WithModules("Card"),
 	NewExample(
 		"Raised",
 		`<p>Add the <code>raised</code> class to visually raise the card with a shadow.</p>`,
@@ -93,5 +93,5 @@ var CardPage = NewPage(
       <footer>Footer</footer>
     </article>
     `,
-	),
+	).WithModules("Card"),
 )

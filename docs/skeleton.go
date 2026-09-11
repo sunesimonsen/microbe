@@ -29,7 +29,7 @@ var SkeletonPage = NewPage(
     }, 3000);
     </script>
     `,
-	),
+	).WithModules("Skeleton"),
 	NewExample(
 		"Appearance",
 		`<p>The skeleton elements take up 100% width of their containing element and uses the font-size as the basis for the height.`,
@@ -39,5 +39,5 @@ var SkeletonPage = NewPage(
     <p><span class="skeleton"></span></p>
     <p><span class="skeleton"></span></p>
     `,
-	),
+	).WithModules("Skeleton"),
 )

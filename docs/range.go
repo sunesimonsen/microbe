@@ -13,7 +13,7 @@ var RangePage = NewPage(
     </label>
     <small id="saturation-hint">Accent color Saturation</small>
     `,
-	),
+	).WithModules("Input"),
 	NewExample(
 		"Disabled",
 		`<p>Add the <code>disabled</code> attribute to prevent a range input from being changed or focused, and exclude its value from form submission.</p>`,
@@ -23,5 +23,5 @@ var RangePage = NewPage(
       <input type="range" value="70" min="0" max="100" disabled>
     </label>
     `,
-	),
+	).WithModules("Input"),
 )

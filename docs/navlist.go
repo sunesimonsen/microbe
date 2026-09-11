@@ -42,5 +42,5 @@ var NavlistPage = NewPage(
       </details>
     </nav>
     `,
-	),
+	).WithModules("Navlist"),
 )

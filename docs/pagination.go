@@ -36,7 +36,7 @@ var PaginationPage = NewPage(
     }
     </style>
     `,
-	),
+	).WithModules("Pagination"),
 	NewExample(
 		"Indexed",
 		`<p>Indexed pagination presents numbered links for collections with a known number of pages. Use <code>aria-current="page"</code> to identify the page being viewed.</p>`,
@@ -51,7 +51,7 @@ var PaginationPage = NewPage(
       <a class="next" title="Next page" href="#"></a>
     </nav>
     `,
-	),
+	).WithModules("Pagination"),
 	NewExample(
 		"Ellipsis",
 		`<p>Indicate gaps in the range using ellipsis.</p>`,
@@ -66,5 +66,5 @@ var PaginationPage = NewPage(
       <a class="next" title="Next page" href="#" ></a>
     </nav>
     `,
-	),
+	).WithModules("Pagination"),
 )
