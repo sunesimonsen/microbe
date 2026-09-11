@@ -1,0 +1,588 @@
+@layer modules {
+  .microbe {
+    input,
+    textarea,
+    select {
+      accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+
+      &::placeholder {
+        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+      }
+
+      &:disabled {
+        color: hsl(var(--accent-hue) 0% var(--lightness-7));
+      }
+    }
+
+    input:not([type=checkbox], [type=radio], [type=range], [type=button], [type=submit], [type=reset], [type=image], [type=file]),
+    textarea,
+    select {
+      appearance: none;
+      width: 100%;
+      height: var(--form-element-height);
+      transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
+      padding: 0 var(--scale-5);
+      border-radius: var(--scale-3);
+      border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+      outline: var(--focus-outline-width) solid transparent;
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness) / 0.4);
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+
+      &:hover {
+        border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      }
+
+      &:active,
+      &:focus,
+      &:focus-within {
+        border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
+      }
+
+      &:disabled {
+        background: hsl(var(--accent-hue) 0% var(--lightness-1));
+        border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
+        color: hsl(var(--accent-hue) 0% var(--lightness-7));
+        cursor: default;
+        outline: none;
+      }
+
+      &:read-only:not(select, [type=color]) {
+        background: hsl(var(--accent-hue) 0% var(--lightness-1));
+        border-color: hsl(var(--accent-hue) 0% var(--lightness-4));
+        outline: none;
+      }
+
+      &[aria-invalid=true] {
+        border-color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+
+        &:active,
+        &:focus {
+          outline-color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-5) / 70%);
+        }
+
+        &+small {
+          color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+        }
+      }
+
+      &[aria-invalid=false] {
+        border-color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-8));
+
+        &:active,
+        &:focus {
+          outline-color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-5) / 70%);
+        }
+
+        &+small {
+          color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-8));
+        }
+      }
+
+      &+small {
+        display: block;
+        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+        margin-block-start: var(--scale-2);
+      }
+
+      &:is(textarea) {
+        height: auto;
+        padding: var(--scale-4) var(--scale-5);
+        min-height: calc(3.5em*var(--line-height));
+        display: block;
+        resize: vertical;
+      }
+    }
+
+    input[type=search] {
+      background-position: center left var(--base);
+      background-size: var(--base) auto;
+      background-repeat: no-repeat;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="rgb(128,128,128)" class="bi bi-search" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>');
+
+      padding-inline-start: calc(var(--scale-7));
+
+      [dir=rtl] & {
+        background-position-x: right var(--base);
+      }
+
+      [dir=ltr] & {
+        background-position-x: left var(--base);
+      }
+
+      &::-webkit-search-cancel-button {
+        appearance: none;
+        display: none;
+      }
+    }
+
+    input[type=range] {
+      --track-size: var(--scale-3);
+      --thumb-size: calc(3* var(--scale-3));
+
+      appearance: none;
+      height: var(--track-size);
+      width: 100%;
+      border-radius: calc(var(--track-size) / 2);
+      background: hsl(var(--neutral-hue) 0% var(--lightness-3));
+
+      &:focus {
+        outline: none;
+      }
+
+      &::-webkit-slider-runnable-track {
+        appearance: none;
+      }
+
+      &::-webkit-slider-thumb {
+        height: var(--thumb-size);
+        width: var(--thumb-size);
+        border-radius: 50%;
+        appearance: none;
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        border: var(--scale-1) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
+        outline: var(--focus-outline-width) solid transparent;
+        cursor: grab;
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &:disabled {
+        &::-moz-range-thumb {
+          cursor: default;
+          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+        }
+
+        &::-webkit-slider-thumb {
+          cursor: default;
+          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+        }
+      }
+
+      &:not(:disabled)::-webkit-slider-thumb:hover {
+        height: calc(var(--thumb-size) * 1.2);
+        width: calc(var(--thumb-size) * 1.2);
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+      }
+
+      &:not(:disabled)::-webkit-slider-thumb:active {
+        height: calc(var(--thumb-size) * 1.2);
+        width: calc(var(--thumb-size) * 1.2);
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+      }
+
+      &:focus-visible::-webkit-slider-thumb {
+        outline: var(--scale-1) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &::-moz-range-thumb {
+        height: var(--thumb-size);
+        width: var(--thumb-size);
+        border-radius: 50%;
+        appearance: none;
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        border: var(--scale-1) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-0));
+        outline: var(--scale-1) solid transparent;
+        cursor: grab;
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &:not(:disabled)::-moz-range-thumb:hover {
+        height: calc(var(--thumb-size) * 1.2);
+        width: calc(var(--thumb-size) * 1.2);
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+      }
+
+      &:not(:disabled)::-moz-range-thumb:active {
+        height: calc(var(--thumb-size) * 1.2);
+        width: calc(var(--thumb-size) * 1.2);
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out;
+      }
+
+      &:focus-visible::-moz-range-thumb {
+        outline: var(--scale-1) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        transition: background 0.1s ease-in-out, height 0.2s ease-in-out, width 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &+small {
+        display: block;
+        color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+      }
+    }
+
+    label:has(> input[type=checkbox]),
+    label:has(> input[type=radio]) {
+      display: flex;
+      gap: var(--scale-3);
+      align-items: center;
+      font-weight: normal;
+      user-select: none;
+    }
+
+
+    input:is([type=checkbox], [type=radio])[aria-invalid=true] {
+      --accent-hue: var(--error-hue);
+      --accent-saturation: var(--error-saturation);
+
+      border-color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+    }
+
+    label:has(input:is([type=checkbox], [type=radio])[aria-invalid=true])+small {
+      color: hsl(var(--error-hue) var(--error-saturation) var(--lightness-8));
+    }
+
+    input:is([type=checkbox], [type=radio])[aria-invalid=false] {
+      --accent-hue: var(--success-hue);
+      --accent-saturation: var(--success-saturation);
+
+      border-color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-8));
+    }
+
+    label:has(input:is([type=checkbox], [type=radio])[aria-invalid=false])+small {
+      color: hsl(var(--success-hue) var(--success-saturation) var(--lightness-9));
+    }
+
+    input[type=checkbox],
+    input[type=radio] {
+      appearance: none;
+      accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      margin: 0;
+      border-radius: var(--scale-2);
+      height: var(--scale-5);
+      width: var(--scale-5);
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+      border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+      outline: var(--focus-outline-width) solid transparent;
+      outline-offset: 0;
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+      aspect-ratio: 1;
+
+      &:focus-visible {
+        border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        outline: var(--focus-outline-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--focus-lightness));
+      }
+
+      &:disabled {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+        border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+
+        &:checked {
+          border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+        }
+      }
+    }
+
+    input[type=checkbox][role=switch] {
+      padding: var(--scale-0);
+      width: calc(2 * var(--scale-4) + var(--scale-5));
+      height: calc(2* var(--scale-4));
+      border-radius: var(--scale-5);
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+      margin-inline-start: 0;
+      transition: background 0.2s ease-in-out, outline 0.2s ease-in-out;
+      cursor: pointer;
+
+      &:not([aria-invalid]) {
+        border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+      }
+
+      &::after {
+        content: "";
+        display: block;
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
+        border-radius: 50%;
+        aspect-ratio: 1;
+        height: 100%;
+        transition: margin 0.1s ease-in-out;
+      }
+
+      &:checked {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        transition: background 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &:checked::after {
+        margin-inline-start: var(--base);
+        transition: margin 0.1s ease-in-out;
+      }
+
+      &:disabled {
+        cursor: default;
+      }
+
+      &:disabled:not(:checked) {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+      }
+
+      &:disabled:not(:checked)::after {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
+      }
+
+      &:disabled:is(:checked) {
+        --disabled-checked-color: hsl(var(--accent-hue) calc(var(--accent-saturation) - 20%) var(--lightness-6));
+        background: var(--disabled-checked-color);
+        border-color: var(--disabled-checked-color);
+      }
+
+      &:disabled:is(:checked)::after {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+      }
+    }
+
+    input[type=checkbox]:not([role=switch]) {
+      &:is(:indeterminate, :checked):not(:disabled) {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        position: relative;
+        transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+      }
+
+      &:disabled:is(:indeterminate, :checked) {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+        border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-5));
+      }
+
+      &:is(:indeterminate, :checked)::before {
+        content: "";
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) 100%);
+        position: absolute;
+        height: calc(var(--scale-5) - 2 * var(--border-width));
+        width: calc(var(--scale-5) - 2 * var(--border-width));
+        display: inline-block;
+        box-sizing: border-box;
+      }
+
+      &:checked::before {
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="3" stroke="%23000" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path d="M5 12l5 5l10 -10"/></svg>');
+      }
+
+      &:indeterminate::before {
+        mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="3" stroke="red" fill="none" stroke-linecap="round" stroke-linejoin="round"> <path d="M7 12l11 0"/></svg>');
+      }
+    }
+
+    input[type=radio] {
+      border-radius: 50%;
+
+      &:checked {
+        background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0));
+        border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+        transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+        position: relative;
+
+        &::before {
+          --dot-size: calc(var(--scale-5) - 6 * var(--border-width));
+          content: "";
+          border-radius: 50%;
+          box-sizing: border-box;
+          position: absolute;
+          border: var(--border-width) solid transparent;
+          background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+          height: var(--dot-size);
+          width: var(--dot-size);
+          display: inline-block;
+          margin-block-start: calc(2* var(--border-width));
+          margin-inline-start: calc(2*var(--border-width));
+        }
+
+        &:disabled::before {
+          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+
+          border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+        }
+      }
+    }
+
+    label:hover>input:is([type=checkbox], [type=radio]):not(:checked, :indeterminate, :disabled, [role=switch]) {
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    label:hover>input[type=checkbox][role=switch]:not(:checked, :disabled) {
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
+      border-color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-6));
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+    }
+
+    label:hover>input[type=checkbox][role=switch]:is(:checked):not(:disabled) {
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out;
+    }
+
+    label:hover>input[type=checkbox]:is(:checked, :indeterminate):not(:disabled, [role=switch]) {
+      background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      transition: background 0.2s ease-in-out, border 0.2s ease-in-out, outline 0.2s ease-in-out;
+    }
+
+    label:hover>input[type=radio]:is(:checked, :indeterminate):not(:disabled) {
+      border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      transition: border 0.2s ease-in-out;
+
+      &::before {
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        transition: background 0.2s ease-in-out;
+      }
+    }
+
+    input[type=color] {
+      appearance: none;
+      padding: var(--scale-2) var(--scale-4);
+    }
+
+    input[type=file] {
+      appearance: none;
+      cursor: pointer;
+      width: 100%;
+      outline: none;
+      border-radius: var(--scale-3);
+
+      &::file-selector-button {
+        appearance: button;
+        cursor: pointer;
+        display: inline-block;
+        padding: var(--scale-4) var(--scale-5);
+        user-select: none;
+        border-radius: var(--scale-3);
+        transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+        white-space: nowrap;
+
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+        background: transparent;
+        border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-9));
+      }
+
+      &:hover::file-selector-button {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 10%);
+      }
+
+      &:focus-visible::file-selector-button {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
+        background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+      }
+
+      &:active {
+        &::file-selector-button {
+          color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-11));
+          background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8) / 20%);
+        }
+      }
+
+      &:disabled {
+        cursor: default;
+
+        &::file-selector-button {
+          background: hsl(var(--accent-hue) 0% var(--lightness-1));
+          border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
+          color: hsl(var(--neutral-hue) 0% var(--lightness-7));
+          cursor: default;
+        }
+      }
+    }
+
+    input:is([type=time], [type=date], [type=week], [type=month], [type=datetime-local]) {
+      &::-webkit-calendar-picker-indicator {
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      background-position: center right var(--base);
+      background-size: var(--base) auto;
+      background-repeat: no-repeat;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="rgb(128,128,128)" class="bi bi-calendar" viewBox="0 0 16 16"><path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" /></svg>');
+
+      &:is([type=time]) {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="rgb(128,128,128)" class="bi bi-clock" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" /><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" /></svg>');
+      }
+    }
+
+    label>:is(input, textarea, select) {
+      margin-block-start: var(--scale-2);
+    }
+
+    label:has(input, textarea, select) {
+      display: block;
+    }
+
+    label+label,
+    small+input,
+    small+textarea,
+    small+select,
+    small+label {
+      display: block;
+      margin-block-start: var(--scale-4);
+    }
+
+    label:has([type=checkbox]:disabled) {
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-8));
+    }
+
+    label:has([type=checkbox], [type=radio])+small {
+      margin-block-start: 0;
+    }
+
+    label:has([type=checkbox]:not([role=switch]))+label:has([type=checkbox]:not([role=switch])),
+    label:has([type=checkbox]:not([role=switch]))+small+label:has([type=checkbox]:not([role=switch])),
+    label:has([type=radio])+label:has([type=radio]),
+    label:has([type=radio])+small+label:has([type=radio]) {
+      margin-block-start: 0;
+    }
+
+    label+small {
+      display: block;
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
+      margin-block-start: var(--scale-2);
+    }
+
+    form>.actions {
+      display: flex;
+      margin-block-start: var(--scale-5);
+      gap: var(--scale-4);
+      justify-content: end;
+    }
+
+    select:not([multiple]) {
+      appearance: none;
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="rgb(128,128,128)" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>');
+      background-position: center right .75em;
+      background-size: calc(var(--base) * 0.8) auto;
+      background-repeat: no-repeat;
+    }
+
+    select[multiple] {
+      appearance: none;
+      height: initial;
+      padding: var(--scale-4) var(--scale-5);
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+
+      &>option {
+        appearance: none;
+        padding: var(--scale-4) var(--scale-5);
+
+        &:checked,
+        &:checked:hover {
+          background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+        }
+
+        &:hover {
+          background: transparent;
+        }
+      }
+
+      &:focus,
+      &:focus-within {
+        &>option:checked {
+          background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+        }
+      }
+    }
+  }
+}

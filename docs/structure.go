@@ -36,19 +36,20 @@ var playgroundCSS = `
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-accordion.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-avatar.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-button.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-breadcrumb.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-button.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-callout.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-card.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-dialog.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-input.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-menu.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-navlist.css";
+@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-notification.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-pagination.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-progress.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-skeleton.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tabs.css";
 @import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-tag.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-menu.css";
-@import "https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-notification.css";
 
 body {
   color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
