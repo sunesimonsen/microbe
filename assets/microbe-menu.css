@@ -27,7 +27,7 @@
       transform: rotate(-180deg);
     }
 
-    ul.menu {
+    :is(ul, div).menu {
       position-area: block-end span-inline-end;
       position-try-fallbacks: flip-block;
 
@@ -51,6 +51,16 @@
         animation: slide-down-and-in-animation 80ms ease-out;
       }
 
+      &>ul {
+        margin: 0;
+        padding: 0;
+
+        &+ul {
+          border-block-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
+        }
+      }
+
+      &>ul>li,
       &>li {
         list-style-type: none;
         padding: 0;

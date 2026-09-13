@@ -38,6 +38,28 @@ var MenuPage = NewPage(
     `,
 	).WithModules("Button", "Dialog", "Menu"),
 	NewExample(
+		"Groups",
+		`<p>You can use multiple lists to group menu items.</p>`,
+		` 
+    <button class="outline chevron" popovertarget="popover-groups">Go to page</button>
+    <div id="popover-groups" class="menu" popover>
+      <ul>
+          <li><a href="/docs/about">About</a></li>
+          <li><a href="/docs/releases">Releases</a></li>
+      </ul>
+      <ul>
+          <li><a href="/docs/colors">Colors</a></li>
+          <li><a href="/docs/palette">Palette</a></li>
+      </ul>
+      <ul>
+          <li><a href="/docs/dialog">Dialog</a></li>
+          <li><a href="/docs/menu">Menu</a></li>
+          <li><a href="/docs/notification">Notification</a></li>
+      </ul>
+    </div>
+    `,
+	).WithModules("Button", "Menu"),
+	NewExample(
 		"Chevron",
 		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
 		` 
