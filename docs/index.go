@@ -53,6 +53,7 @@ var Index = Categories{
 		"Popups",
 		DialogPage,
 		MenuPage,
+		PopoverPage,
 		NotificationPage,
 	),
 	NewCategory(

@@ -64,7 +64,6 @@
     padding: 0;
     width: var(--scale-13);
     height: fit-content;
-    box-sizing: border-box;
     --close-button-size: calc(var(--line-height) * 1em);
     max-width: calc(100vw - 2 * var(--scale-3));
     max-height: calc(100vh - 2 * var(--scale-3));

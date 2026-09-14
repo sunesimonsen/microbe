@@ -15,7 +15,7 @@
   .microbe {
     :is(ul, div).menu {
       position-area: block-end span-inline-end;
-      position-try-fallbacks: flip-block;
+      position-try-fallbacks: flip-block, flip-inline;
 
       box-shadow: var(--scale-2) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2),
         calc(var(--scale-2) * -1) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2);
@@ -28,7 +28,6 @@
       padding-block: var(--scale-3);
       margin-block-start: var(--scale-1);
       min-width: var(--scale-10);
-      box-sizing: border-box;
 
       border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
       border-radius: var(--scale-2);

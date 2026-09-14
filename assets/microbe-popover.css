@@ -1,0 +1,37 @@
+@layer modules {
+
+  @keyframes slide-down-and-in-animation {
+    0% {
+      transform: translateY(calc(-1 * var(--scale-3)));
+      opacity: 0.3;
+    }
+
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .microbe .popover {
+    position-area: block-end span-inline-end;
+    position-try-fallbacks: flip-block, flip-inline;
+
+    box-shadow: var(--scale-2) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2),
+      calc(var(--scale-2) * -1) var(--scale-2) var(--scale-4) 0 hsl(from var(--shadow-color) h s l / 0.2);
+
+    color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+
+    padding: var(--scale-4) var(--scale-5);
+    margin: 0;
+    margin-block-start: var(--scale-1);
+    min-width: var(--scale-10);
+
+    border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
+    border-radius: var(--scale-2);
+
+    &:popover-open {
+      animation: slide-down-and-in-animation 80ms ease-out;
+    }
+  }
+}

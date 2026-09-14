@@ -69,7 +69,6 @@
       width: var(--close-button-size);
       background-color: transparent;
       cursor: pointer;
-      box-sizing: border-box;
 
       &::after {
         content: "";
