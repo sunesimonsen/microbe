@@ -110,4 +110,16 @@ var ButtonPage = NewPage(
     </div>
     `,
 	).WithClass("rows").WithModules("Button"),
+	NewExample(
+		"Chevron",
+		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
+		` 
+    <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
+    <ul id="popover-trigger" class="menu" popover>
+	      <li><a href="/docs/about">About</a></li>
+	      <li><a href="/docs/typography">Typography</a></li>
+	      <li><a href="/docs/dialog">Dialog</a></li>
+    </ul>
+    `,
+	).WithModules("Button", "Menu"),
 )
