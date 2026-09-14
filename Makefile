@@ -1,5 +1,15 @@
 default: test
 
+RELEASE_VERSION := $(word 2,$(MAKECMDGOALS))
+
+# Allow `make release v0.3.0` to treat the version as an argument instead of
+# as a separate make target.
+ifneq ($(RELEASE_VERSION),)
+.PHONY: $(RELEASE_VERSION)
+$(RELEASE_VERSION):
+	@:
+endif
+
 tmp/main: **/*.go
 	go build -o tmp/main
 
@@ -31,3 +41,27 @@ cover:
 
 clean:
 	rm -rf tmp
+
+.PHONY: release
+release:
+	@set -eu; \
+	if [ "$$(git branch --show-current)" != "main" ]; then \
+		echo "release must be run from the main branch" >&2; \
+		exit 1; \
+	fi; \
+	version="$(RELEASE_VERSION)"; \
+	if ! printf '%s\n' "$$version" | grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$$'; then \
+		echo "usage: make release v<major>.<minor>.<patch>" >&2; \
+		exit 1; \
+	fi; \
+	if git rev-parse --verify --quiet "refs/tags/$$version" >/dev/null; then \
+		echo "tag $$version already exists" >&2; \
+		exit 1; \
+	fi; \
+	sed -i.bak -E "s/(\"VERSION\"[[:space:]]*:[[:space:]]*\")[^\"]*(\")/\\1$${version}\\2/" app.json; \
+	rm -f app.json.bak; \
+	git add app.json; \
+	git commit -m "Release $$version"; \
+	git tag "$$version"; \
+	git push origin main "refs/tags/$$version"; \
+	$(MAKE) deploy
