@@ -58,9 +58,8 @@ release:
 		echo "tag $$version already exists" >&2; \
 		exit 1; \
 	fi; \
-	sed -i.bak -E "s/(\"VERSION\"[[:space:]]*:[[:space:]]*\")[^\"]*(\")/\\1$${version}\\2/" app.json; \
-	rm -f app.json.bak; \
-	git add app.json; \
+	printf '%s\n' "$$version" > VERSION; \
+	git add VERSION; \
 	git commit -m "Release $$version"; \
 	git tag "$$version"; \
 	git push origin main "refs/tags/$$version"; \

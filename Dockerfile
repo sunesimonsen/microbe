@@ -13,6 +13,7 @@ RUN apk add --no-cache ca-certificates
 
 WORKDIR /app
 COPY --from=build /app/assets /app/assets
+COPY --from=build /app/VERSION /app/VERSION
 COPY --from=build /app/tmp/main main
 
 EXPOSE 8080

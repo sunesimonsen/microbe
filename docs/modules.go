@@ -3,6 +3,7 @@ package docs
 import (
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
@@ -13,16 +14,23 @@ func modulesFromExamples() []string {
 	return Index.GetModules()
 }
 
+func getCurrentVersion() string {
+	if contents, err := os.ReadFile("VERSION"); err == nil {
+		if fileVersion := strings.TrimSpace(string(contents)); fileVersion != "" {
+			return fileVersion
+		}
+	}
+
+	return "HEAD"
+}
+
 var ModulesPage = NewPage(
 	"Modules",
 	`<p>Lets you pick the optional modules to include, then generates the corresponding HTML link tags for the current Microbe release.</p>`,
 	NewPageSection(
 		"Module picker",
 		func(_ url.URL) Node {
-			version := os.Getenv("VERSION")
-			if version == "" {
-				version = "HEAD"
-			}
+			version := getCurrentVersion()
 			modules := modulesFromExamples()
 
 			return Group([]Node{
