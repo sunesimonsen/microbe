@@ -3,7 +3,6 @@ package docs
 import (
 	"net/url"
 	"os"
-	"slices"
 
 	"github.com/iancoleman/strcase"
 	. "maragu.dev/gomponents"
@@ -14,24 +13,12 @@ func modulesFromExamples() []string {
 	return Index.GetModules()
 }
 
-func CurrentModules(u url.URL) []string {
-	q := u.Query()
-	modules := q["modules"]
-	return modules
-}
-
-func IncludesModule(u url.URL, name string) bool {
-	modules := CurrentModules(u)
-
-	return slices.Contains(modules, name)
-}
-
 var ReleasesPage = NewPage(
 	"Releases",
 	`<p>Lets you pick the optional modules to include, then generates the corresponding HTML link tags for the current Microbe release.</p>`,
 	NewPageSection(
 		"Module picker",
-		func(u url.URL) Node {
+		func(_ url.URL) Node {
 			version := os.Getenv("VERSION")
 			if version == "" {
 				version = "HEAD"
@@ -40,7 +27,9 @@ var ReleasesPage = NewPage(
 
 			return Group([]Node{
 				Article(
+					ID("module-picker-article"),
 					Class("card raised"),
+					Data("version", version),
 					Header(Text("Module picker")),
 					Section(
 						Form(
@@ -51,9 +40,7 @@ var ReleasesPage = NewPage(
 									return Label(
 										Input(Type("checkbox"),
 											Name("modules"),
-											Attr("onchange", "this.form.submit()"),
 											Value(id),
-											If(IncludesModule(u, id), Checked()),
 										),
 										Text(module),
 									)
@@ -71,18 +58,6 @@ var ReleasesPage = NewPage(
 								Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
 									version,
 								),
-								Map(modules, func(module string) Node {
-									id := strcase.ToKebab(module)
-									if !IncludesModule(u, id) {
-										return nil
-									}
-
-									return Textf(
-										"<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe-%s.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-										version,
-										id,
-									)
-								}),
 							),
 						),
 					),

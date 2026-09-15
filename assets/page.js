@@ -4,6 +4,11 @@ ${modules.map((module) => `<link rel="stylesheet" type="text/css" href="https://
 
 ${source}`
 
+const releaseTemplate = (version, modules) => [
+  `<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@${version}/assets/microbe.css" rel="stylesheet" type="text/css">`,
+  ...modules.map((module) => `<link href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@${version}/assets/microbe-${module}.css" rel="stylesheet" type="text/css">`),
+].join("\n") + "\n"
+
 const cssTemplate = `\
 body {
   color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
@@ -115,8 +120,25 @@ if (window.self === window.top) {
       indeterminateCheckbox.indeterminate = true;
     }
 
-    for (const code of document.querySelectorAll("[data-highlight=yes]")) {
-      hljs.highlightElement(code);
+    const releaseArticle = document.getElementById("module-picker-article")
+    if (releaseArticle) {
+      const snippet = releaseArticle.querySelector(".source code")
+      const updateSnippet = () => {
+        const modules = Array.from(releaseArticle.querySelectorAll('input[name="modules"]:checked'))
+          .map((checkbox) => checkbox.value)
+
+        snippet.textContent = releaseTemplate(releaseArticle.dataset.version, modules)
+        snippet.removeAttribute("data-highlighted")
+        hljs.highlightElement(snippet)
+      }
+
+      releaseArticle.addEventListener("change", (event) => {
+        if (event.target.matches('input[name="modules"]')) {
+          updateSnippet()
+        }
+      })
+
+      updateSnippet()
     }
   })
 
