@@ -9,7 +9,7 @@ var AboutPage = NewPage(
 	"About",
 	`
   <p>
-    Microbe is a CSS framework with a core stylesheet that elegantly styles most native HTML elements, plus optional modules for common user interface styles.
+    Microbe is a lightweight CSS framework for building responsive interfaces with semantic HTML. Its core stylesheet provides a small baseline, fluid typography and spacing, accessible form defaults, and a token-based color system. Optional modules add focused patterns such as buttons, cards, navigation, tabs, dialogs, popovers, notifications, and loading states, each available as a separate stylesheet. Most element and component styles are scoped to a <code>.microbe</code> container and organized with CSS cascade layers, so you can introduce Microbe incrementally alongside an existing stylesheet. By relying on native HTML elements and browser primitives rather than a JavaScript component runtime, Microbe keeps markup straightforward and is particularly well suited to server-rendered applications.
   </p>
   <p>
     The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.
@@ -17,10 +17,31 @@ var AboutPage = NewPage(
   <p>
     It ships with opinionated defaults, but you can easily override them using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties" target="_blank">CSS variables</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@layer" target="_blank">CSS layers</a>.
   </p>`,
-	NewStaticPageSection(
+	NewExample(
 		"Usage",
-		H2(Text("Usage")),
-		P(Text("Pick modules on the "), A(Href("/docs/modules"), Text("modules page")), Text(" and just start adding HTML markup described by the examples.")),
+		`<p>Start with semantic HTML and <code>microbe.css</code> and any <a href="/docs/modules">modules</a> you need.</p>`,
+		`
+    <button class="outline" command="show-modal" commandfor="example-dialog">
+      Click me
+    </button>
+    <dialog id="example-dialog" class="small" closedby="any">
+      <header>
+        <strong>Microbe</strong>
+        <button rel="prev" aria-label="Close" commandfor="example-dialog" command="close" tabindex="1"></button>
+      </header>
+      <section style="text-align: center; padding: var(--scale-7)">
+        <img style="width: var(--scale-9); aspect-ratio: 1; margin-block: var(--scale-6)" src="https://microbe.sune.one/assets/microbe-cube.svg" alt="Microbe logo">
+        <p>
+          All great things starts with a simple idea.
+        </p>
+      </section>
+    </dialog>
+    `,
+	).WithModules("Button", "Dialog").WithClass("grid"),
+	NewStaticPageSection(
+		"Modules",
+		H2(Text("Modules")),
+		P(Text("Pick the modules you need on the "), A(Href("/docs/modules"), Text("modules page")), Text(", include the generated link tags in your document, and start with semantic HTML:")),
 	),
 	NewExample(
 		"Customizable",
