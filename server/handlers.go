@@ -67,8 +67,6 @@ func renderNode(w http.ResponseWriter, _ *http.Request, node Node) {
 	}
 
 	w.Header().Set("Content-Type", "text/html")
-	w.Header().Set("Cache-Control", "no-store, no-cache, must-revalidate")
-	w.Header().Set("Pragma", "no-cache")
 
 	if err := node.Render(w); err != nil {
 		writeInternalServerError(w)

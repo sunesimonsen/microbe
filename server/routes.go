@@ -9,6 +9,7 @@ import (
 func (s *Server) setupRoutes() {
 	s.router.Use(middleware.RedirectSlashes)
 	s.router.Use(middleware.Logger)
+	s.router.Use(VersionETag)
 
 	s.router.Get("/", IndexHandler)
 	s.router.Get("/getting-started/about", IndexHandler)
