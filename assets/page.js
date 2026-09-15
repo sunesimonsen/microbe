@@ -123,21 +123,47 @@ if (window.self === window.top) {
     const releaseArticle = document.getElementById("module-picker-article")
     if (releaseArticle) {
       const snippet = releaseArticle.querySelector(".source code")
-      const updateSnippet = () => {
-        const modules = Array.from(releaseArticle.querySelectorAll('input[name="modules"]:checked'))
-          .map((checkbox) => checkbox.value)
+      const moduleStorageKey = "microbe-release-modules"
+      const moduleCheckboxes = releaseArticle.querySelectorAll('input[name="modules"]')
+      const selectedModules = () => Array.from(moduleCheckboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value)
 
-        snippet.textContent = releaseTemplate(releaseArticle.dataset.version, modules)
+      const rememberSelectedModules = () => {
+        try {
+          sessionStorage.setItem(moduleStorageKey, JSON.stringify(selectedModules()))
+        } catch (_) {
+          // Session storage may be unavailable in privacy-restricted browsers.
+        }
+      }
+
+      const restoreSelectedModules = () => {
+        try {
+          const storedModules = JSON.parse(sessionStorage.getItem(moduleStorageKey) || "[]")
+          if (!Array.isArray(storedModules)) return
+
+          moduleCheckboxes.forEach((checkbox) => {
+            checkbox.checked = storedModules.includes(checkbox.value)
+          })
+        } catch (_) {
+          // Ignore unavailable or malformed session storage.
+        }
+      }
+
+      const updateSnippet = () => {
+        snippet.textContent = releaseTemplate(releaseArticle.dataset.version, selectedModules())
         snippet.removeAttribute("data-highlighted")
         hljs.highlightElement(snippet)
       }
 
       releaseArticle.addEventListener("change", (event) => {
         if (event.target.matches('input[name="modules"]')) {
+          rememberSelectedModules()
           updateSnippet()
         }
       })
 
+      restoreSelectedModules()
       updateSnippet()
     }
   })
