@@ -2,6 +2,7 @@ package docs
 
 import (
 	"net/url"
+	"os"
 	"slices"
 
 	"github.com/iancoleman/strcase"
@@ -9,34 +10,8 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-type Release struct {
-	Version string
-	Modules []string
-}
-
-var allModules = []string{"Accordion", "Avatar", "Button", "Breadcrumb", "Callout", "Card", "Dialog", "Input", "Menu", "Navlist", "Notification", "Pagination", "Popover", "Progress", "Skeleton", "Tabs", "Tag"}
-
-var releases = []Release{
-	{Version: "HEAD", Modules: allModules},
-	{
-		Version: "v0.1.0",
-		Modules: []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Pagination", "Skeleton", "Tabs", "Tag"},
-	},
-	{
-		Version: "v0.2.0",
-		Modules: []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Pagination", "Skeleton", "Tabs", "Tag"},
-	},
-	{Version: "v0.3.0", Modules: []string{"Accordion", "Avatar", "Breadcrumb", "Callout", "Card", "Dialog", "Menu", "Navlist", "Notification", "Pagination", "Skeleton", "Tabs", "Tag"}},
-}
-
-func CurrentVersion(u url.URL) string {
-	currentVersion := u.Query().Get("version")
-
-	if currentVersion == "" {
-		return "HEAD"
-	}
-
-	return currentVersion
+func modulesFromExamples() []string {
+	return Index.GetModules()
 }
 
 func CurrentModules(u url.URL) []string {
@@ -51,51 +26,27 @@ func IncludesModule(u url.URL, name string) bool {
 	return slices.Contains(modules, name)
 }
 
-func GetRelease(version string) Release {
-	releaseIndex := slices.IndexFunc(releases, func(r Release) bool {
-		return r.Version == version
-	})
-
-	release := releases[0]
-	if releaseIndex != -1 {
-		release = releases[releaseIndex]
-	}
-
-	return release
-}
-
 var ReleasesPage = NewPage(
 	"Releases",
-	`<p>Lets you pick a Microbe release and the optional modules to include, then generates the corresponding HTML link tags to add to your page.</p>`,
+	`<p>Lets you pick the optional modules to include, then generates the corresponding HTML link tags for the current Microbe release.</p>`,
 	NewPageSection(
-		"Version picker",
+		"Module picker",
 		func(u url.URL) Node {
-			currentVersion := CurrentVersion(u)
-			release := GetRelease(currentVersion)
+			version := os.Getenv("VERSION")
+			if version == "" {
+				version = "HEAD"
+			}
+			modules := modulesFromExamples()
 
 			return Group([]Node{
 				Article(
 					Class("card raised"),
-					Header(Text("Version picker")),
+					Header(Text("Module picker")),
 					Section(
 						Form(
-							Label(
-								Text("Version"),
-								Select(
-									Name("version"),
-									Attr("onchange", "this.form.submit()"),
-									Map(releases, func(r Release) Node {
-										return Option(
-											Value(r.Version),
-											Text(r.Version),
-											If(currentVersion == r.Version, Selected()),
-										)
-									}),
-								),
-							),
 							FieldSet(
 								Legend(Text("Include modules")),
-								Map(release.Modules, func(module string) Node {
+								Map(modules, func(module string) Node {
 									id := strcase.ToKebab(module)
 									return Label(
 										Input(Type("checkbox"),
@@ -118,9 +69,9 @@ var ReleasesPage = NewPage(
 								Class("language-html hljs language-xml"),
 								Data("highlight", "yes"),
 								Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-									currentVersion,
+									version,
 								),
-								Map(release.Modules, func(module string) Node {
+								Map(modules, func(module string) Node {
 									id := strcase.ToKebab(module)
 									if !IncludesModule(u, id) {
 										return nil
@@ -128,7 +79,7 @@ var ReleasesPage = NewPage(
 
 									return Textf(
 										"<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe-%s.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-										currentVersion,
+										version,
 										id,
 									)
 								}),

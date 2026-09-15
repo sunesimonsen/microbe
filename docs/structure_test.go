@@ -1,6 +1,31 @@
 package docs
 
-import "testing"
+import (
+	"slices"
+	"testing"
+)
+
+func TestCategoriesGetModules(t *testing.T) {
+	pages := Categories{
+		NewCategory(
+			"Layout",
+			NewPage("Card", "",
+				NewExample("Basic", "", "").WithModules("Card", "Input"),
+			),
+		),
+		NewCategory(
+			"Forms",
+			NewPage("Button", "",
+				NewExample("Basic", "", "").WithModules("Button", "Input"),
+			),
+		),
+	}
+
+	want := []string{"Card", "Input", "Button"}
+	if got := pages.GetModules(); !slices.Equal(got, want) {
+		t.Fatalf("GetModules() = %v, want %v", got, want)
+	}
+}
 
 func TestCategoriesFilter(t *testing.T) {
 	pages := Categories{

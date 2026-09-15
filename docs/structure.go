@@ -19,6 +19,7 @@ var ErrNotFound = errors.New("Resource was not found")
 type PageSection interface {
 	GetNode(u url.URL) Node
 	GetName() string
+	GetModules() []string
 }
 
 type Example struct {
@@ -31,6 +32,10 @@ type Example struct {
 
 func (e Example) GetName() string {
 	return e.Name
+}
+
+func (e Example) GetModules() []string {
+	return appendUniqueModules([]string(nil), e.Modules...)
 }
 
 func moduleNames(modules []string) string {
@@ -142,6 +147,10 @@ func (s CustomPageSection) GetName() string {
 	return s.Name
 }
 
+func (s CustomPageSection) GetModules() []string {
+	return nil
+}
+
 func (s CustomPageSection) GetNode(u url.URL) Node {
 	return Section(ID(strcase.ToKebab(s.GetName())), s.getNode(u))
 }
@@ -219,6 +228,16 @@ func NewPage(name string, description string, content ...PageSection) Page {
 	}
 }
 
+func (p Page) GetModules() []string {
+	var modules []string
+
+	for _, section := range p.Content {
+		modules = appendUniqueModules(modules, section.GetModules()...)
+	}
+
+	return modules
+}
+
 type Category struct {
 	Name  string
 	Pages []Page
@@ -241,7 +260,37 @@ func NewCategory(name string, pages ...Page) Category {
 	}
 }
 
+func (c Category) GetModules() []string {
+	var modules []string
+
+	for _, page := range c.Pages {
+		modules = appendUniqueModules(modules, page.GetModules()...)
+	}
+
+	return modules
+}
+
 type Categories []Category
+
+func (cs Categories) GetModules() []string {
+	var modules []string
+
+	for _, category := range cs {
+		modules = appendUniqueModules(modules, category.GetModules()...)
+	}
+
+	return modules
+}
+
+func appendUniqueModules(modules []string, additions ...string) []string {
+	for _, module := range additions {
+		if !slices.Contains(modules, module) {
+			modules = append(modules, module)
+		}
+	}
+
+	return modules
+}
 
 func (cs Categories) FindCategory(name string) (Category, error) {
 	for _, c := range cs {
