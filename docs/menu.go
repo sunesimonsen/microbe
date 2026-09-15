@@ -45,7 +45,7 @@ var MenuPage = NewPage(
     <div id="popover-groups" class="menu" popover>
       <ul>
           <li><a href="/docs/about">About</a></li>
-          <li><a href="/docs/releases">Releases</a></li>
+          <li><a href="/docs/modules">Modules</a></li>
       </ul>
       <ul>
           <li><a href="/docs/colors">Colors</a></li>

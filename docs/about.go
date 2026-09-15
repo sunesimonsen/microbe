@@ -20,7 +20,7 @@ var AboutPage = NewPage(
 	NewStaticPageSection(
 		"Usage",
 		H2(Text("Usage")),
-		P(Text("Pick a release on the "), A(Href("/docs/releases"), Text("release page")), Text(" and just start adding HTML markup described by the examples.")),
+		P(Text("Pick modules on the "), A(Href("/docs/modules"), Text("modules page")), Text(" and just start adding HTML markup described by the examples.")),
 	),
 	NewExample(
 		"Customizable",

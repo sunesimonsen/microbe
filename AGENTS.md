@@ -59,7 +59,7 @@ Microbe is an in-progress Go web application that documents and serves **Microbe
 `docs.Index` is an ordered `Categories` value. Add a page in two steps: define a `Page` in `docs/<topic>.go`, then include it in the appropriate `NewCategory(...)` in `docs/index.go`.
 
 ```text
-Getting started: About, Releases
+Getting started: About, Modules
 Theming:         Colors, Palette
 Layout:          Accordion, Card, Tabs, Spacing
 Content:         Typography, List, Table
@@ -75,7 +75,7 @@ Page URLs are generated as `/docs/<kebab-case page name>`; lookup is case/format
 - `NewExample(name, descriptionHTML, sourceHTML)`, optionally decorated with `.WithClass(...)`; source is whitespace-normalized and can be shown/highlighted or posted to JSFiddle.
 - `NewStaticPageSection(...)` / `NewPageSection(...)` for static or URL-aware custom content.
 
-`Page.GetNode` renders the title/description, all sections, and a table of contents. `Categories.GetMenu` creates the collapsible navigation; `Categories.Filter` searches only category and page names (not page descriptions/example source). Releases currently exposes only `HEAD`, with optional module names defined in `docs/releases.go`.
+`Page.GetNode` renders the title/description, all sections, and a table of contents. `Categories.GetMenu` creates the collapsible navigation; `Categories.Filter` searches only category and page names (not page descriptions/example source). The Modules page currently exposes only `HEAD`, with optional module names defined in `docs/modules.go`.
 
 ## Frontend/assets
 

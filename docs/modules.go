@@ -13,8 +13,8 @@ func modulesFromExamples() []string {
 	return Index.GetModules()
 }
 
-var ReleasesPage = NewPage(
-	"Releases",
+var ModulesPage = NewPage(
+	"Modules",
 	`<p>Lets you pick the optional modules to include, then generates the corresponding HTML link tags for the current Microbe release.</p>`,
 	NewPageSection(
 		"Module picker",

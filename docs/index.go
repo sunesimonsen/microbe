@@ -7,7 +7,7 @@ func init() {
 		NewCategory(
 			"Getting started",
 			AboutPage,
-			ReleasesPage,
+			ModulesPage,
 		),
 		NewCategory(
 			"Theming",
