@@ -1,13 +1,3 @@
-# Microbe
-
-Microbe is a lightweight CSS framework for building responsive interfaces with semantic HTML. It provides a small baseline, fluid typography and spacing, accessible form defaults, and a token-based color system. Optional modules add focused patterns such as buttons, cards, navigation, tabs, dialogs, and loading states.
-
-Microbe is built around relative `em` units, the golden ratio, CSS variables, and cascade layers. It relies on native HTML and browser primitives rather than a JavaScript component runtime, making it well suited to server-rendered applications and incremental adoption.
-
-For documentation, examples, usage instructions, and the latest information, visit **[microbe.sune.one](https://microbe.sune.one)**.
-
-# MIT License
-
 Copyright (c) 2026 Sune Simonsen <mailto:sune@we-knowhow.dk>
 
 Permission is hereby granted, free of charge, to any person obtaining
