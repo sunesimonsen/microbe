@@ -14,6 +14,10 @@ func modulesFromExamples() []string {
 	return Index.GetModules()
 }
 
+var moduleParts = map[string][]string{
+	"Input": {"Checkbox", "Input", "Textarea", "Radio", "Range", "Select", "Switch"},
+}
+
 func getCurrentVersion() string {
 	if contents, err := os.ReadFile("VERSION"); err == nil {
 		if fileVersion := strings.TrimSpace(string(contents)); fileVersion != "" {
@@ -45,12 +49,17 @@ var ModulesPage = NewPage(
 								Legend(Text("Include modules")),
 								Map(modules, func(module string) Node {
 									id := strcase.ToKebab(module)
-									return Label(
-										Input(Type("checkbox"),
-											Name("modules"),
-											Value(id),
+									return Div(
+										Label(
+											Input(Type("checkbox"),
+												Name("modules"),
+												Value(id),
+											),
+											Text(module),
 										),
-										Text(module),
+										If(len(moduleParts[module]) > 0,
+											Small(Text("Includes "+strings.Join(moduleParts[module], ", ")+".")),
+										),
 									)
 								}),
 							),
