@@ -26,7 +26,7 @@ var ListPage = NewPage(
       <li>Water spinach arugula</li>
     </ul>
     `,
-	),
+	).WithModules("List"),
 	NewExample(
 		"Ordered list", "",
 		`
@@ -50,7 +50,7 @@ var ListPage = NewPage(
       <li>Water spinach arugula</li>
     </ol>
     `,
-	),
+	).WithModules("List"),
 	NewExample(
 		"Mixed list", "",
 		`
@@ -74,7 +74,7 @@ var ListPage = NewPage(
       <li>Water spinach arugula</li>
     </ol>
     `,
-	),
+	).WithModules("List"),
 	NewExample(
 		"Description list", "",
 		`
@@ -88,5 +88,5 @@ var ListPage = NewPage(
       <dd>A giant owl-like creature.</dd>
     </dl>
     `,
-	),
+	).WithModules("List"),
 )
