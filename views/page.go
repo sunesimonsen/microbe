@@ -17,6 +17,20 @@ func Page(title string, children ...Node) Node {
 				Meta(Name("viewport"), Content("width=device-width,initial-scale=1")),
 				Meta(Name("description"), Content("Microbe.css documentation"), Lang("en")),
 				Meta(Name("color-scheme"), Content("light dark")),
+				// Apply an explicit theme before the stylesheet is painted to avoid a flash
+				// of the system theme when the user has made a different choice.
+				Script(Raw(`
+(() => {
+  try {
+    const theme = localStorage.getItem("microbe-theme")
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.classList.add("theme-" + theme)
+    }
+  } catch (_) {
+    // Local storage may be unavailable in privacy-restricted browsers.
+  }
+})()
+`)),
 				Link(Rel("icon"), Type("image/x-icon"), Href("/assets/microbe-cube.ico")),
 				Link(Rel("icon"), Type("image/ico"), Href("/assets/microbe-cube.svg")),
 				Link(Rel("icon"), Type("image/svg+xml"), Href("/assets/microbe-cube.svg")),

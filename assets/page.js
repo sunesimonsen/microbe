@@ -58,6 +58,50 @@ ${indent(source, '  ')}
 
 if (window.self === window.top) {
   window.addEventListener('load', () => {
+    const themeMenu = document.getElementById("theme-menu")
+    if (themeMenu) {
+      const themeStorageKey = "microbe-theme"
+      const themeButtons = themeMenu.querySelectorAll("[data-theme]")
+      let selectedTheme = "system"
+
+      try {
+        const storedTheme = localStorage.getItem(themeStorageKey)
+        if (["system", "light", "dark"].includes(storedTheme)) {
+          selectedTheme = storedTheme
+        }
+      } catch (_) {
+        // Local storage may be unavailable in privacy-restricted browsers.
+      }
+
+      const applyTheme = (theme) => {
+        document.documentElement.classList.toggle("theme-light", theme === "light")
+        document.documentElement.classList.toggle("theme-dark", theme === "dark")
+        themeButtons.forEach((button) => {
+          button.setAttribute("aria-checked", button.dataset.theme === theme)
+        })
+      }
+
+      applyTheme(selectedTheme)
+
+      themeMenu.addEventListener("click", (event) => {
+        const themeButton = event.target.closest("[data-theme]")
+        if (!themeButton) return
+
+        const theme = themeButton.dataset.theme
+        applyTheme(theme)
+
+        try {
+          localStorage.setItem(themeStorageKey, theme)
+        } catch (_) {
+          // Local storage may be unavailable in privacy-restricted browsers.
+        }
+
+        if (themeMenu.hidePopover) {
+          themeMenu.hidePopover()
+        }
+      })
+    }
+
     const themingExampleForm = document.getElementById("theming-example-form")
     if (themingExampleForm) {
       const accentColorRange = document.getElementById('accent-color-range')

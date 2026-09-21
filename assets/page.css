@@ -260,6 +260,25 @@ label:has(.saturation-range, .color-range) {
   --layout-header-height: 4rem;
 }
 
+#theme-button {
+  & .theme-icon {
+    display: none;
+  }
+
+  /* The system theme is represented by the absence of an explicit theme class. */
+  html:not(.theme-light):not(.theme-dark) & .theme-icon-system,
+  html.theme-light & .theme-icon-light,
+  html.theme-dark & .theme-icon-dark {
+    display: inline-flex;
+  }
+}
+
+#theme-menu button {
+  display: flex;
+  align-items: center;
+  column-gap: var(--scale-4);
+}
+
 body>header {
   view-transition-name: header;
   height: var(--layout-header-height);
