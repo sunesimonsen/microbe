@@ -65,8 +65,8 @@
     width: var(--scale-13);
     height: fit-content;
     --close-button-size: calc(var(--line-height) * 1em);
-    max-width: calc(100vw - 2 * var(--scale-3));
-    max-height: calc(100vh - 2 * var(--scale-3));
+    max-width: calc(100dvh - 2 * var(--scale-3));
+    max-height: calc(100dvh - 2 * var(--scale-3));
     overflow: hidden;
     animation: slide-down-and-in-animation 100ms ease-out;
     visibility: hidden;
@@ -82,8 +82,8 @@
     &.drawer {
       margin-block: 0;
       margin-inline: auto 0;
-      height: 100vh;
-      max-height: 100vh;
+      height: 100dvh;
+      max-height: 100dvh;
       animation: right-drawer-animation 100ms ease-out;
       width: var(--scale-12);
       border-radius: 0;
@@ -97,8 +97,8 @@
 
     @media (max-width: 850px) {
       &.search {
-        height: 100vh;
-        width: 100vw;
+        height: 100dvh;
+        width: 100dvh;
       }
     }
 
