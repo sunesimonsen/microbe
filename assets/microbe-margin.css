@@ -1,0 +1,48 @@
+@layer modules {
+  .microbe {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    address,
+    blockquote,
+    dl,
+    ol,
+    p,
+    pre,
+    table,
+    fieldset,
+    legend,
+    ul,
+    .content {
+      margin: 0;
+      margin-block: var(--scale-5);
+
+      &:is(p) {
+        margin-block: var(--scale-4);
+      }
+
+      &:is(legend) {
+        margin-block-end: var(--scale-3);
+      }
+
+      &:is(h1, h2, h3, h4, h5, h6) {
+        margin: 0;
+      }
+
+      :is(h1, h2, h3, h4, h5, h6)+& {
+        margin-block-start: var(--scale-2);
+      }
+
+      &:first-child {
+        margin-block-start: 0;
+      }
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+    }
+  }
+}

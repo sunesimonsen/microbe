@@ -35,7 +35,7 @@ var TypographyPage = NewPage(
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
     `,
-	),
+	).WithModules("Typography"),
 	NewExample(
 		"Heading group",
 		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
@@ -45,7 +45,7 @@ var TypographyPage = NewPage(
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
     `,
-	),
+	).WithModules("Typography"),
 	NewExample(
 		"Inline text",
 		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
@@ -69,7 +69,7 @@ var TypographyPage = NewPage(
     <u>Underlined</u>
     <var>Var</var>
     `,
-	).WithClass("grid"),
+	).WithClass("grid").WithModules("Typography"),
 	NewExample(
 		"Horizontal ruler",
 		`<p>Use <code>hr</code> to signal a thematic break between paragraphs or sections, indicating that the topic or scene has shifted.</p>`,
@@ -94,7 +94,7 @@ var TypographyPage = NewPage(
       quis suscipit velit suscipit non.
     </p>
     `,
-	),
+	).WithModules("Typography"),
 	NewExample(
 		"Blockquote",
 		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
@@ -106,12 +106,12 @@ var TypographyPage = NewPage(
       </footer>
     </blockquote>
     `,
-	),
+	).WithModules("Typography"),
 	NewExample(
 		"Code block",
 		`<p>Combine <code>pre</code> with <code>code</code> to display a multi-line, preformatted snippet of code or other text whose whitespace and line breaks must be preserved exactly as written.</p>`,
 		`
     <pre><code>console.log('Hello world!');</code></pre>
     `,
-	),
+	).WithModules("Typography"),
 )

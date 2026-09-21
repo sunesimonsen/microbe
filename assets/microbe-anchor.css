@@ -1,0 +1,30 @@
+@layer modules {
+  .microbe {
+    a {
+      color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      transition: color 0.25s ease-in-out, outline-color 0.1s ease-in-out;
+      outline: none;
+      text-decoration: none;
+      user-select: none;
+
+      &:focus-visible {
+        text-decoration: underline;
+      }
+
+      &:hover,
+      &:active {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+        text-decoration: underline;
+      }
+
+      &[aria-current="page"] {
+        color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
+
+        &:hover,
+        &:active {
+          color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-12));
+        }
+      }
+    }
+  }
+}
