@@ -125,13 +125,16 @@ if (window.self === window.top) {
       const snippet = releaseArticle.querySelector(".source code")
       const moduleStorageKey = "microbe-release-modules"
       const moduleCheckboxes = releaseArticle.querySelectorAll('input[name="modules"]')
-      const selectedModules = () => Array.from(moduleCheckboxes)
+      const selectedModules = () => Array.from(new Set(Array.from(moduleCheckboxes)
         .filter((checkbox) => checkbox.checked)
-        .map((checkbox) => checkbox.value)
+        .map((checkbox) => checkbox.value)))
+      const selectedChoices = () => Array.from(moduleCheckboxes)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.dataset.choice || checkbox.value)
 
       const rememberSelectedModules = () => {
         try {
-          sessionStorage.setItem(moduleStorageKey, JSON.stringify(selectedModules()))
+          sessionStorage.setItem(moduleStorageKey, JSON.stringify(selectedChoices()))
         } catch (_) {
           // Session storage may be unavailable in privacy-restricted browsers.
         }
@@ -143,7 +146,8 @@ if (window.self === window.top) {
           if (!Array.isArray(storedModules)) return
 
           moduleCheckboxes.forEach((checkbox) => {
-            checkbox.checked = storedModules.includes(checkbox.value)
+            checkbox.checked = storedModules.includes(checkbox.value) ||
+              storedModules.includes(checkbox.dataset.choice)
           })
         } catch (_) {
           // Ignore unavailable or malformed session storage.

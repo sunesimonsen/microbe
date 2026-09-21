@@ -10,14 +10,6 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func modulesFromExamples() []string {
-	return Index.GetModules()
-}
-
-var moduleParts = map[string][]string{
-	"Forms": {"Checkbox", "Input", "Textarea", "Radio", "Range", "Select", "Switch"},
-}
-
 func getCurrentVersion() string {
 	if contents, err := os.ReadFile("VERSION"); err == nil {
 		if fileVersion := strings.TrimSpace(string(contents)); fileVersion != "" {
@@ -35,7 +27,6 @@ var ModulesPage = NewPage(
 		"Module picker",
 		func(_ url.URL) Node {
 			version := getCurrentVersion()
-			modules := modulesFromExamples()
 
 			return Group([]Node{
 				Article(
@@ -45,24 +36,25 @@ var ModulesPage = NewPage(
 					Header(Text("Module picker")),
 					Section(
 						Form(
-							FieldSet(
-								Legend(Text("Include modules")),
-								Map(modules, func(module string) Node {
-									id := strcase.ToKebab(module)
-									return Div(
-										Label(
-											Input(Type("checkbox"),
-												Name("modules"),
-												Value(id),
-											),
-											Text(module),
-										),
-										If(len(moduleParts[module]) > 0,
-											Small(Text("Includes "+strings.Join(moduleParts[module], ", ")+".")),
-										),
-									)
-								}),
-							),
+							Map(Index, func(category Category) Node {
+								categoryModules := category.ModuleChoices()
+
+								return If(len(categoryModules) > 0,
+									FieldSet(
+										Legend(Text(category.Name)),
+										Map(categoryModules, func(choice ModuleChoice) Node {
+											return Label(
+												Input(Type("checkbox"),
+													Name("modules"),
+													Value(strcase.ToKebab(choice.Module)),
+													Data("choice", strcase.ToKebab(choice.Name)),
+												),
+												Text(choice.Name),
+											)
+										}),
+									),
+								)
+							}),
 						),
 					),
 					Header(Text("HTML snippet")),

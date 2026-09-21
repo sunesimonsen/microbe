@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestCategoriesGetModules(t *testing.T) {
+func TestCategoriesModules(t *testing.T) {
 	pages := Categories{
 		NewCategory(
 			"Layout",
@@ -22,8 +22,37 @@ func TestCategoriesGetModules(t *testing.T) {
 	}
 
 	want := []string{"Card", "Forms", "Button"}
-	if got := pages.GetModules(); !slices.Equal(got, want) {
-		t.Fatalf("GetModules() = %v, want %v", got, want)
+	if got := pages.Modules(); !slices.Equal(got, want) {
+		t.Fatalf("Modules() = %v, want %v", got, want)
+	}
+}
+
+func TestCategoryModuleChoices(t *testing.T) {
+	category := NewCategory(
+		"Forms",
+		NewPage("Checkbox", "", NewExample("Basic", "", "").WithModules("Forms")),
+		NewPage("Input", "", NewExample("Basic", "", "").WithModules("Forms")),
+		NewPage("Radio", ""),
+		NewPage("Unstyled", ""),
+	)
+
+	want := []ModuleChoice{
+		{Name: "Checkbox", Module: "Forms"},
+		{Name: "Input", Module: "Forms"},
+	}
+	if got := category.ModuleChoices(); !slices.Equal(got, want) {
+		t.Fatalf("moduleChoices() = %v, want %v", got, want)
+	}
+
+	category = NewCategory(
+		"Layout",
+		NewPage("Card", "", NewExample("Basic", "", "").WithModules("Card")),
+		NewPage("Spacing", ""),
+	)
+
+	want = []ModuleChoice{{Name: "Card", Module: "Card"}}
+	if got := category.ModuleChoices(); !slices.Equal(got, want) {
+		t.Fatalf("moduleChoices() = %v, want %v", got, want)
 	}
 }
 

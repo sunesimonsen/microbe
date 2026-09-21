@@ -228,7 +228,7 @@ func NewPage(name string, description string, content ...PageSection) Page {
 	}
 }
 
-func (p Page) GetModules() []string {
+func (p Page) Modules() []string {
 	var modules []string
 
 	for _, section := range p.Content {
@@ -260,11 +260,11 @@ func NewCategory(name string, pages ...Page) Category {
 	}
 }
 
-func (c Category) GetModules() []string {
+func (c Category) Modules() []string {
 	var modules []string
 
 	for _, page := range c.Pages {
-		modules = appendUniqueModules(modules, page.GetModules()...)
+		modules = appendUniqueModules(modules, page.Modules()...)
 	}
 
 	return modules
@@ -272,14 +272,36 @@ func (c Category) GetModules() []string {
 
 type Categories []Category
 
-func (cs Categories) GetModules() []string {
+func (cs Categories) Modules() []string {
 	var modules []string
 
 	for _, category := range cs {
-		modules = appendUniqueModules(modules, category.GetModules()...)
+		modules = appendUniqueModules(modules, category.Modules()...)
 	}
 
 	return modules
+}
+
+type ModuleChoice struct {
+	Name   string
+	Module string
+}
+
+func (c Category) ModuleChoices() []ModuleChoice {
+	var result []ModuleChoice
+
+	for _, page := range c.Pages {
+		modules := page.Modules()
+
+		// Most modules correspond directly to a documentation page.
+		if slices.Contains(modules, page.Name) {
+			result = append(result, ModuleChoice{Name: page.Name, Module: page.Name})
+		} else if slices.Contains(modules, c.Name) {
+			result = append(result, ModuleChoice{Name: page.Name, Module: c.Name})
+		}
+	}
+
+	return result
 }
 
 func appendUniqueModules(modules []string, additions ...string) []string {
