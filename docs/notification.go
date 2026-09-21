@@ -114,5 +114,5 @@ var NotificationPage = NewPage(
       })
     </script>
     `,
-	).WithModules("Button", "Input", "Notification"),
+	).WithModules("Button", "Forms", "Notification"),
 )

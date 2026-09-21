@@ -27,7 +27,7 @@ func Page(title string, children ...Node) Node {
 				Meta(Name("apple-mobile-web-app-title"), Content("Microbe")),
 				Link(Rel("manifest"), Href("/assets/site.webmanifest")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe.css")),
-				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-input.css")),
+				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-forms.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-anchor.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-list.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-margin.css")),

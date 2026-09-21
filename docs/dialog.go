@@ -251,5 +251,5 @@ var DialogPage = NewPage(
       </section>
     </dialog>
     `,
-	).WithModules("Button", "Dialog", "Input"),
+	).WithModules("Button", "Dialog", "Forms"),
 )

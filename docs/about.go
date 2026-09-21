@@ -123,7 +123,7 @@ var AboutPage = NewPage(
     }
     </style>
     `,
-	).WithModules("Button", "Input"),
+	).WithModules("Button", "Forms"),
 	NewExample(
 		"Scalable",
 		`<p>All styles are built on the <code>em</code> unit and scales with the surrounding font size.</p>`,

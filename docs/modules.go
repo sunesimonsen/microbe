@@ -15,7 +15,7 @@ func modulesFromExamples() []string {
 }
 
 var moduleParts = map[string][]string{
-	"Input": {"Checkbox", "Input", "Textarea", "Radio", "Range", "Select", "Switch"},
+	"Forms": {"Checkbox", "Input", "Textarea", "Radio", "Range", "Select", "Switch"},
 }
 
 func getCurrentVersion() string {

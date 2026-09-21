@@ -1,5 +1,9 @@
 @layer modules {
   .microbe {
+    fieldset {
+      padding: 0;
+      border: none;
+    }
 
     input,
     textarea,

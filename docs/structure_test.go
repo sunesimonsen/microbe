@@ -10,18 +10,18 @@ func TestCategoriesGetModules(t *testing.T) {
 		NewCategory(
 			"Layout",
 			NewPage("Card", "",
-				NewExample("Basic", "", "").WithModules("Card", "Input"),
+				NewExample("Basic", "", "").WithModules("Card", "Forms"),
 			),
 		),
 		NewCategory(
 			"Forms",
 			NewPage("Button", "",
-				NewExample("Basic", "", "").WithModules("Button", "Input"),
+				NewExample("Basic", "", "").WithModules("Button", "Forms"),
 			),
 		),
 	}
 
-	want := []string{"Card", "Input", "Button"}
+	want := []string{"Card", "Forms", "Button"}
 	if got := pages.GetModules(); !slices.Equal(got, want) {
 		t.Fatalf("GetModules() = %v, want %v", got, want)
 	}
