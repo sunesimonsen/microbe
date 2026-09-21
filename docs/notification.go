@@ -44,7 +44,7 @@ var NotificationPage = NewPage(
       </section>
     </aside>
     `,
-	).WithClass("rows").WithModules("Notification"),
+	).WithClass("rows").WithModules("Notification", "Margin", "Typography"),
 	NewExample(
 		"Interactive",
 		`<p>Create notifications dynamically in a toast area rendered in the popover layer. Choose their type, then dismiss them manually or let them disappear after five seconds.</p>`,
@@ -114,5 +114,5 @@ var NotificationPage = NewPage(
       })
     </script>
     `,
-	).WithModules("Button", "Forms", "Notification"),
+	).WithModules("Button", "Forms", "Notification", "Margin", "Typography"),
 )

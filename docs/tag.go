@@ -11,7 +11,7 @@ var TagPage = NewPage(
     <span class="tag"><strong>Size</strong> Medium</span>
     <span class="tag"><strong>Material</strong> Cotton</span>
     `,
-	).WithClass("grid").WithModules("Tag"),
+	).WithClass("grid").WithModules("Tag", "Typography"),
 	NewExample(
 		"Color",
 		`<p>The color of the tags can be tweaked by setting the <code>--neutral-hue</code> and <code>--neutral-saturation</code> CSS variables.</p>`,
@@ -28,5 +28,5 @@ var TagPage = NewPage(
     <a class="tag" href="#interactive">Anchor</a>
     <button class="tag">Button</button>
     `,
-	).WithClass("grid small").WithModules("Tag"),
+	).WithClass("grid small").WithModules("Tag", "Anchor"),
 )

@@ -37,7 +37,7 @@ var AboutPage = NewPage(
       </section>
     </dialog>
     `,
-	).WithModules("Button", "Dialog").WithClass("grid"),
+	).WithModules("Button", "Dialog", "Margin", "Typography").WithClass("grid"),
 	NewStaticPageSection(
 		"Modules",
 		H2(Text("Modules")),

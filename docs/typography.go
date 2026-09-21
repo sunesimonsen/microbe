@@ -35,7 +35,7 @@ var TypographyPage = NewPage(
       Donec in lorem imperdiet, eleifend turpis eget, congue velit.
     </p>
     `,
-	).WithModules("Typography"),
+	).WithModules("Typography", "Margin"),
 	NewExample(
 		"Heading group",
 		`<p>Group a heading together with an introductory paragraph or tagline using <code>hgroup</code>, so assistive technology announces them together as a single unit rather than as two disconnected pieces of content.</p>`,
@@ -45,7 +45,7 @@ var TypographyPage = NewPage(
       <p>How to use CSS to add glam to your Website?</p>
     </hgroup>
     `,
-	).WithModules("Typography"),
+	).WithModules("Typography", "Margin"),
 	NewExample(
 		"Inline text",
 		`<p>Microbe supports the standard inline text-level elements for indicating meaning within a sentence or phrase, such as emphasis, deletions, insertions, abbreviations, and keyboard input.</p>`,
@@ -94,7 +94,7 @@ var TypographyPage = NewPage(
       quis suscipit velit suscipit non.
     </p>
     `,
-	).WithModules("Typography"),
+	).WithModules("Typography", "Margin"),
 	NewExample(
 		"Blockquote",
 		`<p>Use <code>blockquote</code> to quote text from another source, optionally combined with a <code>footer</code> and <code>cite</code> to attribute the quote to its author.</p>`,
@@ -113,5 +113,5 @@ var TypographyPage = NewPage(
 		`
     <pre><code>console.log('Hello world!');</code></pre>
     `,
-	).WithModules("Typography"),
+	).WithModules("Typography", "Margin"),
 )

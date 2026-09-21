@@ -121,5 +121,5 @@ var ButtonPage = NewPage(
 	      <li><a href="/docs/dialog">Dialog</a></li>
     </ul>
     `,
-	).WithModules("Button", "Menu"),
+	).WithModules("Button", "Menu", "Anchor"),
 )

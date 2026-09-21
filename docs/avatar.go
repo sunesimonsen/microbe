@@ -95,5 +95,5 @@ var AvatarPage = NewPage(
       </section>
     </dialog>
     `,
-	).WithClass("grid small").WithModules("Avatar", "Dialog"),
+	).WithClass("grid small").WithModules("Avatar", "Dialog", "Anchor", "Margin"),
 )

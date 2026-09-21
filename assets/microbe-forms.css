@@ -5,6 +5,10 @@
       border: none;
     }
 
+    fieldset legend {
+      margin-block-end: var(--scale-3);
+    }
+
     input,
     textarea,
     select {
@@ -86,6 +90,7 @@
 
       &+small {
         display: block;
+        font-size: smaller;
         color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
         margin-block-start: var(--scale-2);
       }
@@ -215,6 +220,7 @@
 
       &+small {
         display: block;
+        font-size: smaller;
         color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
       }
     }
@@ -543,6 +549,7 @@
 
     label+small {
       display: block;
+      font-size: smaller;
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));
       margin-block-start: var(--scale-2);
     }
