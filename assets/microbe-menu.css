@@ -71,6 +71,10 @@
             border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
             outline: none;
           }
+
+          &[role=menuitemradio][aria-checked=true] {
+            border-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-6));
+          }
         }
       }
     }

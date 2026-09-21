@@ -38,6 +38,18 @@ var MenuPage = NewPage(
     `,
 	).WithModules("Button", "Dialog", "Menu"),
 	NewExample(
+		"Checked items",
+		`<p>Use <code>role="menuitemradio"</code> and <code>aria-checked</code> when a menu contains a set of mutually exclusive choices.</p>`,
+		`
+    <button class="outline chevron" popovertarget="popover-theme">Theme</button>
+    <ul id="popover-theme" class="menu" popover role="menu" aria-label="Color theme">
+      <li><button role="menuitemradio" aria-checked="true">System</button></li>
+      <li><button role="menuitemradio" aria-checked="false">Light</button></li>
+      <li><button role="menuitemradio" aria-checked="false">Dark</button></li>
+    </ul>
+    `,
+	).WithModules("Button", "Menu"),
+	NewExample(
 		"Groups",
 		`<p>You can use multiple lists to group menu items.</p>`,
 		` 
