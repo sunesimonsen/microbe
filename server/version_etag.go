@@ -2,26 +2,17 @@ package server
 
 import (
 	"net/http"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/sunesimonsen/microbe/config"
 )
 
 // VersionETag sets the ETag response header to the version in VERSION when
 // that file is available. The file is read when the middleware is created so
 // the value remains stable for the lifetime of the server.
 func VersionETag(next http.Handler) http.Handler {
-	contents, err := os.ReadFile("VERSION")
-	if err != nil {
-		return next
-	}
-
-	version := strings.TrimSpace(string(contents))
-	if version == "" {
-		return next
-	}
-
-	etag := strconv.Quote(version)
+	etag := strconv.Quote(config.CurrentVersion)
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("ETag", etag)
@@ -41,7 +32,7 @@ func VersionETag(next http.Handler) http.Handler {
 }
 
 func etagMatches(header, etag string) bool {
-	for _, candidate := range strings.Split(header, ",") {
+	for candidate := range strings.SplitSeq(header, ",") {
 		candidate = strings.TrimSpace(candidate)
 		if candidate == "*" {
 			return true

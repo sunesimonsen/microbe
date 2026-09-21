@@ -2,23 +2,12 @@ package docs
 
 import (
 	"net/url"
-	"os"
-	"strings"
 
 	"github.com/iancoleman/strcase"
+	"github.com/sunesimonsen/microbe/config"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
 )
-
-func getCurrentVersion() string {
-	if contents, err := os.ReadFile("VERSION"); err == nil {
-		if fileVersion := strings.TrimSpace(string(contents)); fileVersion != "" {
-			return fileVersion
-		}
-	}
-
-	return "HEAD"
-}
 
 var ModulesPage = NewPage(
 	"Modules",
@@ -26,13 +15,11 @@ var ModulesPage = NewPage(
 	NewPageSection(
 		"Module picker",
 		func(_ url.URL) Node {
-			version := getCurrentVersion()
-
 			return Group([]Node{
 				Article(
 					ID("module-picker-article"),
 					Class("card raised"),
-					Data("version", version),
+					Data("version", config.CurrentVersion),
 					Header(Text("Module picker")),
 					Section(
 						Form(
@@ -65,7 +52,7 @@ var ModulesPage = NewPage(
 								Class("language-html hljs language-xml"),
 								Data("highlight", "yes"),
 								Textf("<link href=\"https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@%s/assets/microbe.css\" rel=\"stylesheet\" type=\"text/css\">\n",
-									version,
+									config.CurrentVersion,
 								),
 							),
 						),
