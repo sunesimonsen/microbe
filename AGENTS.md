@@ -64,8 +64,9 @@ Theming:         Colors, Palette
 Layout:          Accordion, Card, Tabs, Spacing
 Content:         Typography, List, Table
 Navigation:      Anchor, Navlist
-Forms:           Button, Checkbox, Input, Textarea, Radio, Range, Select, Switch
-Loaders:         Progress
+Actions:         Button
+Forms:           Checkbox, Input, Textarea, Radio, Range, Select, Switch
+Loading:         Progress
 Popups:          Dialog, Menu
 Data:            Tag
 ```

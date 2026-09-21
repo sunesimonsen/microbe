@@ -37,8 +37,11 @@ func init() {
 			NavlistPage,
 		),
 		NewCategory(
-			"Forms",
+			"Actions",
 			ButtonPage,
+		),
+		NewCategory(
+			"Forms",
 			CheckboxPage,
 			InputPage,
 			TextareaPage,

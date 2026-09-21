@@ -22,9 +22,14 @@ var NavlistPage = NewPage(
         </ul>
       </details>
       <details>
-        <summary>Forms</summary>
+        <summary>Actions</summary>
         <ul>
 	          <li><a href="/docs/button">Button</a></li>
+        </ul>
+      </details>
+      <details>
+        <summary>Forms</summary>
+        <ul>
 	          <li><a href="/docs/checkbox">Checkbox</a></li>
 	          <li><a href="/docs/input">Input</a></li>
 	          <li><a href="/docs/radio">Radio</a></li>
