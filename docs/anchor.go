@@ -8,19 +8,19 @@ var AnchorPage = NewPage(
 		`<p>A standard anchor with an <code>href</code> attribute navigates the user to another page, a different section of the current page, or an external resource when activated.</p>`, `
     <a href="#">Regular link</a>
     `,
-	).WithModules("Anchor"),
+	).WithClass("grid").WithModules("Anchor"),
 	NewExample(
 		"Active",
 		`<p>Add <code>aria-current=page</code> to the anchor that represents the page the user is currently viewing, so assistive technology can announce it as the current location within a set of navigation links.</p>`, `
     <a href="#" aria-current="page">Active link</a>
     `,
-	).WithModules("Anchor"),
+	).WithClass("grid").WithModules("Anchor"),
 	NewExample(
 		"Disabled",
 		`<p>You can disable links by removing the <code>href</code> attribute and add a <code>aria-disabled=true</code> attribute.</p>`, `
     <a aria-current="page" aria-disabled="true">Disabled link</a>
     `,
-	).WithModules("Anchor"),
+	).WithClass("grid").WithModules("Anchor"),
 	NewExample(
 		"Button styles",
 		`

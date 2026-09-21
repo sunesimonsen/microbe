@@ -12,7 +12,7 @@ var PopoverPage = NewPage(
       <p>This is a popover with some additional information.</p>
     </div>
     `,
-	).WithModules("Button", "Popover", "Margin"),
+	).WithClass("grid").WithModules("Button", "Popover", "Margin"),
 	NewExample(
 		"Content",
 		`<p>A popover is only styled as a container. Its contents remain unstyled, so you can use the HTML elements and components that suit your content.</p>`,
@@ -24,5 +24,5 @@ var PopoverPage = NewPage(
       <a href="#">View profile</a>
     </div>
     `,
-	).WithModules("Button", "Popover", "Anchor", "Margin", "Typography"),
+	).WithClass("grid").WithModules("Button", "Popover", "Anchor", "Margin", "Typography"),
 )
