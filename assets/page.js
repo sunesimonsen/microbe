@@ -1,6 +1,6 @@
-const htmlTemplate = (modules, source) => `\
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe.css">
-${modules.map((module) => `<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@HEAD/assets/microbe-${module}.css">`).join("\n")}
+const htmlTemplate = (version, modules, source) => `\
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@${version}/assets/microbe.css">
+${modules.map((module) => `<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/sunesimonsen/microbe@${version}/assets/microbe-${module}.css">`).join("\n")}
 
 ${source}`
 
@@ -254,7 +254,7 @@ if (window.self === window.top) {
 
       const modules = (form.dataset.modules || '').split(/\s+/).filter(Boolean)
       const htmlInput = form.querySelector("input[name=html]")
-      htmlInput.value = htmlTemplate(modules, source)
+      htmlInput.value = htmlTemplate(form.dataset.version, modules, source)
 
       const cssInput = form.querySelector("input[name=css]")
       cssInput.value = cssTemplate

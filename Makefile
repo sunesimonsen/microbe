@@ -31,7 +31,7 @@ test-update:
 	UPDATE_SNAPS=true go test ./...
 
 dev:
-	Test=true air
+	VERSION=HEAD Test=true air
 
 cover:
 	go test ./... -coverprofile=cover.prof

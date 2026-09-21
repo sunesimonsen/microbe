@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"github.com/iancoleman/strcase"
+	"github.com/sunesimonsen/microbe/config"
 	"github.com/sunesimonsen/microbe/icons"
 	. "maragu.dev/gomponents"
 	. "maragu.dev/gomponents/html"
@@ -76,6 +77,7 @@ func (e Example) GetNode(u url.URL) Node {
 			Attr("hidden"),
 			Class("jsfiddle"),
 			Data("modules", moduleNames(e.Modules)),
+			Data("version", config.CurrentVersion),
 			Input(Type("hidden"), Name("title"), Value("Microbe "+u.Path+"#"+e.Name)),
 			Input(Type("hidden"), Name("description"), Value("See https://microbe.sune.one for more information")),
 			Input(Type("hidden"), Name("html"), Value("")),
