@@ -9,7 +9,7 @@ var AboutPage = NewPage(
 	"About",
 	`
   <p>
-    Microbe is a lightweight CSS framework for building responsive interfaces with semantic HTML. Its core stylesheet provides a small baseline, fluid typography and spacing, accessible form defaults, and a token-based color system. Optional modules add focused patterns such as buttons, cards, navigation, tabs, dialogs, popovers, notifications, and loading states, each available as a separate stylesheet. Most element and component styles are scoped to a <code>.microbe</code> container and organized with CSS cascade layers, so you can introduce Microbe incrementally alongside an existing stylesheet. By relying on native HTML elements and browser primitives rather than a JavaScript component runtime, Microbe keeps markup straightforward and is particularly well suited to server-rendered applications.
+    Microbe is a lightweight CSS framework for building responsive interfaces with semantic HTML. Its core stylesheet provides a small baseline, fluid typography and spacing, accessible form defaults, and a token-based color system. Optional modules add focused patterns such as buttons, cards, navigation, tabs, dialogs, popovers, notifications, and loading states, each available as a separate stylesheet. Most element and component styles are scoped to a <code>microbe</code> container and organized with CSS cascade layers, so you can introduce Microbe incrementally alongside an existing stylesheet. By relying on native HTML elements and browser primitives rather than a JavaScript component runtime, Microbe keeps markup straightforward and is particularly well suited to server-rendered applications.
   </p>
   <p>
     The design system is built around the <a href="https://en.wikipedia.org/wiki/Golden_ratio" target="_blank">golden ratio</a> and the <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units#relative_length_units" target="_blank">relative units</a> allowing styles to scale beautifully with the surrounding font size.
@@ -154,29 +154,9 @@ var AboutPage = NewPage(
     `,
 	).WithClass("grid").WithModules("Button"),
 	NewExample(
-		"Computed colors",
-		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
-		`
-    <div class="grid stretch" style="--hue: 210">
-      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;"">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;"">Tertiary</button>
-    </div>
-    <div class="grid stretch" style="--hue: 300">
-      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
-    </div>
-    <div class="grid stretch" style="--hue: 40">
-      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
-    </div>
-    `,
-	).WithClass("rows").WithModules("Button"),
-	NewExample(
 		"Color schemes",
-		`<p>Microbe supports dark and light color schemes out of the box.</p>`,
+		`<p>Microbe supports dark and light color schemes out of the box.</p>
+     <p>Find the full docs <a href="/docs/color-schemes">here</a>.</p>`,
 		`
     <article id="color-scheme-example" class="card color-scheme-dark">
       <header>
@@ -230,6 +210,27 @@ var AboutPage = NewPage(
     </script>
     `,
 	).WithModules("Button", "Card", "Forms"),
+	NewExample(
+		"Computed colors",
+		`<p>As colors are based on hue, saturation and ligthness steps, it is often easy to compute colors that works well with the current accent color.</p>`,
+		`
+    <div class="grid stretch" style="--hue: 210">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;"">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;"">Tertiary</button>
+    </div>
+    <div class="grid stretch" style="--hue: 300">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+    </div>
+    <div class="grid stretch" style="--hue: 40">
+      <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+    </div>
+    `,
+	).WithClass("rows").WithModules("Button"),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),

@@ -4,7 +4,7 @@ var MarginPage = NewPage(
 	"Margin",
 	`
   <p>Microbe adds block margin to all native HTML block elements to make it easy to compose a nicely looking document.</p>
-  <p>For custom elements like <code>div</code>, you can add a <code>.content</code> class to get the correct spacing.</p>
+  <p>For custom elements like <code>div</code>, you can add a <code>content</code> class to get the correct spacing.</p>
   `,
 	NewExample(
 		"Example",

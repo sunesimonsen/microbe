@@ -5,7 +5,7 @@ var ButtonPage = NewPage(
 	`<p>Buttons let users trigger an action or event, such as submitting a form, confirming a choice, opening a dialog, or performing some other operation.</p>`,
 	NewExample(
 		"Styles",
-		`<p>Buttons are not styled by default to avoid the need to reset styles for custom usages. <code>.solid</code>, <code>.outline</code> and <code>.ghost</code> to set the appearance of the button.</p>`,
+		`<p>Buttons are not styled by default to avoid the need to reset styles for custom usages. <code>solid</code>, <code>outline</code> and <code>ghost</code> to set the appearance of the button.</p>`,
 		`
     <button class="solid">Solid Button</button>
     <button class="outline">Outline Button</button>
@@ -65,7 +65,7 @@ var ButtonPage = NewPage(
 	).WithClass("grid").WithModules("Button"),
 	NewExample(
 		"Icon",
-		`<p>Use the <code>.icon</code> for buttons with only an icon.</p>`,
+		`<p>Use the <code>icon</code> for buttons with only an icon.</p>`,
 		`
     <button class="solid icon" aria-label="Extra options">
       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -86,7 +86,7 @@ var ButtonPage = NewPage(
 	).WithClass("grid small").WithModules("Button"),
 	NewExample(
 		"Types",
-		`<p>In addition to the <code>button</code> element, input elements with a type of <code>button</code>, <code>submit</code> and <code>reset</code> can be styled as a button using the classes <code>.solid</code>, <code>.outline</code> and <code>.ghost</code>.</p>`,
+		`<p>In addition to the <code>button</code> element, input elements with a type of <code>button</code>, <code>submit</code> and <code>reset</code> can be styled as a button using the classes <code>solid</code>, <code>outline</code> and <code>ghost</code>.</p>`,
 		`
     <div class="grid stretch">
       <button class="solid">Button</button>
@@ -112,7 +112,7 @@ var ButtonPage = NewPage(
 	).WithClass("rows").WithModules("Button"),
 	NewExample(
 		"Chevron",
-		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
+		`<p>You can inject a chevron icon to the trigger by adding the <code>chevron</code> class.</p>`,
 		` 
     <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
     <ul id="popover-trigger" class="menu" popover>

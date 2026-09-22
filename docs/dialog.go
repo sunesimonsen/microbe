@@ -201,7 +201,7 @@ var DialogPage = NewPage(
 	).WithClass("grid").WithModules("Button", "Dialog", "Margin"),
 	NewExample(
 		"Drawer",
-		`<p>Use the <code>.drawer</code> class for a dialog that slides in from the right and fills the height of the screen, making it useful for contextual navigation or additional details.</p>`,
+		`<p>Use the <code>drawer</code> class for a dialog that slides in from the right and fills the height of the screen, making it useful for contextual navigation or additional details.</p>`,
 		`
     <button class="outline" command="show-modal" commandfor="example-drawer-dialog">
       Open drawer
@@ -230,7 +230,7 @@ var DialogPage = NewPage(
 	).WithClass("grid").WithModules("Button", "Dialog", "Margin"),
 	NewExample(
 		"Search",
-		`<p>Use the <code>.search</code> class for a search dialog that anchored to the top.</p>`,
+		`<p>Use the <code>search</code> class for a search dialog that anchored to the top.</p>`,
 		`
     <button class="outline" command="show-modal" commandfor="example-search-dialog">
       Search

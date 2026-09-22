@@ -159,6 +159,10 @@ if (window.self === window.top) {
       neutralSaturationRange.parentElement.dataset.value = `${neutralSaturationRange.value}%`
     }
 
+    document.querySelectorAll("[data-highlight]").forEach((element) => {
+      hljs.highlightElement(element)
+    })
+
     const indeterminateCheckbox = document.getElementById('indeterminate-checkbox')
     if (indeterminateCheckbox) {
       indeterminateCheckbox.indeterminate = true;

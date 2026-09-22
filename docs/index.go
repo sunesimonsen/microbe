@@ -12,6 +12,7 @@ func init() {
 		NewCategory(
 			"Theming",
 			ColorsPage,
+			ColorSchemesPage,
 			PalettePage,
 		),
 		NewCategory(

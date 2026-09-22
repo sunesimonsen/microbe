@@ -73,7 +73,7 @@ var MenuPage = NewPage(
 	).WithClass("grid").WithModules("Button", "Menu", "Anchor"),
 	NewExample(
 		"Chevron",
-		`<p>You can inject a chevron icon to the trigger by adding the <code>.chevron</code> class.</p>`,
+		`<p>You can inject a chevron icon to the trigger by adding the <code>chevron</code> class.</p>`,
 		` 
     <button class="outline chevron" popovertarget="popover-trigger">Go to page</button>
     <ul id="popover-trigger" class="menu" popover>
