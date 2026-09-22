@@ -71,13 +71,38 @@
     color-scheme: light;
   }
 
-  /* An explicit color scheme class wins over the user's system preference. */
-  :root.color-scheme-light {
-    /* Prevent Chrome's Auto Dark Mode from rewriting the light palette. */
+  .color-scheme-light {
+    --accent-saturation: 70%;
+    --error-saturation: 60%;
+
+    --neutral-hue: 0;
+    --neutral-saturation: 0%;
+
+    --lightness-0: 100.0%;
+    --lightness-1: 96.8%;
+    --lightness-2: 90.5%;
+    --lightness-3: 82.5%;
+    --lightness-4: 74.2%;
+    --lightness-5: 65.8%;
+    --lightness-6: 57.5%;
+    --lightness-7: 49.2%;
+    --lightness-8: 40.8%;
+    --lightness-9: 32.5%;
+    --lightness-10: 23.8%;
+    --lightness-11: 13.5%;
+    --lightness-12: 0.0%;
+
+    --foreground-lightness: var(--lightness-12);
+    --background-lightness: var(--lightness-0);
+    --focus-lightness: var(--lightness-3);
+    --shadow-color: hsl(var(--neutral-hue) 0 50%);
+    --focus-outline-width: calc(4*var(--border-width));
+    --focus-outline-offset: 0;
+
     color-scheme: only light;
   }
 
-  :root.color-scheme-dark {
+  .color-scheme-dark {
     --accent-saturation: 60%;
     --error-saturation: 70%;
     --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
@@ -142,6 +167,11 @@
   .microbe {
     color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+
+    :is(.color-scheme-light, .color-scheme-dark) {
+      color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
+      background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
+    }
 
     &,
     & * {

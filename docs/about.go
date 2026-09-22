@@ -174,6 +174,62 @@ var AboutPage = NewPage(
     </div>
     `,
 	).WithClass("rows").WithModules("Button"),
+	NewExample(
+		"Color schemes",
+		`<p>Microbe supports dark and light color schemes out of the box.</p>`,
+		`
+    <article id="color-scheme-example" class="card color-scheme-dark">
+      <header>
+        <label>
+          Color scheme
+          <select id="color-scheme-select" aria-label="Color scheme">
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark" selected>Dark</option>
+          </select>
+        </label>
+      </header>
+      <section>
+        <form>
+          <fieldset>
+            <label>
+              Name
+              <input name="name" placeholder="Name" autocomplete="name">
+            </label>
+            <label>
+              Email
+              <input name="email" placeholder="Email" autocomplete="email" aria-describedby="dark-email-hint">
+              <small id="dark-email-hint">
+                We’ll never share your email with anyone else.
+              </small>
+            </label>
+            <label>
+              <input type="checkbox" name="newsletter" aria-describedby="dark-newsletter-hint" checked>
+              Newsletter
+            </label>
+            <small id="dark-newsletter-hint">
+              We will send you a newsletter every week
+            </small>
+          </fieldset>
+          <div class="actions">
+            <button class="outline" type="reset">Reset</button>
+            <button class="solid" type="submit">Submit</button>
+          </div>
+        </form>
+      </section>
+    </article>
+    <script>
+      const colorSchemeExample = document.getElementById("color-scheme-example")
+      const colorSchemeSelect = document.getElementById("color-scheme-select")
+
+      colorSchemeSelect.addEventListener("change", (event) => {
+        const colorScheme = event.target.value
+        colorSchemeExample.classList.toggle("color-scheme-light", colorScheme === "light")
+        colorSchemeExample.classList.toggle("color-scheme-dark", colorScheme === "dark")
+      })
+    </script>
+    `,
+	).WithModules("Button", "Card", "Forms"),
 	NewStaticPageSection(
 		"Acknowledgement",
 		H2(Text("Acknowledgement")),
