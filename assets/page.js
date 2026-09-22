@@ -58,46 +58,46 @@ ${indent(source, '  ')}
 
 if (window.self === window.top) {
   window.addEventListener('load', () => {
-    const themeMenu = document.getElementById("theme-menu")
-    if (themeMenu) {
-      const themeStorageKey = "microbe-theme"
-      const themeButtons = themeMenu.querySelectorAll("[data-theme]")
-      let selectedTheme = "system"
+    const colorSchemeMenu = document.getElementById("color-scheme-menu")
+    if (colorSchemeMenu) {
+      const colorSchemeStorageKey = "microbe-color-scheme"
+      const colorSchemeButtons = colorSchemeMenu.querySelectorAll("[data-color-scheme]")
+      let selectedColorScheme = "system"
 
       try {
-        const storedTheme = localStorage.getItem(themeStorageKey)
-        if (["system", "light", "dark"].includes(storedTheme)) {
-          selectedTheme = storedTheme
+        const storedColorScheme = localStorage.getItem(colorSchemeStorageKey)
+        if (["system", "light", "dark"].includes(storedColorScheme)) {
+          selectedColorScheme = storedColorScheme
         }
       } catch (_) {
         // Local storage may be unavailable in privacy-restricted browsers.
       }
 
-      const applyTheme = (theme) => {
-        document.documentElement.classList.toggle("theme-light", theme === "light")
-        document.documentElement.classList.toggle("theme-dark", theme === "dark")
-        themeButtons.forEach((button) => {
-          button.setAttribute("aria-checked", button.dataset.theme === theme)
+      const applyColorScheme = (colorScheme) => {
+        document.documentElement.classList.toggle("color-scheme-light", colorScheme === "light")
+        document.documentElement.classList.toggle("color-scheme-dark", colorScheme === "dark")
+        colorSchemeButtons.forEach((button) => {
+          button.setAttribute("aria-checked", button.dataset.colorScheme === colorScheme)
         })
       }
 
-      applyTheme(selectedTheme)
+      applyColorScheme(selectedColorScheme)
 
-      themeMenu.addEventListener("click", (event) => {
-        const themeButton = event.target.closest("[data-theme]")
-        if (!themeButton) return
+      colorSchemeMenu.addEventListener("click", (event) => {
+        const colorSchemeButton = event.target.closest("[data-color-scheme]")
+        if (!colorSchemeButton) return
 
-        const theme = themeButton.dataset.theme
-        applyTheme(theme)
+        const colorScheme = colorSchemeButton.dataset.colorScheme
+        applyColorScheme(colorScheme)
 
         try {
-          localStorage.setItem(themeStorageKey, theme)
+          localStorage.setItem(colorSchemeStorageKey, colorScheme)
         } catch (_) {
           // Local storage may be unavailable in privacy-restricted browsers.
         }
 
-        if (themeMenu.hidePopover) {
-          themeMenu.hidePopover()
+        if (colorSchemeMenu.hidePopover) {
+          colorSchemeMenu.hidePopover()
         }
       })
     }

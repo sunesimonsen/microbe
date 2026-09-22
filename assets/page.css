@@ -261,20 +261,20 @@ label:has(.saturation-range, .color-range) {
   --layout-header-height: 4rem;
 }
 
-#theme-button {
-  & .theme-icon {
+#color-scheme-button {
+  & .color-scheme-icon {
     display: none;
   }
 
-  /* The system theme is represented by the absence of an explicit theme class. */
-  html:not(.theme-light):not(.theme-dark) & .theme-icon-system,
-  html.theme-light & .theme-icon-light,
-  html.theme-dark & .theme-icon-dark {
+  /* The system color scheme is represented by the absence of an explicit color scheme class. */
+  html:not(.color-scheme-light):not(.color-scheme-dark) & .color-scheme-icon-system,
+  html.color-scheme-light & .color-scheme-icon-light,
+  html.color-scheme-dark & .color-scheme-icon-dark {
     display: inline-flex;
   }
 }
 
-#theme-menu button {
+#color-scheme-menu button {
   display: flex;
   align-items: center;
   column-gap: var(--scale-4);

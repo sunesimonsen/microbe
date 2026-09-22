@@ -71,13 +71,13 @@
     color-scheme: light;
   }
 
-  /* An explicit theme class wins over the user's system preference. */
-  :root.theme-light {
+  /* An explicit color scheme class wins over the user's system preference. */
+  :root.color-scheme-light {
     /* Prevent Chrome's Auto Dark Mode from rewriting the light palette. */
     color-scheme: only light;
   }
 
-  :root.theme-dark {
+  :root.color-scheme-dark {
     --accent-saturation: 60%;
     --error-saturation: 70%;
     --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
@@ -107,7 +107,7 @@
   }
 
   @media (prefers-color-scheme: dark) {
-    :root:not(.theme-light):not(.theme-dark) {
+    :root:not(.color-scheme-light):not(.color-scheme-dark) {
       --accent-saturation: 60%;
       --error-saturation: 70%;
       --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));

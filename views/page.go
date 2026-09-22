@@ -17,14 +17,14 @@ func Page(title string, children ...Node) Node {
 				Meta(Name("viewport"), Content("width=device-width,initial-scale=1")),
 				Meta(Name("description"), Content("Microbe.css documentation"), Lang("en")),
 				Meta(Name("color-scheme"), Content("light dark")),
-				// Apply an explicit theme before the stylesheet is painted to avoid a flash
-				// of the system theme when the user has made a different choice.
+				// Apply an explicit color scheme before the stylesheet is painted to avoid a flash
+				// of the system color scheme when the user has made a different choice.
 				Script(Raw(`
 (() => {
   try {
-    const theme = localStorage.getItem("microbe-theme")
-    if (theme === "light" || theme === "dark") {
-      document.documentElement.classList.add("theme-" + theme)
+    const colorScheme = localStorage.getItem("microbe-color-scheme")
+    if (colorScheme === "light" || colorScheme === "dark") {
+      document.documentElement.classList.add("color-scheme-" + colorScheme)
     }
   } catch (_) {
     // Local storage may be unavailable in privacy-restricted browsers.
