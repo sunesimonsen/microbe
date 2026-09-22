@@ -7,52 +7,6 @@ import (
 	. "maragu.dev/gomponents/html"
 )
 
-func responsiveButtonClass(narrow bool) string {
-	if narrow {
-		return "ghost icon only-narrow"
-	}
-	return "ghost only-wide"
-}
-
-func githubLink(narrow bool) Node {
-	return A(
-		Href("https://github.com/sunesimonsen/microbe"),
-		Target("_blank"),
-		Class(responsiveButtonClass(narrow)),
-		If(narrow, Title("Github")),
-		If(!narrow, Text("Github")),
-		icons.GithubIcon(),
-	)
-}
-
-func themeButton(narrow bool) Node {
-	return Button(
-		ID("theme-button"),
-		Attr("popovertarget", "theme-menu"),
-		Attr("aria-controls", "theme-menu"),
-		Attr("aria-haspopup", "menu"),
-		Class(responsiveButtonClass(narrow)),
-		If(!narrow, Text("Theme")),
-		Span(Class("theme-icon theme-icon-system"), Attr("aria-hidden", "true"), icons.CircleHalfFillIcon()),
-		Span(Class("theme-icon theme-icon-light"), Attr("aria-hidden", "true"), icons.SunIcon()),
-		Span(Class("theme-icon theme-icon-dark"), Attr("aria-hidden", "true"), icons.MoonIcon()),
-	)
-}
-
-func searchButton(narrow bool) Node {
-	return Button(
-		ID("search-button"),
-		Attr("command", "show-modal"),
-		Attr("commandfor", "search-dialog"),
-		Attr("accesskey", "s"),
-		Class(responsiveButtonClass(narrow)),
-		If(narrow, Title("Search")),
-		If(!narrow, Text("Search")),
-		If(narrow, icons.BurgerIcon()),
-		If(!narrow, icons.SearchIcon()),
-	)
-}
-
 func header() Node {
 	return Header(
 		Nav(
@@ -62,10 +16,23 @@ func header() Node {
 			),
 			Div(
 				Class("header-items"),
-				githubLink(true),
-				githubLink(false),
-				themeButton(true),
-				themeButton(false),
+				A(
+					Href("https://github.com/sunesimonsen/microbe"),
+					Target("_blank"),
+					Class("ghost icon"),
+					Title("Github"),
+					icons.GithubIcon(),
+				),
+				Button(
+					ID("theme-button"),
+					Attr("popovertarget", "theme-menu"),
+					Attr("aria-controls", "theme-menu"),
+					Attr("aria-haspopup", "menu"),
+					Class("ghost icon"),
+					Span(Class("theme-icon theme-icon-system"), Attr("aria-hidden", "true"), icons.CircleHalfFillIcon()),
+					Span(Class("theme-icon theme-icon-light"), Attr("aria-hidden", "true"), icons.SunIcon()),
+					Span(Class("theme-icon theme-icon-dark"), Attr("aria-hidden", "true"), icons.MoonIcon()),
+				),
 				Ul(
 					ID("theme-menu"),
 					Class("menu"),
@@ -79,8 +46,15 @@ func header() Node {
 					Li(Button(Type("button"), Attr("data-theme", "dark"), Attr("role", "menuitemradio"), Aria("checked", "false"),
 						Span(Attr("aria-hidden", "true"), icons.MoonIcon()), Text("Dark"))),
 				),
-				searchButton(true),
-				searchButton(false),
+				Button(
+					ID("search-button"),
+					Attr("command", "show-modal"),
+					Attr("commandfor", "search-dialog"),
+					Attr("accesskey", "s"),
+					Class("ghost icon"),
+					Title("Search"),
+					icons.BurgerIcon(),
+				),
 			),
 		),
 		Dialog(
