@@ -15,6 +15,38 @@ var ModulesPage = NewPage(
 	NewPageSection(
 		"Module picker",
 		func(_ url.URL) Node {
+			moduleCategories := make([]Category, 0, len(Index))
+			for _, category := range Index {
+				if len(category.ModuleChoices()) > 0 {
+					moduleCategories = append(moduleCategories, category)
+				}
+			}
+
+			bucketSize := (len(moduleCategories) + 2) / 3
+			moduleBuckets := make([][]Category, 0, 3)
+			for bucket := range 3 {
+				start := min(bucket*bucketSize, len(moduleCategories))
+				end := min(start+bucketSize, len(moduleCategories))
+
+				moduleBuckets = append(moduleBuckets, moduleCategories[start:end])
+			}
+
+			moduleFieldSet := func(category Category) Node {
+				return FieldSet(
+					Legend(Text(category.Name)),
+					Map(category.ModuleChoices(), func(choice ModuleChoice) Node {
+						return Label(
+							Input(Type("checkbox"),
+								Name("modules"),
+								Value(strcase.ToKebab(choice.Module)),
+								Data("choice", strcase.ToKebab(choice.Name)),
+							),
+							Text(choice.Name),
+						)
+					}),
+				)
+			}
+
 			return Group([]Node{
 				Article(
 					ID("module-picker-article"),
@@ -23,23 +55,10 @@ var ModulesPage = NewPage(
 					Header(Text("Module picker")),
 					Section(
 						Form(
-							Map(Index, func(category Category) Node {
-								categoryModules := category.ModuleChoices()
-
-								return If(len(categoryModules) > 0,
-									FieldSet(
-										Legend(Text(category.Name)),
-										Map(categoryModules, func(choice ModuleChoice) Node {
-											return Label(
-												Input(Type("checkbox"),
-													Name("modules"),
-													Value(strcase.ToKebab(choice.Module)),
-													Data("choice", strcase.ToKebab(choice.Name)),
-												),
-												Text(choice.Name),
-											)
-										}),
-									),
+							Class("module-picker"),
+							Map(moduleBuckets, func(bucket []Category) Node {
+								return Div(
+									Map(bucket, moduleFieldSet),
 								)
 							}),
 						),

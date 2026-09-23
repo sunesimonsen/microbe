@@ -169,6 +169,12 @@ label:has(.saturation-range, .color-range) {
       hsl(360 var(--accent-saturation) 50%));
 }
 
+.module-picker {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--scale-6);
+}
+
 .example {
   margin-block: var(--scale-5);
 
@@ -244,6 +250,10 @@ label:has(.saturation-range, .color-range) {
 }
 
 @media (max-width: 38rem) {
+  .module-picker {
+    grid-template-columns: 1fr;
+  }
+
   .example .grid:not(.small) {
     grid-template-columns: 1fr;
   }
