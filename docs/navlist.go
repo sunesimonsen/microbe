@@ -2,9 +2,10 @@ package docs
 
 var NavlistPage = NewPage(
 	"Navlist",
-	`<p>A navlist groups a set of collapsible sections of navigation links, letting users browse and jump between the different areas of an application or site.</p>`,
+	`<p>A navlist styles navigation links and can group them into collapsible sections, letting users browse and jump between the different areas of an application or site.</p>`,
 	NewExample(
-		"Example", "", `
+		"Collapsible sections",
+		`<p>Use <code>details</code> and <code>summary</code> to group navigation links into collapsible sections.</p>`, `
     <nav class="navlist">
       <details>
         <summary>Content</summary>
@@ -45,6 +46,18 @@ var NavlistPage = NewPage(
 	          <li><a href="/docs/palette">Palette</a></li>
         </ul>
       </details>
+    </nav>
+    `,
+	).WithModules("Navlist", "Anchor"),
+	NewExample(
+		"Simple list",
+		`<p>For navigation that does not need collapsible sections, use a regular list inside an element with the <code>navlist</code> class.</p>`, `
+    <nav class="navlist">
+      <ul>
+        <li><a href="/docs/about">About</a></li>
+        <li><a href="/docs/modules">Modules</a></li>
+        <li><a href="/docs/navlist" aria-current="page">Navlist</a></li>
+      </ul>
     </nav>
     `,
 	).WithModules("Navlist", "Anchor"),
