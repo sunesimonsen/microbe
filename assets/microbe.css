@@ -52,7 +52,7 @@
     --accent-hue: 210;
     --accent-saturation: 70%;
 
-    --neutral-hue: 0;
+    --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
     --neutral-saturation: 0%;
 
     --error-hue: 0;
@@ -74,8 +74,6 @@
   .color-scheme-light {
     --accent-saturation: 70%;
     --error-saturation: 60%;
-
-    --neutral-hue: 0;
     --neutral-saturation: 0%;
 
     --lightness-0: 100.0%;
@@ -105,7 +103,6 @@
   .color-scheme-dark {
     --accent-saturation: 60%;
     --error-saturation: 70%;
-    --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
     --neutral-saturation: 5%;
 
     --lightness-0: 20.00%;
@@ -135,7 +132,6 @@
     :root:not(.color-scheme-light):not(.color-scheme-dark) {
       --accent-saturation: 60%;
       --error-saturation: 70%;
-      --neutral-hue: calc(mod(var(--accent-hue) + 180 - 15, 360));
       --neutral-saturation: 5%;
 
       --lightness-0: 20.00%;
