@@ -178,6 +178,10 @@
       line-height: var(--line-height);
     }
 
+    & * {
+      font-size: 1em;
+    }
+
     button {
       cursor: pointer;
     }
