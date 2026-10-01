@@ -2,7 +2,7 @@
   .microbe .tag {
     display: inline-block;
     border-radius: var(--scale-5);
-    padding: 0 var(--scale-5);
+    padding: 0 var(--scale-4);
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     font-family: monospace;
