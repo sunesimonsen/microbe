@@ -3,7 +3,6 @@
     display: inline-block;
     border-radius: var(--scale-5);
     padding: 0 var(--scale-5);
-    font-size: calc(1em - 2 * var(--border-width));
     background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-2));
     border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-4));
     font-family: monospace;
@@ -14,6 +13,12 @@
     outline-offset: 0;
     transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
     user-select: none;
+
+    font-size: 0.9em;
+
+    &>* {
+      font-size: 0.9em;
+    }
 
     &:is(a, button) {
       &:focus-visible {
