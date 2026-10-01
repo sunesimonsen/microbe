@@ -13,6 +13,7 @@
     outline-offset: 0;
     transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, color 0.25s ease-in-out, outline-color 0.2s ease-in-out;
     user-select: none;
+    height: fit-content;
 
     font-size: 0.9em;
 
