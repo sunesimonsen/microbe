@@ -19,6 +19,7 @@ func init() {
 			"Layout",
 			MarginPage,
 			SpacingPage,
+			GridPage,
 			AccordionPage,
 			CardPage,
 			TabsPage,
