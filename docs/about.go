@@ -217,17 +217,17 @@ var AboutPage = NewPage(
     <div class="grid stretch" style="--hue: 210">
       <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;"">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;"">Tertiary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 25, 360)); --accent-saturation: 40%;"">Tertiary</button>
     </div>
-    <div class="grid stretch" style="--hue: 300">
+    <div class="grid stretch" style="--hue: 340">
       <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 25, 360)); --accent-saturation: 40%;">Tertiary</button>
     </div>
     <div class="grid stretch" style="--hue: 40">
       <button class="solid" style="--accent-hue: var(--hue)">Primary</button>
       <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 - 15, 360)); --accent-saturation: 40%;">Secondary</button>
-      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 15, 360)); --accent-saturation: 40%;">Tertiary</button>
+      <button class="solid" style="--accent-hue: calc(mod(var(--hue) + 180 + 25, 360)); --accent-saturation: 40%;">Tertiary</button>
     </div>
     `,
 	).WithClass("rows").WithModules("Button"),
