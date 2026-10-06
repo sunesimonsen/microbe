@@ -318,6 +318,7 @@ body>header {
 
     @container scroll-state(stuck: top) {
       box-shadow: 0 var(--scale-1) var(--scale-5) hsl(from var(--shadow-color) h s l / 0.3);
+      background: radial-gradient(circle at 65% 15%, rgb(238 174 202 / 20%) 0%, rgb(148 187 233 / 9%) 100%);
     }
 
     @supports not (container-type: scroll-state) {
@@ -356,7 +357,7 @@ body>main {
 
     &>nav {
       margin-block-start: var(--scale-7);
-      padding-block: var(--scale-4);
+      padding-block: var(--scale-6);
       position: sticky;
       --layout-sticky-start: calc(var(--layout-header-height) + var(--scale-7));
       inset-block-start: var(--layout-sticky-start);
@@ -368,7 +369,7 @@ body>main {
   &>hgroup {
     view-transition-name: document-header;
     grid-area: header;
-    margin-block-start: var(--scale-6);
+    margin-block-start: var(--scale-7);
   }
 
   &>[role=document] {
