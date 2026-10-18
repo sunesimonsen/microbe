@@ -16,6 +16,7 @@ var BorderLayoutPage = NewPage(
           padding: var(--scale-4);
           border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
           background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1));
+          min-width: var(--scale-9);
         }
 
         & > [data-layout="main"] {
@@ -46,6 +47,7 @@ var BorderLayoutPage = NewPage(
           padding: var(--scale-4);
           border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-4));
           background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-1));
+          min-width: var(--scale-9);
         }
 
         & > [data-layout="main"] {
@@ -87,23 +89,24 @@ var BorderLayoutPage = NewPage(
         & > * {
           padding: var(--scale-3);
           border: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
+          background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-2));
+        }
+
+        & > [data-layout="main"] {
           background: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-3));
         }
       }
     </style>
     <div class="grid-layout nested-outer">
-      <header data-layout="top">Outer top</header>
-      <aside data-layout="start">Outer start</aside>
+      <header data-layout="top">Top</header>
+      <aside data-layout="start">Start</aside>
       <div class="grid-layout nested-inner" data-layout="main">
-        <header data-layout="top">Inner top</header>
-        <aside data-layout="start">Inner start</aside>
-        <main data-layout="main">Inner main</main>
-        <aside data-layout="end">
-          <article>Card one</article>
-          <article>Card two</article>
-        </aside>
+        <header data-layout="top">Top</header>
+        <aside data-layout="start">Start</aside>
+        <main data-layout="main">Main</main>
+        <aside data-layout="end">End</aside>
       </div>
-      <footer data-layout="bottom">Outer bottom</footer>
+      <footer data-layout="bottom">Bottom</footer>
     </div>
     `,
 	).WithModules("Border layout"),
