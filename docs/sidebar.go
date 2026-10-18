@@ -21,14 +21,12 @@ var SidebarPage = NewPage(
         }
 
         & > main {
-          padding: var(--scale-5);
+          padding-inline: var(--scale-5);
         }
       }
 
       @media (max-width: 40rem) {
         .sidebar-layout {
-          gap: 0;
-
           grid-template-columns: auto;
           grid-template-rows: auto auto;
           grid-template-areas:
