@@ -22,6 +22,7 @@ func init() {
 			ContainerPage,
 			GridPage,
 			BorderLayoutPage,
+			SidebarPage,
 			AccordionPage,
 			CardPage,
 			TabsPage,
