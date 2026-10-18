@@ -21,6 +21,7 @@ func init() {
 			SpacingPage,
 			ContainerPage,
 			GridPage,
+			BorderLayoutPage,
 			AccordionPage,
 			CardPage,
 			TabsPage,

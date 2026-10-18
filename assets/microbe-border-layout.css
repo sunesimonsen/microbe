@@ -1,0 +1,37 @@
+@layer modules {
+  .microbe .grid-layout {
+    & {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "top top top"
+        "start main end"
+        "bottom bottom bottom";
+    }
+
+    & > * {
+      grid-area: main;
+    }
+
+    & > [data-layout="top"] {
+      grid-area: top;
+    }
+
+    & > [data-layout="start"] {
+      grid-area: start;
+    }
+
+    & > [data-layout="main"] {
+      grid-area: main;
+    }
+
+    & > [data-layout="end"] {
+      grid-area: end;
+    }
+
+    & > [data-layout="bottom"] {
+      grid-area: bottom;
+    }
+  }
+}
