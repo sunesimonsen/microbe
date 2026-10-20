@@ -24,6 +24,7 @@
         white-space: nowrap;
         outline-offset: var(--focus-outline-offset);
         text-decoration: none;
+        font-size: var(--font-size);
 
         & * {
           pointer-events: none;

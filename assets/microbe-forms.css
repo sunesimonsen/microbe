@@ -13,6 +13,8 @@
     textarea,
     select {
       accent-color: hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
+      font-size: var(--font-size);
+      font-family: var(--font-family);
 
       &::placeholder {
         color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7));

@@ -170,17 +170,16 @@
       background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--background-lightness));
     }
 
-    &,
-    & * {
-      box-sizing: border-box;
+    & {
       font-family: var(--font-family);
       font-size: var(--font-size);
       font-weight: var(--font-weight);
       line-height: var(--line-height);
     }
 
+    &,
     & * {
-      font-size: 1em;
+      box-sizing: border-box;
     }
 
     button {
