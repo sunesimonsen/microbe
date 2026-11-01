@@ -9,14 +9,11 @@ var SidebarPage = NewPage(
 		`<p>The sidebar holds the navigation in the <code>start</code> region, while the content in <code>main</code> takes the remaining space. Below a <code>40rem</code> viewport, the grid areas are redefined with a media query, so the sidebar stacks on top of the content instead. The sidebar is styled with the neutral hue, so it adapts to light and dark color schemes.</p>`,
 		`
     <style>
-      .sidebar-layout {
+      .sidebar-layout-example {
         gap: var(--scale-4);
 
         & > aside {
           padding: var(--scale-5);
-          background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-1));
-          border: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
-          border-radius: var(--scale-3);
           min-width: var(--scale-10);
         }
 
@@ -26,7 +23,7 @@ var SidebarPage = NewPage(
       }
 
       @media (max-width: 40rem) {
-        .sidebar-layout {
+        .sidebar-layout-example {
           grid-template-columns: auto;
           grid-template-rows: auto auto;
           grid-template-areas:
@@ -35,9 +32,9 @@ var SidebarPage = NewPage(
         }
       }
     </style>
-    <div class="grid-layout sidebar-layout">
+    <div class="border-layout sidebar-layout-example">
       <aside data-layout="start">
-        <nav>
+        <nav class="navlist">
           <ul>
             <li><a href="#" aria-current="true">Overview</a></li>
             <li><a href="#">Details</a></li>
@@ -51,5 +48,5 @@ var SidebarPage = NewPage(
       </main>
     </div>
     `,
-	).WithModules("Border layout"),
+	).WithModules("Border layout", "Navlist"),
 )
