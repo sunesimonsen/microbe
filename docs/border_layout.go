@@ -2,7 +2,7 @@ package docs
 
 var BorderLayoutPage = NewPage(
 	"Border layout",
-	`<p>A CSS Grid based layout module in the spirit of the classic <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/BorderLayout.html">BorderLayout</a>. Add the <code>grid-layout</code> class to a container and place children in the <code>top</code>, <code>start</code>, <code>main</code>, <code>end</code>, and <code>bottom</code> areas with the <code>data-layout</code> attribute. Children without a <code>data-layout</code> attribute land in the <code>main</code> area.</p>`,
+	`<p>A CSS Grid based layout module in the spirit of the classic <a href="https://docs.oracle.com/javase/8/docs/api/java/awt/BorderLayout.html">BorderLayout</a>. Add the <code>border-layout</code> class to a container and place children in the <code>top</code>, <code>start</code>, <code>main</code>, <code>end</code>, and <code>bottom</code> areas with the <code>data-layout</code> attribute. Children without a <code>data-layout</code> attribute land in the <code>main</code> area.</p>`,
 	NewExample(
 		"The five regions",
 		`<p>The middle row and column stretch to fill the remaining space, while <code>top</code>, <code>bottom</code>, <code>start</code>, and <code>end</code> are sized by their content. The <code>start</code> and <code>end</code> names follow CSS logical directions, so they adapt if you ever change writing direction.</p>`,
@@ -25,7 +25,7 @@ var BorderLayoutPage = NewPage(
         }
       }
     </style>
-    <div class="grid-layout five-regions">
+    <div class="border-layout five-regions">
       <header data-layout="top">Top</header>
       <aside data-layout="start">Start</aside>
       <main data-layout="main">Main</main>
@@ -56,7 +56,7 @@ var BorderLayoutPage = NewPage(
         }
       }
     </style>
-    <div class="grid-layout sparse-regions">
+    <div class="border-layout sparse-regions">
       <header data-layout="top">Top</header>
       <aside data-layout="start">Start</aside>
       <main data-layout="main">Main</main>
@@ -65,7 +65,7 @@ var BorderLayoutPage = NewPage(
 	).WithModules("Border layout"),
 	NewExample(
 		"Nested layouts",
-		`<p>Because the layout is driven by a class, containers can be nested freely. The <code>main</code> region below holds a second <code>grid-layout</code> with its own <code>top</code>, <code>start</code>, and <code>main</code> regions, and the <code>end</code> region of the inner layout stacks a pair of cards.</p>`,
+		`<p>Because the layout is driven by a class, containers can be nested freely. The <code>main</code> region below holds a second <code>border-layout</code> with its own <code>top</code>, <code>start</code>, and <code>main</code> regions, and the <code>end</code> region of the inner layout stacks a pair of cards.</p>`,
 		`
     <style>
       .nested-outer,
@@ -97,10 +97,10 @@ var BorderLayoutPage = NewPage(
         }
       }
     </style>
-    <div class="grid-layout nested-outer">
+    <div class="border-layout nested-outer">
       <header data-layout="top">Top</header>
       <aside data-layout="start">Start</aside>
-      <div class="grid-layout nested-inner" data-layout="main">
+      <div class="border-layout nested-inner" data-layout="main">
         <header data-layout="top">Top</header>
         <aside data-layout="start">Start</aside>
         <main data-layout="main">Main</main>
