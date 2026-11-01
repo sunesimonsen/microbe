@@ -52,6 +52,7 @@ func Page(title string, children ...Node) Node {
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-callout.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-card.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-border-layout.css")),
+				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-sidebar.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-dialog.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-navlist.css")),
 				Link(Rel("stylesheet"), Type("text/css"), Href("/assets/microbe-pagination.css")),

@@ -51,10 +51,6 @@
           display: none;
         }
 
-        &::-webkit-details-marker {
-          display: none;
-        }
-
         &::marker {
           display: none;
         }
