@@ -6,10 +6,15 @@
 
       &>li {
         margin: 0;
-        padding: var(--scale-1) var(--scale-5);
+        padding: 0;
         list-style-type: none;
         border-inline-start: var(--border-width) solid hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-3));
         transition: border-color 0.25s ease-in-out;
+
+        &>a {
+          display: block;
+          padding: var(--scale-1) var(--scale-5);
+        }
 
         &:focus-within,
         &:hover {
