@@ -32,11 +32,6 @@
           padding: var(--scale-1) var(--scale-5);
         }
 
-        &:focus-within,
-        &:hover {
-          border-inline-start: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-8));
-        }
-
         &:has([aria-current="page"]) {
           border-inline-start: var(--border-width) solid hsl(var(--accent-hue) var(--accent-saturation) var(--lightness-10));
         }
