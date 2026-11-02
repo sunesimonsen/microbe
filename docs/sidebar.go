@@ -36,7 +36,7 @@ var SidebarPage = NewPage(
       <aside data-layout="start">
         <nav class="navlist">
           <ul>
-            <li><a href="#" aria-current="true">Overview</a></li>
+            <li><a href="#" aria-current="page">Overview</a></li>
             <li><a href="#">Details</a></li>
             <li><a href="#">Settings</a></li>
           </ul>
