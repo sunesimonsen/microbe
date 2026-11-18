@@ -25,7 +25,7 @@ var NavlistPage = NewPage(
       <details>
         <summary>Actions</summary>
         <ul>
-            <li><a href="/docs/button">Button</a></li>
+          <li><a href="/docs/button">Button</a></li>
         </ul>
       </details>
       <details>
