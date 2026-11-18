@@ -29,8 +29,7 @@
       }
     }
 
-    & a,
-    & button,
+    & li> :is(a, button),
     & summary {
       color: hsl(var(--neutral-hue) var(--neutral-saturation) var(--foreground-lightness));
       border: none;
