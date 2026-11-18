@@ -94,6 +94,10 @@
       padding-inline: var(--scale-4);
     }
 
+    pre {
+      font-size: 1rem;
+    }
+
     pre>code {
       display: block;
       outline: none;
@@ -102,6 +106,7 @@
       border: var(--border-width) solid hsl(var(--accent-hue) 0% var(--lightness-4));
       border-radius: var(--scale-3);
       overflow-x: auto;
+      font-size: var(--font-size);
     }
 
     blockquote {
