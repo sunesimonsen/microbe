@@ -48,7 +48,8 @@
   }
 
   to {
-    background: hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8);
+    background: light-dark(hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-7) / 0.8),
+        hsl(var(--neutral-hue) var(--neutral-saturation) var(--lightness-0) / 0.8));
   }
 }
 
